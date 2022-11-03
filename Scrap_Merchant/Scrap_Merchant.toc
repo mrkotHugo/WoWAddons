@@ -1,0 +1,8 @@
+## Interface: 100000
+## Title: |TInterface/Addons/Scrap/Art/Enabled-Icon:16:16|t Scrap |cffffffffMerchant|r
+## Notes: Load on demand merchant UI for Scrap.|n|cffbbbbbbBy João Cardoso|r|n|n|TInterface/Addons/Scrap/Art/Paypal:12:12|t |cff82c5ffpaypal.me/jaliborc|r|n|TInterface/Addons/Scrap/Art/Patreon:12:12:0:-4|t |cff82c5ffpatreon.com/jaliborc|r|n|n
+## Author: Jaliborc (João Cardoso)
+## Dependencies: Scrap
+## LoadOnDemand: 1
+
+..\Scrap\addons\merchant\merchant.xml

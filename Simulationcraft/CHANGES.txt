@@ -1,0 +1,10 @@
+lightweight tag 91b2a62921905030c29a38c9caaa4ac33934ec70 v10.0.0-1
+Author:	Dave Hendler <sollaires@gmail.com>
+Date:	Fri Oct 28 09:19:26 2022 -0700
+
+commit 91b2a62921905030c29a38c9caaa4ac33934ec70
+Author: Dave Hendler <sollaires@gmail.com>
+Date:   Fri Oct 28 09:19:26 2022 -0700
+
+    Set TOC version to match prepatch, not beta
+
