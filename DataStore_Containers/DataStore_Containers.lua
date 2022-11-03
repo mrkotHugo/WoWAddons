@@ -431,9 +431,9 @@ local function OnBankFrameClosed()
 end
 
 local function OnPlayerBankSlotsChanged(event, slotID)
-	-- from top left to bottom right, slotID = 1 to 28for main slots, and 29 to 35 for the additional bags
+	-- from top left to bottom right, slotID = 1 to 28 for main slots, and 29 to 35 for the additional bags
 	if (slotID >= 29) and (slotID <= 35) then
-		ScanBag(slotID - 24)		-- bagID for bank bags goes from 5 to 11, so slotID - 24
+		ScanBag(slotID - 23)		-- bagID for bank bags goes from 6 to 12, so slotID - 23
 	else
 		ScanContainer(MAIN_BANK_SLOTS, BANK)
 		ScanBankSlotsInfo()

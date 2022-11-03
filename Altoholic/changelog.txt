@@ -15,6 +15,13 @@ How to support Altoholic's development :
 If you like the addon, consider supporting it, this has been the long term effort and commitment of a single person. #ArmyOfOne
 
 
+10.0.004 (02/11/2022)
+
+- Summary tab : fixed a missing bag in the tooltip, overlooked in previous release. (Thanks Snufkin !)
+- DataStore_Containers : fixed one last issue where one of the guild bank bags was not being updated when bags are swapped). (Thanks Snufkin !)
+- Fixed the missing 'Toggle UI' entry in the keybindings.
+- Achievements tab : Added Dragonflight achievements for the categories Fishing, Dragon riding, Primal Storms (Thanks Feral !)
+
 10.0.003 (01/11/2022)
 
 - DataStore_Containers : fixed an issue where one of the guild bank bags was not being updated.

@@ -173,7 +173,7 @@ Columns.RegisterColumn("BankSlots", {
 			local _, link, size, free, bagType = DataStore:GetContainerInfo(character, 100)
 			tt:AddDoubleLine(format("%s[%s]", colors.white, L["Bank"]), FormatBagSlots(size, free))
 				
-			for i = 5, 11 do
+			for i = 6, 12 do
 				_, link, size, free, bagType = DataStore:GetContainerInfo(character, i)
 				
 				if size ~= 0 then
