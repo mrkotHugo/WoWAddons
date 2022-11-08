@@ -2479,8 +2479,8 @@ function oilvlcfgbutton(btnParent)
 				otooltip7func()
 		else
 			--PlaySound("igMainMenuOption");
-			InterfaceOptionsFrameTab2:Click();
-			InterfaceOptionsFrame_OpenToCategory("O Item Level (OiLvL)")
+			--InterfaceOptionsFrameTab2:Click();
+			Settings.OpenToCategory("O Item Level (OiLvL)")
 		end
 	end);
 --	button:SetScript("OnEnter", function(self, button) LDB_ANCHOR=btnParent; otooltip6func() end);
@@ -2515,7 +2515,8 @@ function oilvlframe()
 	f:EnableMouse(true);
 	f:RegisterForDrag("LeftButton");
 	f:SetScript("OnDragStart", f.StartMoving);
-	f:SetScript("OnDragStop", function() f:StopMovingOrSizing();  cfg.oilvlframeP, _, _, cfg.oilvlframeX, cfg.oilvlframeY = f:GetPoint() end);
+	--f:SetScript("OnDragStop", function() f:StopMovingOrSizing();  cfg.oilvlframeP, _, _, cfg.oilvlframeX, cfg.oilvlframeY = f:GetPoint() end);
+	f:SetScript("OnDragStop", function() f:StopMovingOrSizing();  cfg.oilvlframeP, _, _texture, cfg.oilvlframeX, cfg.oilvlframeY = f:GetPoint() end);
 
 -- Set Title
 	f.text = f.text or f:CreateFontString("oilvlname","ARTWORK", "GameTooltipText");
@@ -2620,33 +2621,45 @@ function oilvlframe()
 -- Config Button
 	oilvlcfgbutton(f);
 --Refresh button
-	oilvlbutton("OILVLREFRESH", LFG_LIST_REFRESH, f, "OptionsButtonTemplate", "TOPRIGHT", -6, -35, 80, 22, function(self, button) OVILRefresh() end);
+	--oilvlbutton("OILVLREFRESH", LFG_LIST_REFRESH, f, "UIPanelButtonTemplate", "TOPRIGHT", -6, -35, 80, 22, function(self, button) OVILRefresh() end);
+	oilvlbutton("OILVLREFRESH", LFG_LIST_REFRESH, f, "GameMenuButtonTemplate", "TOPRIGHT", -6, -35, 80, 22, function(self, button) OVILRefresh() end);
 --Party button
-	oilvlbutton("OILVLParty", PARTY, f, "OptionsButtonTemplate", "TOPRIGHT", -88, -35, 60, 22, function(self, button) OSendToParty(button) end);
+	--oilvlbutton("OILVLParty", PARTY, f, "UIPanelButtonTemplate", "TOPRIGHT", -88, -35, 60, 22, function(self, button) OSendToParty(button) end);
+	oilvlbutton("OILVLParty", PARTY, f, "GameMenuButtonTemplate", "TOPRIGHT", -88, -35, 60, 22, function(self, button) OSendToParty(button) end);
 --Target button
-	oilvlbutton("OILVLTarget", STATUS_TEXT_TARGET, f, "OptionsButtonTemplate", "TOPRIGHT", -150, -35, 70, 22, function(self, button) OSendToTarget(button) end);
+	--oilvlbutton("OILVLTarget", STATUS_TEXT_TARGET, f, "UIPanelButtonTemplate", "TOPRIGHT", -150, -35, 70, 22, function(self, button) OSendToTarget(button) end);
+	oilvlbutton("OILVLTarget", STATUS_TEXT_TARGET, f, "GameMenuButtonTemplate", "TOPRIGHT", -150, -35, 70, 22, function(self, button) OSendToTarget(button) end);
 --Reset button
-	oilvlbutton("OILVLReset", RESET, f, "OptionsButtonTemplate", "TOPRIGHT", -222, -35, 90, 22, function(self, button) OResetSendMark() end);
+	--oilvlbutton("OILVLReset", RESET, f, "UIPanelButtonTemplate", "TOPRIGHT", -222, -35, 90, 22, function(self, button) OResetSendMark() end);
+	oilvlbutton("OILVLReset", RESET, f, "GameMenuButtonTemplate", "TOPRIGHT", -222, -35, 90, 22, function(self, button) OResetSendMark() end);
 --Instance button
-	oilvlbutton("OILVLINSTANCE", BATTLEGROUND_INSTANCE, f, "OptionsButtonTemplate", "BOTTOMLEFT", 3, 3, 80, 22, function(self, button) OSendToInstance(button) end);
+	--oilvlbutton("OILVLINSTANCE", BATTLEGROUND_INSTANCE, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 3, 3, 80, 22, function(self, button) OSendToInstance(button) end);
+	oilvlbutton("OILVLINSTANCE", BATTLEGROUND_INSTANCE, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 3, 3, 80, 22, function(self, button) OSendToInstance(button) end);
 -- Guild button
 	if GetLocale() == "itIT" then
-		oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "OptionsButtonTemplate", "BOTTOMLEFT", 85, 3, 70, 22, function(self, button) OSendToGuild(button) end);
+		--oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 85, 3, 70, 22, function(self, button) OSendToGuild(button) end);
+		oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 85, 3, 70, 22, function(self, button) OSendToGuild(button) end);
 	else
-		oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "OptionsButtonTemplate", "BOTTOMLEFT", 85, 3, 100, 22, function(self, button) OSendToGuild(button) end);
+		--oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 85, 3, 100, 22, function(self, button) OSendToGuild(button) end);
+		oilvlbutton("OILVLGUILD", CHAT_MSG_GUILD, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 85, 3, 100, 22, function(self, button) OSendToGuild(button) end);
 	end
 -- Raid button
 	if GetLocale() == "deDE" then
-		oilvlbutton("OILVLRAID", "Raid", f, "OptionsButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
+		--oilvlbutton("OILVLRAID", "Raid", f, "UIPanelButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
+		oilvlbutton("OILVLRAID", "Raid", f, "GameMenuButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
 	elseif GetLocale() == "itIT" then
-		oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "OptionsButtonTemplate", "BOTTOMLEFT", 157, 3, 90, 22, function(self, button) OSendToRaid(button)	end);
+		--oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 157, 3, 90, 22, function(self, button) OSendToRaid(button)	end);
+		oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 157, 3, 90, 22, function(self, button) OSendToRaid(button)	end);
 	else
-		oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "OptionsButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
+		--oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
+		oilvlbutton("OILVLRAID", CHAT_MSG_RAID, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 187, 3, 60, 22, function(self, button) OSendToRaid(button)	end);
 	end
 -- Officer button
-	oilvlbutton("OILVLOfficer", GUILD_RANK1_DESC, f, "OptionsButtonTemplate", "BOTTOMLEFT", 250, 3, 70, 22, function(self, button) OSendToOfficer(button)	end);
+	--oilvlbutton("OILVLOfficer", GUILD_RANK1_DESC, f, "UIPanelButtonTemplate", "BOTTOMLEFT", 250, 3, 70, 22, function(self, button) OSendToOfficer(button)	end);
+	oilvlbutton("OILVLOfficer", GUILD_RANK1_DESC, f, "GameMenuButtonTemplate", "BOTTOMLEFT", 250, 3, 70, 22, function(self, button) OSendToOfficer(button)	end);
 --Copy button
-	oilvlbutton("OILVLCopy", L["Export"], f, "OptionsButtonTemplate", "BOTTOMLEFT", 322, 3, 70, 22, function(self, button) OSendToCopy(button) end);
+	--oilvlbutton("OILVLCopy", L["Export"], f, "UIPanelButtonTemplate", "BOTTOMLEFT", 322, 3, 70, 22, function(self, button) OSendToCopy(button) end);
+	oilvlbutton("OILVLCopy", L["Export"], f, "GameMenuButtonTemplate", "BOTTOMLEFT", 322, 3, 70, 22, function(self, button) OSendToCopy(button) end);
 -- Party / Raid Frame
 	local rfb=1; -- raid frame button
 	local b4i=0;
@@ -2911,17 +2924,17 @@ end
 -- Setup the Title Font. 14
 local ssTitleFont = CreateFont("ssTitleFont")
 ssTitleFont:SetTextColor(1,0.823529,0)
-ssTitleFont:SetFont(GameTooltipText:GetFont(), 14)
+ssTitleFont:SetFont(GameTooltipText:GetFont(), 14 ,'')
 
 -- Setup the Header Font. 12
 local ssHeaderFont = CreateFont("ssHeaderFont")
 ssHeaderFont:SetTextColor(1,0.823529,0)
-ssHeaderFont:SetFont(GameTooltipHeaderText:GetFont(), 12)
+ssHeaderFont:SetFont(GameTooltipHeaderText:GetFont(), 12, '')
 
 -- Setup the Regular Font. 12
 local ssRegFont = CreateFont("ssRegFont")
 ssRegFont:SetTextColor(1,0.823529,0)
-ssRegFont:SetFont(GameTooltipText:GetFont(), 12)
+ssRegFont:SetFont(GameTooltipText:GetFont(), 12, '')
 
 local orp={};
 orp["LFR"]={};
@@ -5576,15 +5589,19 @@ function events:PLAYER_LOGIN(...)
 		hooksecurefunc("LoadAddOn",unregisterBlizz)
 	end
 	------------------------------------------------------------------
-	GameTooltip:HookScript("OnTooltipSetUnit", function()
-		if not UnitAffectingCombat("player")  and cfg.oilvlms and UnitExists("target") and not IsInRaid() and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and not IsInGroup(LE_PARTY_CATEGORY_HOME) then
-			local oname, _ = GameTooltip:GetUnit()
-			if oname ~= nil then oname = oname:gsub("%-.+", ""); else return -1; end
-			if  oname == GetUnitName("target",""):gsub("%-.+", "") then
-				OMouseover();
-			end
-		end
-	end);
+
+	-- need to revisit this
+	-- GameTooltip:HookScript("OnTooltipSetUnit", function()
+	-- 	if not UnitAffectingCombat("player")  and cfg.oilvlms and UnitExists("target") and not IsInRaid() and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and not IsInGroup(LE_PARTY_CATEGORY_HOME) then
+	-- 		local oname, _ = GameTooltip:GetUnit()
+	-- 		if oname ~= nil then oname = oname:gsub("%-.+", ""); else return -1; end
+	-- 		if  oname == GetUnitName("target",""):gsub("%-.+", "") then
+	-- 			OMouseover();
+	-- 		end
+	-- 	end
+	-- end);
+	-- end of revisit
+
 	--cfg.sod = {};
 	--OilvlGetStatisticId("Shadowlands","Sanctum of Domination",cfg.sod,false)
 	--cfg.OSTATCN3 = {};
@@ -5598,11 +5615,11 @@ function events:PLAYER_ENTERING_WORLD(...)
 	if not repeatsw then
 		repeatsw = true
 		OilvlCheckFrame();
-		ShowUIPanel(InterfaceOptionsFrame);
-		InterfaceOptionsFrame.lastFrame = GameMenuFrame;
-		InterfaceOptionsFrameTab2:Click();
-		InterfaceOptionsFrameOkay:Click()
-		HideUIPanel(GameMenuFrame);
+		-- ShowUIPanel(InterfaceOptionsFrame);
+		-- InterfaceOptionsFrame.lastFrame = GameMenuFrame;
+		-- InterfaceOptionsFrameTab2:Click();
+		-- InterfaceOptionsFrameOkay:Click()
+		-- HideUIPanel(GameMenuFrame);
 		C_Timer.After(2, function() Oilvltimer:ScheduleRepeatingTimer(oilvlcheckrange,3) end);
 		C_Timer.After(3, function() Oilvltimer:ScheduleRepeatingTimer(OilvlRPDTimeCheck,1) end);
 		OILVL:UnregisterEvent("INSPECT_ACHIEVEMENT_READY");
@@ -6061,8 +6078,9 @@ function LDB:OnClick(button)
 	end
 	if button == "RightButton" then
 		--PlaySound("igMainMenuOption");
-		InterfaceOptionsFrameTab2:Click();
-		InterfaceOptionsFrame_OpenToCategory("O Item Level (OiLvL)")
+		--InterfaceOptionsFrameTab2:Click();
+		--InterfaceOptionsFrame_OpenToCategory("O Item Level (OiLvL)")
+		Settings.OpenToCategory("O Item Level (OiLvL)")
 	end
 	if button == "MiddleButton" or button == "MiddleButtonDown" then
 		if otooltip5 ~= nil then
@@ -6091,7 +6109,8 @@ end
 
 function oilvlaltc()
 	lootslotSW = true;
-	for i = 1, LOOTFRAME_NUMBUTTONS do
+
+	for i = 1, GetNumLootItems() do
 		_G["LootButton"..i]:HookScript("OnClick", function(self, button)
 			if IsAltKeyDown() then
 				local link = GetLootSlotLink(i);
@@ -6151,8 +6170,9 @@ end
 SLASH_OILVL_OICFG1 = "/oicfg"
 
 SlashCmdList["OILVL_OICFG"] = function()
-	InterfaceOptionsFrameTab2:Click();
-	InterfaceOptionsFrame_OpenToCategory("O Item Level (OiLvL)")
+	-- InterfaceOptionsFrameTab2:Click();
+	-- InterfaceOptionsFrame_OpenToCategory("O Item Level (OiLvL)")
+	Settings.OpenToCategory("O Item Level (OiLvL)")
 end
 
 SLASH_OILVL_OIROLL1 = "/oiroll"
