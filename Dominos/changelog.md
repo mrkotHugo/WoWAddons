@@ -1,5 +1,20 @@
 # Dominos Changelog
 
+## 10.0.7
+
+* Update action button visibility when known spells changed
+
+## 10.0.6
+
+* Fix showing empty buttons not working in combat
+
+## 10.0.5
+
+* The exit vehicle button should work under more scenarios now
+* Adjusted the strata of the queue status bar
+* Add Evoker stance support (untested)
+* Empowered spells should now show up on Dominos cast. Level display is not yet implemented
+
 ## 10.0.4
 
 * The Dominos Masque skin is now packaged as a separate addon (thanks [StormFX](https://github.com/StormFX))
