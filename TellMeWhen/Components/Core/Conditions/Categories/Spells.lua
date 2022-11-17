@@ -132,7 +132,6 @@ ConditionCategory:RegisterCondition(2,	 "SPELLCDCOMP", {
 			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_COOLDOWN"),
 			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE")
 	end,
-	-- what a shitty anticipate func
 	anticipate = [[
 		local start, duration = GetSpellCooldown(c.GCDReplacedNameFirst)
 		local start2, duration2 = GetSpellCooldown(c.GCDReplacedNameFirst2)
@@ -152,65 +151,67 @@ ConditionCategory:RegisterCondition(2,	 "SPELLCDCOMP", {
 
 ConditionCategory:RegisterSpacer(2.4)
 
-ConditionCategory:RegisterCondition(2.5, "SPELLCHARGES", {
-	text = L["SPELLCHARGES"],
-	tooltip = L["SPELLCHARGES_DESC"],
-	min = 0,
-	range = 5,
-	name = function(editbox)
-		editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
-	end,
-	useSUG = "spell",
-	unit = PLAYER,
-	icon = "Interface\\Icons\\ability_monk_roll",
-	tcoords = CNDT.COMMON.standardtcoords,
-	Env = {
-		GetSpellCharges = GetSpellCharges,
-		GetSpellCount = GetSpellCount,
-	},
-	funcstr = [[(GetSpellCharges(c.NameFirst) or GetSpellCount(c.NameFirst)) c.Operator c.Level]],
-	events = function(ConditionObject, c)
-		return
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_COOLDOWN"),
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE"),
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_CHARGES")
-	end,	
-})
-ConditionCategory:RegisterCondition(2.6, "SPELLCHARGETIME", {
-	text = L["SPELLCHARGETIME"],
-	tooltip = L["SPELLCHARGETIME_DESC"],
-	min = 0,
-	range = 30,
-	step = 0.1,
-	name = function(editbox)
-		editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
-	end,
-	useSUG = "spell",
-	unit = PLAYER,
-	formatter = TMW.C.Formatter:New(function(value)
-		local s = TMW.C.Formatter.TIME_YDHMS:Format(value)
-		if value == 0 then
-			s = s .. " ("..L["SPELLCHARGES_FULLYCHARGED"]..")"
-		end
-		return s
-	end),
-	icon = "Interface\\Icons\\ability_warlock_handofguldan",
-	tcoords = CNDT.COMMON.standardtcoords,
-	Env = {
-		GetSpellCharges = GetSpellCharges,
-	},
-	funcstr = [[RechargeDuration(c.NameFirst) c.Operator c.Level]],
-	events = function(ConditionObject, c)
-		return
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_COOLDOWN"),
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE"),
-			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_CHARGES")
-	end,
-	anticipate = [[
-		local _, _, start, duration = GetSpellCharges(c.NameFirst)
-		local VALUE = duration and start + (duration - c.Level) or huge
-	]],
-})
+if TMW.isRetail then
+	ConditionCategory:RegisterCondition(2.5, "SPELLCHARGES", {
+		text = L["SPELLCHARGES"],
+		tooltip = L["SPELLCHARGES_DESC"],
+		min = 0,
+		range = 5,
+		name = function(editbox)
+			editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
+		end,
+		useSUG = "spell",
+		unit = PLAYER,
+		icon = "Interface\\Icons\\ability_monk_roll",
+		tcoords = CNDT.COMMON.standardtcoords,
+		Env = {
+			GetSpellCharges = GetSpellCharges,
+			GetSpellCount = GetSpellCount,
+		},
+		funcstr = [[(GetSpellCharges(c.NameFirst) or GetSpellCount(c.NameFirst)) c.Operator c.Level]],
+		events = function(ConditionObject, c)
+			return
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_COOLDOWN"),
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE"),
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_CHARGES")
+		end,	
+	})
+	ConditionCategory:RegisterCondition(2.6, "SPELLCHARGETIME", {
+		text = L["SPELLCHARGETIME"],
+		tooltip = L["SPELLCHARGETIME_DESC"],
+		min = 0,
+		range = 30,
+		step = 0.1,
+		name = function(editbox)
+			editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
+		end,
+		useSUG = "spell",
+		unit = PLAYER,
+		formatter = TMW.C.Formatter:New(function(value)
+			local s = TMW.C.Formatter.TIME_YDHMS:Format(value)
+			if value == 0 then
+				s = s .. " ("..L["SPELLCHARGES_FULLYCHARGED"]..")"
+			end
+			return s
+		end),
+		icon = "Interface\\Icons\\ability_warlock_handofguldan",
+		tcoords = CNDT.COMMON.standardtcoords,
+		Env = {
+			GetSpellCharges = GetSpellCharges,
+		},
+		funcstr = [[RechargeDuration(c.NameFirst) c.Operator c.Level]],
+		events = function(ConditionObject, c)
+			return
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_COOLDOWN"),
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE"),
+				ConditionObject:GenerateNormalEventString("SPELL_UPDATE_CHARGES")
+		end,
+		anticipate = [[
+			local _, _, start, duration = GetSpellCharges(c.NameFirst)
+			local VALUE = duration and start + (duration - c.Level) or huge
+		]],
+	})
+end
 
 ConditionCategory:RegisterSpacer(2.7)
 
@@ -317,6 +318,55 @@ ConditionCategory:RegisterCondition(3,	 "REACTIVE", {
 	events = function(ConditionObject, c)
 		return
 			ConditionObject:GenerateNormalEventString("SPELL_UPDATE_USABLE")
+	end,
+})
+ConditionCategory:RegisterCondition(3.1, "CURRENTSPELL", {
+	text = L["CONDITIONPANEL_CURRENTSPELL"],
+	tooltip = L["CONDITIONPANEL_CURRENTSPELL_DESC"],
+
+	bool = true,
+	
+	name = function(editbox)
+		editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
+		editbox:SetLabel(L["SPELLTOCHECK"])
+	end,
+	useSUG = true,
+	unit = false,
+	formatter = TMW.C.Formatter.BOOL,
+	icon = "Interface\\Icons\\ability_rogue_ambush",
+	tcoords = CNDT.COMMON.standardtcoords,
+	Env = {
+		IsCurrentSpell = IsCurrentSpell,
+	},
+	funcstr = [[BOOLCHECK( IsCurrentSpell(c.NameFirst) )]],
+	events = function(ConditionObject, c)
+		return
+			ConditionObject:GenerateNormalEventString("CURRENT_SPELL_CAST_CHANGED")
+	end,
+})
+ConditionCategory:RegisterCondition(3.2, "AUTOSPELL", {
+	text = L["CONDITIONPANEL_AUTOSPELL"],
+	tooltip = L["CONDITIONPANEL_AUTOSPELL_DESC"],
+
+	bool = true,
+	
+	name = function(editbox)
+		editbox:SetTexts(L["SPELLTOCHECK"], L["CNDT_ONLYFIRST"])
+		editbox:SetLabel(L["SPELLTOCHECK"])
+	end,
+	useSUG = true,
+	unit = false,
+	formatter = TMW.C.Formatter.BOOL,
+	icon = 135467,
+	tcoords = CNDT.COMMON.standardtcoords,
+	Env = {
+		IsAutoRepeatSpell = IsAutoRepeatSpell,
+	},
+	funcstr = [[BOOLCHECK( IsAutoRepeatSpell(c.NameFirst) )]],
+	events = function(ConditionObject, c)
+		return
+			ConditionObject:GenerateNormalEventString("START_AUTOREPEAT_SPELL"),
+			ConditionObject:GenerateNormalEventString("STOP_AUTOREPEAT_SPELL")
 	end,
 })
 
@@ -478,8 +528,8 @@ ConditionCategory:RegisterCondition(11,	 "ITEMCD", {
 			ConditionObject:GenerateNormalEventString("BAG_UPDATE_COOLDOWN")
 	end,
 	anticipate = [[
-		local start, duration = c.Item:GetCooldown()
-		local VALUE = duration and start + (duration - c.Level) or huge
+		local start, duration, enable = c.Item:GetCooldown()
+		local VALUE = enable == 1 and duration and start + (duration - c.Level) or huge
 	]],
 })
 ConditionCategory:RegisterCondition(12,	 "ITEMCDCOMP", {
@@ -500,12 +550,13 @@ ConditionCategory:RegisterCondition(12,	 "ITEMCDCOMP", {
 		return
 			ConditionObject:GenerateNormalEventString("BAG_UPDATE_COOLDOWN")
 	end,
-	-- what a shitty anticipate func
 	anticipate = [[
-		local start, duration = c.Item:GetCooldown()
-		local start2, duration2 = c.Item2:GetCooldown()
+		local start, duration, enable = c.Item:GetCooldown()
+		local start2, duration2, enable2 = c.Item2:GetCooldown()
 		local VALUE
-		if duration and duration2 then
+		if enable == 0 or enable2 == 0 then
+			VALUE = huge
+		elseif duration and duration2 then
 			local v1, v2 = start + duration, start2 + duration2
 			VALUE = v1 < v2 and v1 or v2
 		elseif duration then
@@ -704,7 +755,7 @@ ConditionCategory:RegisterCondition(20.1,	 "TOTEM_ANY", {
 	useSUG = true,
 	allowMultipleSUGEntires = true,
 	formatter = TMW.C.Formatter.TIME_0ABSENT,
-	icon = "Interface\\ICONS\\ability_shaman_tranquilmindtotem",
+	icon = "Interface\\ICONS\\spell_nature_groundingtotem",
 	tcoords = CNDT.COMMON.standardtcoords,
 	funcstr = [[TotemHelperAny(c.NameStrings) c.Operator c.Level]],
 	events = function(ConditionObject, c)
@@ -731,7 +782,7 @@ for i = 1, 5 do
 		useSUG = true,
 		allowMultipleSUGEntires = true,
 		formatter = TMW.C.Formatter.TIME_0ABSENT,
-		icon = totem and totem.texture or "Interface\\ICONS\\ability_shaman_tranquilmindtotem",
+		icon = totem and totem.texture or "Interface\\ICONS\\spell_nature_groundingtotem",
 		tcoords = CNDT.COMMON.standardtcoords,
 		funcstr = [[TotemHelper(]] .. i .. ((not totem or totem.hasVariableNames) and [[, c.NameString]] or "") .. [[) c.Operator c.Level]],
 		events = function(ConditionObject, c)
@@ -767,6 +818,8 @@ Env.UnitCast = function(unit, level, matchname)
 	end
 end
 Env.UnitCastTime = function(unit, level, matchname)
+	-- This function was added for use in Lua conditions.
+	-- There's intentionally no condition using it.
 	local name, _, _, _, endTime, _, _, notInterruptible = UnitCastingInfo(unit)
 	if not name then
 		name, _, _, _, endTime, _, notInterruptible = UnitChannelInfo(unit)
@@ -784,8 +837,42 @@ Env.UnitCastTime = function(unit, level, matchname)
 		return name ~= matchname and remaining or 0
 	end
 end
+Env.UnitCastPercent = function(unit, matchname)
+	local name, _, _, start, endTime, _, _, notInterruptible = UnitCastingInfo(unit)
+	if not name then
+		name, _, _, start, endTime, _, notInterruptible = UnitChannelInfo(unit)
+	end
+	if not name then 
+		return 0, nil
+	end
+	name = strlowerCache[name]
+	if matchname == "" and name then
+		matchname = name
+	end
+	local remaining = endTime and endTime/1000 - TMW.time or 0
+	local duration = endTime/1000 - start/1000
+	-- second return value is the percent-per-second, used by anticipate
+	return 1 - (remaining / duration), 1 / duration
+end
+local castEvents = function(ConditionObject, c)
+	return
+		ConditionObject:GetUnitChangedEventString(CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_START", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_STOP", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_SUCCEEDED", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_FAILED", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_FAILED_QUIET", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_DELAYED", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_INTERRUPTED", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_START", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_UPDATE", CNDT:GetUnit(c.Unit)),
+		ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_STOP", CNDT:GetUnit(c.Unit)),
+		TMW.isWrath and "false" or ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_INTERRUPTIBLE", CNDT:GetUnit(c.Unit)),
+		TMW.isWrath and "false" or ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_NOT_INTERRUPTIBLE", CNDT:GetUnit(c.Unit))
+end
 ConditionCategory:RegisterCondition(31,	 "CASTING", {
 	text = L["ICONMENU_CAST"],
+	text = L["ICONMENU_CAST_DESC"],
 	min = 0,
 	max = 2,
 	levelChecks = true,
@@ -803,23 +890,30 @@ ConditionCategory:RegisterCondition(31,	 "CASTING", {
 	end,
 	useSUG = true,
 	funcstr = [[UnitCast(c.Unit, c.Level, LOWER(c.NameString))]], -- LOWER is some gsub magic
-	events = function(ConditionObject, c)
-		-- holy shit... need i say more?
-		return
-			ConditionObject:GetUnitChangedEventString(CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_START", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_STOP", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_SUCCEEDED", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_FAILED", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_FAILED_QUIET", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_DELAYED", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_INTERRUPTED", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_START", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_UPDATE", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_CHANNEL_STOP", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_INTERRUPTIBLE", CNDT:GetUnit(c.Unit)),
-			ConditionObject:GenerateNormalEventString("UNIT_SPELLCAST_NOT_INTERRUPTIBLE", CNDT:GetUnit(c.Unit))
+	events = castEvents,
+})
+ConditionCategory:RegisterCondition(31.1,	 "CASTPERCENT", {
+	text = L["ICONMENU_CAST_PERCENT"],
+	tooltip = L["ICONMENU_CAST_PERCENT_DESC"],
+	percent = true,
+	formatter = TMW.C.Formatter.PERCENT,
+	min = 0,
+	max = 100,
+	icon = "Interface\\Icons\\Temp",
+	tcoords = CNDT.COMMON.standardtcoords,
+	name = function(editbox)
+		editbox:SetTexts(L["CONDITIONPANEL_CASTTOMATCH"], L["CONDITIONPANEL_CASTTOMATCH_DESC"])
+		editbox:SetLabel(L["CONDITIONPANEL_CASTTOMATCH"])
 	end,
+	useSUG = true,
+	funcstr = [[UnitCastPercent(c.Unit, LOWER(c.NameString)) c.Operator c.Level]],
+	events = castEvents,
+	anticipate = [[
+		local percent, percentPerSecond = UnitCastPercent(c.Unit, LOWER(c.NameString))
+		local VALUE = 
+			percentPerSecond == nil and huge or 
+			((c.Level - percent) / percentPerSecond) + time
+	]],
 })
 
 

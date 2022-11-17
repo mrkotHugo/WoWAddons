@@ -15,6 +15,19 @@ How to support Altoholic's development :
 If you like the addon, consider supporting it, this has been the long term effort and commitment of a single person. #ArmyOfOne
 
 
+10.0.005 (16/11/2022)
+
+- Options tab : fixed the tooltip of options no longer being displayed due to a deprecated template.
+- DataStore_Containers : Changed API calls to use C_Container (Thanks Feral !)
+- DataStore_Talents : Added support for the Evoker (Thanks Feral !)
+- Fixed item enums everywhere (Thanks Feral !)
+- Fixed the tooltip hooks. Counters should be working as usual.
+	There are however still some issues with tooltips when mousing over the minimap, or over a gathering node.
+- Summary tab : added more filtering options under the level filter.
+- DataStore_Inventory : fixed scanning of item sets (Thanks Feral !)
+
+Note: I will have limited availability in the next 3 weeks (2 weeks of business trips), so hopefully this version will be stable enough for the release of Dragonflight !
+
 10.0.004 (02/11/2022)
 
 - Summary tab : fixed a missing bag in the tooltip, overlooked in previous release. (Thanks Snufkin !)

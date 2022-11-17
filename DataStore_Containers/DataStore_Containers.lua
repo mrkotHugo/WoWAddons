@@ -160,21 +160,23 @@ local GUILDBANK	= 3		-- 98 main slots
 local ContainerTypes = {
 	[BAGS] = {
 		GetSize = function(self, bagID)
-				return GetContainerNumSlots(bagID)
+				local numSlots = C_Container.GetContainerNumSlots(bagID)
+				return numSlots
 			end,
 		GetFreeSlots = function(self, bagID)
-				local freeSlots, bagType = GetContainerNumFreeSlots(bagID)
+				local freeSlots, bagType = C_Container.GetContainerNumFreeSlots(bagID)
 				return freeSlots, bagType
 			end,
 		GetLink = function(self, slotID, bagID)
-				return GetContainerItemLink(bagID, slotID)
+				local link = C_Container.GetContainerItemLink(bagID, slotID)
+				return link
 			end,
 		GetCount = function(self, slotID, bagID)
-				local _, count = GetContainerItemInfo(bagID, slotID)
+				local _, count = C_Container.GetContainerItemInfo(bagID, slotID)
 				return count
 			end,
 		GetCooldown = function(self, slotID, bagID)
-				local startTime, duration, isEnabled = GetContainerItemCooldown(bagID, slotID)
+				local startTime, duration, isEnabled = C_Container.GetContainerItemCooldown(bagID, slotID)
 				return startTime, duration, isEnabled
 			end,
 	},
@@ -183,16 +185,14 @@ local ContainerTypes = {
 				return NUM_BANKGENERIC_SLOTS or 28		-- hardcoded in case the constant is not set
 			end,
 		GetFreeSlots = function(self)
-				local freeSlots, bagType = GetContainerNumFreeSlots(-1)		-- -1 = player bank
+				local freeSlots, bagType = C_Container.GetContainerNumFreeSlots(-1)		-- -1 = player bank
 				return freeSlots, bagType
 			end,
 		GetLink = function(self, slotID)
-				-- return GetInventoryItemLink("player", slotID)
-				return GetContainerItemLink(-1, slotID)
+				return C_Container.GetContainerItemLink(-1, slotID)
 			end,
 		GetCount = function(self, slotID)
-				-- return GetInventoryItemCount("player", slotID)
-				return select(2, GetContainerItemInfo(-1, slotID))
+				return select(2, C_Container.GetContainerItemInfo(-1, slotID))
 			end,
 		GetCooldown = function(self, slotID)
 				local startTime, duration, isEnabled = GetInventoryItemCooldown("player", slotID)
@@ -262,7 +262,7 @@ local function ScanContainer(bagID, containerType)
 			elseif link:match("|Hbattlepet:") then
 				-- special treatment for battle pets, save texture id instead of item id..
 				-- texture, itemCount, locked, quality, readable, _, _, isFiltered, noValue, itemID = GetContainerItemInfo(id, itemButton:GetID());
-				bag.ids[index] = GetContainerItemInfo(bagID, slotID)
+				bag.ids[index] = C_Container.GetContainerItemInfo(bagID, slotID)
 			end
 			
 			if IsEnchanted(link) then
@@ -291,7 +291,7 @@ local function ScanBagSlotsInfo()
 	local numBagSlots = 0
 	local numFreeBagSlots = 0
 
-	for bagID = 0, NUM_BAG_SLOTS do
+	for bagID = 0, NUM_BAG_SLOTS, 1 do
 		local bag = char.Containers["Bag" .. bagID]
 		numBagSlots = numBagSlots + bag.size
 		numFreeBagSlots = numFreeBagSlots + bag.freeslots
@@ -307,7 +307,7 @@ local function ScanBankSlotsInfo()
 	local numBankSlots = NUM_BANKGENERIC_SLOTS
 	local numFreeBankSlots = char.Containers["Bag"..MAIN_BANK_SLOTS].freeslots
 
-	for bagID = NUM_BAG_SLOTS + 1, NUM_BAG_SLOTS + NUM_BANKBAGSLOTS + 1 do		-- 5 to 12
+	for bagID = NUM_BAG_SLOTS + 2, NUM_BAG_SLOTS + NUM_BANKBAGSLOTS + 1 do -- 6 to 12
 		local bag = char.Containers["Bag" .. bagID]
 		
 		numBankSlots = numBankSlots + bag.size
@@ -349,8 +349,8 @@ local function ScanBag(bagID)
 		bag.icon = "Interface\\Buttons\\Button-Backpack-Up";
 		bag.link = nil;
 	else						-- Bags 1 through 11
-		bag.icon = GetInventoryItemTexture("player", ContainerIDToInventoryID(bagID))
-		bag.link = GetInventoryItemLink("player", ContainerIDToInventoryID(bagID))
+		bag.icon = GetInventoryItemTexture("player", C_Container.ContainerIDToInventoryID(bagID))
+		bag.link = GetInventoryItemLink("player", C_Container.ContainerIDToInventoryID(bagID))
 		if bag.link then
 			local _, _, rarity = GetItemInfo(bag.link)
 			if rarity then	-- in case rarity was known from a previous scan, and GetItemInfo returns nil for some reason .. don't overwrite
@@ -446,7 +446,7 @@ end
 
 local function OnBankFrameOpened()
 	addon.isBankOpen = true
-	for bagID = NUM_BAG_SLOTS + 1, NUM_BAG_SLOTS + NUM_BANKBAGSLOTS + 1 do		-- 5 to 12
+	for bagID = NUM_BAG_SLOTS + 2, NUM_BAG_SLOTS + NUM_BANKBAGSLOTS + 1 do -- 6 to 12
 		ScanBag(bagID)
 	end
 	ScanContainer(MAIN_BANK_SLOTS, BANK)
@@ -568,14 +568,14 @@ end
 local BagTypeStrings = {
 	-- [1] = "Quiver",
 	-- [2] = "Ammo Pouch",
-	[4] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 1), -- "Soul Bag",
-	[8] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 7), -- "Leatherworking Bag",
-	[16] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 8), -- "Inscription Bag",
-	[32] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 2), -- "Herb Bag"
-	[64] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 3), -- "Enchanting Bag",
-	[128] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 4), -- "Engineering Bag",
-	[512] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 5), -- "Gem Bag",
-	[1024] = GetItemSubClassInfo(LE_ITEM_CLASS_CONTAINER, 6), -- "Mining Bag",
+	[4] = GetItemSubClassInfo(Enum.ItemClass.Container, 1), -- "Soul Bag",
+	[8] = GetItemSubClassInfo(Enum.ItemClass.Container, 7), -- "Leatherworking Bag",
+	[16] = GetItemSubClassInfo(Enum.ItemClass.Container, 8), -- "Inscription Bag",
+	[32] = GetItemSubClassInfo(Enum.ItemClass.Container, 2), -- "Herb Bag"
+	[64] = GetItemSubClassInfo(Enum.ItemClass.Container, 3), -- "Enchanting Bag",
+	[128] = GetItemSubClassInfo(Enum.ItemClass.Container, 4), -- "Engineering Bag",
+	[512] = GetItemSubClassInfo(Enum.ItemClass.Container, 5), -- "Gem Bag",
+	[1024] = GetItemSubClassInfo(Enum.ItemClass.Container, 6), -- "Mining Bag",
 	
 }
 

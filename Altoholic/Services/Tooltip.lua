@@ -549,15 +549,15 @@ local function ProcessTooltip(tooltip, link)
 	
 	-- 25/01/2015: Removed the code that displayed the pet owners, since they have been account wide for a while now..
 	
-	if classID == LE_ITEM_CLASS_GLYPH then
+	if classID == Enum.ItemClass.Glyph then
 		AddGlyphOwners(itemID, tooltip)
 		return
 	end
 	
 	if Options.Get("UI.Tooltip.ShowKnownRecipes") == false then return end -- exit if recipe information is not wanted
 	
-	if classID ~= LE_ITEM_CLASS_RECIPE then return end		-- exit if not a recipe
-	if subclassID == LE_ITEM_RECIPE_BOOK then return end		-- exit if it's a book
+	if classID ~= Enum.ItemClass.Recipe then return end -- exit if not a recipe
+	if subclassID == Enum.ItemRecipeSubclass.Book then return end -- exit if it's a book
 
 	if not cachedRecipeOwners then
 		cachedRecipeOwners = GetRecipeOwnersText(itemSubType, link, addon:GetRecipeLevel(link, tooltip))
@@ -655,12 +655,13 @@ addon:Service("AltoholicUI.Tooltip", { function()
 				ShowGatheringNodeCounters()
 				GameTooltip:Show()
 			end)
-			GameTooltip:HookScript("OnTooltipSetItem", function(self)
+			
+			local function OnTooltipSetItem(self, data)
 				if (not isTooltipDone) and self then
 					isTooltipDone = true
 
 					local name, link = self:GetItem()
-					
+
 					-- Blizzard broke self:GetItem() in 6.2. Detect and fix the bug if possible.
 					if name == "" then
 						local itemID = addon:GetIDFromLink(link)
@@ -669,12 +670,15 @@ addon:Service("AltoholicUI.Tooltip", { function()
 							link = storedLink
 						end
 					end
-					
+
 					if link then
 						ProcessTooltip(self, link)
 					end
-				end
-			end)
+				end			
+			end
+			
+			TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, OnTooltipSetItem)
+
 			GameTooltip:HookScript("OnTooltipCleared", function(self)
 				isTooltipDone = nil
 				isNodeDone = nil		-- for informant
@@ -687,15 +691,7 @@ addon:Service("AltoholicUI.Tooltip", { function()
 				addon:ListCharsOnQuest( ItemRefTooltipTextLeft1:GetText(), UnitName("player"), ItemRefTooltip)
 				ItemRefTooltip:Show()
 			end)
-			ItemRefTooltip:HookScript("OnTooltipSetItem", function(self)
-				if (not isTooltipDone) and self then
-					local _, link = self:GetItem()
-					isTooltipDone = true
-					if link then
-						ProcessTooltip(self, link)
-					end
-				end
-			end)
+
 			ItemRefTooltip:HookScript("OnTooltipCleared", function(self)
 				isTooltipDone = nil
 			end)
