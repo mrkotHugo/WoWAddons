@@ -6351,9 +6351,10 @@ function oilvlShowBagItemLevel()
 						frame.iLvl:SetTextColor(1,1,0)
 						frame.iLvl:SetText("")
 					end
-					local container = frame:GetParent():GetID()
+					--local container = frame:GetParent():GetID()
+					local container = frame:GetBagID();
 					local slot = frame:GetID()
-					local itemLink = GetContainerItemLink(container, slot)
+					local itemLink = C_Container.GetContainerItemLink(container, slot)
 					if itemLink then
 						local name, _, quality, _, _,itemType,itemType2, _, _, _, _ = GetItemInfo(itemLink)
 						if (itemType == it1 or itemType == it2 or itemType == it3 or itemType2 == it3) and ((UnitLevel("player") >= 20 and quality > 1) or UnitLevel("player") < 20) and cfg.oilvlbagilvl then

@@ -660,16 +660,7 @@ addon:Service("AltoholicUI.Tooltip", { function()
 				if (not isTooltipDone) and self then
 					isTooltipDone = true
 
-					local name, link = self:GetItem()
-
-					-- Blizzard broke self:GetItem() in 6.2. Detect and fix the bug if possible.
-					if name == "" then
-						local itemID = addon:GetIDFromLink(link)
-						if not itemID or itemID == 0 then
-							-- hooking SetRecipeResultItem & SetRecipeReagentItem is necessary for trade skill UI, link is captured and saved in storedLink
-							link = storedLink
-						end
-					end
+					local _, link = GetItemInfo(data.id)
 
 					if link then
 						ProcessTooltip(self, link)

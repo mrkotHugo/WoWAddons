@@ -15,6 +15,13 @@ How to support Altoholic's development :
 If you like the addon, consider supporting it, this has been the long term effort and commitment of a single person. #ArmyOfOne
 
 
+10.0.006 (17/11/2022)
+
+- Tooltip : fixed a Lua error when mousing over an item while holding the shift key.
+- DataStore_Containers : fixed an error returning proper bag counts.
+- DataStore_Containers : fixed an error returning proper bank bag counts.
+- DataStore_Containers : fixed scanning battle pets.
+
 10.0.005 (16/11/2022)
 
 - Options tab : fixed the tooltip of options no longer being displayed due to a deprecated template.

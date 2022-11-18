@@ -1,7 +1,7 @@
-## Interface: 90205
+## Interface: 100002
 ## Title: O Item Level|cff00ccff(OiLvL)|r
 ## Author: OlzenKhaw, Teece
-## Version: 9.2.5
+## Version: 10.0.2
 ## Notes: Shows Item Level of raiders in party / raid. Shows Item Level and raid progression on tooltips.
 ## SavedVariables: Oilvl_Settings
 ## X-Curse-Packaged-Version: v9.0 SL

@@ -172,8 +172,8 @@ local ContainerTypes = {
 				return link
 			end,
 		GetCount = function(self, slotID, bagID)
-				local _, count = C_Container.GetContainerItemInfo(bagID, slotID)
-				return count
+				local info = C_Container.GetContainerItemInfo(bagID, slotID)
+				return info.stackCount
 			end,
 		GetCooldown = function(self, slotID, bagID)
 				local startTime, duration, isEnabled = C_Container.GetContainerItemCooldown(bagID, slotID)
@@ -192,7 +192,8 @@ local ContainerTypes = {
 				return C_Container.GetContainerItemLink(-1, slotID)
 			end,
 		GetCount = function(self, slotID)
-				return select(2, C_Container.GetContainerItemInfo(-1, slotID))
+				local info = C_Container.GetContainerItemInfo(-1, slotID)
+				return info.stackCount
 			end,
 		GetCooldown = function(self, slotID)
 				local startTime, duration, isEnabled = GetInventoryItemCooldown("player", slotID)
@@ -262,7 +263,8 @@ local function ScanContainer(bagID, containerType)
 			elseif link:match("|Hbattlepet:") then
 				-- special treatment for battle pets, save texture id instead of item id..
 				-- texture, itemCount, locked, quality, readable, _, _, isFiltered, noValue, itemID = GetContainerItemInfo(id, itemButton:GetID());
-				bag.ids[index] = C_Container.GetContainerItemInfo(bagID, slotID)
+				local info = C_Container.GetContainerItemInfo(bagID, slotID)
+				bag.ids[index] = info.iconFileID
 			end
 			
 			if IsEnchanted(link) then
