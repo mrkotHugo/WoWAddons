@@ -61,6 +61,7 @@ local AddonDB_Defaults = {
 				numBagSlots = 0,
 				numFreeBagSlots = 0,
 				numBankSlots = 0,
+				numPurchasedBankSlots = nil,		-- nil = never visited, keep this to distinguish from 0 actually purchased
 				numFreeBankSlots = 0,
 				bankType = 0,					-- alt is a bank type (flags)
 				Containers = {
@@ -263,7 +264,13 @@ local function ScanContainer(bagID, containerType)
 			elseif link:match("|Hbattlepet:") then
 				-- special treatment for battle pets, save texture id instead of item id..
 				-- texture, itemCount, locked, quality, readable, _, _, isFiltered, noValue, itemID = GetContainerItemInfo(id, itemButton:GetID());
-				local info = C_Container.GetContainerItemInfo(bagID, slotID)
+				
+				-- 20/11/2022 : temporary hack, blizzard changed the main bank id from 100 to -1
+				-- Changing the code everywhere to support -1 is feasible, but would require the users to reload the data.
+				-- When I have time to fix this hack, I'll make it transparent for users.
+				local actualBagID = (bagID == MAIN_BANK_SLOTS) and -1 or bagID
+				
+				local info = C_Container.GetContainerItemInfo(actualBagID, slotID)
 				bag.ids[index] = info.iconFileID
 			end
 			
@@ -293,7 +300,7 @@ local function ScanBagSlotsInfo()
 	local numBagSlots = 0
 	local numFreeBagSlots = 0
 
-	for bagID = 0, NUM_BAG_SLOTS, 1 do
+	for bagID = 0, NUM_BAG_SLOTS + 1, 1 do -- 5 Slots to include Reagent Bag
 		local bag = char.Containers["Bag" .. bagID]
 		numBagSlots = numBagSlots + bag.size
 		numFreeBagSlots = numFreeBagSlots + bag.freeslots
@@ -318,6 +325,9 @@ local function ScanBankSlotsInfo()
 	
 	char.numBankSlots = numBankSlots
 	char.numFreeBankSlots = numFreeBankSlots
+	
+	local numPurchasedSlots, isFull = GetNumBankSlots()
+	char.numPurchasedBankSlots = numPurchasedSlots
 end
 
 local function ScanGuildBankInfo()
@@ -348,18 +358,23 @@ local function ScanBag(bagID)
 	local bag = char.Containers["Bag" .. bagID]
 	
 	if bagID == 0 then	-- Bag 0	
-		bag.icon = "Interface\\Buttons\\Button-Backpack-Up";
-		bag.link = nil;
-	else						-- Bags 1 through 11
+		bag.icon = "Interface\\Buttons\\Button-Backpack-Up"
+		bag.link = nil
+	else						-- Bags 1 through 12
 		bag.icon = GetInventoryItemTexture("player", C_Container.ContainerIDToInventoryID(bagID))
 		bag.link = GetInventoryItemLink("player", C_Container.ContainerIDToInventoryID(bagID))
+		
 		if bag.link then
 			local _, _, rarity = GetItemInfo(bag.link)
 			if rarity then	-- in case rarity was known from a previous scan, and GetItemInfo returns nil for some reason .. don't overwrite
 				bag.rarity = rarity
 			end
+		else
+			-- 10.0, due to the shift in bag id's, be sure the old rarity is not preserved for alts who do not have a reagent bag yet
+			bag.rarity = nil
 		end
 	end
+	
 	ScanContainer(bagID, BAGS)
 	ScanBagSlotsInfo()
 end
@@ -418,7 +433,7 @@ local function OnBagUpdate(event, bag)
 		return
 	end
 	
-	if (bag >= 5) and (bag <= 12) and not addon.isBankOpen then
+	if (bag >= 6) and (bag <= 12) and not addon.isBankOpen then -- Bags 6 - 12 are Bank as of 10.0
 		return
 	end
 
@@ -660,6 +675,7 @@ local function _GetContainerItemCount(character, searchedID)
 	local bagCount = 0
 	local bankCount = 0
 	local voidCount = 0
+	local reagentBagCount = 0
 	local reagentBankCount = 0
 	local id
 	
@@ -680,6 +696,8 @@ local function _GetContainerItemCount(character, searchedID)
 					bagCount = bagCount + itemCount
 				elseif (containerName == "Bag-3") then
 					reagentBankCount = reagentBankCount + itemCount
+				elseif (containerName == "Bag5") then -- Reagent Bag
+					reagentBagCount = reagentBagCount + itemCount
 				else
 					local bagNum = tonumber(string.sub(containerName, 4))
 					if (bagNum >= 0) and (bagNum <= 4) then
@@ -692,7 +710,7 @@ local function _GetContainerItemCount(character, searchedID)
 		end
 	end
 
-	return bagCount, bankCount, voidCount, reagentBankCount
+	return bagCount, bankCount, voidCount, reagentBankCount, reagentBagCount
 end
 
 local function _IterateContainerSlots(character, callback)
@@ -722,6 +740,12 @@ end
 
 local function _GetNumFreeBankSlots(character)
 	return character.numFreeBankSlots
+end
+
+local function _GetNumPurchasedBankSlots(character)
+	-- nil if bank never visited
+	-- 0 if zero slots actually purchased
+	return character.numPurchasedBankSlots
 end
 
 local function _GetVoidStorageItem(character, index)
@@ -898,6 +922,7 @@ local PublicMethods = {
 	GetNumFreeBagSlots = _GetNumFreeBagSlots,
 	GetNumBankSlots = _GetNumBankSlots,
 	GetNumFreeBankSlots = _GetNumFreeBankSlots,
+	GetNumPurchasedBankSlots = _GetNumPurchasedBankSlots,
 	GetVoidStorageItem = _GetVoidStorageItem,
 	GetKeystoneName = _GetKeystoneName,
 	GetKeystoneLevel = _GetKeystoneLevel,
@@ -1009,6 +1034,7 @@ function addon:OnInitialize()
 	DataStore:SetCharacterBasedMethod("GetNumFreeBagSlots")
 	DataStore:SetCharacterBasedMethod("GetNumBankSlots")
 	DataStore:SetCharacterBasedMethod("GetNumFreeBankSlots")
+	DataStore:SetCharacterBasedMethod("GetNumPurchasedBankSlots")
 	DataStore:SetCharacterBasedMethod("GetVoidStorageItem")
 	DataStore:SetCharacterBasedMethod("GetKeystoneName")
 	DataStore:SetCharacterBasedMethod("GetKeystoneLevel")
@@ -1034,8 +1060,8 @@ function addon:OnInitialize()
 end
 
 function addon:OnEnable()
-	-- manually update bags 0 to 4, then register the event, this avoids reacting to the flood of BAG_UPDATE events at login
-	for bagID = 0, NUM_BAG_SLOTS do
+	-- manually update bags 0 to 5, then register the event, this avoids reacting to the flood of BAG_UPDATE events at login
+	for bagID = 0, NUM_BAG_SLOTS + 1 do -- 5 Slots to include Reagent Bag
 		ScanBag(bagID)
 	end
 

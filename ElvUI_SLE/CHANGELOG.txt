@@ -1,0 +1,6 @@
+v4.51 11/22/22
+
+• fixed friends datatext error
+• fixed currency datatext error
+• fixed anima count error
+• fixed minimap instance indicator

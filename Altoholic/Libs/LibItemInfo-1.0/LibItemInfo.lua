@@ -91,6 +91,7 @@ lib.Enum = {
 		InscriptionBag = 8,
 		TackleBox = 9,
 		CookingBag = 10,
+		ReagentBag = 11,
 	},
 }
 
@@ -121,7 +122,7 @@ local reagentTypes = {
 
 local bagTypes = {}
 
-for i = 1, 10 do
+for i = 1, 11 do
 	bagTypes[i] = GetItemSubClassInfo(Enum.ItemClass.Container, i)
 end
 

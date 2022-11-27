@@ -7,7 +7,7 @@
 -- Main non-UI code
 ------------------------------------------------------------
 
-PawnVersion = 2.0709
+PawnVersion = 2.0712
 
 -- Pawn requires this version of VgerCore:
 local PawnVgerCoreVersionRequired = 1.17
@@ -419,14 +419,18 @@ function PawnInitialize()
 		PawnOriginalIsContainerItemAnUpgrade = IsContainerItemAnUpgrade
 		PawnIsContainerItemAnUpgrade = function(bagID, slot, ...)
 			if PawnCommon.ShowBagUpgradeAdvisor then
-				local _, Count, _, _, _, _, ItemLink = C_Container.GetContainerItemInfo(bagID, slot)
-				VgerCore.Message(tostring(Count) .. " " .. tostring(ItemLink))
-				if not Count then return false end -- If the stack count is 0, it's clearly not an upgrade
-				if not ItemLink then return nil end -- If we didn't get an item link, but there's an item there, try again later
-				return PawnShouldItemLinkHaveUpgradeArrow(ItemLink, true) -- true means to check player level
+				local ItemInfo = C_Container.GetContainerItemInfo(bagID, slot)
+				if not ItemInfo or not ItemInfo.stackCount then return false end -- If the stack count is 0, it's clearly not an upgrade
+				if not ItemInfo.hyperlink then return nil end -- If we didn't get an item link, but there's an item there, try again later
+				return PawnShouldItemLinkHaveUpgradeArrow(ItemInfo.hyperlink, true) -- true means to check player level
 			else
-				---@diagnostic disable-next-line: redundant-parameter
-				return PawnOriginalIsContainerItemAnUpgrade(bagID, slot, ...)
+				if PawnOriginalIsContainerItemAnUpgrade then
+					---@diagnostic disable-next-line: redundant-parameter
+					return PawnOriginalIsContainerItemAnUpgrade(bagID, slot, ...)
+				else
+					-- If Pawn's bag advisor is off, AND the game's IsContainerItemAnUpgrade is missing, nothing's an upgrade.
+					return false
+				end
 			end
 		end
 		PawnUpdateItemUpgradeIcon = function(self)

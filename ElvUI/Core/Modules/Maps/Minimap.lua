@@ -199,10 +199,10 @@ end
 
 function M:SetupHybridMinimap()
 	local MapCanvas = _G.HybridMinimap.MapCanvas
-	MapCanvas:SetMaskTexture(E.Media.Textures.White8x8)
 	MapCanvas:SetScript('OnMouseWheel', M.Minimap_OnMouseWheel)
 	MapCanvas:SetScript('OnMouseDown', M.MapCanvas_OnMouseDown)
 	MapCanvas:SetScript('OnMouseUp', E.noop)
+	MapCanvas:SetMaskTexture()
 
 	_G.HybridMinimap.CircleMask:StripTextures()
 end
@@ -665,6 +665,7 @@ function M:Initialize()
 		M.ClusterBackdrop = clusterBackdrop
 	end
 
+	M:ClusterPoint()
 	hooksecurefunc(MinimapCluster, 'SetPoint', M.ClusterPoint)
 
 	Minimap:HookScript('OnEnter', function(mm) if E.db.general.minimap.locationText == 'MOUSEOVER' and (not E.Retail or E.db.general.minimap.clusterDisable) then mm.location:Show() end end)

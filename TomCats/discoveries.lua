@@ -557,12 +557,12 @@ local function OnEvent(event, arg1)
 	if (event == "ADDON_LOADED") then
 		if (addonName == arg1) then
 			--TomCatsDiscoveryAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("TomCatsDiscoveryAlertFrameTemplate", TomCatsDiscoveryAlertFrame_SetUp);
-			if (_G["TomCats_Account"].discoveriesVersion ~= "2.4.26") then
+			if (_G["TomCats_Account"].discoveriesVersion ~= "2.4.35") then
 				_G["TomCats_Account"].discoveries.vignettes = { }
 				_G["TomCats_Account"].discoveries.vignetteAtlases = { }
-				_G["TomCats_Account"].discoveries.version = "2.4.26"
+				_G["TomCats_Account"].discoveries.version = "2.4.35"
 				_G["TomCats_Account"].discoveriesResetCount = 0
-				_G["TomCats_Account"].discoveriesVersion = "2.4.26"
+				_G["TomCats_Account"].discoveriesVersion = "2.4.35"
 			end
 			local discoveries = 0
 			discoveredVignettes = _G["TomCats_Account"].discoveries.vignettes

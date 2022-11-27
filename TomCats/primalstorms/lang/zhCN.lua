@@ -16,3 +16,6 @@ L["Air (Storm)"] = "空气（风暴）"
 L["Earth"] = "地球"
 L["None"] = "没有任何"
 L["Primal Storms"] = "原始风暴"
+
+L["Unstable Elemental Confluence Source"] = "把朦胧的始源火焰 、流水、风暴和大地 收集并组合起来"
+L["Cost to complete"] = "完成成本"

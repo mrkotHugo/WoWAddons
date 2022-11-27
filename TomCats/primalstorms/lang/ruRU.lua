@@ -16,3 +16,6 @@ L["Air (Storm)"] = "Воздух (Шторм)"
 L["Earth"] = "Земля"
 L["None"] = "Никто"
 L["Primal Storms"] = "Изначальные бури"
+
+L["Unstable Elemental Confluence Source"] = "Собирайте и совмещайте частицы тусклого первобытного огня, воды, урагана и земли."
+L["Cost to complete"] = "Стоимость завершения"

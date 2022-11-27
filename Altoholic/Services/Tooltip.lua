@@ -65,7 +65,7 @@ local cachedRecipeOwners
 local cachedAltStorage
 
 local itemCounts = {}
-local itemCountsLabels = {	L["Bags"], L["Bank"], VOID_STORAGE, REAGENT_BANK, L["AH"], L["Equipped"], L["Mail"], CURRENCY }
+local itemCountsLabels = { L["Bags"], L["Bank"], VOID_STORAGE, REAGENT_BANK, L["AH"], L["Equipped"], L["Mail"], CURRENCY, L["Reagent Bag"] }
 local counterLines = {}		-- list of lines containing a counter to display in the tooltip
 
 
@@ -112,7 +112,7 @@ local function GetRealmsList(isAccountBound)
 end
 
 local function GetCharacterItemCount(character, searchedID)
-	itemCounts[1], itemCounts[2], itemCounts[3], itemCounts[4] = DataStore:GetContainerItemCount(character, searchedID)
+	itemCounts[1], itemCounts[2], itemCounts[3], itemCounts[4], itemCounts[9] = DataStore:GetContainerItemCount(character, searchedID)
 	itemCounts[5] = DataStore:GetAuctionHouseItemCount(character, searchedID)
 	itemCounts[6] = DataStore:GetInventoryItemCount(character, searchedID)
 	itemCounts[7] = DataStore:GetMailItemCount(character, searchedID)
@@ -669,6 +669,8 @@ addon:Service("AltoholicUI.Tooltip", { function()
 			end
 			
 			TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, OnTooltipSetItem)
+			-- Todo : currency link !
+			--TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Currency, see if Hook_SetCurrencyToken can be used)
 
 			GameTooltip:HookScript("OnTooltipCleared", function(self)
 				isTooltipDone = nil

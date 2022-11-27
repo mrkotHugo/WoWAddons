@@ -1,10 +1,10 @@
-lightweight tag f3442e5aef26736199a7ec017c9190d074236245 v10.0.2-01
+lightweight tag d1c6f14ccb6e708bf323551660ad245b1439b59b v10.0.2-02
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Tue Nov 15 15:17:02 2022 -0800
+Date:	Sat Nov 26 21:14:57 2022 -0800
 
-commit f3442e5aef26736199a7ec017c9190d074236245
+commit d1c6f14ccb6e708bf323551660ad245b1439b59b
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Tue Nov 15 15:17:02 2022 -0800
+Date:   Sat Nov 26 21:14:57 2022 -0800
 
-    Proper version
+    Fix an unintentional global function
 

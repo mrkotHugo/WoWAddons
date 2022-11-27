@@ -25,9 +25,9 @@ local _, pclass = UnitClass("Player")
 
 local IsInInstance, GetInstanceDifficulty, GetNumShapeshiftForms, GetShapeshiftFormInfo = 
 	  IsInInstance, GetInstanceDifficulty, GetNumShapeshiftForms, GetShapeshiftFormInfo
-local GetPetActionInfo, GetNumTrackingTypes, GetTrackingInfo = 
-	  GetPetActionInfo, GetNumTrackingTypes, GetTrackingInfo
-	  
+local GetPetActionInfo = GetPetActionInfo
+local GetNumTrackingTypes = GetNumTrackingTypes or C_Minimap.GetNumTrackingTypes
+local GetTrackingInfo = GetTrackingInfo or C_Minimap.GetTrackingInfo
 	  
 local ConditionCategory = CNDT:GetCategory("ATTRIBUTES_PLAYER", 2, L["CNDTCAT_ATTRIBUTES_PLAYER"], false, false)
 
@@ -225,7 +225,7 @@ ConditionCategory:RegisterCondition(12,	 "AUTOCAST", {
 	Env = {
 		GetSpellAutocast = GetSpellAutocast,
 	},
-	funcstr = [[BOOLCHECK( select(2, GetSpellAutocast(c.NameString)) )]],
+	funcstr = [[BOOLCHECK( select(2, GetSpellAutocast(c.Spells.FirstString)) )]],
 	events = function(ConditionObject, c)
 		return
 			ConditionObject:GenerateNormalEventString("PET_BAR_UPDATE")
@@ -355,7 +355,7 @@ ConditionCategory:RegisterCondition(16,	 "TRACKING", {
 		CNDT:RegisterEvent("MINIMAP_UPDATE_TRACKING")
 		CNDT:MINIMAP_UPDATE_TRACKING()
 	
-		return [[BOOLCHECK( Tracking[c.NameString] )]]
+		return [[BOOLCHECK( Tracking[c.Spells.FirstString] )]]
 	end,
 	events = function(ConditionObject, c)
 		return

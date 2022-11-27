@@ -1,3 +1,14 @@
+## v10.0.4
+*  Fix bugs in totem conditions (and a few others) introduced in 10.0.3
+
+## v10.0.3
+* Fix ClassSpellCache.lua:171: attempt to index field 'SpellData' (a nil value)
+* Fix #2019 - Expired totems are now treated as absent by the totem icon type, even if the wow API says they still exist.
+* Fix #2017 - Add workarounds for Blizzard bugs around some Evoker ability and talent combinations.
+* Wrath: Fix #2011 - PlayerNames.lua:100 attempt to concatenate field '?' (a nil value) 
+* Wrath: Fix #2016 - "Unknown class DRUID"
+* Wrath: Fix #2006 - Totems conditions once again function against any totem rank.
+
 ## v10.0.2
 * Unified codebase for Retail and Wrath versions.
 * #1992 - Added Talent Loadout condition.

@@ -80,7 +80,7 @@ addon.PrimalStorms.ZoneEncounters = {
 		}
 	},
 	{
-		mapID = 2070,
+		mapID = 18,
 		{
 			element = Elements.FIRE,
 			elementsPOI = 7376,
@@ -126,3 +126,10 @@ addon.PrimalStorms.ZoneEncounters = {
 		}
 	}
 }
+
+addon.PrimalStorms.StormVendors = {
+	[195899] = true,
+	[195912] = true
+}
+
+
