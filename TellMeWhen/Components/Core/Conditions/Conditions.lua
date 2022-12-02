@@ -614,7 +614,6 @@ local function strWrap(string)
 	end
 end
 
-Env.ItemRefs = {}
 function CNDT:GetItemRefForConditionChecker(name)
 	local item = TMW:GetItems(name)[1]
 
@@ -622,9 +621,7 @@ function CNDT:GetItemRefForConditionChecker(name)
 		item = TMW:GetNullRefItem()
 	end
 
-	Env.ItemRefs[name] = item
-
-	return "ItemRefs[" .. strWrap(name) .. "]"
+	return CNDT:GetTableSubstitution(item, "Item")
 end
 
 
@@ -736,8 +733,10 @@ CNDT.Substitutions = {
 	end,
 },
 {	src = "MULTINAMECHECK(%b())",
+	-- TODO: Replace this horrifying thing with 
+	-- e.g. [[BOOLCHECK(c.Spells.Hash[GetShapeshiftForm() or ""])]],
 	rep = function(conditionData, conditionSettings, name, name2)
-		return [[ (not not strfind(c.Name, SemicolonConcatCache[%1])) ]]
+		return [[ (not not strfind(";" .. c.Name .. ";", SemicolonConcatCache[%1])) ]]
 	end,
 },
 
@@ -902,16 +901,20 @@ local conditionNameSettingProcessedCache = setmetatable(
 -- [INTERNAL]
 function CNDT:GetConditionUnitSubstitution(unit)
 
-	local translatedUnits, unitSet = TMW:GetUnits(nil, unit)
-	local firstOriginal = unitSet.originalUnits[1]
+	-- This unitset is a special non-updating unitset (arg3 = true) that we're using just to 
+	-- use unitset's logic about how it categorizes a particular unitid.
+	local idleUnitSet = TMW.UNITS:GetUnitSet(unit, nil, true)
+
+	local firstOriginal = idleUnitSet.originalUnits[1]
 	local substitution
-	if unitSet.hasSpecialUnitRefs then
+	if idleUnitSet.hasSpecialUnitRefs then
 		-- The unit is probably a special unit.
 		-- We will use the unit set to perform the translation
 		-- from the special unit to a real unit.
 		-- We have to have the " or <originalUnits[1]>" part
 		-- so that in case the special unit doesn't map to anything,
 		-- we won't be passing nil to functions that don't accept nil.
+		local translatedUnits = TMW:GetUnits(nil, unit)
 		substitution = 
 			CNDT:GetTableSubstitution(translatedUnits, "Units")
 			.. "[1] or "

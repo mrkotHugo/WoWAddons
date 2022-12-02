@@ -677,7 +677,7 @@ L["SORTBYNONE_DURATION"] = "Normal Duration"
 L["SORTBYNONE_STACKS"] = "Normal Stacks"
 L["SORTBYNONE_DESC"] = [[If checked, spells will be checked in and appear in the order that they were entered into the "%s" editbox.
 
-If this icon is a buff/debuff icon, auras will be checked in the order that they would normally appear on the unit's unit frame.]]
+If this icon is a buff/debuff icon, auras may sometimes be checked in the order that they would normally appear on the unit's unit frame.]]
 L["SORTBYNONE_META_DESC"] = [[If checked, icons will be checked in the order that was configured above.]]
 L["ICONMENU_SORTASC"] = "Low duration"
 L["ICONMENU_SORTASC_DESC"] = "Check this box to prioritize and show spells with the lowest duration."
@@ -2533,6 +2533,13 @@ NOTE: To prevent potential abuse, Blizzard has excluded the destination unit fro
 
 L["CLEU_SPELL_CAST_SUCCESS"] = "Spell Cast Success"
 L["CLEU_SPELL_CAST_SUCCESS_DESC"] = [[Occurs when an spell is successfully cast.]]
+
+L["CLEU_SPELL_EMPOWER_START"] = "Empowered Spell Cast Start"
+L["CLEU_SPELL_EMPOWER_START_DESC"] = [[Occurs when an empowered spell begins casting.]]
+L["CLEU_SPELL_EMPOWER_END"] = "Empowered Spell Cast Success"
+L["CLEU_SPELL_EMPOWER_END_DESC"] = [[Occurs when an empowered spell is successfully cast.]]
+L["CLEU_SPELL_EMPOWER_INTERRUPT"] = "Empowered Spell Cast Failed"
+L["CLEU_SPELL_EMPOWER_INTERRUPT_DESC"] = [[Occurs when an empowered spell is interrupted or cancelled.]]
 
 L["CLEU_SPELL_DAMAGE"] = "Spell Damage"
 L["CLEU_SPELL_DAMAGE_DESC"] = [[Occurs when any spell does any damage.]]

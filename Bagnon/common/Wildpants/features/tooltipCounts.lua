@@ -13,7 +13,6 @@ local FIRST_BANK_SLOT = Addon.NumBags + 1
 local TOTAL = SILVER:format(L.Total)
 
 
-
 --[[ Startup ]]--
 
 function TipCounts:OnEnable()
@@ -40,22 +39,15 @@ function TipCounts:Hook(tip)
 
 	hooksecurefunc(tip, 'SetQuestItem', self.OnQuest)
 	hooksecurefunc(tip, 'SetQuestLogItem', self.OnQuest)
-
-	if C_TradeSkillUI then
-		if C_TradeSkillUI.GetRecipeFixedReagentItemLink then
-			hooksecurefunc(tip, 'SetRecipeReagentItem', self.OnTradeSkill('GetRecipeFixedReagentItemLink'))
-		else
-			hooksecurefunc(tip, 'SetRecipeReagentItem', self.OnTradeSkill('GetRecipeReagentItemLink'))
-			hooksecurefunc(tip, 'SetRecipeResultItem', self.OnTradeSkill('GetRecipeItemLink'))
-		end
-	end
+	hooksecurefunc(tip, 'SetTradeSkillItem', self.OnSetTradeSkillItem)
+	hooksecurefunc(tip, 'SetCraftItem', self.OnSetCraftItem)
 end
 
 
 --[[ Events ]]--
 
 function TipCounts.OnItem(tip)
-	local name, link = tip:GetItem()
+	local name, link = (tip.GetItem or TooltipUtil.GetDisplayedItem)(tip)
 	if name ~= '' then
 		TipCounts:AddOwners(tip, link)
 	end
@@ -69,6 +61,18 @@ function TipCounts.OnTradeSkill(api)
 	return function(tip, recipeID, ...)
 		TipCounts:AddOwners(tip, tonumber(recipeID) and C_TradeSkillUI[api](recipeID, ...))
 	end
+end
+
+function TipCounts.OnSetTradeSkillItem(tip, skill, index)
+	if index then
+		TipCounts:AddOwners(tip, GetTradeSkillReagentItemLink(skill, index))
+	else
+		TipCounts:AddOwners(tip, GetTradeSkillItemLink(skill))
+	end
+end
+
+function TipCounts.OnSetCraftItem(tip, ...)
+	TipCounts:AddOwners(tip, GetCraftReagentItemLink(...))
 end
 
 function TipCounts.OnClear(tip)

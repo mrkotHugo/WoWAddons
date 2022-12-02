@@ -183,8 +183,8 @@ end
 function RCSessionFrame:GetFrame()
 	if self.frame then return self.frame end
 
-	local f = addon.UI:NewNamed("Frame", UIParent, "DefaultRCSessionSetupFrame", L["RCLootCouncil Session Setup"], 260)
-
+	local f = addon.UI:NewNamed("RCFrame", UIParent, "DefaultRCSessionSetupFrame", L["RCLootCouncil Session Setup"], 260)
+	addon.UI:RegisterForEscapeClose(f, function() if self:IsEnabled() then self:Disable() end end)
 	local tgl = CreateFrame("CheckButton", f:GetName().."Toggle", f.content, "ChatConfigCheckButtonTemplate")
 	getglobal(tgl:GetName().."Text"):SetText(L["Award later?"])
 	tgl:SetPoint("BOTTOMLEFT", f, "BOTTOMLEFT", 10, 40)
@@ -218,7 +218,7 @@ function RCSessionFrame:GetFrame()
 				end)
 			end
 		else
-			if Council:GetNum() == 0 then
+			if not addon.hasReceivedCouncil then
 				addon:Print(L["Please wait a few seconds until all data has been synchronized."])
 				return addon.Log:D("Data wasn't ready", Council:GetNum())
 			elseif InCombatLockdown() and not addon.db.profile.skipCombatLockdown then

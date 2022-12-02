@@ -22,7 +22,11 @@
   <Script file="edits\Editable.lua"/>
   <Script file="edits\Box.lua"/>
   <Script file="edits\Dark.lua"/>
-  <Script file="edits\Slider.lua"/>
+
+  <!-- Misc -->
+  <Script file="misc\Glowbox.lua"/>
+  <Script file="misc\Slider.lua"/>
+  <Script file="misc\Popup.lua"/>
 
   <!-- Groups -->
   <Script file="groups\Group.lua"/>
@@ -34,8 +38,4 @@
   <Script file="drops\Button.lua"/>
   <Script file="drops\Dropdown.lua"/>
   <Script file="drops\Choice.lua"/>
-
-  <!-- Misc -->
-  <Script file="misc\Glowbox.lua"/>
-  <Script file="misc\Popup.lua"/>
 </Ui>

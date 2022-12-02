@@ -84,6 +84,8 @@ L["auto_open_desc"] = "Compruebe en abre automaticamente el marco de la votacion
 L["auto_pass_boe_desc"] = "Desmarcar No Permite autorepartir los articulos que se ligan al equipar"
 L["auto_pass_desc"] = "Marque para activar autopasar de articulos que su clase no puede usar."
 L["auto_pass_trinket_desc"] = "Comprobar para pasar automáticamente de abalorios que no estén en la lista de la Guía de Aventuras para tu clase"
+--[[Translation missing --]]
+--[[ L["autoGroupLoot_warning"] = ""--]] 
 L["autoloot_others_item_combat"] = "%s ha conseguido %s. Este objetos sera añadido al cuadro de sesion una vez el combate termine."
 L["Autopass"] = "Pasar Automaticamente"
 L["Autopassed on 'item'"] = "Auto pasar de %s"
@@ -331,6 +333,10 @@ L["opt_autoAddBoEs_name"] = "Añadir automáticamente BoEs"
 --[[ L["opt_autoAddPets_name"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_autoAwardPrioList_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_name"] = ""--]] 
 L["opt_autoTrade_desc"] = "Seleccionar para añadir automáticamente los objetos a la ventana de comercio cuando se comercie con un ganador. Si se deshabilita, se pedirá confirmación antes de añadir los objetos."
 L["opt_award_later_desc"] = "Activar para comprobar automáticamente la opción 'Recompensar más tarde' en la ventana de sesión."
 L["opt_buttonsGroup_desc"] = "Grupo de opciones para los botones de %s y las respuestas. Ver más arriba para una explicación detallada."
@@ -354,6 +360,10 @@ L["opt_rejectTrade_Name"] = "Permitir quedarse los objetos"
 --[[ L["opt_skipSessionFrame_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_skipSessionFrame_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_AskGroupLoot"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_GroupLoot"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_useSlashRC_desc"] = ""--]] 
 --[[Translation missing --]]

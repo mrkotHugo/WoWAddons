@@ -83,6 +83,8 @@ L["auto_open_desc"] = "Cochez cette case pour que la fenêtre de vote s'ouvre au
 L["auto_pass_boe_desc"] = "Décocher pour ne jamais passer automatiquement sur des objets liés quand équipés."
 L["auto_pass_desc"] = "Cocher pour passer automatiquement sur les objets inutilisables par votre classe."
 L["auto_pass_trinket_desc"] = "Cochez pour passer automatiquement les bijoux qui ne sont pas listés dans le journal de donjon pour votre classe."
+--[[Translation missing --]]
+--[[ L["autoGroupLoot_warning"] = ""--]] 
 L["autoloot_others_item_combat"] = "%s a ramassé %s. Cet objet sera ajouté à la fenêtre de session lorsque le combat sera terminé."
 L["Autopass"] = "Passer automatiquement"
 L["Autopassed on 'item'"] = "Vous avez automatiquement passé sur %s"
@@ -321,6 +323,10 @@ L["opt_autoAddItems_name"] = "Ajouter automatiquement les objets"
 L["opt_autoAddPets_desc"] = "Ajouter automatiquement toutes les mascottes à la session."
 L["opt_autoAddPets_name"] = "Ajouter les mascottes"
 L["opt_autoAwardPrioList_desc"] = "Les objets sont assignés au premier candidat trouvé dans votre groupe en fonction de cette liste de priorité."
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_name"] = ""--]] 
 L["opt_autoTrade_desc"] = "Cochez pour automatiquement ajouter les objets assignés à la fenêtre d'échange lorsque vous échanger avec le gagnant. Si décoché, vous verrez une popup avant que les objets ne soient ajoutés."
 L["opt_award_later_desc"] = "Cocher pour automatiquement cocher l'option \"Assigner plus tard\" dans la fenêtre de session."
 L["opt_buttonsGroup_desc"] = "Groupe d'options pour les boutons %s et les réponses. Voir plus haut pour une explication détaillée."
@@ -341,6 +347,10 @@ L["opt_rejectTrade_Desc"] = "Cochez pour autoriser les candidats à choisir entr
 L["opt_rejectTrade_Name"] = "Autoriser à garder"
 L["opt_skipSessionFrame_desc"] = "Passe la fenêtre de session: NOTE : ceci force l'addon à démarrer une session avec tous les objets éligibles sans que vous n'ayez une chance d'éditer la liste !"
 L["opt_skipSessionFrame_name"] = "Passer la fenêtre de session"
+--[[Translation missing --]]
+--[[ L["opt_usage_AskGroupLoot"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_GroupLoot"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_useSlashRC_desc"] = ""--]] 
 --[[Translation missing --]]

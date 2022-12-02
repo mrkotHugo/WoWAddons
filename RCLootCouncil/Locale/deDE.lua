@@ -87,6 +87,8 @@ L["auto_open_desc"] = "Aktivieren, um das Abstimmungsfenster automatisch zu öff
 L["auto_pass_boe_desc"] = "Deaktivieren, um niemals auf beim Anlegen gebundene Gegenstände automatisch zu passen."
 L["auto_pass_desc"] = "Aktivieren, um automatisch auf Gegenstände zu passen, die deine Klasse nicht benutzen kann."
 L["auto_pass_trinket_desc"] = "Auswählen, um automatisch auf Schmuckstücke zu passen, die laut Dungeonjournal nicht für Deine Klasse geeignet sind"
+--[[Translation missing --]]
+--[[ L["autoGroupLoot_warning"] = ""--]] 
 L["autoloot_others_item_combat"] = [=[%s hat %s geplündert. Der Gegenstand wird der Session hinzugefügt, sobald der Kampf endet.
 ]=]
 L["Autopass"] = "Automatisches Passen"
@@ -333,6 +335,10 @@ L["opt_autoAddItems_name"] = "Gegenstände automatisch hinzugefügen"
 L["opt_autoAddPets_desc"] = "Automatisch alle Haustiere einer Sitzung hinzufügen."
 L["opt_autoAddPets_name"] = "Begleiter hinzufügen"
 L["opt_autoAwardPrioList_desc"] = "Gegenstände werden an den dieser Prioritätsliste nach ersten Kandidaten aus deiner Gruppe  vergeben."
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_name"] = ""--]] 
 L["opt_autoTrade_desc"] = "Anhaken, um vergebene Gegenstände dem Handelsfenster automatisch hinzuzufügen, wenn man mit dem Gewinner handelt. Wenn deaktiviert, wird ein Pop-up eingeblendet bevor die Gegenstände hinzugefügt werden. "
 L["opt_award_later_desc"] = "Anhaken, um die \"Später vergeben\"-Funktion im Sitzungsfenster automatisch zu aktivieren."
 L["opt_buttonsGroup_desc"] = "Optionsgruppe für %s Schaltflächen und Antworten. Für eine detaillierte Erklärung siehe oben. "
@@ -356,6 +362,10 @@ L["opt_rejectTrade_Desc"] = "Aktiviere diese Option, damit die Kandidaten auswä
 L["opt_rejectTrade_Name"] = "Behalten erlauben"
 L["opt_skipSessionFrame_desc"] = "Überspringt das Sitzungsfenster. BEACHTE: Dies führt dazu, dass das Addon eine Sitzung mit allen wählbaren Gegenständen startet, ohne dass du die Möglichkeit hast die Liste zu bearbeiten!"
 L["opt_skipSessionFrame_name"] = "Sitzungsfenster überspringen"
+--[[Translation missing --]]
+--[[ L["opt_usage_AskGroupLoot"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_GroupLoot"] = ""--]] 
 L["opt_useSlashRC_desc"] = "Deaktiviere diese Option, wenn du '/rc' für den Bereitschaftscheck wiederherstellen möchtest. RCLootCouncil-Kommandos sind immer noch mit '/rclc' verfügbar. Ein '/reload' wird benötigt damit diese Option in Kraft tritt."
 L["opt_useSlashRC_name"] = "Benutze /rc"
 L["options_autoAwardBoE_desc"] = "Aktiviere diese Option, um alle epischen BoE-Gegenständie (Beim Anlegen gebunden) aus dem ausgewählten Grund automatisch an eine bestimmte Person zu vergeben."

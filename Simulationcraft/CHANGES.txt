@@ -1,10 +1,10 @@
-lightweight tag d1c6f14ccb6e708bf323551660ad245b1439b59b v10.0.2-02
+lightweight tag f5e56f72634b4a313483c47cc36045bbf453e3a0 v10.0.2-04
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Sat Nov 26 21:14:57 2022 -0800
+Date:	Thu Dec 1 11:07:43 2022 -0800
 
-commit d1c6f14ccb6e708bf323551660ad245b1439b59b
+commit f5e56f72634b4a313483c47cc36045bbf453e3a0
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Sat Nov 26 21:14:57 2022 -0800
+Date:   Thu Dec 1 11:07:43 2022 -0800
 
-    Fix an unintentional global function
+    Remove Shadowlands features
 

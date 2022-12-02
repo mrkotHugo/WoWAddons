@@ -95,6 +95,8 @@ L["auto_open_desc"] = "勾选以自动打开投票界面。非勾选状态下，
 L["auto_pass_boe_desc"] = "取消勾选以禁用自动放弃装绑。"
 L["auto_pass_desc"] = "勾选以自动放弃当前职业无法使用的物品。"
 L["auto_pass_trinket_desc"] = "选中以自动放弃地下城手册中不属于你的职业的饰品"
+--[[Translation missing --]]
+--[[ L["autoGroupLoot_warning"] = ""--]] 
 L["autoloot_others_item_combat"] = "%s 拾取了%s。此物品将会在战斗结束后加入分配。"
 L["Autopass"] = "自动放弃"
 L["Autopassed on 'item'"] = "自动放弃%s"
@@ -378,6 +380,10 @@ L["Opens the synchronizer"] = "打开同步界面"
 --[[Translation missing --]]
 --[[ L["opt_autoAwardPrioList_desc"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLoot_name"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["opt_autoTrade_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_award_later_desc"] = ""--]] 
@@ -417,6 +423,10 @@ L["Opens the synchronizer"] = "打开同步界面"
 --[[ L["opt_skipSessionFrame_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_skipSessionFrame_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_AskGroupLoot"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_usage_GroupLoot"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_useSlashRC_desc"] = ""--]] 
 --[[Translation missing --]]

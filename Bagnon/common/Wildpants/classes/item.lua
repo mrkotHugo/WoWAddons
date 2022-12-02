@@ -52,7 +52,7 @@ function Item:Construct()
 	b.Flash = b:CreateAnimationGroup()
 	b.IconGlow = b:CreateTexture(nil, 'OVERLAY', nil, -1)
 	b.Cooldown, b.QuestBorder = _G[name .. 'Cooldown'], _G[name .. 'IconQuestTexture']
-	b.UpdateTooltip = self.UpdateTooltip
+	b.UpdateTooltip = self.ShowTooltip
 
 	b.newitemglowAnim:SetLooping('NONE')
 	b.IconOverlay:SetAtlas('AzeriteIconFrame')
@@ -181,13 +181,13 @@ function Item:OnEnter()
 	if self.info.cached then
 		self:AttachDummy()
 	else
-		self:SetScript('OnUpdate', self.UpdateTooltip)
-		self:UpdateTooltip()
+		self:RegisterEvent(C_TooltipInfo and 'TOOLTIP_DATA_UPDATE' or 'GET_ITEM_INFO_RECEIVED', 'ShowTooltip')
+		self:ShowTooltip()
 	end
 end
 
 function Item:OnLeave()
-	self:SetScript('OnUpdate', nil)
+	self:UnregisterEvent(C_TooltipInfo and 'TOOLTIP_DATA_UPDATE' or 'GET_ITEM_INFO_RECEIVED')
 	self:Super(Item):OnLeave()
 	ResetCursor()
 end
@@ -344,7 +344,7 @@ end
 
 --[[ Tooltip ]]--
 
-function Item:UpdateTooltip()
+function Item:ShowTooltip()
 	if not self.info.cached then
 		(self:GetInventorySlot() and BankFrameItemButton_OnEnter or
 		 ContainerFrameItemButtonMixin and ContainerFrameItemButtonMixin.OnUpdate or ContainerFrameItemButton_OnEnter)(self)

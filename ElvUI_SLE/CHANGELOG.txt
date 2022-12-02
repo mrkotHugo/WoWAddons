@@ -1,6 +1,4 @@
-v4.51 11/22/22
+v4.54 11/30/22
 
-• fixed friends datatext error
-• fixed currency datatext error
-• fixed anima count error
-• fixed minimap instance indicator
+• add option to show/hide dedicated vehicle bar if dragon riding (bonusbar:5 macro condtional check)
+• add Valdraken portal & teleport to location panel

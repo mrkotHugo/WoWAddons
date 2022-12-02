@@ -27,8 +27,8 @@ local math, max, ceil, floor, random, abs =
 local _G, coroutine, table, GetTime, CopyTable, tostringall, geterrorhandler, C_Timer =
 	  _G, coroutine, table, GetTime, CopyTable, tostringall, geterrorhandler, C_Timer
 
-local UnitAura, IsUsableSpell, GetRuneCooldown, GetSpecialization, GetSpecializationInfo, GetFramerate =
-	  UnitAura, IsUsableSpell, GetRuneCooldown, GetSpecialization, GetSpecializationInfo, GetFramerate
+local IsUsableSpell, GetRuneCooldown, GetSpecialization, GetSpecializationInfo, GetFramerate =
+	  IsUsableSpell, GetRuneCooldown, GetSpecialization, GetSpecializationInfo, GetFramerate
 
 local debugprofilestop = debugprofilestop_SAFE
 
@@ -313,7 +313,7 @@ function TMW:MakeNArgFunctionCached(argCount, obj, method)
 		funcStr = funcStr .. "arg" .. i
 	end
 
-	funcStr = funcStr .. [[)
+	funcStr = funcStr .. [[, ...)
 	local next, prev, key = cache
 	]]
 
@@ -332,7 +332,7 @@ function TMW:MakeNArgFunctionCached(argCount, obj, method)
 		if i > 1 then funcStr = funcStr .. "," end
 		funcStr = funcStr .. "arg" .. i
 	end
-	funcStr = funcStr .. [[)
+	funcStr = funcStr .. [[, ...)
 		prev[key] = ret
 		return ret;
 	end, cache
