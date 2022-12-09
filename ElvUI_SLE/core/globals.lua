@@ -175,6 +175,9 @@ SLE.SpecialChatIcons = {
 		['ЧерныйШрам'] = {
 			['Емалия'] = friend,
 		},
+        ['Blackrock'] = {
+			['Roxanne'] = blizzicon:format('ability_mage_glacialspike'), -- Annoying Feature requester
+		},
 	},
 	['US'] = {
 		['Andorhal'] = {
@@ -187,6 +190,7 @@ SLE.SpecialChatIcons = {
 			['Darthpred'] = darth,
 			--Repooc's Toon
 			['Repooc'] = repooc,
+			['Desertdragon'] = gold,
 		},
 		['Spirestone'] = {
 			['Lapooc'] = test,

@@ -1,4 +1,3 @@
-v4.54 11/30/22
+v4.57 12/7/22
 
-• add option to show/hide dedicated vehicle bar if dragon riding (bonusbar:5 macro condtional check)
-• add Valdraken portal & teleport to location panel
+• hot fix another reputation chatfilter error I caused in last update
