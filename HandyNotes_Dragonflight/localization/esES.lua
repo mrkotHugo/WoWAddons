@@ -7,7 +7,7 @@ if not L then return end
 -------------------------------- DRAGON ISLES ---------------------------------
 -------------------------------------------------------------------------------
 
-L['elite_loot_385'] = ns.color.Orange('¡Este raro puede soltar botín de hasta nivel 385!')
+L['elite_loot_385'] = ns.color.Orange('¡Este raro puede soltar botín de un nivel superior!')
 L['gem_cluster_note'] = 'El objeto requerido se puede obtener a Renombre 21 con la Expedición Dragontina en las Mochilas de Explorador de Expedición y en las Tierras Perturbadas.'
 
 L['options_icons_bonus_boss'] = 'Élites de Bonificación'
@@ -114,17 +114,17 @@ L['pt_tailor_decaying_brackenhide_blanket_note'] = 'Colgado de un árbol dentro 
 L['pt_tailor_intriguing_bolt_of_blue_cloth_note'] = 'Sigue la escalera de la izquierda.'
 
 L['leyline_note'] = 'Realinea la línea Ley.'
-L['options_icons_layline'] = '{achievement:16638}'
-L['options_icons_layline_desc'] = 'Muestra dónde están las líneas Ley para el logro {achievement:16638}.'
+L['options_icons_leyline'] = '{achievement:16638}'
+L['options_icons_leyline_desc'] = 'Muestra dónde están las líneas Ley para el logro {achievement:16638}.'
 
 L['river_rapids_wrangler_note'] = 'Habla con {npc:186157} y selecciona "Me gustaría volver a hacer tu Carrera en los Rápidos del Río". Tienes 60 segundos para recoger 40 acumulaciones de {spell:373490}.'
 L['seeing_blue_note'] = 'Vuela desde lo alto del Archivo Azur a la Galería Cobalto sin aterrizar.'
 L['snowman_note'] = 'Hay tres {npc:197599} reposando en la zona (podrían haber sido movidas por otros jugadores). Hazlas rodar a los dos críos, {npc:197838} y {npc:197839}.\nConseguirás el logro cuando las bolas de nieve tengan los tamaños correctos.'
 
-L['snowclaw_cub_note_start'] = 'Tienes que completar la cadena de misiones {quest:67094} que ofrece {npc:192522} en |cFFFFFD00Valdrakken|r para coseguir el título |cFFFFFD00Dríade Honoraria|r.\n\nReune los siguientes objetos:'
+L['snowclaw_cub_note_start'] = 'Tienes que completar la cadena de misiones {quest:67094} que ofrece {npc:192522} en |cFFFFFD00Valdrakken|r para conseguir el título |cFFFFFD00Dríade Honoraria|r.\n\nReune los siguientes objetos:'
 L['snowclaw_cub_note_item1'] = 'Despoja 3x {item:197744} de varios {npc:182559} alrededor de las |cFFFFFD00Orillas del Despertar|r.'
 L['snowclaw_cub_note_item2'] = 'Compra 1x {item:198356} del {npc:193310} en las |cFFFFFD00Orillas del Despertar|r.'
-L['snowclaw_cub_note_end'] = ns.color.Orange('Todos los objetos se pueden comprar en la casa de subastas. Es de especial ayuda si no tienes fácil acceso al {item:199215} el cual es requerido para comprar los objetos al {npc:193310}.') .. '\n\nUna vez tengas equipado el título ofrece los 4 objetos al {npc:196768} para recibir su mascota.' .. ns.color.Red('\n\nBUG: El título puede desaparecer. Pendiente de un fix.')
+L['snowclaw_cub_note_end'] = ns.color.Orange('Todos los objetos se pueden comprar en la casa de subastas. Es de especial ayuda si no tienes fácil acceso al {item:199215} el cual es requerido para comprar los objetos al {npc:193310}.') .. '\n\nUna vez tengas equipado el título |cFFFFFD00Dríade Honoraria|r ofrece los 4 objetos al {npc:196768} para recibir su mascota.' .. ns.color.Red('\n\nBUG: El título puede desaparecer. Pendiente de un fix.')
 
 L['tome_of_polymoph_duck'] = 'Usa {spell:1953} para entrar en la cueva e interactuar con el libro |cFFFFFD00Tormentas de Maná para Principiantes|r para completar la misión.'
 
@@ -137,6 +137,8 @@ Recoge (o compra en la casa de subastas):
 
 Pregunta sobre el Astudraco Ensillado y ofrece a {npc:190892} los "platos" recogidos.
 ]]
+
+L['elder_poa_note'] = 'Entrega {item:200071} para conseguir reputación con |cFFFFFD00Colmillarr de Iskaara|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------- FORBIDDEN REACH -------------------------------
@@ -180,14 +182,14 @@ L['pt_smith_falconer_gauntlet_drawings_note'] = 'En una isla en el mar, dentro d
 L['pt_tailor_noteworthy_scrap_of_carpet_note'] = 'Reposa en una choza pequeña. ' .. ns.color.Orange('3 élites en la choza')
 L['pt_tailor_silky_surprise_note'] = 'Busca y despoja la |cFFFFFD00Fronda de Hierba Gatera|r.'
 
-L['lizi_note'] = 'Completa la cadena de misiones Día de Iniciación comenzando con {quest:65901}. Completa las misiones cada día para curar a Lizi y recibir su montura.\n\nAdemás de los objetos necesarios, todas las misiones requieren 150x {currency:2003} para un total de 750x {currency:2003}.'
+L['lizi_note'] = 'Completa la cadena de misiones |cFFFFFD00El día libre de la iniciada|r comenzando con {quest:65901}. Completa las misiones cada día para curar a Lizi y recibir su montura.\n\nAdemás de los objetos necesarios, todas las misiones requieren 150x {currency:2003} para un total de 750x {currency:2003}.'
 L['lizi_note_day1'] = 'Recoge 20x {item:192615} de los enemigos insecto en las |cFFFFFD00Islas Dragón|r.'
 L['lizi_note_day2'] = 'Recoge 20x {item:192658} de los enemigos planta en las |cFFFFFD00Islas Dragón|r.'
 L['lizi_note_day3'] = 'Recoge 10x {item:194966} pescadas en cualquier masa de agua dulce en las |cFFFFFD00Islas Dragón|r. Se encuentran con más frecuencia en los interiores de las |cFFFFFD00Llanuras de Ohn\'ahran|r.'
 L['lizi_note_day4'] = 'Recoge 20x {item:192636} de los mamuts de las |cFFFFFD00Llanuras de Ohn\'ahran|r.'
 L['lizi_note_day5'] = 'Acepta la misión {quest:71195} de {npc:190014} y consigue 1x {item:200598} de {npc:190015} en la tienda al sur de los |cFFFFFD00Manantiales Ohn\'iri|r.'
 
-L['ohnahra_note_start'] = 'Completa la cadena de misiones Día de Iniciación comenzando con {quest:65901} y entonces aparecerá {npc:190022} en los |cFFFFFD00Manantiales Ohn\'iri|r detrás de la choza del sabio del viento.\n\nReúne los siguientes objetos:'
+L['ohnahra_note_start'] = 'Completa la cadena de misiones |cFFFFFD00El día libre de la iniciada|r comenzando con {quest:65901} y entonces aparecerá {npc:190022} en los |cFFFFFD00Manantiales Ohn\'iri|r detrás de la choza del sabio del viento.\n\nReúne los siguientes objetos:'
 L['ohnahra_note_item1'] = 'Recoge 3x {item:201929} de los {npc:186151}, el boss final de la mazmorra |cFFFFFD00Ofensiva Nokhud|r (dificultad Heroica). No tiene un 100% de caer.'
 L['ohnahra_note_item2'] = 'Compra 1x {item:201323} de {npc:196707} por 50x {currency:2003} y 1x {item:194562}.\n{item:194562} puede ser despojado de los enemigos Perdidos en el Tiempo en |cFFFFFD00Thaldrazsus|r.'
 L['ohnahra_note_item3'] = 'Compra 1x {item:191507} de la Casa de Subastas. (los Alqumistas pueden comprar la {item:191588} a {npc:196707} al llegar a Renombre 22).'
@@ -209,6 +211,7 @@ L['options_icons_dreamguard_desc'] = 'Muestra dónde están los Guardasueños pa
 
 L['khadin_note'] = 'Intercambia una {item:191784} por conocimiento de la profesión.'
 L['the_great_swog_note'] = 'Intercambia {item:199338}, {item:199339} y {item:199340} por un {item:202102}.'
+L['hunt_instructor_basku_note'] = 'Entrega {item:200093} para conseguir reputación con |cFFFFFD00Centauros Maruuk|r.'
 
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
@@ -250,10 +253,14 @@ L['craft_creche_crowler_note'] = 'Cómpraselo a {npc:187444} ' .. ns.color.NPC('
 L['bivigosas_blood_sausages_note'] = 'Cómpraselo a {npc:188895} ' .. ns.color.NPC('<Alimentos y bebidas>') .. ' en el |cFFFFFD00Puesto Gelikyr|r.'
 L['options_icons_specialties'] = '{achievement:16621}'
 L['options_icons_specialties_desc'] = 'Muestra dónde están las comidas y bebidas para el logro {achievement:16621}.'
+
+L['new_perspective_note'] = 'Haz una foto con la cámara S.E.L.F.I.E. al paisaje. La localización se marcará con un círculo violeta claro tan pronto como estés en el modo de cámara.\n\nSi no se te marca en el logro, cambia tu perspectiva.'
 L['options_icons_new_perspective'] = '{achievement:16634}'
 L['options_icons_new_perspective_desc'] = 'Muestra dónde están los paisajes para el logro {achievement:16634}.'
-L['new_perspective_note'] = 'Haz una foto con la cámara S.E.L.F.I.E. al paisaje. La localización se marcará con un círculo violeta claro tan pronto como estés en el modo de cámara.\n\nSi no se te marca en el logro, cambia tu perspectiva.'
+
 L['ruby_feast_gourmand'] = 'Cada día, un invitado chef al azar sirve distintos platos y bebidas.'
+
+L['sorotis_note'] = 'Entrega {item:199906} para conseguir reputación con |cFFFFFD00Acuerdo de Valdrakken|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
@@ -351,6 +358,10 @@ L['slumbering_worldsnail_note1'] = [[
 
 L['slumbering_worldsnail_note2'] = ns.color.Orange('Note: Si mueres perderás el debuff de membresía. Compre un nuevo título de miembro a {npc:193310} por 20x {item:202173} antes de morir o necesitarás entregar más llaves para la oportunidad de sacar un título de miembro del alijo.')
 
+L['magmashell_note'] = 'Despoja {item:201883} de los {npc:193138} alrededor de la |cffffff00Ciudadela Obsidiana|r y llévaselo al {npc:199010}.\n\n' .. ns.color.Orange('Haciendo click en el caracol se canalizará un hechizo durante 20 segundos después de lo cuales conseguirás la montura. Muy recomendable traer a un amigo sanador o usar el juguete {item:200116}.')
+
 L['options_icons_safari'] = '{achievement:16519}'
 L['options_icons_safari_desc'] = 'Muestra dónde están las mascotas de combate para el logro {achievement:16519}.'
 L['shyfly_note'] = 'Has de estar en la misión {quest:70853} para poder ver las {npc:189102}.'
+
+L['cataloger_jakes_note'] = 'Entrega {item:192055} para conseguir reputación con |cFFFFFD00Expedición Dragontina|r.'

@@ -1,5 +1,16 @@
 # Dominos Changelog
 
+## 10.0.14
+
+* Fix an issue with profile version updates upon the load of a new profile
+* Improved flyout mouseover detection
+
+## 10.0.13
+
+* Implemented a flyout workaround for portals and pet abilities, etc.
+* Dragonriding is now a normal paging condition. You can modify via an action bar's right click menu.
+* Removed the deprecated Dominos_Encounter folder
+
 ## 10.0.12
 
 * Fix dragonriding bar calculation

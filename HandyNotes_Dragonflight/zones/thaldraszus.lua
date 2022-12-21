@@ -7,22 +7,30 @@ local L = ns.locale
 local Map = ns.Map
 
 local Collectible = ns.node.Collectible
+local NPC = ns.node.NPC
+local PetBattle = ns.node.PetBattle
+local Rare = ns.node.Rare
+local Treasure = ns.node.Treasure
+
 local Disturbeddirt = ns.node.Disturbeddirt
 local Dragonglyph = ns.node.Dragonglyph
+local Dragonrace = ns.node.Dragonrace
 local Flag = ns.node.Flag
 local Fragment = ns.node.Fragment
-local PetBattle = ns.node.PetBattle
+local LegendaryCharacter = ns.node.LegendaryCharacter
 local PM = ns.node.ProfessionMasters
+local PrettyNeat = ns.node.PrettyNeat
 local PT = ns.node.ProfessionTreasures
-local Rare = ns.node.Rare
-local Scoutpack = ns.node.Scoutpack
 local RareElite = ns.node.RareElite
-local Treasure = ns.node.Treasure
+local Safari = ns.node.Safari
+local Scoutpack = ns.node.Scoutpack
+local Squirrel = ns.node.Squirrel
 
 local Achievement = ns.reward.Achievement
 local Currency = ns.reward.Currency
 local Item = ns.reward.Item
 local Pet = ns.reward.Pet
+local Toy = ns.reward.Toy
 local Transmog = ns.reward.Transmog
 
 local Path = ns.poi.Path
@@ -61,9 +69,9 @@ map.nodes[59075874] = RareElite({
     pois = {POI({60755543, 60736211, 59225648, 59266104})} -- Titanic Reactors
 }) -- Ancient Protector
 
-map.nodes[31097121] = Rare({ -- requirement ?
+map.nodes[31097121] = Rare({
     id = 193128,
-    quest = nil,
+    quest = 74096,
     note = L['blightpaw_note'],
     rewards = {Achievement({id = 16679, criteria = 56136})}
 }) -- Blightpaw the Depraved
@@ -204,8 +212,11 @@ map.nodes[47207895] = Rare({ -- review -- reqiured 67030
 
 map.nodes[38466826] = Rare({
     id = 191305,
-    quest = 72121,
-    rewards = {Achievement({id = 16679, criteria = 56155})}
+    quest = 74085,
+    rewards = {
+        Achievement({id = 16679, criteria = 56155}), --
+        Toy({item = 200999}) -- The Super Shellkhan Gang
+    }
 }) -- The Great Shellkhan
 
 map.nodes[46267317] = Rare({
@@ -306,26 +317,38 @@ map.nodes[33967695] = Treasure({ -- add loot
         ns.requirement.Quest(72709), -- Funding a Treasure Hunt
         ns.requirement.Item(199068) -- Time-Lost Memo
     },
-    rewards = {Achievement({id = 16301, criteria = 54810})}
+    rewards = {
+        Achievement({id = 16301, criteria = 54810}), --
+        Item({item = 169951, note = '3x'}) -- Broken Hourglass
+    }
 }) -- Cracked Hourglass
 
 map.nodes[60244164] = Treasure({ -- add loot
     quest = 70609,
-    rewards = {Achievement({id = 16301, criteria = 54813})}
+    rewards = {
+        Achievement({id = 16301, criteria = 54813}), --
+        Item({item = 203206}) -- Elegant Canvas Brush
+    }
 }) -- Elegant Canvas Brush
 
 map.nodes[58168007] = Treasure({ -- add loot
     quest = 70608,
     note = L['sandy_wooden_duck_note'],
     requires = ns.requirement.Item(199069), -- Yennu's Map
-    rewards = {Achievement({id = 16301, criteria = 54811})},
+    rewards = {
+        Achievement({id = 16301, criteria = 54811}),
+        Item({item = 200827, note = '5x'}) -- Weathered Sculpture
+    },
     pois = {POI({54937543})} -- Yennu's Map
 }) -- Sandy Wooden Duck (Sand Pile)
 
 map.nodes[64851655] = Treasure({ -- add loot
     quest = 70610,
     note = L['in_cave'],
-    rewards = {Achievement({id = 16301, criteria = 54814})}
+    rewards = {
+        Achievement({id = 16301, criteria = 54814}), --
+        Item({item = 193036}) -- Left-Handed Magnifying Glass
+    }
 }) -- Surveyor's Magnifying Glass
 
 -------------------------------------------------------------------------------
@@ -334,7 +357,7 @@ map.nodes[52458361] = Treasure({
     quest = 72355,
     label = '{npc:198604}',
     note = L['in_cave'],
-    requires = ns.requirement.Profession(5, 186), -- Mining
+    requires = ns.requirement.Profession(186), -- Mining
     rewards = {
         Pet({item = 201463, id = 3415}) -- Cubbly
     }
@@ -567,13 +590,14 @@ map.nodes[50844623] = Scoutpack()
 map.nodes[52758333] = Scoutpack()
 map.nodes[55456797] = Scoutpack()
 map.nodes[55873598] = Scoutpack()
+map.nodes[58046702] = Scoutpack()
 map.nodes[59198794] = Scoutpack()
 
 -------------------------------------------------------------------------------
 --------------------------------- DRAGONRACES ---------------------------------
 -------------------------------------------------------------------------------
 
-map.nodes[57767501] = ns.node.Dragonrace({
+map.nodes[57767501] = Dragonrace({
     label = '{quest:67095}',
     normal = {2080, 52, 49},
     advanced = {2081, 45, 40},
@@ -587,7 +611,7 @@ map.nodes[57767501] = ns.node.Dragonrace({
     }
 }) -- Flowing Forest Flight
 
-map.nodes[57256690] = ns.node.Dragonrace({
+map.nodes[57256690] = Dragonrace({
     label = '{quest:69957}',
     normal = {2092, 84, 81},
     advanced = {2093, 80, 75},
@@ -601,7 +625,7 @@ map.nodes[57256690] = ns.node.Dragonrace({
     }
 }) -- Tyrhold Trial
 
-map.nodes[37654894] = ns.node.Dragonrace({
+map.nodes[37654894] = Dragonrace({
     label = '{quest:70051}',
     normal = {2096, 72, 69},
     advanced = {2097, 71, 66},
@@ -615,7 +639,7 @@ map.nodes[37654894] = ns.node.Dragonrace({
     }
 }) -- Cliffside Circuit
 
-map.nodes[60264179] = ns.node.Dragonrace({
+map.nodes[60264179] = Dragonrace({
     label = '{quest:70059}',
     normal = {2098, 57, 54},
     advanced = {2099, 57, 52},
@@ -629,7 +653,7 @@ map.nodes[60264179] = ns.node.Dragonrace({
     }
 }) -- Academy Ascent
 
-map.nodes[39487621] = ns.node.Dragonrace({
+map.nodes[39487621] = Dragonrace({
     label = '{quest:70157}',
     normal = {2101, 64, 61},
     advanced = {2102, 59, 54},
@@ -643,7 +667,7 @@ map.nodes[39487621] = ns.node.Dragonrace({
     }
 }) -- Garden Gallivant
 
-map.nodes[58043367] = ns.node.Dragonrace({
+map.nodes[58043367] = Dragonrace({
     label = '{quest:70161}',
     normal = {2103, 53, 50},
     advanced = {2104, 50, 45},
@@ -661,17 +685,17 @@ map.nodes[58043367] = ns.node.Dragonrace({
 --------------------- TO ALL THE SQUIRRELS HIDDEN TIL NOW ---------------------
 -------------------------------------------------------------------------------
 
-map.nodes[55636757] = ns.node.Squirrel({
+map.nodes[55636757] = Squirrel({
     id = 195869,
     rewards = {Achievement({id = 16729, criteria = 10})}
 }) -- Diminuitive Boghopper
 
-map.nodes[51695797] = ns.node.Squirrel({
+map.nodes[51695797] = Squirrel({
     id = 196652,
     rewards = {Achievement({id = 16729, criteria = 11})}
 }) -- Reservoir Filly
 
-map.nodes[51307286] = ns.node.Squirrel({
+map.nodes[51307286] = Squirrel({
     id = 185148,
     rewards = {Achievement({id = 16729, criteria = 12})}
 }) -- Rocdrop Scarab
@@ -763,12 +787,12 @@ map.nodes[52416987] = Collectible({
 ----------------------------- THAT'S PRETTY NEAT! -----------------------------
 -------------------------------------------------------------------------------
 
-map.nodes[43567208] = ns.node.PrettyNeat({
+map.nodes[43567208] = PrettyNeat({
     id = 187280,
     rewards = {Achievement({id = 16446, criteria = 4})}
 }) -- Chef Fry-Aerie
 
-map.nodes[54285271] = ns.node.PrettyNeat({
+map.nodes[54285271] = PrettyNeat({
     id = 192383,
     rewards = {Achievement({id = 16446, criteria = 12})}
 }) -- Iridescent Peafowl
@@ -777,12 +801,12 @@ map.nodes[54285271] = ns.node.PrettyNeat({
 ------------------------------ A LEGENDARY ALBUM ------------------------------
 -------------------------------------------------------------------------------
 
-map.nodes[51134219] = ns.node.LegendaryCharacter({
+map.nodes[51134219] = LegendaryCharacter({
     id = 187284,
     rewards = {Achievement({id = 16570, criteria = 55775})}
 }) -- Wrathion
 
-map.nodes[38386903] = ns.node.LegendaryCharacter({
+map.nodes[36036939] = LegendaryCharacter({
     id = 195633,
     rewards = {Achievement({id = 16570, criteria = 55773})}
 }) -- Time-Warped Mysterious Fisher
@@ -817,7 +841,7 @@ map.nodes[46955951] = NewPerspective({criteria = 56004}) -- Tyrhold Reservoir
 ----------------------------- DRAGON ISLES SAFARI -----------------------------
 -------------------------------------------------------------------------------
 
-map.nodes[62401520] = ns.node.Safari({
+map.nodes[62401520] = Safari({
     id = 197629,
     rewards = {Achievement({id = 16519, criteria = 55644}), Pet({id = 3403})},
     pois = {
@@ -831,13 +855,13 @@ map.nodes[62401520] = ns.node.Safari({
     }
 }) -- Blue Dasher
 
-map.nodes[60403800] = ns.node.Safari({
+map.nodes[60403800] = Safari({
     id = 192268,
     rewards = {Achievement({id = 16519, criteria = 55656}), Pet({id = 3358})},
     pois = {POI({60403800, 60603800})}
 }) -- Crimsonspine
 
-map.nodes[50204780] = ns.node.Safari({
+map.nodes[50204780] = Safari({
     id = 189153,
     rewards = {Achievement({id = 16519, criteria = 55646}), Pet({id = 3313})},
     pois = {
@@ -848,7 +872,7 @@ map.nodes[50204780] = ns.node.Safari({
     }
 }) -- Grassland Stomper
 
-map.nodes[47606160] = ns.node.Safari({
+map.nodes[47606160] = Safari({
     id = 194720,
     rewards = {Achievement({id = 16519, criteria = 55647}), Pet({id = 3351})},
     pois = {
@@ -858,7 +882,7 @@ map.nodes[47606160] = ns.node.Safari({
     }
 }) -- Grizzlefur Cub
 
-map.nodes[52404860] = ns.node.Safari({
+map.nodes[52404860] = Safari({
     id = 189121,
     rewards = {Achievement({id = 16519, criteria = 55648}), Pet({id = 3295})},
     pois = {
@@ -871,12 +895,12 @@ map.nodes[52404860] = ns.node.Safari({
     }
 }) -- Igneoid
 
-map.nodes[39804580] = ns.node.Safari({
+map.nodes[39804580] = Safari({
     id = 193000,
     rewards = {Achievement({id = 16519, criteria = 55650}), Pet({id = 3366})}
 }) -- Kindlet
 
-map.nodes[50205900] = ns.node.Safari({
+map.nodes[50205900] = Safari({
     id = 189122,
     rewards = {Achievement({id = 16519, criteria = 55652}), Pet({id = 3296})},
     pois = {
@@ -889,7 +913,7 @@ map.nodes[50205900] = ns.node.Safari({
     }
 }) -- Palamanther
 
-map.nodes[43208360] = ns.node.Safari({
+map.nodes[43208360] = Safari({
     id = 197637,
     rewards = {Achievement({id = 16519, criteria = 55653}), Pet({id = 3404})},
     pois = {
@@ -901,7 +925,7 @@ map.nodes[43208360] = ns.node.Safari({
     }
 }) -- Polliswog
 
-map.nodes[44006480] = ns.node.Safari({
+map.nodes[44006480] = Safari({
     id = 191323,
     rewards = {Achievement({id = 16519, criteria = 55666}), Pet({id = 3336})},
     pois = {
@@ -916,8 +940,10 @@ map.nodes[44006480] = ns.node.Safari({
 }) -- Vorquin Runt
 
 -------------------------------------------------------------------------------
------------------------ GREAT GOURMAND OF THE RUBY FEAST ----------------------
+-------------------------------- MISCELLANEOUS --------------------------------
 -------------------------------------------------------------------------------
+
+---------------- ACHIEVEMENT: GREAT GOURMAND OF THE RUBY FEAST ----------------
 
 val.nodes[61261096] = Collectible({
     icon = 629060,
@@ -935,4 +961,15 @@ val.nodes[61261096] = Collectible({
         })
 
     }
-})
+}) -- Great Gourmand of the Ruby Feast
+
+----------------------------- MISCELLANEOUS NPCs ------------------------------
+
+val.nodes[25994004] = NPC({
+    id = 195768,
+    icon = 4638429,
+    note = L['sorotis_note'],
+    parent = map.id
+}) -- Sorotis (Valdrakken Accord Reputation)
+
+-- STOP: DO NOT ADD NEW NODES HERE UNLESS THEY BELONG IN MISCELLANEOUS

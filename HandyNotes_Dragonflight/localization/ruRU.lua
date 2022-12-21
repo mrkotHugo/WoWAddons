@@ -7,7 +7,7 @@ if not L then return end
 -------------------------------- DRAGON ISLES ---------------------------------
 -------------------------------------------------------------------------------
 
-L['elite_loot_385'] = ns.color.Orange('Из этого редкого монстра можно получить добычу до 385 уровня!')
+L['elite_loot_385'] = ns.color.Orange('Из этого редкого монстра можно получить добычу более высокого уровня!')
 L['gem_cluster_note'] = 'Эти предметы станут доступны с 21-го уровня известности с Драконьей Экспедиции, их можно найти в Сумках разведчиков экспедиции и в Потревоженной почве.'
 
 L['options_icons_bonus_boss'] = 'Бонусные элитные монстры'
@@ -49,10 +49,10 @@ L['scout_pack'] = 'Сумка разведчика экспедиции'
 L['options_icons_scout_pack'] = 'Сумка разведчика экспедиции'
 L['options_icons_scout_pack_desc'] = 'Отображение местоположения Сумок разведчиков экспедиции.'
 
-L['dr_best'] = 'Ваше лучшее время:\n - Обычный: %.3fs\n - Сложный: %.3fs'
-L['dr_best_dash'] = 'Ваше лучшее время:\n - %.3fs'
-L['dr_note'] = 'Отведенное время:\n - Обычный: %ss / %ss\n - Сложный: %ss / %ss'
-L['dr_note_dash'] = 'Отведенное время:\n - %ss / %ss'
+L['dr_best'] = 'Ваше лучшее время:\n - Обычный: %.3fс\n - Сложный: %.3fс'
+L['dr_best_dash'] = 'Ваше лучшее время:\n - %.3fс'
+L['dr_note'] = 'Отведенное время:\n - Обычный: %sс / %sс\n - Сложный: %sс / %sс'
+L['dr_note_dash'] = 'Отведенное время:\n - %sс / %sс'
 L['dr_bronze'] = '\n\nЗавершите гонку, чтобы получить ' .. ns.color.Bronze('Бронзу') .. '.'
 L['options_icons_dragonrace'] = 'Гонка на драконах'
 L['options_icons_dragonrace_desc'] = 'Отображение местоположения гонок на драконах.'
@@ -87,7 +87,7 @@ L['fisherman_tinnak_note'] = 'Соберите |cFFFFFD00Сломанную уд
 L['spellwrought_snowman_note'] = 'Соберите 10x {npc:193424} и принесите их к {npc:193242}.'
 L['trilvarus_loreweaver_note'] = 'Возьмите |cFFFFFD00Напевающий фрагмент|r и получите {spell:382076} затем используйте |cFFFFFD00Незаряженное сосредоточение|r для того, чтобы призвать редкого монстра.'
 
-L['breezebiter_note'] = 'Летает на небе, чтобы приземлить его просто летайте возле него.'
+L['breezebiter_note'] = 'Летает в небе, чтобы приземлить его просто летайте возле него.'
 
 L['forgotten_jewel_box_note'] = '{item:199065} можно найти в сумках разведчика экспедиции и потревоженной почве.'
 L['gnoll_fiend_flail_note'] = '{item:199066} можно найти в сумках разведчика экспедиции и потревоженной почве.'
@@ -100,7 +100,7 @@ L['pm_script_lydiara_whisperfeather'] = 'Сидит на скамейке.'
 L['pt_alch_experimental_decay_sample_note'] = 'Внутри большого зеленого котла.'
 L['pt_alch_firewater_powder_sample_note'] = 'Снаружи бревенчатый дом рядом с вазой.'
 L['pt_ench_enriched_earthen_shard_note'] = 'На куче камней.'
-L['pt_ench_faintly_enchanted_remains_note'] = nil
+L['pt_ench_faintly_enchanted_remains_note'] = 'Нажмите на |cFFFFFD00Жаждущую маны друзу|r, чтобы вызвать и убить монстра. Затем заберите кристалл, который появляется.'
 L['pt_ench_forgotten_arcane_tome_note'] = 'Лежит на полу справа от входа в гробницу.'
 L['pt_jewel_crystalline_overgrowth_note'] = 'Рядом с небольшим прудом.'
 L['pt_jewel_harmonic_crystal_harmonizer_note'] = 'Нажмите на сундук, чтобы получить бафф, затем нажмите на 3 кристалла.'
@@ -114,8 +114,8 @@ L['pt_tailor_decaying_brackenhide_blanket_note'] = 'Висит на дереве
 L['pt_tailor_intriguing_bolt_of_blue_cloth_note'] = 'Идите по лестнице налево.'
 
 L['leyline_note'] = 'Силовые линии Простора.'
-L['options_icons_layline'] = '{achievement:16638}'
-L['options_icons_layline_desc'] = 'Показать расположение всех силовых линий для достижения {achievement:16638}.'
+L['options_icons_leyline'] = '{achievement:16638}'
+L['options_icons_leyline_desc'] = 'Показать расположение всех силовых линий для достижения {achievement:16638}.'
 
 L['river_rapids_wrangler_note'] = nil
 L['seeing_blue_note'] = 'Пролетите с вершины Лазурных архивов до Кобальтовой ассамблеи за один полет.'
@@ -135,8 +135,10 @@ L['temperamental_skyclaw_note'] = [[
 20x {item:201421}
 20x {item:201422}
 
-Спросите о оседланном сливерне и подарите {npc:190892} собранную "тарелку".
+Спросите о оседланной лисе-виверне и покажите {npc:190892} собранные "блюда".
 ]]
+
+L['elder_poa_note'] = 'Обменяйте {item:200071} на репутацию с |cFFFFFD00Искарскими клыкаррами|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------- FORBIDDEN REACH -------------------------------
@@ -167,13 +169,13 @@ L['yennus_boat'] = 'Игрушечная лодка клыкарров'
 L['yennus_boat_note'] = 'Возьмите |cFFFFFD00игрушечную лодку клыкарров|r, чтобы получить {item:200876}, который запускает задание {quest:72063}, которое можно сдать у {npc:195252}.'
 
 L['pm_ench_shalasar_glimmerdusk'] = 'На втором этаже разрушенной башни.'
-L['pm_herb_hua_greenpaw'] = nil
+L['pm_herb_hua_greenpaw'] = 'Встаньте на колени рядом с деревом.'
 L['pm_leath_erden'] = 'Стоит рядом с мертвым {npc:193092} у реки.'
 L['pt_alch_canteen_of_suspicious_water_note'] = 'Глубоко внутри пещеры рядом с мертвым {npc:194887}.'
 L['pt_ench_stormbound_horn_note'] = 'В |cFFFFFD00Подъеме Песни Ветра|r.'
 L['pt_jewel_fragmented_key_note'] = 'Под корнями дерева в разрушенном здании.'
 L['pt_jewel_lofty_malygite_note'] = 'Парит в воздухе в пещере.'
-L['pt_leath_wind_blessed_hide_note'] = nil
+L['pt_leath_wind_blessed_hide_note'] = 'Внутри |cFFFFFD00Шикаарского нагорья|r Лагерь кентавров.'
 L['pt_script_sign_language_reference_sheet_note'] = 'Висит у входа в палатку.'
 L['pt_smith_ancient_spear_shards_note'] = 'Внутри пещеры к западу от |cFFFFFD00рубежа Русза\'тар|r.'
 L['pt_smith_falconer_gauntlet_drawings_note'] = 'Остров в море, внутри хижины.'
@@ -209,6 +211,7 @@ L['options_icons_dreamguard_desc'] = 'Отображать места Изумр
 
 L['khadin_note'] = 'Обмен {item:191784} на знания по профессии.'
 L['the_great_swog_note'] = 'Обменять {item:199338}, {item:199339} и {item:199340} на {item:202102}.'
+L['hunt_instructor_basku_note'] = 'Обменяйте {item:200093} на репутацию с |cFFFFFD00Кентаврами Маруук|r.'
 
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
@@ -216,7 +219,7 @@ L['the_great_swog_note'] = 'Обменять {item:199338}, {item:199339} и {it
 
 L['ancient_protector_note'] = nil
 L['blightpaw_note'] = 'Поговорите с {npc:193222} поблизости и согласитесь помочь ему.'
-L['corrupted_proto_dragon_note'] = nil
+L['corrupted_proto_dragon_note'] = 'Осмотрите |cFFFFFD00Оскверненное яйцо дракона|r, чтобы вызвать редкого монстра.'
 L['weeping_vilomah_note'] = 'Поговорите с {npc:193206}, чтобы призвать редкого монстра.'
 L['woofang_note'] = 'Погладьте {npc:193156}, чтобы призвать редкого монстра.'
 
@@ -250,10 +253,14 @@ L['craft_creche_crowler_note'] = nil
 L['bivigosas_blood_sausages_note'] = nil
 L['options_icons_specialties'] = '{achievement:16621}'
 L['options_icons_specialties_desc'] = 'Показать места еды и напитков для достижения {achievement:16621}.'
+
+L['new_perspective_note'] = 'Сделайте снимок с помощью СЕЛФИ камеры, живописных мест. Место будет отмечено фиолетовым кружком света, как только вы перейдете в режим камеры.\n\nЕсли вы не получаете зачет в достижение, измените свою точку обзора.'
 L['options_icons_new_perspective'] = '{achievement:16634}'
 L['options_icons_new_perspective_desc'] = 'Живописные места для достижения {achievement:16634}.'
-L['new_perspective_note'] = 'Сделайте снимок с помощью СЕЛФИ камеры, живописных мест. Место будет отмечено фиолетовым кружком света, как только вы перейдете в режим камеры.\n\nЕсли вы не получаете зачет в достижение, измените свою точку обзора.'
+
 L['ruby_feast_gourmand'] = 'Каждый день случайно приглашенный шеф-повар подает разные блюда и напитки.'
+
+L['sorotis_note'] = 'Обменяйте {item:199906} на репутацию c |cFFFFFD00Союзом Вальдраккена|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
@@ -336,11 +343,25 @@ L['options_icons_stories_desc'] = 'Места заданий для достиж
 L['all_sides_of_the_story_garrick_and_shuja_note'] = 'Начните цепочку заданий и выслушайте историю {npc:184449} и {npc:184451}.'
 L['all_sides_of_the_story_duroz_and_kolgar_note'] = 'В маленькой комнате под платформой.\n\nНачните цепочку заданий и выслушайте историю {npc:194800} и {npc:194801}. Другие задания будут разблокированы в течение следующих двух недель.'
 L['all_sides_of_the_story_tarjin_note'] = 'Начните цепочку заданий с {quest:70779}.\n{npc:196214} будет рассказывать вам новую историю каждую неделю.'
-L['all_sides_of_the_story_veritistrasz_note'] = nil
+L['all_sides_of_the_story_veritistrasz_note'] = 'Начать задание {quest:70132} по всем историям {npc:194076}.\nПосле этого вы разблокируете {quest:70134}, а затем {quest:70268}.\n\nДля последнего задания вам понадобится {item:198661}, который находится внутри ' .. ns.color.Yellow('Драконьей Погибели') .. '.'
 
-L['slumbering_worldsnail_note1'] = nil
-L['slumbering_worldsnail_note2'] = nil
+L['slumbering_worldsnail_note1'] = [[
+1. Соберите 3x {item:193201} и 30x {item:191251} с монстров обитающих в |cFFFFFD00Обсидиановой Цитадели|r, чтобы получить {item:191264}.
+
+2. Обменяйте {item:191264} на {item:200069} у {npc:187275}.
+
+3. С вероятностью 30% в сундуке будет {item:199215}.
+
+4. Использование данного предмета даст вам дебафф {spell:386848}, который позволит вам собирать {item:202173} с монстров в |cFFFFFD00Обсидиановой цитадели|r.
+
+5. Соберите 1000x {item:202173}, чтобы купить {item:192786}.]]
+
+L['slumbering_worldsnail_note2'] = ns.color.Orange('Примечание: если вы умрете, вы потеряете дебафф членства. Либо купите новое членство у {npc:193310} за 20x {item:202173} перед смертью, либо вам нужно сдать больше ключей, чтобы получить шанс получить новое членство из сундука.')
+
+L['magmashell_note'] = 'Добудьте {item:201883} с {npc:193138} вокруг |cffffff00Обсидиановой цитадели|r и отнесите к {npc:199010}.\n\n' .. ns.color.Orange('Вам нужно будет продержаться в лаве 20 секунд, чтобы получить средство передвижение. Поэтому рекомендуем взять с собой целителя или игрушку {item:200116}.')
 
 L['options_icons_safari'] = '{achievement:16519}'
 L['options_icons_safari_desc'] = 'Отображение местоположения боевых питомцев для {achievement:16519}.'
 L['shyfly_note'] = 'Вы должны выполнить задание {quest:70853}, чтобы увидеть {npc:189102}.'
+
+L['cataloger_jakes_note'] = 'Обменяйте {item:192055} на репутацию с |cFFFFFD00Драконьей экспедицией|r.'

@@ -7,7 +7,7 @@ if not L then return end
 -------------------------------- DRAGON ISLES ---------------------------------
 -------------------------------------------------------------------------------
 
-L['elite_loot_385'] = ns.color.Orange('Ce rare peut donner des objets allant jusqu\'à l\'ilv 385 !')
+L['elite_loot_385'] = ns.color.Orange('Ce rare peut laisser tomber du butin ayant un ilvl plus élevé que la normale !')
 L['gem_cluster_note'] = 'L\'objet requis peut être trouvé au Renom 21 avec l\'Expédition du Dracaret dans les Paquetages d\'éclaireurs de l\'expédition et les Poussières dérangées.'
 
 L['options_icons_bonus_boss'] = 'Élites bonus'
@@ -114,8 +114,8 @@ L['pt_tailor_decaying_brackenhide_blanket_note'] = 'Accroché à un arbre dans u
 L['pt_tailor_intriguing_bolt_of_blue_cloth_note'] = 'Suivez les escaliers à gauche.'
 
 L['leyline_note'] = 'Réalignez la ligne tellurique.'
-L['options_icons_layline'] = '{achievement:16638}'
-L['options_icons_layline_desc'] = 'Afficher les emplacements de toutes les lignes telluriques pour le haut-fait {achievement:16638}.'
+L['options_icons_leyline'] = '{achievement:16638}'
+L['options_icons_leyline_desc'] = 'Afficher les emplacements de toutes les lignes telluriques pour le haut-fait {achievement:16638}.'
 
 L['river_rapids_wrangler_note'] = 'Parlez à {npc:186157} et sélectionnez "J\'aimerais refaire une descente des rapides". Vous avez 60 secondes pour récupérer 40x charges de {spell:373490}.'
 L['seeing_blue_note'] = 'Volez du sommet des archives d’Azur jusqu’à l’assemblée de Cobalt sans atterrir.'
@@ -124,7 +124,7 @@ L['snowman_note'] = 'Il y a trois {npc:197599s} dans la zone (elles ont pu être
 L['snowclaw_cub_note_start'] = 'Vous devez terminer la suite de quêtes {quest:67094} donnée par {npc:192522} à |cFFFFFD00Valdrakken|r pour obtenir le titre de |cFFFFFD00Dryade honoraire|r.\n\nRassemblez les objets suivants :'
 L['snowclaw_cub_note_item1'] = 'Récupérez 3x {item:197744} sur divers {npc:182559} aux |cFFFFFD00Rivages de l’Éveil|r.'
 L['snowclaw_cub_note_item2'] = 'Achetez 1x {item:198356} à la {npc:193310} aux |cFFFFFD00Rivages de l’Éveil|r.'
-L['snowclaw_cub_note_end'] = ns.color.Orange('Tous les objets peuvent être achetés à l\'hôtel des ventes. Ceci est particulièrement utile si vous n\'avez pas facilement accès à un {item:199215} qui est nécessaire pour acheter des objets à la {npc:193310}.') .. '\n\nUne fois le titre équipé, offrez les 4 objets à l\'{npc:196768} pour recevoir votre mascotte.'
+L['snowclaw_cub_note_end'] = ns.color.Orange('Tous les objets peuvent être achetés à l\'hôtel des ventes. Ceci est particulièrement utile si vous n\'avez pas facilement accès à un {item:199215} qui est nécessaire pour acheter des objets à la {npc:193310}.') .. '\n\nUne fois le titre |cFFFFFD00Dryade honoraire|r équipé, offrez les 4 objets à l\'{npc:196768} pour recevoir votre mascotte.'
 
 L['tome_of_polymoph_duck'] = 'Utilisez {spell:1953} pour entrer dans la grotte et interagir avec le livre |cFFFFFD00La tempête de mana pour les novices|r pour terminer la quête.'
 
@@ -137,6 +137,8 @@ Rassemblez (ou achetez à l'hôtel des ventes) :
 
 Renseignez-vous sur la rusarde sellée et remettez à {npc:190892} les "plats" recueillis.
 ]]
+
+L['elder_poa_note'] = 'Échangez vos {item:200071} pour obtenir de la réputation avec les |cFFFFFD00Roharts iskaariens|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------- FORBIDDEN REACH -------------------------------
@@ -180,14 +182,14 @@ L['pt_smith_falconer_gauntlet_drawings_note'] = 'Sur une île en mer, à l\'int�
 L['pt_tailor_noteworthy_scrap_of_carpet_note'] = 'Posé dans une petite hutte.' .. ns.color.Orange('3 élites dans la hutte.')
 L['pt_tailor_silky_surprise_note'] = 'Trouvez et ramassez une |cFFFFFD00Feuille d’herbe à chat|r.'
 
-L['lizi_note'] = 'Terminez la suite de quêtes Une sortie d’initié en commençant par {quest:65901}. Accomplissez les quêtes chaque jour pour soigner Lizi et recevoir votre monture.\n\nEn plus des objets requis, toutes les quêtes demandent 150x {currency:2003} pour un total de 750x {currency:2003}.'
+L['lizi_note'] = 'Terminez la suite de quêtes |cFFFFFD00Une sortie d’initié|r en commençant par {quest:65901}. Accomplissez les quêtes chaque jour pour soigner Lizi et recevoir votre monture.\n\nEn plus des objets requis, toutes les quêtes demandent 150x {currency:2003} pour un total de 750x {currency:2003}.'
 L['lizi_note_day1'] = 'Collectez 20x {item:192615} sur des monstres insectes dans les |cFFFFFD00Îles aux Dragons|r.'
 L['lizi_note_day2'] = 'Collectez 20x {item:192658} sur des monstres végétaux dans les |cFFFFFD00Îles aux Dragons|r.'
 L['lizi_note_day3'] = 'Collectez 10x {item:194966} pêchés dans n\'importe quelles eaux des |cFFFFFD00Îles aux Dragons|r. Ils sont trouvés le plus souvent à l\'intérieur des terres des |cFFFFFD00Plaines d\'Ohn\'ahra|r.'
 L['lizi_note_day4'] = 'Collectez 20x {item:192636} sur des mammouths dans les |cFFFFFD00Plaines d\'Ohn\'ahra|r'
 L['lizi_note_day5'] = 'Acceptez {quest:71195} de l\'{npc:190014} et obtenez 1x {item:200598} de la part de {npc:190015} dans une tente au sud des |cFFFFFD00Sources des Ohn\'irs|r.'
 
-L['ohnahra_note_start'] = 'Terminez la suite de quêtes Une sortie d’initié commençant par {quest:65901} puis {npc:190022} apparaîtra aux |cFFFFFD00Sources des Ohn\'irs|r derrière une hutte de Sage-du-vent.\n\nRassemblez les matériaux suivants :'
+L['ohnahra_note_start'] = 'Terminez la suite de quêtes |cFFFFFD00Une sortie d’initié|r commençant par {quest:65901} puis {npc:190022} apparaîtra aux |cFFFFFD00Sources des Ohn\'irs|r derrière une hutte de Sage-du-vent.\n\nRassemblez les matériaux suivants :'
 L['ohnahra_note_item1'] = 'Récupérez 3x {item:201929} sur {npc:186151}, le boss final du donjon |cFFFFFD00L\'offensive nokhud|r. Ce n\'est pas un drop garanti à 100%.'
 L['ohnahra_note_item2'] = 'Achetez 1x {item:201323} à l\'{npc:196707} pour 50x {currency:2003} et 1x {item:194562}.\nLe {item:194562} peut être récupéré sur des monstres perdus dans le temps à |cFFFFFD00Thaldraszus|r.'
 L['ohnahra_note_item3'] = 'Achetez 1x {item:191507} à l\'Hôtel des Ventes. (Les alchimistes peuvent acheter la {item:191588} à l\'{npc:196707} à partir du Renom 22)'
@@ -209,6 +211,7 @@ L['options_icons_dreamguard_desc'] = 'Afficher les emplacements des Gardes-rêve
 
 L['khadin_note'] = 'Échangez les {item:191784} contre de la connaissance de métiers.'
 L['the_great_swog_note'] = 'Échangez des {item:199338}, {item:199339} et {item:199340} contre des {item:202102}.'
+L['hunt_instructor_basku_note'] = 'Échangez vos {item:200093} pour obtenir de la réputation avec les |cFFFFFD00Centaures maruuks|r.'
 
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
@@ -250,10 +253,14 @@ L['craft_creche_crowler_note'] = 'Achetez auprès de {npc:187444} ' .. ns.color.
 L['bivigosas_blood_sausages_note'] = 'Achetez auprès de l\'{npc:188895} ' .. ns.color.NPC('<Nourriture et boissons>') .. ' au |cFFFFFD00Poste Gelikyr|r.'
 L['options_icons_specialties'] = '{achievement:16621}'
 L['options_icons_specialties_desc'] = 'Afficher les emplacements des aliments et boissons pour le haut-fait {achievement:16621}.'
+
+L['new_perspective_note'] = 'Prenez une photo du panorama avec l\'Appareil P.R.O.F.I.L. L\'emplacement sera marqué par un cercle lumineux violet dès que vous aurez activé le mode appareil photo.\n\nSi vous n\'obtenez pas de crédit pour ce haut-fait, modifiez la perspective.'
 L['options_icons_new_perspective'] = '{achievement:16634}'
 L['options_icons_new_perspective_desc'] = 'Afficher les emplacements des panoramas pour le haut-fait {achievement:16634}.'
-L['new_perspective_note'] = 'Prenez une photo du panorama avec l\'Appareil P.R.O.F.I.L. L\'emplacement sera marqué par un cercle lumineux violet dès que vous aurez activé le mode appareil photo.\n\nSi vous n\'obtenez pas de crédit pour ce haut-fait, modifiez la perspective.'
+
 L['ruby_feast_gourmand'] = 'Chaque jour, un chef invité au hasard sert des plats et des boissons variés.'
+
+L['sorotis_note'] = 'Échangez vos {item:199906} pour obtenir de la réputation avec le |cFFFFFD00Concordat de Valdrakken|r.'
 
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
@@ -351,6 +358,10 @@ L['slumbering_worldsnail_note1'] = [[
 
 L['slumbering_worldsnail_note2'] = ns.color.Orange('Note : Si vous mourrez, vous perdrez votre debuff d\'abonnement. Vous pouvez acheter un nouvel abonnement auprès de {npc:193310} pour 20x {item:202173} avant de mourir ou bien vous devrez apporter d\'autres clés pour avoir une chance d\'obtenir un nouvel abonnement dans le coffre.')
 
+L['magmashell_note'] = 'Récupérez une {item:201883} sur les {npc:193138} dans la |cFFFFFD00Citadelle d\'Obsidienne|r et apportez-la à l\'{npc:199010}.\n\n' .. ns.color.Orange('Il y aura un sort canalisé pendant 20 secondes une fois dans la lave pour obtenir la monture, il est donc recommandé de faire appel à un soigneur ou quelque chose comme la {item:200116}.')
+
 L['options_icons_safari'] = '{achievement:16519}'
 L['options_icons_safari_desc'] = 'Afficher les emplacements des mascottes pour le haut-fait {achievement:16519}.'
 L['shyfly_note'] = 'Vous devez avoir la quête {quest:70853} pour voir les {npc:189102}.'
+
+L['cataloger_jakes_note'] = 'Échangez vos {item:192055} pour obtenir de la réputation avec l\'|cFFFFFD00Expédition du Dracaret|r.'

@@ -339,11 +339,17 @@ L["opt_autoAwardPrioList_desc"] = "Gegenstände werden an den dieser Prioritäts
 --[[ L["opt_autoGroupLoot_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_autoGroupLoot_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLootGuildGroupOnly_name"] = ""--]] 
 L["opt_autoTrade_desc"] = "Anhaken, um vergebene Gegenstände dem Handelsfenster automatisch hinzuzufügen, wenn man mit dem Gewinner handelt. Wenn deaktiviert, wird ein Pop-up eingeblendet bevor die Gegenstände hinzugefügt werden. "
 L["opt_award_later_desc"] = "Anhaken, um die \"Später vergeben\"-Funktion im Sitzungsfenster automatisch zu aktivieren."
 L["opt_buttonsGroup_desc"] = "Optionsgruppe für %s Schaltflächen und Antworten. Für eine detaillierte Erklärung siehe oben. "
 L["opt_chatFrameName_desc"] = "Wähle aus, in welchem Chatfenster RCLootCouncil Informationen ausgeben soll."
 L["opt_chatFrameName_name"] = "Chatfenster"
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_name"] = ""--]] 
 L["opt_deleteDate_confirm"] = [=[Bist du sicher, dass du alles, das älter als das gewählte ist, löschen möchtest?
 Dies kann nicht rückgängig gemacht werden.]=]
 L["opt_deleteDate_desc"] = "Lösche alles, was älter als die ausgewählte Anzahl an Tagen ist."

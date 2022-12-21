@@ -1,3 +1,49 @@
+# 3.6.4
+
+## Changes
+
+- *Reverted "Guild Groups Only" addition as it had potential to break horribly.*
+
+# v3.6.3
+
+## Changes
+
+Added option for toggling 'Escape' closing frames.
+
+### Group Loot
+
+By default, RCLootCouncil will now no longer auto pass group loot if the group leader is not a member of your guild. You can override this behavior with the "Guild Groups Only" option.
+
+## Bugfixes
+
+- *Fixed issue with realm name not available upon login, affecting specifc comms.*
+
+# v3.6.2
+
+## Changes
+
+### Group Loot
+
+Changed logic behind automatically adding loot to a session. Should result in a more reliable experience.
+
+## Bugfixes
+
+- *Warning about Auto Group Loot will now only be displayed when actually using group loot.*
+- *Fixed issue with auto trade. (#223)*
+- *Fixed realm name issue related to playing cross realm on realms containing '-'.(Curse#512).*
+
+# v3.6.1
+
+## Changes
+
+Added `/rc start` command which either shows the usage pop-up or starts the addon depending on your usage settings.
+
+## Bugfixes
+
+- *Fixed potential nil error (Classic#46, CurseClassic#170).*
+- *Fixed issue preventing the addon from adding items to the trade window.*
+- *Fixed issue with players joining after the group leader wouldn't auto pass on group loot.*
+
 # v3.6.0
 
 ## Changes

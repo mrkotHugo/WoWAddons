@@ -6,7 +6,7 @@ if not L then return end
 -------------------------------- DRAGON ISLES ---------------------------------
 -------------------------------------------------------------------------------
 
-L['elite_loot_385'] = ns.color.Orange('Dieser seltene Gegner kann Beute bis zu Gegenstandsstufe 385 fallen lassen!')
+L['elite_loot_385'] = ns.color.Orange('Dieser seltene Gegner kann Beute mit höherer Gegenstandsstufe fallen lassen!')
 L['gem_cluster_note'] = 'Der benötigte Gegenstand kann auf Ruhmstufe 21 bei der Drachenschuppenexpedition in Expeditionsspäherpacks und in Bewegte Erde enthalten sein.'
 
 L['options_icons_bonus_boss'] = 'Bonus Elitegegner'
@@ -113,8 +113,8 @@ L['pt_tailor_decaying_brackenhide_blanket_note'] = 'Hängt in einem provisorisch
 L['pt_tailor_intriguing_bolt_of_blue_cloth_note'] = 'Folge den Treppen nach links.'
 
 L['leyline_note'] = 'Richte die Laylinie neu aus.'
-L['options_icons_layline'] = '{achievement:16638}'
-L['options_icons_layline_desc'] = 'Zeigt die Positionen aller Leylinien für den Erfolg {achievement:16638} an.'
+L['options_icons_leyline'] = '{achievement:16638}'
+L['options_icons_leyline_desc'] = 'Zeigt die Positionen aller Leylinien für den Erfolg {achievement:16638} an.'
 
 L['river_rapids_wrangler_note'] = 'Sprich mit {npc:186157} und wähle "Ich würde gerne nochmal den Stromschnellenritt machen" aus. Du hast 60 Sekunden, um 40x Stacks von {spell:373490} zu sammeln.'
 L['seeing_blue_note'] = 'Fliegt ohne Zwischenlandung von der Spitze der Azurarchive zum Kobaltkonvent.'
@@ -123,7 +123,7 @@ L['snowman_note'] = 'Es liegen 3 Schneebälle in der Nähe (möglicherweise wurd
 L['snowclaw_cub_note_start'] = 'Du musst zunächst die Questreihe {quest:67094} von {npc:192522} in |cFFFFFD00Valdrakken|r abschließen, um den Titel |cFFFFFD00Ehrendryade|r zu erhalten.\n\nBesorge die folgenden Gegenstände:'
 L['snowclaw_cub_note_item1'] = 'Sammel 3x {item:197744} von verschiedene {npc:182559n} in |cFFFFFD00Die Küste des Ewachens|r.'
 L['snowclaw_cub_note_item2'] = 'Kaufe 1x {item:198356} von {npc:193310} in |cFFFFFD00Die Küste des Ewachens|r.'
-L['snowclaw_cub_note_end'] = ns.color.Orange('Alle Gegenstände können im Auktionshaus ersteigert werden. Das ist besonders hilfreich, da du bei {npc:193310} den {item:198356} nur mit einer {item:199215} kaufen kannst.') .. '\n\nSobald du den Titel angelegt hast, biete {npc:196768} die Gegenstände an, um dein Haustier zu erhalten.' .. ns.color.Red('\n\nBUG: Der Titel könnte verschwinden.')
+L['snowclaw_cub_note_end'] = ns.color.Orange('Alle Gegenstände können im Auktionshaus ersteigert werden. Das ist besonders hilfreich, da du bei {npc:193310} den {item:198356} nur mit einer {item:199215} kaufen kannst.') .. '\n\nSobald du den Titel |cFFFFFD00Ehrendryade|r angelegt hast, biete {npc:196768} die Gegenstände an, um dein Haustier zu erhalten.' .. ns.color.Red('\n\nBUG: Der Titel könnte verschwinden.')
 
 L['tome_of_polymoph_duck'] = 'Benutze {spell:1953}, um in die Höhle zu gelangen und interagiere dann mit dem |cFFFFFD00Manastürmen für Anfänger|r Buch, um die Quest abzuschließen.'
 
@@ -136,6 +136,8 @@ Sammel (oder kaufe im Auktionshaus):
 
 Fragt nach der gesattelten Slyvern und präsentiert {npc:190892} die gesammelten "Gerichte".
 ]]
+
+L['elder_poa_note'] = 'Tausche {item:200071} gegen Ruf bei den |cFFFFFD00Tuskarr von Iskaara|r ein.'
 
 -------------------------------------------------------------------------------
 ------------------------------- FORBIDDEN REACH -------------------------------
@@ -153,11 +155,11 @@ L['mysterious_wand_note'] = 'Hebe den |cFFFFFD00Krstallschlüssel|r auf und plat
 ------------------------------ OHN'AHRAN PLAINS -------------------------------
 -------------------------------------------------------------------------------
 
-L['hunter_of_the_deep_note'] = 'Klicke auf den Waffenständer und schieße auf die Fische, bis der seltene Gegner erscheint.'
+L['hunter_of_the_deep_note'] = 'Hole dir am |cFFFFFD00Speergestell|r einen Speer und wirf die Fische ab, bis der seltene Gegner erscheint.'
 L['scaleseeker_mezeri_note'] = 'Sprich mit {npc:193224} und biete ihr ein {item:194681} an und folge ihr, bis sie den seltenen Gegner enthüllt.'
 L['shade_of_grief_note'] = 'Klicke den {npc:193166} an, um den seltenen Gegner zu beschwören.'
 L['windscale_the_stormborn_note'] = 'Töte die {npc:192367}, die auf das {npc:192357} kanalisieren.'
-L['zarizz_note'] = 'Klicke und fauche ' .. ns.color.Orange('(/fauchen)') .. ' die vier {npc:193169n} an, um den seltenen Gegner erscheinen zu lassen.'
+L['zarizz_note'] = 'Visiere und fauche ' .. ns.color.Orange('(/fauchen)') .. ' die vier {npc:193169n} an, um den seltenen Gegner erscheinen zu lassen.'
 
 L['gold_swong_coin_note'] = 'In der Höhle mit {npc:191608} zu seiner rechten Seite.'
 L['nokhud_warspear_note'] = '{item:194540} kann in Expeditionsspäherpacks und in Bewegte Erde enthalten sein.'
@@ -179,14 +181,14 @@ L['pt_smith_falconer_gauntlet_drawings_note'] = 'Auf einer Insel im Meer, in ein
 L['pt_tailor_noteworthy_scrap_of_carpet_note'] = 'Liegt in einer kleinen Hütte.' .. ns.color.Orange('3 Elitegegner in der Höhle.')
 L['pt_tailor_silky_surprise_note'] = 'Finde und plündere das |cFFFFFD00Katzenminzenwedel|r.'
 
-L['lizi_note'] = 'Schließe den Initiandenausflug Geschichtsstrang, gestartet mit der Quest {quest:65901} ab. Schließe täglich die Quests ab, um Lizi zu heilen und dein Reittier zu erhalten.\n\nZusätzlich zu den benötigten Gegenständen erfordern alle Quests 150x {currency:2003} für insgesamt 750x {currency:2003}.'
+L['lizi_note'] = 'Schließe den |cFFFFFD00Initiandenausflug|r Geschichtsstrang, gestartet mit der Quest {quest:65901} ab. Schließe täglich die Quests ab, um Lizi zu heilen und dein Reittier zu erhalten.\n\nZusätzlich zu den benötigten Gegenständen erfordern alle Quests 150x {currency:2003} für insgesamt 750x {currency:2003}.'
 L['lizi_note_day1'] = 'Sammel 20x {item:192615} von Insekten-Gegnern auf den |cFFFFFD00Dracheninseln|r.'
 L['lizi_note_day2'] = 'Sammel 20x {item:192658} von Pflanzen-Gegnern auf den |cFFFFFD00Dracheninseln|r.'
 L['lizi_note_day3'] = 'Sammel 10x {item:194966} gefischt aus allen Gewässern der |cFFFFFD00Dracheninseln|r. Am häufigsten im Binnenland |cFFFFFD00Ebenen von Ohn\'ahra|r zu finden.'
 L['lizi_note_day4'] = 'Sammel 20x {item:192636} von Mammuts in den |cFFFFFD00Ebenen von Ohn\'ahra|r.'
 L['lizi_note_day5'] = 'Nimm die Quest {quest:71195} von {npc:190014} an und hole 1x {item:200598} von {npc:190015} in einem Zelt südlich der |cFFFFFD00Quellen von Ohn\'iri|r.'
 
-L['ohnahra_note_start'] = 'Schließe den Initiandenausflug Geschichtsstrang, gestartet mit der Quest {quest:65901} ab, dann wird {npc:190022} bei den |cFFFFFD00Quellen von Ohn\'iri|r hinter einer Hütte erscheinen.\n\nSammel die folgenden Materialien:'
+L['ohnahra_note_start'] = 'Schließe den |cFFFFFD00Initiandenausflug|r Geschichtsstrang, gestartet mit der Quest {quest:65901} ab, dann wird {npc:190022} bei den |cFFFFFD00Quellen von Ohn\'iri|r hinter einer Hütte erscheinen.\n\nSammel die folgenden Materialien:'
 L['ohnahra_note_item1'] = 'Sammel 3x {item:201929} von {npc:186151}, dem Endboss im Dungeon |cFFFFFD00Der Angriff der Nokhud|r (Heroischer Schwierigkeitsgrad). Kein 100% Drop.'
 L['ohnahra_note_item2'] = 'Kaufe 1x {item:201323} von {npc:196707} für 50x {currency:2003} und 1x {item:194562}.\n{item:194562} kann von Zeitverlorenen Gegnern in |cFFFFFD00Thaldrazsus|r geplündert werden.'
 L['ohnahra_note_item3'] = 'Kaufe 1x {item:191507} aus dem Auktionshaus. (Alchemisten können {item:191588} von {npc:196707} ab Ruhmstufe 22 kaufen)'
@@ -208,6 +210,7 @@ L['options_icons_dreamguard_desc'] = 'Zeigt die Positionen der Traumwächterinne
 
 L['khadin_note'] = 'Tausche {item:191784} gegen Berufswissen ein.'
 L['the_great_swog_note'] = 'Tausche {item:199338}, {item:199339} oder {item:199340} gegen die jeweiligen Flunkschatzbeutel ein.'
+L['hunt_instructor_basku_note'] = 'Tausche {item:200093} gegen Ruf bei den |cFFFFFD00Zentauren der Maruuk|r ein.'
 
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
@@ -249,10 +252,14 @@ L['craft_creche_crowler_note'] = 'Kann von {npc:187444} gekauft werden, der sich
 L['bivigosas_blood_sausages_note'] = 'Kann von {npc:188895} beim |cFFFFFD00Posten der Gelikyr|r gekauft werden.'
 L['options_icons_specialties'] = '{achievement:16621}'
 L['options_icons_specialties_desc'] = 'Zeigt die Positionen für die Spezialitäten an Speis und Trank für den Erfolg {achievement:16621} an.'
+
+L['new_perspective_note'] = 'Mache am Aussichtspunkt ein Foto mit der S.E.L.F.I.E.-Kamera. Der Ort wird durch einen violetten Lichtkreis gekennzeichnet sobald du im Kameramodus bist.\n\nFalls dir der Aussichtspunkt nicht angerechnet wird ändere die Perspektive.'
 L['options_icons_new_perspective'] = '{achievement:16634}'
 L['options_icons_new_perspective_desc'] = 'Zeigt die Positionen der Aussichten für den Erfolg {achievement:16634} an.'
-L['new_perspective_note'] = 'Mache am Aussichtspunkt ein Foto mit der S.E.L.F.I.E.-Kamera. Der Ort wird durch einen violetten Lichtkreis gekennzeichnet sobald du im Kameramodus bist.\n\nFalls dir der Aussichtspunkt nicht angerechnet wird ändere die Perspektive.'
+
 L['ruby_feast_gourmand'] = 'Täglich tischt ein zufälliger Gastkoch verschiedene Gerichte und Getränke auf.'
+
+L['sorotis_note'] = 'Tausche {item:199906} gegen Ruf beim |cFFFFFD00Valdrakkenabkommen|r ein.'
 
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
@@ -343,6 +350,10 @@ L['slumbering_worldsnail_note1'] = [[
 
 L['slumbering_worldsnail_note2'] = ns.color.Orange('ACHTUNG: Wenn du stirbst, verlierst du den Schwächungszauber {spell:386848}. Kaufe entweder für 20x {item:202173} eine neue Mitgliedschaft bei {npc:193310} bevor du stirbst oder du musst weitere Schlüssel abgeben, um eine neue Mitgliedschaft aus der Truhe zu erhalten.')
 
+L['magmashell_note'] = 'Erbeute von {npc:193138n} einen {item:201883} in der Nähe der |cFFFFFD00Obsidianzitadelle|r und bringe es zu {npc:199010}.\n\n' .. ns.color.Orange('Es wird 20 Sekunden {spell:395626} kanalisiert, während du in der Lava bist, um das Reittier zu erhalten. Es ist empfehlenswert einen Heiler mitzubringen oder etwas wie das Spielzeug {item:200116}.')
+
 L['options_icons_safari'] = '{achievement:16519}'
 L['options_icons_safari_desc'] = 'Zeigt die Positionen der Kampfhaustiere für den Erfolg {achievement:16519} an.'
 L['shyfly_note'] = 'Du musst dich auf der Quest {quest:70853} befinden, um {npc:189102} zu sehen.'
+
+L['cataloger_jakes_note'] = 'Tausche {item:192055} gegen Ruf bei der |cFFFFFD00Drachenschuppenexpedition|r ein.'

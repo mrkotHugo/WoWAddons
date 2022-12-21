@@ -365,6 +365,8 @@ L["opt_addButton_desc"] = "對選擇部位增加新的按鈕群組"
 --[[Translation missing --]]
 --[[ L["opt_autoGroupLoot_name"] = ""--]] 
 --[[Translation missing --]]
+--[[ L["opt_autoGroupLootGuildGroupOnly_name"] = ""--]] 
+--[[Translation missing --]]
 --[[ L["opt_autoTrade_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_award_later_desc"] = ""--]] 
@@ -374,6 +376,10 @@ L["opt_addButton_desc"] = "對選擇部位增加新的按鈕群組"
 --[[ L["opt_chatFrameName_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_chatFrameName_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_name"] = ""--]] 
 L["opt_deleteDate_confirm"] = "你確定你要將比選項舊的紀錄刪除嗎? 刪除後無法復原。"
 L["opt_deleteDate_desc"] = "刪除所有比選項中的天數舊的紀錄。"
 L["opt_deleteName_confirm"] = "你確定你要刪除所有 %s 的紀錄嗎? 刪除後無法復原。"

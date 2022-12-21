@@ -1,3 +1,20 @@
+--[[
+Copyright 2013-2022 João Cardoso
+ItemSearch is distributed under the terms of the GNU General Public License (Version 3).
+As a special exception, the copyright holders of this library give you permission to embed it
+with independent modules to produce an addon, regardless of the license terms of these
+independent modules, and to copy and distribute the resulting software under terms of your
+choice, provided that you also meet, for each embedded independent module, the terms and
+conditions of the license of that module. Permission is not granted to modify this library.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+This file is part of ItemSearch.
+--]]
+
 local Lib = LibStub:NewLibrary('ItemSearch-1.3', 1)
 if Lib then
 	Lib.Unusable, Lib.Bangs = {}, {}
@@ -74,22 +91,6 @@ if IsAddOnLoaded('ItemRack') then
 				if name:sub(1,1) ~= '' and (not search or Parser:Find(search, name)) then
 					for _, item in pairs(set.equip) do
 						if ItemRack.SameID(id, item) then
-							return true
-						end
-					end
-				end
-			end
-		end
-	end
-
-elseif IsAddOnLoaded('Wardrobe') then
-	function Lib:BelongsToSet(id, search)
-		if IsEquippableItem(id) then
-			for _, outfit in ipairs(Wardrobe.CurrentConfig.Outfit) do
-				local name = outfit.OutfitName
-				if not search or Parser:Find(search, name) then
-					for _, item in pairs(outfit.Item) do
-						if item.IsSlotUsed == 1 and item.ItemID == id then
 							return true
 						end
 					end

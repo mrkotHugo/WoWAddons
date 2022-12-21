@@ -327,11 +327,17 @@ L["opt_autoAwardPrioList_desc"] = "Les objets sont assignés au premier candidat
 --[[ L["opt_autoGroupLoot_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["opt_autoGroupLoot_name"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_autoGroupLootGuildGroupOnly_name"] = ""--]] 
 L["opt_autoTrade_desc"] = "Cochez pour automatiquement ajouter les objets assignés à la fenêtre d'échange lorsque vous échanger avec le gagnant. Si décoché, vous verrez une popup avant que les objets ne soient ajoutés."
 L["opt_award_later_desc"] = "Cocher pour automatiquement cocher l'option \"Assigner plus tard\" dans la fenêtre de session."
 L["opt_buttonsGroup_desc"] = "Groupe d'options pour les boutons %s et les réponses. Voir plus haut pour une explication détaillée."
 L["opt_chatFrameName_desc"] = "Sélectionnez dans quelle fenêtre de discussion RCLootCouncil doit afficher les informations."
 L["opt_chatFrameName_name"] = "Fenêtre de discussion"
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_desc"] = ""--]] 
+--[[Translation missing --]]
+--[[ L["opt_closeWithEscape_name"] = ""--]] 
 L["opt_deleteDate_confirm"] = "Êtes-vous sûr de vouloir supprimer tout ce qui est plus ancien que la sélection ? Annulation impossible."
 L["opt_deleteDate_desc"] = "Supprimer tout ce qui est plus ancien que le nombre de jours sélectionnés."
 L["opt_deleteName_confirm"] = "Êtes-vous sûr de vouloir supprimer toutes les entrées venant de %s ? Annulation impossible."
