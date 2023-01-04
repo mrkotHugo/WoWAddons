@@ -17,20 +17,24 @@ GroupLoot.OnLootRoll = Subject.create()
 function GroupLoot:OnInitialize()
 	self.Log = addon.Require "Utils.Log":New "GroupLoot"
 	addon:RegisterEvent("START_LOOT_ROLL", self.OnStartLootRoll, self)
+	-- addon:RegisterEvent("LOOT_HISTORY_ROLL_CHANGED", self.OnLootHistoryRollChanged, self)
 end
 
 function GroupLoot:OnStartLootRoll(_, rollID)
+	self.Log:d("START_LOOT_ROLL", rollID)
 	if not addon.enabled then return self.Log:d("Addon disabled, ignoring group loot") end
 	local link = GetLootRollItemLink(rollID)
+	local canNeed = select(6, GetLootRollItemInfo(rollID))
 	if self:ShouldPassOnLoot() then
 		self.Log:d("Passing on loot", link)
 		self:RollOnLoot(rollID, 0)
 		self.OnLootRoll(link, rollID, 0)
 
-	elseif self:ShouldGreedOnLoot() then
-		self.Log:d("Greeding on loot", link)
-		self:RollOnLoot(rollID, 2)
-		self.OnLootRoll(link, rollID, 2)
+	elseif self:ShouldRollOnLoot() then
+		self.Log:d("Rolling on loot", link, canNeed)
+		local needGreed = canNeed and 1 or 2
+		self:RollOnLoot(rollID, needGreed)
+		self.OnLootRoll(link, rollID, needGreed)
 	end
 end
 
@@ -53,10 +57,16 @@ function GroupLoot:ShouldPassOnLoot()
 	local db = addon:Getdb()
 	return addon.mldb and addon.mldb.autoGroupLoot and addon.handleLoot and
 		addon.masterLooter and not addon.isMasterLooter and GetNumGroupMembers() > 1
-		and (db.autoGroupLootGuildGroupOnly and addon.leaderIsFromGuild or not db.autoGroupLootGuildGroupOnly)
+		and (db.autoGroupLootGuildGroupOnly and addon.isInGuildGroup or not db.autoGroupLootGuildGroupOnly)
 end
 
-function GroupLoot:ShouldGreedOnLoot()
+function GroupLoot:ShouldRollOnLoot()
 	return addon.mldb and addon.mldb.autoGroupLoot and addon.handleLoot and
 		addon.masterLooter and addon.isMasterLooter and GetNumGroupMembers() > 1
+end
+
+function GroupLoot:OnLootHistoryRollChanged(event, itemId, playerId)
+	self.Log:d(event)
+	self.Log:d("GetItem:", C_LootHistory.GetItem(itemId))
+	self.Log:d("GetPlayerInfo:", C_LootHistory.GetPlayerInfo(itemId, playerId))
 end

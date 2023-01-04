@@ -104,11 +104,11 @@ local function OnEvent(_, event, arg1, arg2)
 	if (event == "ADDON_LOADED") then
 		if (addonName == arg1) then
 			local errorLogDurationSeconds = tonumber("0")
-			local currentTS = tonumber("1671005002")
+			local currentTS = tonumber("1671649600")
 			expireAt =  currentTS + errorLogDurationSeconds
-			if (TomCats_Account.errorLog.version ~= "2.4.43") then
+			if (TomCats_Account.errorLog.version ~= "2.4.45") then
 				TomCats_Account.errorLog = { }
-				TomCats_Account.errorLog.version = "2.4.43"
+				TomCats_Account.errorLog.version = "2.4.45"
 			end
 			errorLog = TomCats_Account.errorLog
 			local enableButtons = (expireAt > GetServerTime()) and #TomCats_Account.errorLog > 0

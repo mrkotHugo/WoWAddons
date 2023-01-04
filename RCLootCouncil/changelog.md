@@ -1,3 +1,32 @@
+# 3.6.6
+
+## Changes
+
+### Group Loot
+
+When being the Group Leader, RCLootCouncil will now need on items that can be needed instead of always greeding.
+
+## Bugfixes
+
+- *Various cleanup of minor errors and more logging for future ones.*
+- *Closing "Keep/Trade" pop-up with escape would cause an error (#227).*
+- *Fixed issue with the new group loot being reported as "personalloot" disabling the addon if the ML reloads (#227).*
+- *Automatic group loot warning didn't show due to the above.*
+
+# 3.6.5
+
+## Changes
+
+### Group Loot
+
+`Guild Groups Only` option reenabled. When enabled (default) RCLootCouncil will only automatically pass on group loot when you're in a "Guild Group", i.e. group has at least 80% guild members in raids or 60% in parties.
+
+## Bugfixes
+
+- *Date selection in delete history options now again shows the chosen value.*
+- *Fixed invisible header on TradeUI obstructing the title frame, making it unclickable.*
+- *ML module could potentially enable itself even after clicking "no" to usage pop-up. (#224)*
+
 # 3.6.4
 
 ## Changes
