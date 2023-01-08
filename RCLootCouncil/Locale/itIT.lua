@@ -4,8 +4,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("RCLootCouncil", "itIT")
 if not L then return end
 
---[[Translation missing --]]
---[[ L[" is not active in this raid."] = ""--]] 
+L[" is not active in this raid."] = "non è attivo in questa incursione."
 --[[Translation missing --]]
 --[[ L[" you are now the Master Looter and RCLootCouncil is now handling looting."] = ""--]] 
 --[[Translation missing --]]
@@ -24,8 +23,7 @@ if not L then return end
 --[[ L["accept_whispers_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Accepted imports: 'Player Export' and 'CSV'"] = ""--]] 
---[[Translation missing --]]
---[[ L["Active"] = ""--]] 
+L["Active"] = "Attivo"
 --[[Translation missing --]]
 --[[ L["active_desc"] = ""--]] 
 --[[Translation missing --]]
@@ -48,10 +46,8 @@ if not L then return end
 --[[ L["add_rolls_desc"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["Additional Buttons"] = ""--]] 
---[[Translation missing --]]
---[[ L["All items"] = ""--]] 
---[[Translation missing --]]
---[[ L["All items have been awarded and the loot session concluded"] = ""--]] 
+L["All items"] = "Tutti gli oggetti"
+L["All items have been awarded and the loot session concluded"] = "Tutti gli oggetti sono stati assegnati e la sessione è stata conclusa."
 --[[Translation missing --]]
 --[[ L["All items usable by the candidate"] = ""--]] 
 --[[Translation missing --]]
@@ -1018,28 +1014,20 @@ L["RCLootCouncil Loot Frame"] = "RCLootCouncil Finestra Bottino"
 --[[ L["x out of x have voted"] = ""--]] 
 --[[Translation missing --]]
 --[[ L["You are not allowed to see the Voting Frame right now."] = ""--]] 
---[[Translation missing --]]
---[[ L["You are not in an instance"] = ""--]] 
+L["You are not in an instance"] = "Non sei in una istanza."
 --[[Translation missing --]]
 --[[ L["You can only auto award items with a quality lower than 'quality' to yourself due to Blizaard restrictions"] = ""--]] 
---[[Translation missing --]]
---[[ L["You cannot start an empty session."] = ""--]] 
+L["You cannot start an empty session."] = "Non puoi avviare una sessione senza oggetti."
 --[[Translation missing --]]
 --[[ L["You cannot use the menu when the session has ended."] = ""--]] 
---[[Translation missing --]]
---[[ L["You cannot use this command without being the Master Looter"] = ""--]] 
---[[Translation missing --]]
---[[ L["You can't start a loot session while in combat."] = ""--]] 
---[[Translation missing --]]
---[[ L["You can't start a session before all items are loaded!"] = ""--]] 
+L["You cannot use this command without being the Master Looter"] = "Non puoi usare questo comando senza essere il Master Looter."
+L["You can't start a loot session while in combat."] = "Non puoi iniziare una sessione mentre sei in combattimento."
+L["You can't start a session before all items are loaded!"] = "Non puoi iniziare una sessione prima che tutti gli oggetti siano stati caricati."
 --[[Translation missing --]]
 --[[ L["You haven't selected an award reason to use for disenchanting!"] = ""--]] 
---[[Translation missing --]]
---[[ L["You haven't set a council! You can edit your council by typing '/rc council'"] = ""--]] 
+L["You haven't set a council! You can edit your council by typing '/rc council'"] = "Non hai impostato un concilio! Puoi modificare il tuo concilio digitando '/rc council'"
 --[[Translation missing --]]
 --[[ L["You must select a target"] = ""--]] 
---[[Translation missing --]]
---[[ L["Your note:"] = ""--]] 
---[[Translation missing --]]
---[[ L["You're already running a session."] = ""--]] 
+L["Your note:"] = "La tua nota:"
+L["You're already running a session."] = "La sessione è già avviata."
 

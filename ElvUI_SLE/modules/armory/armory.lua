@@ -46,10 +46,15 @@ Armory.Constants.CanTransmogrify = {
 }
 
 Armory.Constants.EnchantableSlots = {
-	['Finger0Slot'] = true, ['Finger1Slot'] = true, ['MainHandSlot'] = true, ['SecondaryHandSlot'] = true,
-	--Uncomment this when shadowlands actually launches
-	['ChestSlot'] = true, ['BackSlot'] = true,
-	['FeetSlot'] = true, ['WristSlot'] = true,
+	['BackSlot'] = true,
+	['ChestSlot'] = true,
+	['WristSlot'] = true,
+	['LegsSlot'] = true,
+	['Finger0Slot'] = true,
+	['Finger1Slot'] = true,
+	['MainHandSlot'] = true,
+	['SecondaryHandSlot'] = true,
+	['FeetSlot'] = true,
 }
 Armory.Constants.SpecPrimaryStats = {
 	[250] = 1, --DK Blood
@@ -481,12 +486,14 @@ end
 function Armory:ToggleItemLevelInfo()
 	if E.db.general.itemLevel.displayCharacterInfo then
 		-- Armory:UnregisterEvent('AZERITE_ESSENCE_UPDATE')
+		Armory:UnregisterEvent('WEAPON_ENCHANT_CHANGED')
 		Armory:UnregisterEvent('CRITERIA_UPDATE')
 		Armory:UnregisterEvent('PLAYER_EQUIPMENT_CHANGED')
 		Armory:UnregisterEvent('UPDATE_INVENTORY_DURABILITY')
 		-- Armory:UnregisterEvent('PLAYER_AVG_ITEM_LEVEL_UPDATE')
 	else
 		-- Armory:RegisterEvent('AZERITE_ESSENCE_UPDATE', 'UpdateCharacterInfo')
+		Armory:RegisterEvent('WEAPON_ENCHANT_CHANGED', 'UpdateCharacterInfo')
 		Armory:RegisterEvent('CRITERIA_UPDATE', 'UpdateCharacterInfo')
 		Armory:RegisterEvent('PLAYER_EQUIPMENT_CHANGED', 'UpdateCharacterInfo')
 		Armory:RegisterEvent('UPDATE_INVENTORY_DURABILITY', 'UpdateCharacterInfo')
