@@ -354,21 +354,18 @@ local function ScanRewards(rewards)
 	end
 end
 
-local function ScanRewardSpells(rewards)
+local function ScanRewardSpells(rewards, questID)
 	-- rewards = out parameter
+
+	for _, spellID in ipairs(C_QuestInfoSystem.GetQuestRewardSpells(questID) or {}) do
+		if spellID and spellID > 0 then
+			local spellInfo = C_QuestInfoSystem.GetQuestRewardSpellInfo(questID, spellID);
 			
-	for index = 1, GetNumQuestLogRewardSpells() do
-		local _, _, isTradeskillSpell, isSpellLearned = GetQuestLogRewardSpell(index)
-		if isTradeskillSpell or isSpellLearned then
-			local link = GetQuestLogSpellLink(index)
-			if link then
-				local id = tonumber(link:match("spell:(%d+)"))
-				if id then
-					table.insert(rewards, format("s|%d", id))
-				end
+			if spellInfo.isTradeskill or spellInfo.isSpellLearned then
+				table.insert(rewards, format("s|%d", spellID))
 			end
 		end
-	end
+	end	
 end
 
 local function ScanCampaignProgress(chapters, field)

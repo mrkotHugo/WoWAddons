@@ -222,5 +222,32 @@ BtWQuestsDatabase:UpdateNPCsTable({
     [198386] = {
         name = "Carte de reconnaissance",
     },
+    [199201] = {
+        name = "Squammandante Viridia",
+    },
+    [199532] = {
+        name = "Squammandante Ardenthal",
+    },
+    [200054] = {
+        name = "Ancienne Peau-de-Miel",
+    },
+    [200238] = {
+        name = "Hirondelle cavernicole morte",
+    },
+    [200291] = {
+        name = "Rupert, gentleman élémentaire",
+    },
+    [200298] = {
+        name = "Véritistrasz",
+    },
+    [200953] = {
+        name = "Soigneterre Narvra",
+    },
+    [201180] = {
+        name = "Inventoriste Wulfred",
+    },
+    [202656] = {
+        name = "Mayla Haut-Roc",
+    },
 })
 ]])()

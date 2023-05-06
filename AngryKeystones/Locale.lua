@@ -49,6 +49,7 @@ langs.enUS = {
 	config_schedule = "Display keystone schedule and party keystones (requires reload UI)",
 	["dungeon_Shadowmoon Burial Grounds"] = "Shadowmoon",
 	["dungeon_Temple of the Jade Serpent"] = "Jade Serpent",
+	timeLimit = "Time Limit %s",
 }
 langs.enGB = langs.enUS
 
@@ -258,6 +259,9 @@ langs.zhCN = {
 	currentKeystoneText = "当前钥石：|cFFFFFFFF%s|r",
 	config_announceKeystones = "在队伍里通报获得的新钥石",
 	config_schedule = "显示钥石等级和队伍钥石 (需要重载界面)",
+	["dungeon_Shadowmoon Burial Grounds"] = "影月墓地",
+	["dungeon_Temple of the Jade Serpent"] = "青龙寺",
+	timeLimit = "限时时间 %s",
 }
 langs.zhTW = {
 	config_characterConfig = "為角色進行獨立的配置",

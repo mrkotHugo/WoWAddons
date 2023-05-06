@@ -272,18 +272,18 @@ Columns.RegisterColumn("MissionTableLastVisit", {
 	Width = 65,
 	JustifyH = "RIGHT",
 	GetText = function(character)
-			local numAvail = 	(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0) or 0) + 
-									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0) or 0) +
-									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0) or 0) +
-									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0) or 0)
-			local numActive = (DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0) or 0) + 
-									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0) or 0) +
-									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0) or 0) +
-									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0) or 0) 
-			local numCompleted = (DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0) or 0) + 
-										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0) or 0) +
-										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0) or 0) +
-										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0) or 0) 
+			local numAvail = 	(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0_GarrisonFollower) or 0) + 
+									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0_GarrisonFollower) or 0) +
+									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0_GarrisonFollower) or 0) +
+									(DataStore:GetNumAvailableMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0_GarrisonFollower) or 0)
+			local numActive = (DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0_GarrisonFollower) or 0) + 
+									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0_GarrisonFollower) or 0) +
+									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0_GarrisonFollower) or 0) +
+									(DataStore:GetNumActiveMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0_GarrisonFollower) or 0) 
+			local numCompleted = (DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_6_0_GarrisonFollower) or 0) + 
+										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_7_0_GarrisonFollower) or 0) +
+										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_8_0_GarrisonFollower) or 0) +
+										(DataStore:GetNumCompletedMissions(character, Enum.GarrisonFollowerType.FollowerType_9_0_GarrisonFollower) or 0) 
 			local text = ""
 			
 			if numCompleted > 0 then		-- add a '*' to show that there are some completed missions

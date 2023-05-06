@@ -1,10 +1,11 @@
 ## Author: Potdisc
-## Interface: 100002
-## Notes: Interface for running a Loot Council v3.6.7
+## Interface: 100100
+## Notes: Interface for running a Loot Council v3.8.0
 ## Title: RCLootCouncil
-## Version: 3.6.7
+## Version: 3.8.0
 ## SavedVariables: RCLootCouncilDB, RCLootCouncilLootDB
 ## OptionalDeps: LibStub, CallbackHandler-1.0, Ace3, lib-st, LibWindow-1.1, LibDialog-1.0
+## X-Curse-Project-ID: 39928
 
 Patches\UiDropDownMenuTaintCommunities.lua
 
@@ -39,7 +40,7 @@ Modules\Modules.xml
 
 Utils\BackwardsCompat.lua
 Utils\Utils.lua
-Utils\trinketData.lua
+Utils\TrinketData.lua
 Utils\tokenData.lua
 Utils\ItemStorage.lua
 Utils\autopass.lua

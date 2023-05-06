@@ -2,7 +2,7 @@
 
 	The MIT License (MIT)
 
-	Copyright (c) 2022 Lars Norberg
+	Copyright (c) 2023 Lars Norberg
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -63,6 +63,13 @@ local colors = {
 	[7] = { 79/255, 196/255, 225/255 }, -- Heirloom
 	[8] = { 79/255, 196/255, 225/255 } -- Blizzard
 }
+for i = 0, (retail and Enum.ItemQualityMeta.NumValues or NUM_LE_ITEM_QUALITYS) - 1 do
+	if (not colors[i]) then
+		local r, g, b = GetItemQualityColor(i)
+		colors[i] = { r, g, b }
+	end
+end
+
 
 Module:AddUpdater(function(self)
 

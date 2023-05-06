@@ -1,10 +1,15 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 
 V["skins"]["addons"] = {
 	["EmbedSkada"] = true,
 }
 
 V["sle"] = {
+	armory = {
+		stats = {
+			enable = true,
+		},
+	},
 	["equip"] = {
 		["enable"] = false,
 		["spam"] = false,
@@ -37,12 +42,7 @@ V["sle"] = {
 			["relureThreshold"] = 8,
 		},
 	},
-	["module"] = {
-		["blizzmove"] = {
-			["enable"] = true,
-			["remember"] = false,
-			["points"] = {},
-		},
+	module = {
 		shadows = {
 			enable = true,
 		},
@@ -120,6 +120,7 @@ G["sle"] = {
 		["gameMenu"] = {
 			["enable"] = true,
 			["reload"] = false,
+			["reloadLabel"] = "",
 		},
 		["confirmed"] = false,
 		["cyrillics"] = {

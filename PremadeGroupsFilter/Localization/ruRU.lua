@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- Premade Groups Filter
 -------------------------------------------------------------------------------
--- Copyright (C) 2022 Elotheon-Arthas-EU
+-- Copyright (C) 2023 Elotheon-Arthas-EU
 --
 -- This program is free software; you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ L["error.syntax"] = "|cffff0000Синтаксическая ошибка в вы
 L["error.semantic"] = "|cffff0000Семантическая ошибка в выражении фильтра|r\n\nЭто означает, что Ваше выражение фильтра имеет правильный синтаксис, но Вы, скорее всего, неправильно написали имя переменной, например, 'tansk' вместо 'tanks'.\n\nПодробное сообщение об ошибке:\n|cffaaaaaa%s|r"
 L["error.semantic.protected"] = "|cffff0000Семантическая ошибка в выражении фильтра|r\n\nКлючевые слова 'name', 'comment' и 'findnumber' больше не поддерживаются. Удалите их из расширенного выражения фильтра или нажмите кнопку сброса.\n\nНачиная с препатча BFA, эти значения теперь защищены Blizzard и больше не могут быть прочитаны никаким аддоном.\n\nИспользуйте панель поиска по умолчанию над списком групп для фильтрации имен групп.\n\nТехническое сообщение об ошибке:\n|cffaaaaaa%s|r"
 L["message.noplaystylefix"] = "Premade Groups Filter: Не будет применяться исправление для ошибки 'Interface action failed because of an AddOn', потому что, похоже, у Вас нет полностью защищенной учетной записи, и Вы не можете создавать заранее собранные группы. См. FAQ по аддону для получения дополнительной информации и способов решения этой проблемы."
-L["message.settingsupgraded"] = "Premade Groups Filter: Настройки перенесены на версию %s"
+L["message.settingsupgraded"] = "Premade Groups Filter: Настройки перенесены в версию %s"
 
 L["dialog.reset"] = "Сброс"
 L["dialog.reset.confirm"] = "Неужели сбросить все поля?"
@@ -55,6 +55,10 @@ L["dialog.pvprating"]  = "PvP рейтинг"
 L["dialog.defeated"]   = "Боссы убиты (для рейда)"
 L["dialog.sorting"] = "Сортировка"
 L["dialog.usepgf.tooltip"] = "Включить/отключить Premade Groups Filter"
+L["dialog.usepgf.usage"] = "Чтобы получить максимальное количество релевантных результатов, используйте поисковую строку вместе с PGF, так как количество результатов, возвращаемых сервером, ограничено."
+L["dialog.usepgf.results.server"] = "Группы, отправленные сервером: |cffffffff%d|r"
+L["dialog.usepgf.results.removed"] = "Группы, скрытые PGF: |cffffffff%d|r"
+L["dialog.usepgf.results.displayed"] = "Отображаемые группы: |cffffffff%d|r"
 L["dialog.tooltip.title"] = "ДСФ: Дополнительная Система Фильтров"
 L["dialog.tooltip.variable"] = "Фильтр"
 L["dialog.tooltip.description"] = "Описание"
@@ -62,7 +66,7 @@ L["dialog.tooltip.op.logic"] = "Логический синтаксис"
 L["dialog.tooltip.op.number"] = "Числовые условия"
 L["dialog.tooltip.op.string"] = "Строковые операторы"
 L["dialog.tooltip.op.func"] = "Функции"
-L["dialog.tooltip.example"] = "ПРИМЕРЫ"
+L["dialog.tooltip.example"] = "Примеры"
 L["dialog.tooltip.ilvl"] = "заданный уровень предметов"
 L["dialog.tooltip.myilvl"] = "мой уровень предмета"
 L["dialog.tooltip.hlvl"] = "заданный уровень доблести"
@@ -96,14 +100,14 @@ L["dialog.tooltip.ex.neq"] = "members ~= 0"
 L["dialog.tooltip.ex.lt"] = "hlvl >= 5"
 L["dialog.tooltip.ex.find"] = "name:find(\"статик\")"
 L["dialog.tooltip.ex.match"] = "name:match(\"+(%d)\")==\"5\""
-L["dialog.copy.url.keywords"] = "Нажмите CTRL+C, чтобы скопировать ссылку в список ключевых слов."
+L["dialog.copy.url.keywords"] = "Нажмите CTRL+C, чтобы скопировать ссылку для просмотра ключевых слов."
 
 L["settings.dialogMovable.title"] = "Перемещаемый диалог"
 L["settings.dialogMovable.tooltip"] = "Позволяет перемещать диалог с помощью мыши. ПКМ - сбрасывает положение."
-L["settings.classNamesInTooltip.title"] = "Имена классов в подсказке"
+L["settings.classNamesInTooltip.title"] = "Названия классов в подсказке"
 L["settings.classNamesInTooltip.tooltip"] = "Показывает список классов по ролям во всплывающей подсказке готовой группы."
 L["settings.coloredGroupTexts.title"] = "Цветное название группы"
-L["settings.coloredGroupTexts.tooltip"] = "Отображает название группы зеленым цветом, если группа новая, и красным цветом, если Вы ранее были отклонены. Отображает название активности красным цветом, если у Вас есть блокировка на этом подземелье."
+L["settings.coloredGroupTexts.tooltip"] = "Отображает название группы зеленым цветом, если группа новая, и красным цветом, если Вы ранее были отклонены. Отображает название активности красным цветом, если у Вас есть блокировка для этого подземелья."
 L["settings.classBar.title"] = "Полоса цвета класса"
 L["settings.classBar.tooltip"] = "Показывает небольшую полосу цвета класса под каждой ролью в списке готовых групп подземелий."
 L["settings.classCircle.title"] = "Кружок цвета класса"
@@ -120,3 +124,5 @@ L["settings.signupOnEnter.title"] = "Подписаться с помощью En
 L["settings.signupOnEnter.tooltip"] = "Автоматически выделить текстовое поле «заметка лидеру группы» при регистрации в новой группе и подтвердить свою заявку нажатием Enter."
 L["settings.skipSignUpDialog.title"] = "Пропустить диалог регистрации"
 L["settings.skipSignUpDialog.tooltip"] = "По возможности пропустите подсказку о роли и примечании и сразу зарегистрируйтесь в группе. Удерживайте Shift, чтобы всегда показывать диалог."
+L["settings.coloredApplications.title"] = "Цветная заявка"
+L["settings.coloredApplications.tooltip"] = "Показывает красный фон в заявках на участие в группах M+, если в группе не осталось мест для Вашей роли."

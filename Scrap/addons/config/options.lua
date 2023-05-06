@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2022 João Cardoso
+Copyright 2008-2023 João Cardoso
 Scrap is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -19,8 +19,8 @@ local Sushi = LibStub('Sushi-3.1')
 local Options = Scrap:NewModule('Options', Sushi.OptionsGroup('|Tinterface/addons/scrap/art/enabled-icon:12:12:0:0|t Scrap'))
 local L = LibStub('AceLocale-3.0'):GetLocale('Scrap')
 
-local PATRONS = {{},{title='Jenkins',people={'Gnare','Seventeen','Grumpyitis','Justin Hall','Debora S Ogormanw','Angryclown','Johnny Rabbit','Frankn\'furter'}},{title='Ambassador',people={'Fernando Bandeira','Julia F','Lolari ','Owen Pitcairn','Rafael Lins','Mediocre Monk','Joanie Nelson','Nitro ','Guidez ','Ptsdthegamer','Dodgen','Frosted(mrp)','Burt Humburg','Unhalted','Connie ','Adam Mann','Christie Hopkins','Kopernikus ','Bc Spear','Kendall Lane','Jury ','Bob Farrell','Dominik','Jeff Stokes','Tigran Andrew','Marinoco ','Keks','Jeffrey Jones','Swallow@area52','Daniel Foster','Peter Hollaubek','Daniel  Di Battis','Teofan Bobarnea','Bobby Pagiazitis','Metadata','Lars Norberg'}}} -- generated patron list
-local FOOTER = 'Copyright 2008-2022 João Cardoso'
+local PATRONS = {{},{title='Jenkins',people={'Gnare','Seventeen','Justin Hall','Debora S Ogormanw','Johnny Rabbit'}},{title='Ambassador',people={'Julia F','Lolari ','Rafael Lins','Joanie Nelson','Kopernikus ','Dodgen','Nitro ','Guidez ','Ptsdthegamer','Denise Mckinlay','Burt Humburg','Adam Mann','Christie Hopkins','Bc Spear','Jury ','Jeff Stokes','Tigran Andrew','Jeffrey Jones','Swallow@area52','Peter Hollaubek','Lars Norberg','Bobby Pagiazitis','Michael Kinasz','Sam Ramji','Dave Burlingame','Syed Hamdani'}}} -- generated patron list
+local FOOTER = 'Copyright 2008-2023 João Cardoso'
 
 
 --[[ Startup ]]--
@@ -69,6 +69,10 @@ function Options:OnPopulate()
 	self:AddHeader(L.Visuals)
 	self:AddCheck {set = 'glow', text = 'Glow'}
 	self:AddCheck {set = 'icons', text = 'Icons'}
+
+	if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
+		self:AddCheck {set = 'prices', text = 'SellPrices'}
+	end
 end
 
 

@@ -1,4 +1,4 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 
 --GLOBALS: unpack, NUM_BAG_SLOTS, IsAddOnLoaded, DEFAULT_CHAT_FRAME
 local _G = _G
@@ -161,7 +161,7 @@ function SLE:Reset(group)
 		print('U wot m8?')
 	end
 	if group == 'unitframes' or group == 'all' then
-		E.db.sle.roleicons = 'ElvUI'
+		E.db.sle.unitframes.roleIcons.icons = 'ElvUI'
 		E.db.sle.powtext = false
 	end
 	if group == 'backgrounds' or group == 'all' then

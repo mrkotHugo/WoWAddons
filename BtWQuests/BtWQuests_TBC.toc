@@ -1,10 +1,12 @@
 ## Interface: 20504
 ## Title: BtWQuests
-## Version: 2.26.0
+## Version: 2.30.0
 ## Notes: 
 ## Author: Breen
 ## SavedVariables: BtWQuests_Characters BtWQuests_AccountSettings
 ## SavedVariablesPerCharacter: BtWQuests_Settings BtWQuests_AutoLoad
+## AddonCompartmentFunc: BtWQuestsDragonflight_OnAddonCompartmentClick
+## IconTexture: Interface\QuestFrame\UI-QuestLog-BookIcon
 ## X-Curse-Project-ID: 280369
 ## X-WoWI-ID: 24680
 ## X-Wago-ID: yQKyzeG7

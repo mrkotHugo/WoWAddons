@@ -19,11 +19,11 @@ if select(4, GetBuildInfo()) < 90000 then
     GetLogIndexForQuestID = GetQuestLogIndexByID
     function IsQuestComplete(questLogIndex)
         local complete = select(6, GetQuestLogTitle(questLogIndex))
-        return complete and compelte > 0
+        return complete and complete > 0
     end
     function IsQuestFailed(questLogIndex)
         local complete = select(6, GetQuestLogTitle(questLogIndex))
-        return complete and compelte < 0
+        return complete and complete < 0
     end
 end
 
@@ -1373,7 +1373,7 @@ function BtWQuestsDropDownMenuMixin:AddButton(info)
 
 	button.minWidth = info.minWidth;
 
-	width = max(self:GetButtonWidth(button), info.minWidth or 0);
+	local width = max(self:GetButtonWidth(button), info.minWidth or 0);
 	--Set maximum button width
 	if ( width > listFrame.maxWidth ) then
 		listFrame.maxWidth = width;

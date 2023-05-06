@@ -284,17 +284,17 @@ function OiLvlPlayer_Update(sw)
 								end
 							end
 							-- check low enchant
-							if (Value == 11 or Value == 12) and enchant ~= "0" and oilvlbestenchant and oilvlbestenchant:GetChecked() then
+							--[[if (Value == 11 or Value == 12) and enchant ~= "0" and oilvlbestenchant and oilvlbestenchant:GetChecked() then
 								local function CheckLowEnchant(eID)
 									if enchantID[tonumber(eID)] then
-                    return false
-                  end
+									return false
+							end
 									return true
 								end
 								if CheckLowEnchant(enchant) and _G[Key.."ge"]:GetText() then
 									_G[Key.."ge"]:SetText(_G[Key.."ge"]:GetText()..(" (|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:43:53:34:61|t" or "")..L["Low level enchanted"]..")");
 								end
-							end
+							end]]
 							-- check no enchant
 							if (Value == 5 or Value == 8 or Value == 9 or Value == 11 or Value == 12 or Value == 15 or Value == 16) and enchant == "0" then
 								_G[Key.."ge"]:SetText(("|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:43:53:34:61|t" or "")..L["Not enchanted"]);
@@ -317,9 +317,9 @@ function OiLvlPlayer_Update(sw)
 								end
 							end
 							-- check low gem
-							if gemlink and OItemAnalysisLowGem("player", Value) > 0 and _G[Key.."ge"]:GetText() and oilvlbestenchant and oilvlbestenchant:GetChecked() then
+							--[[if gemlink and OItemAnalysisLowGem("player", Value) > 0 and _G[Key.."ge"]:GetText() and oilvlbestenchant and oilvlbestenchant:GetChecked() then
 								_G[Key.."ge"]:SetText((_G[Key.."ge"]:GetText() or "")..("(|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:107:117:34:61|t" or "")..L["Low level socketed"]..")");
-							end
+							end]]
 							-- check relic
 							if (Value == 16 or Value == 17) and OTCheckartifactwep(tonumber(itemID)) then
 								_G[Key.."ge"]:SetText("")
@@ -361,7 +361,7 @@ function OiLvlPlayer_Update(sw)
 			end
 			-- add Show Gem / Enchant button
 			if not oilvlGemEnchantButton then
-				local button = CreateFrame("Button", "oilvlGemEnchantButton", CharacterFrame, "ActionButtonTemplate")
+				local button = CreateFrame("Button", "oilvlGemEnchantButton", CharacterFrame, "GameMenuButtonTemplate")
 				button:SetPoint("BOTTOMLEFT", CharacterHeadSlot, "TOPLEFT",50,3)
 				button:SetSize(16,16)
 				button:SetText("\\")
@@ -616,7 +616,7 @@ function OiLvLInspect_Update()
 							end
 						end
 						-- check low enchant
-						if (Value == 11 or Value == 12) and enchant ~= "0" and oilvlbestenchant and oilvlbestenchant:GetChecked() then
+						--[[if (Value == 11 or Value == 12) and enchant ~= "0" and oilvlbestenchant and oilvlbestenchant:GetChecked() then
 							local function CheckLowEnchant(eID)
                 if enchantID[tonumber(eID)] then
                   return false
@@ -626,7 +626,7 @@ function OiLvLInspect_Update()
 							if CheckLowEnchant(enchant) and _G[Key.."ge2"]:GetText() then
 								_G[Key.."ge2"]:SetText(_G[Key.."ge2"]:GetText()..("(|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:43:53:34:61|t" or "")..L["Low level enchanted"]..")");
 							end
-						end
+						end]]
 						-- check no enchant
 						if (Value == 11 or Value == 12 or Value == 16) and enchant == "0" then
 							_G[Key.."ge2"]:SetText(("|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:43:53:34:61|t" or "")..L["Not enchanted"]);
@@ -649,9 +649,9 @@ function OiLvLInspect_Update()
 							end
 						end
 						-- check low gem
-						if gemlink and OItemAnalysisLowGem("target",Value) > 0 and _G[Key.."ge2"]:GetText() and oilvlbestenchant and oilvlbestenchant:GetChecked() then
+						--[[if gemlink and OItemAnalysisLowGem("target",Value) > 0 and _G[Key.."ge2"]:GetText() and oilvlbestenchant and oilvlbestenchant:GetChecked() then
 							_G[Key.."ge2"]:SetText((_G[Key.."ge2"]:GetText() or "")..("(|TInterface\\MINIMAP\\TRACKING\\OBJECTICONS:0:0:0:0:256:64:107:117:34:61|t" or "")..L["Low level socketed"]..")");
-						end
+						end]]
 						-- check relic
 						if (Value == 16 or Value == 17) and OTCheckartifactwep(tonumber(itemID)) then
 							_G[Key.."ge2"]:SetText("")

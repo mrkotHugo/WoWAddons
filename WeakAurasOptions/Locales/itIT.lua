@@ -1,6 +1,6 @@
 if not WeakAuras.IsLibsOK() then return end
 
-if GetLocale() ~= "itIT" then
+if (GAME_LOCALE or GetLocale()) ~= "itIT" then
   return
 end
 
@@ -136,6 +136,8 @@ local L = WeakAuras.L
 	L["|cFFFF0000desaturated|r "] = "|cFFFF0000desaturated|r "
 	--[[Translation missing --]]
 	L["|cFFFF0000Note:|r The unit '%s' is not a trackable unit."] = "|cFFFF0000Note:|r The unit '%s' is not a trackable unit."
+	--[[Translation missing --]]
+	L["|cFFFF0000Note:|r The unit '%s' requires soft target cvars to be enabled."] = "|cFFFF0000Note:|r The unit '%s' requires soft target cvars to be enabled."
 	--[[Translation missing --]]
 	L["|cFFffcc00Anchors:|r Anchored |cFFFF0000%s|r to frame's |cFFFF0000%s|r"] = "|cFFffcc00Anchors:|r Anchored |cFFFF0000%s|r to frame's |cFFFF0000%s|r"
 	--[[Translation missing --]]
@@ -365,6 +367,8 @@ Off Screen]=]
 	--[[Translation missing --]]
 	L["Column Space"] = "Column Space"
 	L["Columns"] = "Colonne"
+	--[[Translation missing --]]
+	L["COMBAT_LOG_EVENT_UNFILTERED with no filter can trigger frame drops in raid environment."] = "COMBAT_LOG_EVENT_UNFILTERED with no filter can trigger frame drops in raid environment."
 	L["Combinations"] = "Combinazioni"
 	--[[Translation missing --]]
 	L["Combine Matches Per Unit"] = "Combine Matches Per Unit"
@@ -456,13 +460,15 @@ Off Screen]=]
 	--[[Translation missing --]]
 	L["Debuff Type"] = "Debuff Type"
 	--[[Translation missing --]]
-	L["Debug Console"] = "Debug Console"
+	L["Debug Log"] = "Debug Log"
 	--[[Translation missing --]]
 	L["Debug Log:"] = "Debug Log:"
 	--[[Translation missing --]]
 	L["Default"] = "Default"
 	--[[Translation missing --]]
 	L["Default Color"] = "Default Color"
+	--[[Translation missing --]]
+	L["Delay"] = "Delay"
 	--[[Translation missing --]]
 	L["Delete"] = "Delete"
 	--[[Translation missing --]]
@@ -483,8 +489,6 @@ Off Screen]=]
 	L["Disabled"] = "Disabilitato"
 	--[[Translation missing --]]
 	L["Disallow Entry Reordering"] = "Disallow Entry Reordering"
-	--[[Translation missing --]]
-	L["Discrete Rotation"] = "Discrete Rotation"
 	--[[Translation missing --]]
 	L["Display"] = "Display"
 	--[[Translation missing --]]
@@ -564,7 +568,7 @@ Off Screen]=]
 	--[[Translation missing --]]
 	L["Enemy nameplate(s) found"] = "Enemy nameplate(s) found"
 	--[[Translation missing --]]
-	L["Enter a Spell ID"] = "Enter a Spell ID"
+	L["Enter a Spell ID. You can use the addon idTip to determine spell ids."] = "Enter a Spell ID. You can use the addon idTip to determine spell ids."
 	--[[Translation missing --]]
 	L["Enter an Aura Name, partial Aura Name, or Spell ID. A Spell ID will match any spells with the same name."] = "Enter an Aura Name, partial Aura Name, or Spell ID. A Spell ID will match any spells with the same name."
 	--[[Translation missing --]]
@@ -586,6 +590,8 @@ Off Screen]=]
 	L["Event(s)"] = "Event(s)"
 	--[[Translation missing --]]
 	L["Everything"] = "Everything"
+	--[[Translation missing --]]
+	L["Exact Item Match"] = "Exact Item Match"
 	--[[Translation missing --]]
 	L["Exact Spell ID(s)"] = "Exact Spell ID(s)"
 	--[[Translation missing --]]
@@ -705,8 +711,6 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Full Circle"] = "Full Circle"
 	--[[Translation missing --]]
-	L["Get Help"] = "Get Help"
-	--[[Translation missing --]]
 	L["Global Conditions"] = "Global Conditions"
 	--[[Translation missing --]]
 	L["Glow %s"] = "Glow %s"
@@ -805,6 +809,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Icon Inset"] = "Icon Inset"
 	--[[Translation missing --]]
+	L["Icon Picker"] = "Icon Picker"
+	--[[Translation missing --]]
 	L["Icon Position"] = "Icon Position"
 	--[[Translation missing --]]
 	L["Icon Settings"] = "Icon Settings"
@@ -855,6 +861,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Import"] = "Import"
 	--[[Translation missing --]]
+	L["Import / Export"] = "Import / Export"
+	--[[Translation missing --]]
 	L["Import a display from an encoded string"] = "Import a display from an encoded string"
 	--[[Translation missing --]]
 	L["Import as Copy"] = "Import as Copy"
@@ -883,6 +891,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Inner"] = "Inner"
 	--[[Translation missing --]]
+	L["Invalid Item ID"] = "Invalid Item ID"
+	--[[Translation missing --]]
 	L["Invalid Item Name/ID/Link"] = "Invalid Item Name/ID/Link"
 	--[[Translation missing --]]
 	L["Invalid Spell ID"] = "Invalid Spell ID"
@@ -907,6 +917,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Is Unit"] = "Is Unit"
 	--[[Translation missing --]]
+	L["Join Discord"] = "Join Discord"
+	--[[Translation missing --]]
 	L["Justify"] = "Justify"
 	--[[Translation missing --]]
 	L["Keep Aspect Ratio"] = "Keep Aspect Ratio"
@@ -928,6 +940,8 @@ Can use \ to escape -.]=]
 	L["Length of |cFFFF0000%s|r"] = "Length of |cFFFF0000%s|r"
 	--[[Translation missing --]]
 	L["Limit"] = "Limit"
+	--[[Translation missing --]]
+	L["Line"] = "Line"
 	--[[Translation missing --]]
 	L["Lines & Particles"] = "Lines & Particles"
 	--[[Translation missing --]]
@@ -957,6 +971,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Max Length"] = "Max Length"
 	--[[Translation missing --]]
+	L["Media Type"] = "Media Type"
+	--[[Translation missing --]]
 	L["Medium Icon"] = "Medium Icon"
 	--[[Translation missing --]]
 	L["Message"] = "Message"
@@ -974,6 +990,8 @@ Can use \ to escape -.]=]
 	L["Model"] = "Model"
 	--[[Translation missing --]]
 	L["Model %s"] = "Model %s"
+	--[[Translation missing --]]
+	L["Model Picker"] = "Model Picker"
 	--[[Translation missing --]]
 	L["Model Settings"] = "Model Settings"
 	--[[Translation missing --]]
@@ -1025,6 +1043,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["New Aura"] = "New Aura"
 	--[[Translation missing --]]
+	L["New Template"] = "New Template"
+	--[[Translation missing --]]
 	L["New Value"] = "New Value"
 	--[[Translation missing --]]
 	L["No Children"] = "No Children"
@@ -1045,6 +1065,26 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Number of Entries"] = "Number of Entries"
 	--[[Translation missing --]]
+	L[ [=[Occurence of the event, reset when aura is unloaded
+Can be a range of values
+Can have multiple values separated by a comma or a space
+
+Examples:
+2nd 5th and 6th events: 2, 5, 6
+2nd to 6th: 2-6
+every 2 events: /2
+every 3 events starting from 2nd: 2/3
+every 3 events starting from 2nd and ending at 11th: 2-11/3]=] ] = [=[Occurence of the event, reset when aura is unloaded
+Can be a range of values
+Can have multiple values separated by a comma or a space
+
+Examples:
+2nd 5th and 6th events: 2, 5, 6
+2nd to 6th: 2-6
+every 2 events: /2
+every 3 events starting from 2nd: 2/3
+every 3 events starting from 2nd and ending at 11th: 2-11/3]=]
+	--[[Translation missing --]]
 	L["Offer a guided way to create auras for your character"] = "Offer a guided way to create auras for your character"
 	--[[Translation missing --]]
 	L["Offset by |cFFFF0000%s|r/|cFFFF0000%s|r"] = "Offset by |cFFFF0000%s|r/|cFFFF0000%s|r"
@@ -1061,9 +1101,9 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Only Match auras cast by a player (not an npc)"] = "Only Match auras cast by a player (not an npc)"
 	--[[Translation missing --]]
-	L["Only match auras cast by people other than the player or his pet"] = "Only match auras cast by people other than the player or his pet"
+	L["Only match auras cast by people other than the player or their pet"] = "Only match auras cast by people other than the player or their pet"
 	--[[Translation missing --]]
-	L["Only match auras cast by the player or his pet"] = "Only match auras cast by the player or his pet"
+	L["Only match auras cast by the player or their pet"] = "Only match auras cast by the player or their pet"
 	--[[Translation missing --]]
 	L["Operator"] = "Operator"
 	--[[Translation missing --]]
@@ -1225,6 +1265,8 @@ Can use \ to escape -.]=]
 	--[[Translation missing --]]
 	L["Rows"] = "Rows"
 	--[[Translation missing --]]
+	L["Run on..."] = "Run on..."
+	--[[Translation missing --]]
 	L["Same"] = "Same"
 	--[[Translation missing --]]
 	L["Same texture as Foreground"] = "Same texture as Foreground"
@@ -1232,8 +1274,6 @@ Can use \ to escape -.]=]
 	L["Saved Data"] = "Saved Data"
 	--[[Translation missing --]]
 	L["Scale"] = "Scale"
-	--[[Translation missing --]]
-	L["Search"] = "Search"
 	--[[Translation missing --]]
 	L["Select Talent"] = "Select Talent"
 	--[[Translation missing --]]
@@ -1422,6 +1462,8 @@ Can use \ to escape -.]=]
 	L["Texture"] = "Texture"
 	--[[Translation missing --]]
 	L["Texture Info"] = "Texture Info"
+	--[[Translation missing --]]
+	L["Texture Picker"] = "Texture Picker"
 	--[[Translation missing --]]
 	L["Texture Rotation"] = "Texture Rotation"
 	--[[Translation missing --]]
@@ -1644,6 +1686,14 @@ It might not work correctly with your version!]=]
 	L["You are about to delete %d aura(s). |cFFFF0000This cannot be undone!|r Would you like to continue?"] = "You are about to delete %d aura(s). |cFFFF0000This cannot be undone!|r Would you like to continue?"
 	--[[Translation missing --]]
 	L["You are about to delete a trigger. |cFFFF0000This cannot be undone!|r Would you like to continue?"] = "You are about to delete a trigger. |cFFFF0000This cannot be undone!|r Would you like to continue?"
+	--[[Translation missing --]]
+	L[ [=[You can add a comma-separated list of state values here that (when changed) WeakAuras should also run the Grow Code on.
+
+WeakAuras will always run custom grow code if you include 'changed' in this list, or when a region is added, removed, or re-ordered.]=] ] = [=[You can add a comma-separated list of state values here that (when changed) WeakAuras should also run the Grow Code on.
+
+WeakAuras will always run custom grow code if you include 'changed' in this list, or when a region is added, removed, or re-ordered.]=]
+	--[[Translation missing --]]
+	L["You can add a comma-separated list of state values here that (when changed) WeakAuras should also run the sort code on.WeakAuras will always run custom sort code if you include 'changed' in this list, or when a region is added, removed."] = "You can add a comma-separated list of state values here that (when changed) WeakAuras should also run the sort code on.WeakAuras will always run custom sort code if you include 'changed' in this list, or when a region is added, removed."
 	--[[Translation missing --]]
 	L["Your Saved Snippets"] = "Your Saved Snippets"
 	--[[Translation missing --]]

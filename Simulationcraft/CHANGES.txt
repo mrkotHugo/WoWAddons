@@ -1,10 +1,10 @@
-lightweight tag f5e56f72634b4a313483c47cc36045bbf453e3a0 v10.0.2-04
+lightweight tag 13d071deeabb5f9a0b05b5cce15879b682a4ae53 10.1.0-01
 Author:	Dave Hendler <sollaires@gmail.com>
-Date:	Thu Dec 1 11:07:43 2022 -0800
+Date:	Tue Apr 25 11:18:59 2023 -0700
 
-commit f5e56f72634b4a313483c47cc36045bbf453e3a0
+commit 13d071deeabb5f9a0b05b5cce15879b682a4ae53
 Author: Dave Hendler <sollaires@gmail.com>
-Date:   Thu Dec 1 11:07:43 2022 -0800
+Date:   Tue Apr 25 11:18:59 2023 -0700
 
-    Remove Shadowlands features
+    Add crafting quality, bump to 10.1 release
 

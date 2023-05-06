@@ -4320,7 +4320,7 @@ BtWQuestsDatabase:AddNPCsTable({
         },
     },
     [197986] = {
-        name = "Hot Springs Spa Promoter",
+        name = "Serene Dreams Spa Promoter",
         locations = {
             [2112] = {
                 {
@@ -4348,6 +4348,1051 @@ BtWQuestsDatabase:AddNPCsTable({
                 {
                     x = 0.765152,
                     y = 0.342297,
+                },
+            },
+        },
+    },
+    [199175] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.615605,
+                    y = 0.616457,
+                },
+            },
+        },
+    },
+    [199201] = {
+        name = "Scalecommander Viridia",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.346142,
+                    y = 0.576912,
+                },
+            },
+        },
+    },
+    [199323] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.666208,
+                    y = 0.385567,
+                },
+            },
+        },
+    },
+    [199330] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.66634,
+                    y = 0.386755,
+                },
+            },
+        },
+    },
+    [199409] = {
+        name = "Windsage Boku",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.565642,
+                    y = 0.738293,
+                },
+            },
+        },
+    },
+    [199520] = {
+        name = "Ebyssian",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.616802,
+                    y = 0.612717,
+                },
+            },
+        },
+    },
+    [199521] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.588271,
+                    y = 0.703262,
+                },
+            },
+        },
+    },
+    [199531] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.551266,
+                    y = 0.359027,
+                },
+            },
+        },
+    },
+    [199532] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.325643,
+                    y = 0.60574,
+                },
+            },
+        },
+    },
+    [199538] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.743761,
+                    y = 0.369033,
+                },
+            },
+        },
+    },
+    [199539] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.767267,
+                    y = 0.385176,
+                },
+            },
+        },
+    },
+    [199849] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.566275,
+                    y = 0.566951,
+                },
+            },
+        },
+    },
+    [199851] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.35404,
+                    y = 0.418625,
+                },
+            },
+        },
+    },
+    [199852] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.354838,
+                    y = 0.418305,
+                },
+            },
+        },
+    },
+    [199863] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.382026,
+                    y = 0.484642,
+                },
+            },
+        },
+    },
+    [199877] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.410175,
+                    y = 0.599157,
+                },
+            },
+        },
+    },
+    [199949] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.302566,
+                    y = 0.409473,
+                },
+            },
+        },
+    },
+    [199950] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.331825,
+                    y = 0.508067,
+                },
+            },
+        },
+    },
+    [199952] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.296083,
+                    y = 0.496958,
+                },
+            },
+        },
+    },
+    [199958] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.560218,
+                    y = 0.543415,
+                },
+            },
+        },
+    },
+    [199964] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.473771,
+                    y = 0.156112,
+                },
+            },
+        },
+    },
+    [199965] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.566275,
+                    y = 0.566744,
+                },
+            },
+        },
+    },
+    [199973] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.47061,
+                    y = 0.280718,
+                },
+            },
+        },
+    },
+    [200040] = {
+        name = "Pathfinder Jeb",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.291002,
+                    y = 0.531119,
+                },
+            },
+        },
+    },
+    [200041] = {
+        name = "Pathfinder Tacha",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.291572,
+                    y = 0.531381,
+                },
+            },
+        },
+    },
+    [200046] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.499237,
+                    y = 0.275441,
+                },
+            },
+        },
+    },
+    [200049] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.594375,
+                    y = 0.689413,
+                },
+            },
+        },
+    },
+    [200051] = {
+        name = "Field Commander Ignax",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.467026,
+                    y = 0.296292,
+                },
+            },
+        },
+    },
+    [200052] = {
+        name = "Aurantia",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.546315,
+                    y = 0.547338,
+                },
+            },
+        },
+    },
+    [200053] = {
+        name = "Effervesta",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.546353,
+                    y = 0.547861,
+                },
+            },
+        },
+    },
+    [200054] = {
+        name = "Elder Honeypelt",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.569838,
+                    y = 0.557743,
+                },
+            },
+        },
+    },
+    [200055] = {
+        name = "Citros",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.568006,
+                    y = 0.539914,
+                },
+            },
+        },
+    },
+    [200056] = {
+        name = "Cinnam",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.556914,
+                    y = 0.60246,
+                },
+            },
+        },
+    },
+    [200074] = {
+        name = "Rannan Korren",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.625623,
+                    y = 0.733036,
+                },
+            },
+        },
+    },
+    [200075] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.627668,
+                    y = 0.736034,
+                },
+            },
+        },
+    },
+    [200080] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.409465,
+                    y = 0.417071,
+                },
+            },
+        },
+    },
+    [200085] = {
+        name = "Sabellian",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.873724,
+                    y = 0.275296,
+                },
+            },
+        },
+    },
+    [200101] = {
+        name = "Wrathion",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.472356,
+                    y = 0.278221,
+                },
+            },
+        },
+    },
+    [200116] = {
+        name = "Elder Honeypelt",
+        locations = {
+            [2184] = {
+                {
+                    x = 0.817262,
+                    y = 0.660714,
+                },
+            },
+        },
+    },
+    [200238] = {
+        name = "Dead Cave Swallow",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.579008,
+                    y = 0.548285,
+                },
+            },
+        },
+    },
+    [200290] = {
+        name = "Voraxian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.536798,
+                    y = 0.795022,
+                },
+            },
+        },
+    },
+    [200291] = {
+        name = "Rupert, the Gentleman Elemental",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.401014,
+                    y = 0.684108,
+                },
+            },
+        },
+    },
+    [200298] = {
+        name = "Veritistrasz",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.401822,
+                    y = 0.68316,
+                },
+            },
+        },
+    },
+    [200403] = {
+        name = "Talon Damos",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.551322,
+                    y = 0.373975,
+                },
+            },
+        },
+    },
+    [200492] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.7333,
+                    y = 0.550675,
+                },
+            },
+        },
+    },
+    [200724] = {
+        name = "Researcher Imareth",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.351853,
+                    y = 0.575924,
+                },
+            },
+        },
+    },
+    [200831] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.727551,
+                    y = 0.558122,
+                },
+            },
+        },
+    },
+    [200932] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.809271,
+                    y = 0.576182,
+                },
+            },
+        },
+    },
+    [200933] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.809069,
+                    y = 0.577197,
+                },
+            },
+        },
+    },
+    [200938] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.871828,
+                    y = 0.515217,
+                },
+            },
+        },
+    },
+    [200953] = {
+        name = "Earthmender Narvra",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.401229,
+                    y = 0.683555,
+                },
+            },
+        },
+    },
+    [201098] = {
+        name = "Brogg the Beast",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.43791,
+                    y = 0.829747,
+                },
+            },
+        },
+    },
+    [201100] = {
+        name = "Storul Heavystone",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.449781,
+                    y = 0.832873,
+                },
+            },
+        },
+    },
+    [201180] = {
+        name = "Cataloger Wulferd",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.292633,
+                    y = 0.52677,
+                },
+            },
+        },
+    },
+    [201281] = {
+        name = "Ebyssian",
+        locations = {
+            [2112] = {
+                {
+                    x = 0.614401,
+                    y = 0.422114,
+                },
+            },
+        },
+    },
+    [201311] = {
+        name = "Wrathion",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.871456,
+                    y = 0.272622,
+                },
+            },
+        },
+    },
+    [201366] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.547073,
+                    y = 0.544997,
+                },
+            },
+        },
+    },
+    [201398] = {
+        name = "Kurazidaia",
+        locations = {
+            [2112] = {
+                {
+                    x = 0.610085,
+                    y = 0.260599,
+                },
+            },
+        },
+    },
+    [201424] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.568679,
+                    y = 0.715398,
+                },
+            },
+        },
+    },
+    [201426] = {
+        name = "Myrrit",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.556206,
+                    y = 0.574489,
+                },
+            },
+        },
+    },
+    [201488] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.380874,
+                    y = 0.340041,
+                },
+            },
+        },
+    },
+    [201516] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.333352,
+                    y = 0.426354,
+                },
+            },
+        },
+    },
+    [201517] = {
+        name = "Voraxian",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.292777,
+                    y = 0.529803,
+                },
+            },
+        },
+    },
+    [201530] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.334053,
+                    y = 0.428211,
+                },
+            },
+        },
+    },
+    [201566] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.727043,
+                    y = 0.560952,
+                },
+            },
+        },
+    },
+    [201578] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.381956,
+                    y = 0.48437,
+                },
+            },
+        },
+    },
+    [201583] = {
+        name = "Wrathion",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.600612,
+                    y = 0.374704,
+                },
+            },
+        },
+    },
+    [201584] = {
+        name = "Elder Honeypelt",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.570679,
+                    y = 0.381822,
+                },
+            },
+        },
+    },
+    [201587] = {
+        name = "Elder Honeypelt",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.601652,
+                    y = 0.378047,
+                },
+            },
+        },
+    },
+    [201589] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.605658,
+                    y = 0.401285,
+                },
+            },
+        },
+    },
+    [201619] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.625604,
+                    y = 0.732731,
+                },
+            },
+        },
+    },
+    [201646] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.295647,
+                    y = 0.496138,
+                },
+            },
+        },
+    },
+    [201647] = {
+        name = "Sabellian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.29606,
+                    y = 0.496757,
+                },
+            },
+        },
+    },
+    [201752] = {
+        name = "Briggul",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.442533,
+                    y = 0.799174,
+                },
+            },
+        },
+    },
+    [201784] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.560537,
+                    y = 0.54552,
+                },
+            },
+        },
+    },
+    [202523] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.535991,
+                    y = 0.302073,
+                },
+            },
+        },
+    },
+    [202597] = {
+        name = "Yarren",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.510491,
+                    y = 0.741341,
+                },
+            },
+        },
+    },
+    [202600] = {
+        name = "Agrul",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.503917,
+                    y = 0.763699,
+                },
+            },
+        },
+    },
+    [202656] = {
+        name = "Mayla Highmountain",
+        locations = {
+            [2112] = {
+                {
+                    x = 0.507554,
+                    y = 0.58628,
+                },
+            },
+        },
+    },
+    [202670] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.633869,
+                    y = 0.746491,
+                },
+            },
+        },
+    },
+    [202706] = {
+        name = "Scout Tomul",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.694012,
+                    y = 0.477353,
+                },
+            },
+        },
+    },
+    [202707] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.693264,
+                    y = 0.477015,
+                },
+            },
+        },
+    },
+    [202766] = {
+        name = "Myrrit",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.546523,
+                    y = 0.543574,
+                },
+            },
+        },
+    },
+    [202788] = {
+        name = "Khasar",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.86985,
+                    y = 0.272814,
+                },
+            },
+        },
+    },
+    [202857] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.630124,
+                    y = 0.739664,
+                },
+            },
+        },
+    },
+    [202995] = {
+        name = "Ebyssian",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.566275,
+                    y = 0.566744,
+                },
+            },
+        },
+    },
+    [203176] = {
+        name = "Rupert, the Gentleman Elemental",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.536128,
+                    y = 0.793221,
+                },
+            },
+        },
+    },
+    [203204] = {
+        name = "Baine Bloodhoof",
+        locations = {
+            [2023] = {
+                {
+                    x = 0.333099,
+                    y = 0.426144,
+                },
+            },
+        },
+    },
+    [203378] = {
+        name = "Gudegg",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.432086,
+                    y = 0.840883,
+                },
+            },
+        },
+    },
+    [203404] = {
+        name = "Vaskarn",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.565311,
+                    y = 0.560757,
+                },
+            },
+        },
+    },
+    [203965] = {
+        name = "Ebyssian",
+        locations = {
+            [2112] = {
+                {
+                    x = 0.619259,
+                    y = 0.411826,
+                },
+            },
+        },
+    },
+    [204254] = {
+        name = "Mimuup",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.565283,
+                    y = 0.55658,
+                },
+            },
+        },
+    },
+    [204522] = {
+        name = "Aurantia",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.57068,
+                    y = 0.555802,
+                },
+            },
+        },
+    },
+    [204571] = {
+        name = "Scalecommander Emberthal",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.634276,
+                    y = 0.74615,
+                },
+            },
+        },
+    },
+    [204693] = {
+        name = "Ponzo",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.580903,
+                    y = 0.538119,
                 },
             },
         },

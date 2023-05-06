@@ -1,11 +1,11 @@
 local mod	= DBM:NewMod(2499, "DBM-VaultoftheIncarnates", nil, 1200)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision("20221230191810")
+mod:SetRevision("20230423184458")
 mod:SetCreatureID(189492)
 mod:SetEncounterID(2607)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
-mod:SetHotfixNoticeRev(20221260000000)
+mod:SetHotfixNoticeRev(20230117000000)
 mod:SetMinSyncRevision(20221217000000)
 --mod.respawnTime = 29
 
@@ -14,7 +14,7 @@ mod:RegisterCombat("combat")
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 377612 388643 377658 377594 385065 385553 397382 397468 387261 385574 389870 385068 395885 386410 382434 390463",
 	"SPELL_CAST_SUCCESS 381615 396037 399713 181089 381249 378829 382434 390463",
-	"SPELL_AURA_APPLIED 381615 388631 395906 388115 396037 385541 397382 397387 388691 391990 394574 394576 391991 394579 394575 394582 391993 394584 377467 395929 391285 399713 391281 389214 389878",
+	"SPELL_AURA_APPLIED 381615 388631 395906 388115 396037 385541 397382 397387 388691 391990 394574 394576 391991 394579 394575 394582 391993 394584 377467 395929 391285 399713 391281 389214 389878 394583 391402",
 	"SPELL_AURA_APPLIED_DOSE 389878",
 	"SPELL_AURA_REMOVED 381615 396037 385541 397382 397387 388691 377467 399713 391990 394574 394576 391991 394579 394575 394584",
 	"SPELL_PERIODIC_DAMAGE 395929",
@@ -24,11 +24,9 @@ mod:RegisterEventsInCombat(
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
---TODO, initial CD timers for spawning in adds, if timers are used for the mythic only stuff
 --TODO, track and alert high stacks of https://www.wowhead.com/beta/spell=385560/windforce-strikes on Oathsworn?
 --TODO, determine number adds and spawn behavior for auto marking Stormseeker Acolyte for interrupt assignments?
 --TODO, use specWarnScatteredCharge once coding is verified it's being avoided for now to avoid SW spam
---TODO, a note that using the emote is able to detect whether dragon is breathing YOUR Platform, but it also requires localizing so many language won't get most important warning of intermission
 --[[
 (ability.id = 377612 or ability.id = 388643 or ability.id = 377658 or ability.id = 377594
  or ability.id = 385065 or ability.id = 397382 or ability.id = 397468 or ability.id = 387261 or ability.id = 385574 or ability.id = 389870
@@ -54,7 +52,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25244))
 local warnStaticCharge							= mod:NewTargetNoFilterAnnounce(381615, 3)
 local warnLightningStrike						= mod:NewSpellAnnounce(376126, 3)
 
-local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 2)
+local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 13)
 local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2)
 local yellStaticCharge							= mod:NewShortPosYell(381615, 37859)
 local yellStaticChargeFades						= mod:NewIconFadesYell(381615, 37859)
@@ -95,7 +93,7 @@ local warnShatteringShroudFaded					= mod:NewFadesAnnounce(397382, 1)
 local specWarnSurgingBlast						= mod:NewSpecialWarningMoveAway(396037, nil, 37859, nil, 1, 2)
 local yellSurgingBlast							= mod:NewShortYell(396037, 37859)
 local yellSurgingBlastFades						= mod:NewShortFadesYell(396037, 37859)
-local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(385553, "HasInterrupt", nil, nil, 1, 2)
+--local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(385553, "HasInterrupt", nil, nil, 1, 2)
 local specWarnShatteringShroud					= mod:NewSpecialWarningYou(397382, nil, nil, nil, 1, 2, 4)
 local specWarnFlameShield						= mod:NewSpecialWarningSwitch(397387, nil, nil, nil, 1, 2, 4)
 
@@ -139,7 +137,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25812))
 --Colossal Stormfiend
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25816))
 local warnFuse								= mod:NewStackAnnounce(389878, 2, nil, "Tank|Healer")
-local warnStormBreak						= mod:NewSpellAnnounce(389870, 3, nil, nil, 7794)--Shortname Teleport
+local warnStormBreak						= mod:NewCountAnnounce(389870, 3, nil, nil, 7794)--Shortname Teleport
 
 local specWarnBallLightning					= mod:NewSpecialWarningDodge(385068, nil, nil, nil, 2, 2)
 
@@ -205,7 +203,7 @@ local allTimers = {
 			--Electrified Jaws
 			[377658] = {44.5, 26.9, 21, 29.9, 25, 25},
 			--Stormsurge
-			[387261] = {14.5, 80, 80, 80},
+			[387261] = {14.5, 80, 80},
 			--Fulminating Charge
 			[378829] = {57.5, 87},
 			--Tempest Wing
@@ -243,7 +241,7 @@ local allTimers = {
 			--Electrified Jaws
 			[377658] = {38.5, 24.4, 22.9, 30, 24.2, 25.8},--Same as normal
 			--Stormsurge
-			[387261] = {8.5, 80, 80, 80},
+			[387261] = {8.5, 80, 80},
 			--Fulminating Charge
 			[378829] = {53.5, 82.5},--Same as normal
 			--Tempest Wing
@@ -262,7 +260,7 @@ local allTimers = {
 			[399713] = {38, 63, 33},
 		},
 	},
-	["normal"] = {
+	["normal"] = {--LFR uses same timers
 		[1] = {
 			--Static Charge
 			[381615] = {15, 35, 40, 30},
@@ -275,13 +273,13 @@ local allTimers = {
 			--Electrified Jaws
 			[377658] = {5, 25, 25, 27, 21, 27},
 		},
-		[2] = {
+		[2] = {--Started at electric Scales
 			--Volatile Current
 			[388643] = {68.5, 49.9},
 			--Electrified Jaws
 			[377658] = {38.5, 24.9, 22.9, 30, 25, 25, 37},
 			--Stormsurge
-			[387261] = {8.5, 80, 80, 80},
+			[387261] = {8.5, 80, 80},
 			--Fulminating Charge
 			[378829] = {53.5, 85.9},
 			--Tempest Wing
@@ -289,13 +287,13 @@ local allTimers = {
 		},
 		[3] = {
 			--Lightning Breath
-			[377594] = {28.7, 41, 41.9},
+			[377594] = {28.7, 41, 41.9},--Even if pull stretches on, boss doesn't cast more than 3
 			--Tempest Wing
-			[385574] = {60.7, 58.9, 26.9},
+			[385574] = {60.7, 58.9, 26.9, 31},
 			--Fulminating Charge
-			[378829] = {35.7, 60},
+			[378829] = {35.7, 60, 60},
 			--Thunderous blast
-			[386410] = {16.7, 30, 30, 30, 30},
+			[386410] = {16.7, 30, 30, 30, 30, 30},
 		},
 	},
 }
@@ -347,9 +345,9 @@ function mod:OnCombatStart(delay)
 	self.vb.stormSurgeCount = 0
 	timerElectrifiedJawsCD:Start(5-delay, 1)
 	timerStaticChargeCD:Start(15-delay, 1)
-	timerLightningBreathCD:Start(23-delay, 1)
+	timerLightningBreathCD:Start(self:IsMythic() and 20 or 23-delay, 1)
 	timerHurricaneWingCD:Start(35-delay, 1)
-	timerVolatileCurrentCD:Start(85-delay, 1)
+	timerVolatileCurrentCD:Start(self:IsMythic() and 28 or self:IsHeroic() and 80 or 85-delay, 1)
 	if self.Options.NPAuraOnAscension or self.Options.NPAuraOnFlameShield then
 		DBM:FireEvent("BossMod_EnableHostileNameplates")
 	end
@@ -451,7 +449,7 @@ function mod:SPELL_CAST_START(args)
 		self.vb.stormSurgeCount = self.vb.stormSurgeCount + 1
 		specWarnStormsurge:Show(self.vb.stormSurgeCount)
 		specWarnStormsurge:Play("scatter")
-		local timer = self:GetFromTimersTable(allTimers, difficultyName, self.vb.phase, spellId, self.vb.stormSurgeCount+1) or 80
+		local timer = self:GetFromTimersTable(allTimers, difficultyName, self.vb.phase, spellId, self.vb.stormSurgeCount+1)
 		if timer then
 			timerStormsurgeCD:Start(timer, self.vb.stormSurgeCount+1)
 		end
@@ -471,9 +469,15 @@ function mod:SPELL_CAST_START(args)
 		if timer then
 			timerTempestWingCD:Start(timer, self.vb.wingCount+1)
 		end
-	elseif spellId == 389870 and self:AntiSpam(5, 1) then
-		warnStormBreak:Show()
-		timerStormBreakCD:Start()
+	elseif spellId == 389870 then
+		if not castsPerGUID[args.sourceGUID] then
+			castsPerGUID[args.sourceGUID] = 0
+		end
+		castsPerGUID[args.sourceGUID] = castsPerGUID[args.sourceGUID] + 1
+		if self:AntiSpam(2, 1) then--Aggregate similtanious teleports
+			warnStormBreak:Show(castsPerGUID[args.sourceGUID])
+			timerStormBreakCD:Start(nil, castsPerGUID[args.sourceGUID]+1)
+		end
 	elseif spellId == 385068 and self:AntiSpam(5, 2) then
 		self.vb.ballCount = self.vb.ballCount + 1
 		specWarnBallLightning:Show(self.vb.ballCount)
@@ -536,12 +540,12 @@ function mod:SPELL_CAST_SUCCESS(args)
 		self.vb.breathCount = 0--Reused for Lightning Devastation
 
 		if self.Options.SetBreathToBait then
-			timerLightningDevastationCD:Start(self:IsMythic() and 11.3 or self:IsHeroic() and 11.7, 1)
+			timerLightningDevastationCD:Start(self:IsMythic() and 11.3 or 11.7, 1)
 		else
-			timerLightningDevastationCD:Start(self:IsMythic() and 12.8 or self:IsHeroic() and 13.2, 1)
+			timerLightningDevastationCD:Start(self:IsMythic() and 12.8 or 13.2, 1)
 		end
-		timerPhaseCD:Start(self:IsHard() and 93.3 or 100)
-	elseif spellId == 381249 and self.vb.phase == 1.5 then--Pre stage 2 trigger (Electric Scales)
+		timerPhaseCD:Start(self:IsMythic() and 93.3 or 100)
+	elseif spellId == 381249 and self:GetStage(1.5) then--Pre stage 2 trigger (Electric Scales)
 		self:SetStage(2)
 		warnPhase:Show(DBM_CORE_L.AUTO_ANNOUNCE_TEXTS.stage:format(2))
 		warnPhase:Play("ptwo")
@@ -566,9 +570,9 @@ function mod:SPELL_CAST_SUCCESS(args)
 			timerStormsurgeCD:Start(8.5, 1)
 			timerElectrifiedJawsCD:Start(38.5, 1)
 			timerTempestWingCD:Start(43.5, 1)
-			timerFulminatingChargeCD:Start(53.5, 1)
+			timerFulminatingChargeCD:Start(52.5, 1)
 			timerVolatileCurrentCD:Start(self:IsHeroic() and 65.5 or 68.5, 1)--Only difference on heroic
---			timerPhaseCD:Start(self:IsHeroic() and 193 or 211)
+			timerPhaseCD:Start(self:IsHeroic() and 193 or 211)
 		end
 	elseif spellId == 390463 then--Second Intermission Ends Storm Nova
 		self:SetStage(3)
@@ -602,7 +606,7 @@ function mod:SPELL_CAST_SUCCESS(args)
 			timerFulminatingChargeCD:Start(41.5, 1)
 			timerTempestWingCD:Start(66.4, 1)
 		end
-	elseif spellId == 181089 and self.vb.phase == 2 and self.vb.stormSurgeCount > 0 then--Encounter event
+	elseif spellId == 181089 and self:GetStage(2) and self.vb.stormSurgeCount > 0 then--Encounter event
 		--This is now only used for 2.5 since other stages have earlier events to use
 		--But we need to be very specific WHEN to use this event since it fires 7x on fight
 		self:SetStage(2.5)
@@ -866,14 +870,14 @@ function mod:UNIT_DIED(args)
 	elseif cid == 199549 then--Flamesworn Herald
 		timerFlameShieldCD:Stop(castsPerGUID[args.destGUID])
 		castsPerGUID[args.destGUID] = nil
---	elseif cid == 197145 or cid == 200943 then--Colossal Stormfiend
-
+	elseif cid == 197145 or cid == 200943 then--Colossal Stormfiend
+		castsPerGUID[args.destGUID] = nil
 	end
 end
 
 --"<330.41 11:01:55> [CHAT_MSG_RAID_BOSS_EMOTE] Raszageth takes a deep breath...#Raszageth###Raszageth##0#0##0#1502#nil#0#false#false#false#false", -- [17507]
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(msg, npc, _, _, target)
-	if not msg:find("ICON") and npc == target and (self.vb.phase == 1.5 or self.vb.phase == 2.5) then--This needs vetting, if p2 and p3 mythic have no emotes missing icons, this will work without localizing
+	if not msg:find("ICON") and npc == target and (self:GetStage(1.5) or self:GetStage(2.5)) then--This needs vetting, if p2 and p3 mythic have no emotes missing icons, this will work without localizing
 --	if msg:find(L.BreathEmote) or msg == L.BreathEmote then
 		self:Unschedule(warnDeepBreath)
 		warnDeepBreath(self, true)
@@ -882,7 +886,7 @@ end
 
 --Purely for earlier timer canceling, new timers not started on USCS if it can be helped, otherwise timers can't be updated easily from WCLs
 function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, spellId)
-	if spellId == 396734 and self.vb.phase == 1 then--Storm Shroud
+	if spellId == 396734 and self:GetStage(1) then--Storm Shroud
 		timerHurricaneWingCD:Stop()
 		timerStaticChargeCD:Stop()
 		timerVolatileCurrentCD:Stop()

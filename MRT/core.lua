@@ -1,8 +1,8 @@
---	10.12.2022
+--	01.05.2023
 
 local GlobalAddonName, MRT = ...
 
-MRT.V = 4710
+MRT.V = 4740
 MRT.T = "R"
 
 MRT.Slash = {}			--> функции вызова из коммандной строки
@@ -20,6 +20,9 @@ MRT.A = {}			--> ссылки на все модули
 
 MRT.msg_prefix = {
 	["EXRTADD"] = true,
+	MRTADDA = true,	MRTADDB = true,	MRTADDC = true,
+	MRTADDD = true,	MRTADDE = true,	MRTADDF = true,
+	MRTADDG = true,	MRTADDH = true,	MRTADDI = true,
 }
 
 MRT.L = {}			--> локализация
@@ -74,7 +77,7 @@ MRT.GDB = {}
 -------------> upvalues <-------------
 local pcall, unpack, pairs, coroutine, assert, next = pcall, unpack, pairs, coroutine, assert, next
 local GetTime, IsEncounterInProgress, CombatLogGetCurrentEventInfo = GetTime, IsEncounterInProgress, CombatLogGetCurrentEventInfo
-local SendAddonMessage, strsplit = C_ChatInfo.SendAddonMessage, strsplit
+local SendAddonMessage, strsplit, tremove = C_ChatInfo.SendAddonMessage, strsplit, tremove
 local C_Timer_NewTicker, debugprofilestop = C_Timer.NewTicker, debugprofilestop
 
 if MRT.T == "D" then
@@ -534,12 +537,7 @@ local reloadTimer = 0.1
 MRT.frame = CreateFrame("Frame")
 
 local function loader(self,func)
-	local isSuccessful, errorMsg = pcall(func,self)
-	if not isSuccessful then
-		C_Timer.After(0.01,function()
-			error(errorMsg)	--Any other way to throw error for user, but continue loader?
-		end)
-	end
+	xpcall(func,geterrorhandler(),self)
 end
 
 local migrateReplace
@@ -737,6 +735,50 @@ do
 	end
 end
 
+--temp fix
+local prefix_sorted = {"EXRTADD","MRTADDA","MRTADDB","MRTADDC","MRTADDD","MRTADDE","MRTADDF","MRTADDG","MRTADDH","MRTADDI"}
+
+local sendPending = {}
+local sendPrev = {0}
+local sendTmr
+local _SendAddonMessage = SendAddonMessage
+local SEND_LIMIT = 10
+local sendLimit = {SEND_LIMIT}
+local function send(self)
+	if self then
+		sendTmr = nil
+	end
+	local t = debugprofilestop()
+	for p=1,#prefix_sorted do
+		sendLimit[p] = (sendLimit[p] or SEND_LIMIT) + floor((t - (sendPrev[p] or 0))/1000)
+		if sendLimit[p] > SEND_LIMIT then
+			sendLimit[p] = SEND_LIMIT
+		end
+		if sendLimit[p] > 0 then
+			for i=1,#sendPending do
+				if sendLimit[p] > 0 then
+					sendLimit[p] = sendLimit[p] - 1
+					sendPending[1][1] = prefix_sorted[p] --override prefix
+					_SendAddonMessage(unpack(sendPending[1]))
+					tremove(sendPending, 1)
+					sendPrev[p] = debugprofilestop()
+				else
+					break
+				end
+			end
+		elseif p == #prefix_sorted then
+			if not sendTmr then
+				sendTmr = C_Timer.NewTimer(0.5, send)
+			end
+			return
+		end
+	end
+end
+SendAddonMessage = function (...)
+	sendPending[#sendPending+1] = {...}
+	send()
+end
+
 function MRT.F.SendExMsg(prefix, msg, tochat, touser, addonPrefix)
 	addonPrefix = addonPrefix or "EXRTADD"
 	msg = msg or ""
@@ -753,6 +795,7 @@ function MRT.F.SendExMsg(prefix, msg, tochat, touser, addonPrefix)
 		SendAddonMessage(addonPrefix, prefix .. "\t" .. msg, chat_type, playerName)
 	end
 end
+
 
 function MRT.F.GetExMsg(sender, prefix, ...)
 	if prefix == "needversion" then

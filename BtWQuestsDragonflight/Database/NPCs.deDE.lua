@@ -204,5 +204,29 @@ BtWQuestsDatabase:UpdateNPCsTable({
     [198386] = {
         name = "Späherkarte",
     },
+    [199201] = {
+        name = "Schuppenkommandantin Viridia",
+    },
+    [199532] = {
+        name = "Schuppenkommandantin Glutthal",
+    },
+    [200054] = {
+        name = "Älteste Honigpelz",
+    },
+    [200238] = {
+        name = "Tote Höhlenschwalbe",
+    },
+    [200291] = {
+        name = "Rupert, der Gentlemanelementar",
+    },
+    [200953] = {
+        name = "Erdheilerin Narvra",
+    },
+    [201180] = {
+        name = "Katalogisierer Wulferd",
+    },
+    [202656] = {
+        name = "Mayla Hochberg",
+    },
 })
 ]])()

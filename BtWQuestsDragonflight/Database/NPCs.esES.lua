@@ -204,5 +204,32 @@ BtWQuestsDatabase:UpdateNPCsTable({
     [198386] = {
         name = "Mapa de exploración",
     },
+    [199201] = {
+        name = "Escamandante Viridia",
+    },
+    [199532] = {
+        name = "Escamandante Pavethal",
+    },
+    [200053] = {
+        name = "Efervesta",
+    },
+    [200054] = {
+        name = "Anciana Pelimiel",
+    },
+    [200238] = {
+        name = "Golondrina de cueva muerta",
+    },
+    [200291] = {
+        name = "Rupert, el elemental elegante",
+    },
+    [200953] = {
+        name = "Ensalmadora de la tierra Narvra",
+    },
+    [201180] = {
+        name = "Catalogador Wulferd",
+    },
+    [202656] = {
+        name = "Mayla Monte Alto",
+    },
 })
 ]])()

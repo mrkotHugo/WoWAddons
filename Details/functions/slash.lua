@@ -1,6 +1,6 @@
 
 
-local _detalhes	= 	_G._detalhes
+local _detalhes	= 	_G.Details
 local Loc = LibStub("AceLocale-3.0"):GetLocale ( "Details" )
 local _
 local addonName, Details222 = ...
@@ -606,6 +606,31 @@ function SlashCmdList.DETAILS (msg, editbox)
 		_detalhes.ResetButton:SetBackdropColor(0, 0, 1, 1)
 
 		--Details.VarDump (_detalhes.ResetButton)
+
+	elseif (command == "trinket") then
+		local tooltipData = GameTooltip:GetTooltipData()
+		if (tooltipData) then
+			local spellId = tooltipData.id
+			local spellName = GetSpellInfo(spellId)
+			
+			if (spellName) then
+				
+				local itemLink = GetInventoryItemLink("player", 13)
+				if (itemLink) then
+					local itemName = GetItemInfo(itemLink)
+					if (itemName) then
+						local itemID, enchantID, gemID1, gemID2, gemID3, gemID4, suffixID, uniqueID, linkLevel, specializationID, modifiersMask, itemContext = select(2, strsplit(":", itemLink))
+						
+						itemID = tonumber(itemID)
+						
+						if (itemID) then
+							local s = "["..spellId.."] = {name = formatTextForItem("..itemID..")}, --trinket: ".. itemName
+							dumpt({s})
+						end
+					end
+				end
+			end
+		end
 
 	elseif (command == "mini") then
 		local instance = _detalhes.tabela_instancias [1]
@@ -2044,12 +2069,80 @@ function _detalhes:CreateListPanel()
 end
 
 
+--this table store addons which want to replace the keystone command
+--more than one addon can be registered and all of them will be called when the user type /keystone
+--is up to the user to decide which addon to use
+local keystoneCallbacks = {}
+
+---register an addon and a callback function to be called when the user type /keystone
+---@param addonObject table
+---@param memberName string
+---@param ... any
+---@return boolean true if the addon was registered, false if it was already registered and got unregistered
+function Details:ReplaceKeystoneCommand(addonObject, memberName, ...)
+	--check if the parameters passed are valid types
+	if (type(addonObject) ~= "table") then
+		error("Details:ReplaceKeystoneCommand: addonObject must be a table")
+
+	elseif (type(memberName) ~= "string") then
+		error("Details:ReplaceKeystoneCommand: memberName must be a string")
+
+	elseif (type(addonObject[memberName]) ~= "function") then
+		error("Details:ReplaceKeystoneCommand: t[memberName] doesn't point to a function.")
+	end
+
+	--check if the addonObject is already registered and remove it
+	for i = #keystoneCallbacks, 1, -1 do
+		if (keystoneCallbacks[i].addonObject == addonObject) then
+			--check if the memberName is the same
+			if (keystoneCallbacks[i].memberName == memberName) then
+				tremove(keystoneCallbacks, i)
+				return false
+			end
+		end
+	end
+
+	local payload = {...}
+
+	keystoneCallbacks[#keystoneCallbacks+1] = {
+		addonObject = addonObject,
+		memberName = memberName,
+		payload = payload
+	}
+
+	return true
+end
+
 if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 	SLASH_KEYSTONE1 = "/keystone"
 	SLASH_KEYSTONE2 = "/keys"
 	SLASH_KEYSTONE3 = "/key"
 
 	function SlashCmdList.KEYSTONE(msg, editbox)
+		--if there is addons registered to use the keystone command, call them and do not show the default frame from details!
+		if (#keystoneCallbacks > 0) then
+			--loop through all registered addons and call their callback function
+			local bCallbackSuccess = false
+			for i = 1, #keystoneCallbacks do
+				local thisCallback = keystoneCallbacks[i]
+
+				local addonObject = thisCallback.addonObject
+				local memberName = thisCallback.memberName
+				local payload = thisCallback.payload
+
+				if (type(addonObject[memberName]) == "function") then
+					local result = DetailsFramework:Dispatch(addonObject[memberName], unpack(payload)) --uses xpcall
+					if (result ~= false) then
+						bCallbackSuccess = true
+					end
+				end
+			end
+
+			if (bCallbackSuccess) then
+				return
+			end
+		end
+
 		local openRaidLib = LibStub:GetLibrary("LibOpenRaid-1.0")
 		if (openRaidLib) then
 			if (not DetailsKeystoneInfoFrame) then
@@ -2158,7 +2251,7 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 							line.keystoneLevelText.text = level
 							line.dungeonNameText.text = mapName
 							DetailsFramework:TruncateText(line.dungeonNameText, 240)
-							line.classicDungeonNameText.text = mapNameChallenge or ""
+							line.classicDungeonNameText.text = "" --mapNameChallenge
 							DetailsFramework:TruncateText(line.classicDungeonNameText, 120)
 							line.inMyParty = inMyParty > 0
 							line.inMyGuild = isGuildMember
@@ -2291,7 +2384,7 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 					local totalMembers, onlineMembers, onlineAndMobileMembers = GetNumGuildMembers()
 					local realmName = GetRealmName()
 					--create a string to use into the gsub call when removing the realm name from the player name, by default all player names returned from GetGuildRosterInfo() has PlayerName-RealmName format
-					local realmNameGsub = "%-" .. realmName
+					local realmNameGsub = "%-.*"
 					local guildName = GetGuildInfo("player")
 
 					if (guildName) then
@@ -2362,6 +2455,7 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 							--this unit in the cache isn't shown?
 							if (not unitsAdded[unitName] and keystoneTable.guild_name == guildName and keystoneTable.date > cutoffDate) then
 								if (keystoneTable[2] > 0 or keystoneTable[6] > 0) then
+									keystoneTable[11] = UnitInParty(unitName) and (string.byte(unitName, 1) + string.byte(unitName, 2)) or 0 --isInMyParty
 									keystoneTable[12] = false --isOnline
 									newData[#newData+1] = keystoneTable
 									unitsAdded[unitName] = true

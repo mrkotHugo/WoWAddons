@@ -20,6 +20,7 @@ BtWQuests.Constant.Category.Dragonflight = {
     TheAzureSpan = 1003,
     Thaldraszus = 1004,
     Dragonflight = 1005,
+    EmbersOfNeltharion = 1006,
 }
 BtWQuests.Constant.Chain.Dragonflight = {
     DracthyrAwaken = 100001,
@@ -27,11 +28,18 @@ BtWQuests.Constant.Chain.Dragonflight = {
     TheMotherOathstone = 100003,
     TheSparkOfIngenuity = 100004,
     DragonShardOfKnowledge = 100005,
+
+    OldHatreds = 100006,
+    ReturnToTheReach = 100007,
+    ZskeraVaults = 100008,
+    AcademicAcquisitions = 100009,
+
     TheWakingShores = {},
     OhnahranPlains = {},
     TheAzureSpan = {},
     Thaldraszus = {},
     Dragonflight = {},
+    EmbersOfNeltharion = {},
 }
 
 BtWQuests.Constant.Restrictions.DragonflightToF = -100001;

@@ -53,6 +53,7 @@ function TradeUI:OnEnable()
    self.isTrading = false  -- Are we currently trading
    self.tradeItems = {}    -- Items we are currently trading
    self.tradeTarget = nil  -- Name of our last trade target
+   self.itemsInTradeWindow = {} --- @type SkipInventoryItem[]
 
    self:RegisterComms()
    self:RegisterEvent("TRADE_SHOW", "OnEvent_TRADE_SHOW")
@@ -255,6 +256,12 @@ function TradeUI:OnEvent_TRADE_SHOW (event, ...)
    if not target or target == "" then
       target = "NPC" -- Otherwise fallback to `UnitName("NPC")`
    end
+
+   -- If target is from another realm, the name in the trade frame will be "Name(*)"
+   if target:find("(*)") then
+		-- Remove the "(*)" so `UnitName` can attach realm.
+		target = string.sub(target, 1, -4)
+   end
    self.tradeTarget = addon:UnitName(target)
 
    local count = self:GetNumAwardedInBagsToTradeWindow()
@@ -270,6 +277,7 @@ end
 
 function TradeUI:OnEvent_TRADE_CLOSED (event, ...)
    self.isTrading = false
+   wipe(self.itemsInTradeWindow)
 end
 
 function TradeUI:OnEvent_TRADE_ACCEPT_UPDATE (event, ...) -- Record the item traded
@@ -335,22 +343,24 @@ function TradeUI:GetStoredItemBySession (session)
 end
 
 local function addItemToTradeWindow (tradeBtn, Item)
-   addon.Log:d("addItemToTradeWindow", tradeBtn, Item)
-   local c,s = addon.ItemStorage:GetItemContainerSlot(Item)
-   if not c then -- Item is gone?!
-      addon:Print(L["trade_item_to_trade_not_found"])
-      return addon.Log:E("TradeUI", "Item missing when attempting to trade", Item.link, TradeUI.tradeTarget)
-   end
-   local containerInfo = C_Container.GetContainerItemInfo(c, s)
+	local c,s = addon.ItemStorage:GetItemContainerSlot(Item, TradeUI.itemsInTradeWindow)
 
-   if addon:ItemIsItem(containerInfo.hyperlink, Item.link) then -- Extra check, probably also redundant
-      addon.Log:d("Trading", Item.link, c,s)
-      ClearCursor()
-      C_Container.PickupContainerItem(c, s)
-      ClickTradeButton(tradeBtn)
-   else -- Shouldn't happen
+	if not c or not s then -- Item is gone?!
+		addon:Print(L["trade_item_to_trade_not_found"])
+		return addon.Log:E("TradeUI", "Item missing when attempting to trade", Item.link, TradeUI.tradeTarget)
+	end
+
+	local containerInfo = C_Container.GetContainerItemInfo(c, s)
+
+	if containerInfo and addon:ItemIsItem(containerInfo.hyperlink, Item.link) then -- Extra check, probably also redundant
+		addon.Log:d("Trading", Item.link, c,s)
+		ClearCursor()
+		C_Container.PickupContainerItem(c, s)
+		ClickTradeButton(tradeBtn)
+		tinsert(TradeUI.itemsInTradeWindow, {container = c, slot = s})
+	else -- Shouldn't happen
 		return addon.Log:E("TradeUI", "Item link mismatch", containerInfo.hyperlink, Item.link)
-   end
+	end
 end
 
 function TradeUI:AddAwardedInBagsToTradeWindow()

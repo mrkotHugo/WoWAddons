@@ -1,4 +1,4 @@
-local SLE, T, E, L, V, P = unpack(select(2, ...))
+local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local Sk = SLE.Skins
 local B = SLE.Blizzard
 
@@ -352,7 +352,7 @@ local function configTable()
 					talkinghead = {
 						order = 1,
 						type = 'group',
-						name = L["Talking Head Frame"],
+						name = L["Talking Head"],
 						args = {
 							hide = {
 								order = 1,
@@ -360,7 +360,7 @@ local function configTable()
 								name = HIDE,
 								desc = L["Hide the talking head frame at the top center of the screen."],
 								get = function(info) return E.db.sle.skins.talkinghead[info[#info]] end,
-								set = function(info, value) E.db.sle.skins.talkinghead[info[#info]] = value; B:SLETalkingHead() end,
+								set = function(info, value) E.db.sle.skins.talkinghead[info[#info]] = value; B:SLTalkingHead() end,
 							},
 						},
 					},

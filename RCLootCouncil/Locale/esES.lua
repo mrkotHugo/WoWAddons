@@ -327,16 +327,18 @@ L["opt_autoAwardPrioList_desc"] = "Los objetos se asignan al primer candidato en
 L["opt_autoGroupLoot_desc"] = "Si se habilita, RCLootCouncil pulsará automáticamente los botones de pasar y codicia de manera que los objetos acaben en tu inventario."
 L["opt_autoGroupLoot_name"] = "Botín de Grupo Automático"
 --[[Translation missing --]]
---[[ L["opt_autoGroupLootGuildGroupOnly_name"] = ""--]] 
+L["opt_autoGroupLootGuildGroupOnly_desc"] = "When enabled, RCLootCouncil will only do group loot auto pass when you're in a guild group."
+--[[Translation missing --]]
+L["opt_autoGroupLootGuildGroupOnly_name"] = "Guild Groups Only"
 L["opt_autoTrade_desc"] = "Seleccionar para añadir automáticamente los objetos a la ventana de comercio cuando se comercie con un ganador. Si se deshabilita, se pedirá confirmación antes de añadir los objetos."
 L["opt_award_later_desc"] = "Activar para comprobar automáticamente la opción 'Recompensar más tarde' en la ventana de sesión."
 L["opt_buttonsGroup_desc"] = "Grupo de opciones para los botones de %s y las respuestas. Ver más arriba para una explicación detallada."
 L["opt_chatFrameName_desc"] = "Selecciona en qué ventana de chat quieres que RCLootCouncil muestre la información de salida."
 L["opt_chatFrameName_name"] = "Ventana de Chat"
 --[[Translation missing --]]
---[[ L["opt_closeWithEscape_desc"] = ""--]] 
+L["opt_closeWithEscape_desc"] = "When enabled, all non-critical RCLootCouncil frames can be closed by pressing 'Escape'. (Requires reload to take effect on already created frames)"
 --[[Translation missing --]]
---[[ L["opt_closeWithEscape_name"] = ""--]] 
+L["opt_closeWithEscape_name"] = "Escape Close"
 L["opt_deleteDate_confirm"] = "¿Estás seguro de que quieres borrar todo lo anterior a la selección? Esta acción no se puede deshacer."
 L["opt_deleteDate_desc"] = "Borrar todo lo anterior al número de días seleccionados."
 L["opt_deleteName_confirm"] = "¿Seguro que borrar todas las entradas de %s? Esta acción no se puede deshacer."

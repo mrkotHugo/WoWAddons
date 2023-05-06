@@ -1,4 +1,4 @@
-local _, _, E, L = unpack(select(2, ...))
+local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local DT = E.DataTexts
 local B = E.Bags
 
@@ -180,25 +180,6 @@ local function OnEvent(self, event)
 		Ticker = C_Timer_NewTicker(60, UpdateMarketPrice)
 	end
 
-	if event == 'ELVUI_FORCE_UPDATE' then
-		ElvDB = ElvDB or {}
-
-		ElvDB.gold = ElvDB.gold or {}
-		ElvDB.gold[E.myrealm] = ElvDB.gold[E.myrealm] or {}
-
-		ElvDB.class = ElvDB.class or {}
-		ElvDB.class[E.myrealm] = ElvDB.class[E.myrealm] or {}
-		ElvDB.class[E.myrealm][E.myname] = E.myclass
-
-		ElvDB.faction = ElvDB.faction or {}
-		ElvDB.faction[E.myrealm] = ElvDB.faction[E.myrealm] or {}
-		ElvDB.faction[E.myrealm][E.myname] = E.myfaction
-
-		ElvDB.serverID = ElvDB.serverID or {}
-		ElvDB.serverID[E.serverID] = ElvDB.serverID[E.serverID] or {}
-		ElvDB.serverID[E.serverID][E.myrealm] = true
-	end
-
 	--prevent an error possibly from really old profiles
 	local oldMoney = ElvDB.gold[E.myrealm][E.myname]
 	if oldMoney and type(oldMoney) ~= 'number' then
@@ -330,9 +311,9 @@ local function OnEnter()
 		DT.tooltip:AddLine(' ')
 	end
 
-	for _, info in pairs(E.global.datatexts.customCurrencies) do
-		if info and not DT.CurrencyList[tostring(info.ID)] and info.DISPLAY_IN_MAIN_TOOLTIP then
-			AddInfo(info.ID)
+	for id, info in pairs(E.global.datatexts.customCurrencies) do
+		if info and not DT.CurrencyList[tostring(id)] and info.currencyTooltip then
+			AddInfo(id)
 			addLine2 = true
 		end
 	end

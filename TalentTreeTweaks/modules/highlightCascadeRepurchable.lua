@@ -1,6 +1,8 @@
 local _, TTT = ...;
 --- @type TalentTreeTweaks_Main
 local Main = TTT.Main;
+--- @type TalentTreeTweaks_Util
+local Util = TTT.Util;
 
 local Module = Main:NewModule('HighlightCascadeRepurchable');
 Module.enabled = false;
@@ -8,7 +10,7 @@ Module.enabled = false;
 function Module:OnEnable()
     self.enabled = true;
     self.buttonTextures = self.buttonTextures or {};
-    EventUtil.ContinueOnAddOnLoaded('Blizzard_ClassTalentUI', function()
+    Util:OnClassTalentUILoad(function()
         self:SetupHook();
     end);
 end
@@ -19,6 +21,9 @@ function Module:OnDisable()
         for _, texture in pairs(self.buttonTextures) do
             texture:Hide();
         end
+    end
+    if ClassTalentFrame and ClassTalentFrame.TalentsTab then
+        ClassTalentFrame.TalentsTab:UnregisterCallback(TalentFrameBaseMixin.Event.TalentButtonAcquire, self);
     end
 end
 

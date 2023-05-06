@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2022 João Cardoso
+Copyright 2008-2023 João Cardoso
 Scrap is distributed under the terms of the GNU General Public License (Version 3).
 As a special exception, the copyright holders of this addon do not give permission to
 redistribute and/or modify it.
@@ -69,8 +69,8 @@ function Button:OnMerchant()
 		Scrap.Tutorials:Start()
 	end
 
-	self:RegisterEvent('BAG_UPDATE_DELAYED', 'OnBagUpdate')
 	self:RegisterSignal('LIST_CHANGED', 'UpdateState')
+	self:RegisterEvent('BAG_UPDATE', 'OnBagUpdate')
 	self:UpdatePosition()
 	self:UpdateState()
 end
@@ -79,13 +79,13 @@ function Button:OnBagUpdate()
 	if self.saleTotal then
 		self:Delay(0.5, 'Sell')
 	else
-		self:UpdateState()
+		self:Delay(0, 'UpdateState')
 	end
 end
 
 function Button:OnClose()
-	self:UnregisterEvent('BAG_UPDATE_DELAYED')
 	self:UnregisterSignal('LIST_CHANGED')
+	self:UnregisterEvent('BAG_UPDATE')
 end
 
 
@@ -224,11 +224,11 @@ function Button:GetReport()
 	local qualities = {}
 	local total = 0
 
-	for bag, slot, id in Scrap:IterateJunk() do
-		local info = C.GetContainerItemInfo(bag, slot)
-		if not info.isLocked then
-			qualities[info.quality] = (qualities[info.quality] or 0) + info.stackCount
-			total = total + info.stackCount * (select(11, GetItemInfo(id)) or 0)
+	for bag, slot in Scrap:IterateJunk() do
+		local item = C.GetContainerItemInfo(bag, slot)
+		if not item.isLocked then
+			qualities[item.quality] = (qualities[item.quality] or 0) + item.stackCount
+			total = total + item.stackCount * (select(11, GetItemInfo(item.itemID)) or 0)
 		end
 	end
 

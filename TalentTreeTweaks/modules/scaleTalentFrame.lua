@@ -1,22 +1,22 @@
 local _, TTT = ...;
 --- @type TalentTreeTweaks_Main
 local Main = TTT.Main;
+--- @type TalentTreeTweaks_Util
+local Util = TTT.Util;
 
-local Module = Main:NewModule('ScaleTalentFrame', 'AceHook-3.0', 'AceEvent-3.0');
+local Module = Main:NewModule('ScaleTalentFrame', 'AceHook-3.0');
 
 local ADDON_NAME_TALENT_TREE_VIEWER = 'TalentTreeViewer';
 local ADDON_NAME_BLIZZARD_CLASS_TALENT_UI = 'Blizzard_ClassTalentUI';
 
 function Module:OnEnable()
     if self.blizzMoveEnabled then return end
-
-    if IsAddOnLoaded(ADDON_NAME_BLIZZARD_CLASS_TALENT_UI) then
+    Util:OnClassTalentUILoad(function()
         self:SetupHook(ADDON_NAME_BLIZZARD_CLASS_TALENT_UI);
-    end
-    if IsAddOnLoaded(ADDON_NAME_TALENT_TREE_VIEWER) then
+    end);
+    EventUtil.ContinueOnAddOnLoaded(ADDON_NAME_TALENT_TREE_VIEWER, function()
         self:SetupHook(ADDON_NAME_TALENT_TREE_VIEWER);
-    end
-    self:RegisterEvent('ADDON_LOADED');
+    end)
 end
 
 function Module:OnDisable()
@@ -48,13 +48,26 @@ function Module:GetOptions(defaultOptionsTable, db)
         };
     end
 
-    return defaultOptionsTable;
-end
+    defaultOptionsTable.args.scale = {
+        type = 'range',
+        name = 'Change Scale',
+        order = 6,
+        disabled = self.blizzMoveEnabled,
+        get = function(info)
+            return self.db[info[#info]];
+        end,
+        set = function(info, value)
+            value = math.max(0.5, math.min(2, value));
+            self.db[info[#info]] = value;
+            if ClassTalentFrame and ClassTalentFrame.SetScale then ClassTalentFrame:SetScale(value); end
+        end,
+        min = 0.5,
+        max = 2,
+        step = 0.05,
+        width = 'full',
+    };
 
-function Module:ADDON_LOADED(_, addon)
-    if addon == ADDON_NAME_BLIZZARD_CLASS_TALENT_UI or addon == ADDON_NAME_TALENT_TREE_VIEWER then
-        self:SetupHook(addon);
-    end
+    return defaultOptionsTable;
 end
 
 function Module:SetupHook(addon)

@@ -1,4 +1,4 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local PI = E.PluginInstaller
 
 --GLOBALS: SkadaDB, Skada, xCTSavedDB, xCT_Plus, UIParent
@@ -149,6 +149,7 @@ function PI:DarthSetupDF()
 		E.db["actionbar"]["bar6"]["macroFontSize"] = 15
 		E.db["actionbar"]["bar6"]["point"] = "TOPLEFT"
 		E.db["actionbar"]["bar6"]["visibility"] = "[petbattle] hide; show"
+		E.db["actionbar"]["bar6"]["flyoutDirection"] = "LEFT"
 
 		E.db["actionbar"]["bar7"]["countFont"] = "Expressway"
 		E.db["actionbar"]["bar7"]["countFontSize"] = 15
@@ -806,10 +807,10 @@ function PI:DarthSetupDF()
 		E.db["sle"]["media"]["fonts"]["gossip"]["font"] = "Expressway"
 		E.db["sle"]["media"]["fonts"]["mail"]["font"] = "Expressway"
 		E.db["sle"]["media"]["fonts"]["objective"]["font"] = "Expressway"
-		E.db["sle"]["media"]["fonts"]["objective"]["outline"] = "OUTLINE"
+		E.db["sle"]["media"]["fonts"]["objective"]["fontOutline"] = "OUTLINE"
 		E.db["sle"]["media"]["fonts"]["objectiveHeader"]["font"] = "Expressway"
-		E.db["sle"]["media"]["fonts"]["objectiveHeader"]["outline"] = "OUTLINE"
-		E.db["sle"]["media"]["fonts"]["objectiveHeader"]["size"] = 18
+		E.db["sle"]["media"]["fonts"]["objectiveHeader"]["fontOutline"] = "OUTLINE"
+		E.db["sle"]["media"]["fonts"]["objectiveHeader"]["fontSize"] = 18
 		E.db["sle"]["media"]["fonts"]["pvp"]["font"] = "RussoOne"
 		E.db["sle"]["media"]["fonts"]["questFontSuperHuge"]["font"] = "Expressway"
 		E.db["sle"]["media"]["fonts"]["subzone"]["font"] = "RussoOne"
@@ -870,7 +871,7 @@ function PI:DarthSetupDF()
 	end
 	--Movers
 	do
-		E.db["movers"]["AlertFrameMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,23"
+		E.db["movers"]["AlertFrameMover"] = "TOPLEFT,UIParent,TOPLEFT,335,-144"
 		E.db["movers"]["AltPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,359"
 		E.db["movers"]["ArenaHeaderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-300"
 		E.db["movers"]["AzeriteBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,153"
@@ -879,7 +880,7 @@ function PI:DarthSetupDF()
 		E.db["movers"]["BossBannerMover"] = "TOP,ElvUIParent,TOP,0,-126"
 		E.db["movers"]["BossButton"] = "BOTTOM,UIParent,BOTTOM,0,508"
 		E.db["movers"]["BossHeaderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-301"
-		E.db["movers"]["BuffsMover"] = "TOPRIGHT,MMHolder,TOPLEFT,-7,-1"
+		E.db["movers"]["BuffsMover"] = "TOPRIGHT,ElvUI_MinimapHolder,TOPLEFT,-7,-1"
 		E.db["movers"]["ClassBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,494"
 		E.db["movers"]["DTPanelDarth_Panel_1Mover"] = "BOTTOM,ElvUIParent,BOTTOM,0,0"
 		E.db["movers"]["DebuffsMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-231,-116"
@@ -918,7 +919,6 @@ function PI:DarthSetupDF()
 		E.db["movers"]["EventToastMover"] = "TOP,ElvUIParent,TOP,0,-150"
 		E.db["movers"]["ExperienceBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,550,23"
 		E.db["movers"]["GMMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,368,0"
-		E.db["movers"]["GhostFrameMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,110"
 		E.db["movers"]["HonorBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,226"
 		E.db["movers"]["LeftChatMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,0,0"
 		E.db["movers"]["LevelUpBossBannerMover"] = "TOP,ElvUIParent,TOP,0,-217"
@@ -939,7 +939,6 @@ function PI:DarthSetupDF()
 		E.db["movers"]["RaidUtility_Mover"] = "TOP,ElvUIParent,TOP,-400,1"
 		E.db["movers"]["ReputationBarMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-550,23"
 		E.db["movers"]["RightChatMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,0,-1"
-		E.db["movers"]["SLEGhostFrameMover"] = "TOP,ElvUIParent,TOP,0,-150"
 		E.db["movers"]["SLE_BG_1_Mover"] = "BOTTOM,ElvUIParent,BOTTOM,0,21"
 		E.db["movers"]["SLE_BG_2_Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOM,-257,21"
 		E.db["movers"]["SLE_BG_3_Mover"] = "BOTTOMLEFT,ElvUIParent,BOTTOM,257,21"
@@ -1006,6 +1005,7 @@ function PI:DarthSetupDF()
 	E.private['sle']['pvp']['KBbanner']['enable'] = true
 
 	E.global['general']['fadeMapWhenMoving'] = false
+	E.global["general"]["WorldMapCoordinates"]["position"] = "BOTTOMRIGHT"
 	E.global['general']['commandBarSetting'] = 'DISABLED'
 	E.global['sle']['advanced']['optionsLimits'] = true
 
@@ -1654,6 +1654,11 @@ function PI:DarthSetupSL()
 		E.db['sle']['chat']['guildmaster'] = true
 		E.db['sle']['chat']['dpsSpam'] = true
 
+		E.db["sle"]["databars"]["experience"]["chatfilter"]["enable"] = true
+		E.db["sle"]["databars"]["experience"]["chatfilter"]["style"] = "STYLE2"
+		E.db["sle"]["databars"]["reputation"]["chatfilter"]["enable"] = true
+		E.db["sle"]["databars"]["reputation"]["chatfilter"]["style"]["increase"] = "STYLE2"
+
 		E.db['sle']['dt']['friends']['hideODIN'] = true
 		E.db['sle']['dt']['friends']['hideLAZR'] = true
 		E.db['sle']['dt']['friends']['hide_titleline'] = true
@@ -1727,7 +1732,6 @@ function PI:DarthSetupSL()
 		E.db["movers"]["ElvUIBankMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,0,249"
 		E.db["movers"]["ExperienceBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,551,23"
 		E.db["movers"]["GMMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,368,0"
-		E.db["movers"]["GhostFrameMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,110"
 		E.db["movers"]["HonorBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,162"
 		E.db["movers"]["LeftChatMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,0,0"
 		E.db["movers"]["LevelUpBossBannerMover"] = "TOP,ElvUIParent,TOP,0,-217"
@@ -1852,19 +1856,19 @@ function PI:DarthAddons()
 				["outgoing"] = {
 					["enableFontShadow"] = false,
 					["Width"] = 98,
-					["font"] = "Expressway",
-					["fontSize"] = 13,
-					["Y"] = -245,
-					["X"] = 641,
+					["font"] = "PT Sans Narrow",
+					["fontSize"] = 12,
+					["Y"] = -249,
+					["X"] = 560,
 					["Height"] = 177,
 				},
 				["critical"] = {
 					["enableFontShadow"] = false,
 					["Width"] = 130,
-					["font"] = "Expressway",
+					["font"] = "PT Sans Narrow",
 					["fontSize"] = 16,
-					["Y"] = -249,
-					["X"] = 757,
+					["Y"] = -252,
+					["X"] = 674,
 					["Height"] = 174,
 				},
 				["power"] = {
@@ -1876,16 +1880,17 @@ function PI:DarthAddons()
 					["font"] = "PT Sans Narrow",
 				},
 				["healing"] = {
-					["enableClassNames"] = false,
+					["enableFontShadow"] = false,
 					["enableOverHeal"] = false,
-					["Width"] = 100,
-					["font"] = "Expressway",
+					["Width"] = 115,
+					["font"] = "PT Sans Narrow",
 					["enableRealmNames"] = false,
-					["fontSize"] = 13,
+					["fontSize"] = 12,
 					["showFriendlyHealers"] = false,
-					["Y"] = 47,
-					["X"] = 395,
-					["Height"] = 156,
+					["insertText"] = "top",
+					["Y"] = 34,
+					["X"] = 375,
+					["Height"] = 157,
 					["names"] = {
 						["PLAYER"] = {
 							["nameType"] = 0,
@@ -1894,22 +1899,23 @@ function PI:DarthAddons()
 							["nameType"] = 0,
 						},
 					},
-					["enableFontShadow"] = false,
+					["enableClassNames"] = false,
 				},
 				["loot"] = {
 					["enableFontShadow"] = false,
 					["Width"] = 232,
-					["font"] = "Expressway",
-					["fontSize"] = 13,
-					["Y"] = -99,
-					["X"] = 707,
+					["font"] = "PT Sans Narrow",
+					["fontSize"] = 12,
+					["Y"] = -102,
+					["X"] = 627,
 					["Height"] = 115,
 				},
 				["damage"] = {
 					["enableFontShadow"] = false,
-					["Width"] = 120,
-					["font"] = "Expressway",
-					["fontSize"] = 13,
+					["Width"] = 115,
+					["fontJustify"] = "RIGHT",
+					["font"] = "PT Sans Narrow",
+					["fontSize"] = 12,
 					["names"] = {
 						["PLAYER"] = {
 							["nameType"] = 0,
@@ -1921,9 +1927,8 @@ function PI:DarthAddons()
 							["nameType"] = 0,
 						},
 					},
-					["insertText"] = "bottom",
-					["Y"] = 47,
-					["X"] = 507,
+					["Y"] = 35,
+					["X"] = 490,
 					["Height"] = 157,
 				},
 			},
@@ -1941,6 +1946,7 @@ local function SetupCVars(Author)
 	SetCVar("cameraSmoothStyle", "0")
 	SetCVar("autoLootDefault", "1")
 	SetCVar("UberTooltips", "1")
+	SetCVar("minimapTrackingShowAll", "1")
 
 	SetAutoDeclineGuildInvites(true)
 	C_Container.SetInsertItemsLeftToRight(false)

@@ -776,10 +776,10 @@ function DataMixin:GetPrerequisites()
 
         if self.prerequisites then
             if self.prerequisites[1] == nil then
-                self.prerequisitesItems[#self.prerequisitesItems+1] = self.database:CreateItem(-1, self.prerequisites, item);
+                self.prerequisitesItems[#self.prerequisitesItems+1] = self.database:CreateItem(-1, self.prerequisites, self);
             else
                 for _,prerequisite in ipairs(self.prerequisites) do
-                    self.prerequisitesItems[#self.prerequisitesItems+1] = self.database:CreateItem(-1, prerequisite, item);
+                    self.prerequisitesItems[#self.prerequisitesItems+1] = self.database:CreateItem(-1, prerequisite, self);
                 end
             end
         end
@@ -797,10 +797,10 @@ function DataMixin:GetRestrictions()
                 restrictions = self.database:GetConditionByID(restrictions)
             end
             if restrictions[1] == nil then
-                self.restrictionsItems[#self.restrictionsItems+1] = self.database:CreateItem(-1, restrictions, item);
+                self.restrictionsItems[#self.restrictionsItems+1] = self.database:CreateItem(-1, restrictions, self);
             else
                 for _,restriction in ipairs(restrictions) do
-                    self.restrictionsItems[#self.restrictionsItems+1] = self.database:CreateItem(-1, restriction, item);
+                    self.restrictionsItems[#self.restrictionsItems+1] = self.database:CreateItem(-1, restriction, self);
                 end
             end
         end
@@ -1801,7 +1801,7 @@ function TargetItemMixin:IsCompleted(database, item, character, ...)
 
     return CheckStatusCount(amount, item)
 end
-function TargetItemMixin:GetPrerequisites(database, item)
+function TargetItemMixin:GetPrerequisites(database, item, character)
     if item.prerequisites ~= nil then
         return ItemMixin.GetPrerequisites(self, database, item, character);
     end
@@ -1811,7 +1811,7 @@ function TargetItemMixin:GetPrerequisites(database, item)
         return target:GetPrerequisites(character);
     end
 end
-function TargetItemMixin:GetRewards(database, item)
+function TargetItemMixin:GetRewards(database, item, character)
     if item.rewards ~= nil then
         return ItemMixin.GetRewards(self, database, item, character);
     end
@@ -2222,7 +2222,7 @@ function RaceItemMixin:IsCompleted(database, item, character)
 end
 
 local ClassItemMixin = CreateFromMixins(ItemMixin);
-function ClassItemMixin:GetName(dcatabase, item, character, variation)
+function ClassItemMixin:GetName(database, item, character, variation)
     local name
     if item.name then
         name = ItemMixin.GetName(self, database, item, character);

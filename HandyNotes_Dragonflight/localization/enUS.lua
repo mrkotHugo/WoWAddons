@@ -17,7 +17,7 @@ L['options_icons_profession_treasures_desc'] = 'Display locations of treasures w
 
 L['dragon_glyph'] = 'Dragon Glyph'
 L['options_icons_dragon_glyph'] = 'Dragon Glyphs'
-L['options_icons_dragon_glyph_desc'] = 'Display the location of all 48 dragon glyphs.'
+L['options_icons_dragon_glyph_desc'] = 'Display the location of all 64 dragon glyphs.'
 
 L['dragonscale_expedition_flag'] = 'Dragonscale Expedition Flag'
 L['flags_placed'] = 'flags placed'
@@ -49,12 +49,17 @@ L['options_icons_scout_pack'] = 'Expedition Scout\'s Packs'
 L['options_icons_scout_pack_desc'] = 'Display possible locations of {object:Expedition Scout\'s Packs}.'
 
 L['magicbound_chest'] = 'Magic-Bound Chest'
-L['options_icons_magicbound_chest'] = 'Magic-Bound Chest'
+L['options_icons_magicbound_chest'] = 'Magic-Bound Chests'
 L['options_icons_magicbound_chest_desc'] = 'Display possible locations of {object:Magic-Bound Chests}.'
+L['ice_bound_chest'] = 'Ice Bound Chest'
 
-L['dr_best'] = 'Your best time:\n - Normal: %.3fs\n - Advanced: %.3fs'
+L['tuskarr_tacklebox'] = 'Tuskarr Tacklebox'
+L['options_icons_tuskarr_tacklebox'] = 'Tuskarr Tackleboxes'
+L['options_icons_tuskarr_tacklebox_desc'] = 'Display possible locations of {object:Tuskarr Tackleboxes}.'
+
+L['dr_best'] = 'Your best time:\n - Normal: %.3fs\n - Advanced: %.3fs\n - Reverse: %.3fs'
 L['dr_best_dash'] = 'Your best time:\n - %.3fs'
-L['dr_note'] = 'Target time:\n - Normal: %ss / %ss\n - Advanced: %ss / %ss'
+L['dr_note'] = 'Target time:\n - Normal: %ss / %ss\n - Advanced: %ss / %ss\n - Reverse: %ss / %ss'
 L['dr_note_dash'] = 'Target time:\n - %ss / %ss'
 L['dr_bronze'] = '\n\nFinish the race to get ' .. ns.color.Bronze('Bronze') .. '.'
 L['options_icons_dragonrace'] = 'Dragonriding Races'
@@ -86,8 +91,11 @@ L['signal_transmitter_note'] = '{note:Requires 10 points in Mechanical Mind\nReq
 L['options_icons_signal_transmitter'] = 'Wyrmhole Generator Signal Transmitters'
 L['options_icons_signal_transmitter_desc'] = 'Display {object:Deactivated Signal Transmitters} locations for the {item:198156}.'
 
-L['spawns_hourly'] = 'Spawns about once an hour.'
-L['spawns_at_night'] = 'Spawns only at night. (After 18:30 server time)'
+L['rare_14h'] = 'This rare is on a 14 hour rotation with other rares with one rare spawning every 30 minutes.\n\nNext spawn in: {note:%s}'
+L['time_format_12hrs'] = '%B %d - %I:%M %p local time'
+L['time_format_24hrs'] = '%B %d - %H:%M local time'
+L['now'] = 'Now'
+L['spawns_at_night'] = '{note:Spawns only at night. (After 18:30 server time)}'
 
 L['elemental_storm'] = 'Elemental Storm'
 L['elemental_storm_thunderstorm'] = 'Thunderstorm'
@@ -116,12 +124,44 @@ L['elemental_storm_mythressa_note_end'] = 'You currently have %s {currency:2118}
 L['options_icons_elemental_storm'] = 'Elemental Storms'
 L['options_icons_elemental_storm_desc'] = 'Display rewards for Elemental Storms.'
 
+L['elusive_creature_note'] = '{object:Mastery Rank 40/40} in {object:Bait Crafter} enables you to create {item:193906} which can be used to summon and skin each creature once a day.'
+L['options_icons_elusive_creature'] = '{item:193906}'
+L['options_icons_elusive_creature_desc'] = 'Display locations for elusive creatures summoned with {item:193906}.'
+
+L['grand_hunts_label'] = 'Grand Hunts'
+L['longhunter_suffix'] = 'hunt steps completed'
+L['the_best_at_what_i_do_suffix'] = 'bosses killed'
+
+L['options_icons_grand_hunts'] = 'Grand Hunts'
+L['options_icons_grand_hunts_desc'] = 'Display locations and rewards for {object:Grand Hunts}.'
+
+L['ancient_stone_label'] = 'Ancient Stone'
+L['options_icons_ancient_stones'] = '{achievement:17560}'
+L['options_icons_ancient_stones_desc'] = 'Display {object:Ancient Stone} locations for {achievement:17560}.'
+
+L['reed_chest'] = 'Reed Chest'
+L['options_icons_reed_chest'] = 'Reed Chest'
+L['options_icons_reed_chest_desc'] = 'Display possible locations of {object:Reed Chests}.'
+
+L['dracthyr_supply_chest'] = 'Dracthyr Supply Chest'
+L['options_icons_dracthyr_supply_chest'] = 'Dracthyr Supply Chest'
+L['options_icons_dracthyr_supply_chest_desc'] = 'Display possible locations of {object:Dracthyr Supply Chests}.'
+
+L['simmering_chest'] = 'Simmering Chest'
+L['options_icons_simmering_chest'] = 'Simmering Chest'
+L['options_icons_simmering_chest_desc'] = 'Display possible locations of {object:Simmering Chests}.'
+
+L['frostbound_chest'] = 'Frostbound Chest'
+L['options_icons_frostbound_chest'] = 'Frostbound Chest'
+L['options_icons_frostbound_chest_desc'] = 'Display possible locations of {object:Frostbound Chests}.'
+
 -------------------------------------------------------------------------------
 ------------------------------- THE AZURE SPAN --------------------------------
 -------------------------------------------------------------------------------
 
+L['bisquis_note'] = 'Cook Legendary soup at the Community Feast in {location:Iskaara}, then defeat {npc:197557}.\n\nNext Feast: {note:%s}'
 L['blightfur_note'] = 'Talk to {npc:193633} to summon the rare.'
-L['brackenhide_rare_note'] = 'These rares spawn in a set rotation of {npc:197344} > {npc:197353} > {npc:197354} > {npc:197356} on a 10 minute timer.'
+L['brackenhide_rare_note'] = 'These rares spawn in a set rotation of {npc:197344} > {npc:197353} > {npc:197354} > {npc:197356} on a 10 minute timer.\n\nNext possible spawn: {note:%s}'
 L['fisherman_tinnak_note'] = 'Collect {object:Broken Fishing Pole}, {object:Torn Fishing Net} and {object:Old Harpoon} to spawn the rare.'
 L['frostpaw_note'] = 'After taking the {object:Wooden Hammer}, you have 20 seconds to hit the {object:Whack a Gnoll} on the {object:Tree Stump}, and spawn the rare.'
 L['sharpfang_note'] = 'Help {npc:192747} defeat {npc:192748s} to spawn the rare.'
@@ -144,7 +184,7 @@ L['pt_ench_enriched_earthen_shard_note'] = 'On a pile of rocks.'
 L['pt_ench_faintly_enchanted_remains_note'] = 'Click the {object:Mana-Starved Crystal Cluster} to spawn and kill a mob. Then loot the crystal that spawns.'
 L['pt_ench_forgotten_arcane_tome_note'] = 'Lying on the floor to the right of the entrance to a tomb.'
 L['pt_jewel_crystalline_overgrowth_note'] = 'Next to a small pond.'
-L['pt_jewel_harmonic_crystal_harmonizer_note'] = 'Click the chest to receive a buff then click the 3 crystals.'
+L['pt_jewel_harmonic_crystal_harmonizer_note'] = 'Click the {object:Resonant Key} to receive a buff {spell:384802}, then click the 3 {object:Humming Crystal} in the lake to open the chest.'
 L['pt_leath_decay_infused_tanning_oil_note'] = 'In the barrel.'
 L['pt_leath_treated_hides_note'] = 'At {location:Snowhide Camp}.'
 L['pt_leath_well_danced_drum_note'] = 'In an underground building with {npc:186446} and {npc:186448}. Fix the drum next to {npc:194862}. Once he dances on it you can loot the item.'
@@ -170,25 +210,62 @@ L['snowclaw_cub_note_end'] = [[
 
 Once you have the {title:Honorary Dryad} title equipped offer all 4 items to {npc:196768} to receive your pet.
 
-{bug:(BUG: Title may disappear pending fix)}
+{note:If you lose the title prematurely you can repeat the quest to acquire it again. Try again tomorrow or after the next weekly reset.}
 ]]
 
 L['tome_of_polymoph_duck'] = 'Use {spell:1953} to enter the cave and interact with the {object:Manastorming For Beginners} book to complete the quest.'
 
-L['temperamental_skyclaw_note'] = [[
-Collect (or buy in the auction house):
-
-20x {item:201420}
-20x {item:201421}
-20x {item:201422}
-
-Ask about the saddled slyvern and present {npc:190892} the collected "dishes".
-]]
+L['temperamental_skyclaw_note_start'] = 'Collect (or buy in the auction house):'
+L['temperamental_skyclaw_note_end'] = 'Ask about the saddled slyvern and present {npc:190892} the collected "dishes".'
 
 L['elder_poa_note'] = 'Exchange {item:200071} for {faction:2511} reputation.'
 
+L['artists_easel_note_step1'] = '{quest:70166}\n{npc:194415}, at the top of the tower in the {location:Ancient Outlook}, will ask you to deliver his painting to {npc:194323}, the greatest painter who ever lived.'
+L['artists_easel_note_step2'] = '{quest:70168}\n{npc:194425} will ask you to collect paintings from {location:Ruby Life Pools}, {location:Nokhud Offensive}, and {location:Brackenhide Hollow}.'
+L['artists_easel_note_step3'] = '{quest:70170}\n{npc:194425} will ask you to collect paintings from {location:Halls of Infusion}, {location:Algeth\'ar Academy}, {location:The Azure Vault}, and {location:Neltharus}.'
+L['artists_easel_note_step4'] = 'Deliver the final paintings to {npc:194323} and recieve your toy!\n\n{note:Paintings do not drop from Mythic or Mythic+ dungeons.}'
+
+L['somewhat_stabilized_arcana_note'] = 'Located at the top of the tower.\n\nComplete the small questline starting at {npc:197100} to obtain the toy.'
+
+L['stranded_soul_note'] = [[
+After killing {npc:196900} he explodes into 4 {npc:196901s}.
+You need to activate them to melt the ice wall (two players are recommended).
+
+Kill {npc:197183} inside and you will recieve {item:200528}.
+]]
+
+L['gethdazr_note'] = [[
+Spawns as part of an event in {location:Imbu} that starts by blowing the {object:Great Horn of Imbu} {dot:Blue}.
+The horn will only become clickable after killing the {npc:196155} which has about 30-60 minutes of respawn time.
+
+{npc:191143} {dot:Green} and other NPCs will then fight their way from the north east entrance of {location:Imbu} up to the cliff where {npc:196165} will then spawn.
+The NPCs can die without help, which then will fail the event.
+
+This can be done solo but 2-3 players are recommended.
+]]
+
+L['tuskarr_chest'] = 'Tuskarr Chest'
+L['options_icons_tuskarr_chest'] = 'Tuskarr Chests'
+L['options_icons_tuskarr_chest_desc'] = 'Display possible locations of {object:Tuskarr Chests}.'
+
+L['community_feast_label'] = 'Community Feast'
+L['options_icons_community_feast'] = 'Community Feast'
+L['options_icons_community_feast_desc'] = 'Display location and rewards for the Community Feast.'
+
+L['decay_covered_chest'] = 'Decay Covered Chest'
+L['options_icons_decay_covered_chest'] = 'Decay Covered Chest'
+L['options_icons_decay_covered_chest_desc'] = 'Display possible locations of {object:Decay Covered Chests}.'
+
+L['icemaw_storage_cache'] = 'Icemaw Storage Cache'
+L['options_icons_icemaw_storage_cache'] = 'Icemaw Storage Cache'
+L['options_icons_icemaw_storage_cache_desc'] = 'Display possible locations of {object:Icemaw Storage Caches}.'
+
+L['kazzi_note_start'] = 'Exchange {item:202017} and {item:202018} for transmog, drake customization, a pet, and more.'
+L['kazzi_note_item'] = 'You currently have %s {item:%s}.'
+L['kazzi_achievement_suffix'] = 'rank in the Winterpelt language'
+
 -------------------------------------------------------------------------------
-------------------------------- FORBIDDEN REACH -------------------------------
+------------------ FORBIDDEN REACH (DRACTHYR STARTING ZONE) -------------------
 -------------------------------------------------------------------------------
 
 L['bag_of_enchanted_wind'] = 'Bag of Enchanted Wind'
@@ -200,22 +277,157 @@ L['mysterious_wand'] = 'Mysterious Wand'
 L['mysterious_wand_note'] = 'Pick up the {object:Crystal Key} and place it into the {object:Crystal Focus}.'
 
 -------------------------------------------------------------------------------
+------------------------- FORBIDDEN REACH (MAIN ZONE) -------------------------
+-------------------------------------------------------------------------------
+
+L['in_dragonskull_island'] = 'Within {location:Dragonskull Island}.'
+L['in_froststone_vault'] = 'Within {location:Froststone Vault}.'
+L['in_the_high_creche'] = 'Within {location:The High Creche}'
+L['in_the_lost_atheneum'] = 'Within {location:The Lost Atheneum}.'
+L['in_the_siege_creche'] = 'Within {location:The Siege Creche}.'
+L['in_the_support_creche'] = 'Within {location:The Support Creche}.'
+L['in_the_war_creche'] = 'Deep within {location:The War Creche}'
+L['in_zskera_vaults'] = 'Within {location:Zskera Vaults}.'
+
+L['duzalgor_note'] = 'Collect a bottle of {spell:400751} {dot:Green} to heal from the poisonous gas within {location:The Support Creche}.'
+L['mad_eye_carrey_note'] = '{npc:201181} is in a group with {npc:201184} and {npc:201182}'
+L['wymslayer_angvardi_note'] = '{npc:201013} is partnered with {npc:201310}'
+L['loot_specialist_note'] = '{npc:203353} spawns with both {spell:406143} and {spell:132653} and will run away when attacked.\n\n{note:Kill him quickly before he finishes casting {spell:406141}.}'
+
+L['profession_required'] = '{note:Requires a player with the %s profession.}'
+L['pr_crafting_note'] = 'Craft {item:%s} with {item:%s} and interact with {object:%s} to summon the rare.'
+L['pr_gathering_note'] = 'Use {item:%s} to interact with {object:%s} to summon the rare.'
+L['pr_recipe_note'] = 'The recipe {item:%s} can be purchased from {npc:202445} for 10 {item:190456}.'
+L['pr_summoning_note'] = 'The player who summons the rare will get {spell:405161} and bonus loot.'
+
+L['pr_awakened_soil'] = 'Awakened Soil'
+L['pr_book_of_arcane_entities'] = 'Book of Arcane Entities'
+L['pr_damaged_buzzspire'] = 'Damaged Buzzspire 505'
+L['pr_empty_crab_trap'] = 'Empty Crab Trap'
+L['pr_farescale_shrine'] = 'Farscale Shrine'
+L['pr_raw_argali_pelts'] = 'Raw Argali Pelts'
+L['pr_resonant_crystal'] = 'Resonant Crystal'
+L['pr_rumbling_deposit'] = 'Rumbling Deposit'
+L['pr_spellsworn_ward'] = 'Spellsworn Ward'
+L['pr_spiceless_stew'] = 'Spiceless Stew'
+L['pr_tuskarr_kite_post'] = 'Tuskarr Kite Post'
+L['pr_tuskarr_tanning_rack'] = 'Tuskarr Tanning Rack'
+L['pr_volatile_brazier'] = 'Volatile Brazier'
+
+L['options_icons_profession_rares'] = 'Profession Rares'
+L['options_icons_profession_rares_desc'] = 'Display locations of Profession Rares.'
+
+L['storm_bound_chest_label'] = 'Storm-Bound Chest'
+
+L['hoarder_of_the_forbidden_reach_suffix'] = 'small treasures opened'
+L['forbidden_spoils_suffix'] = 'Forbidden Hoards opened'
+L['forbidden_hoard_label'] = 'Forbidden Hoard'
+
+L['options_icons_forbidden_hoard'] = 'Forbidden Hoard'
+L['options_icons_forbidden_hoard_desc'] = 'Display possible locations of {object:Forbidden Hoard} chests.'
+
+L['froststone_vault_storm_label'] = 'Froststone Vault Primal Storm'
+L['gooey_snailemental_note'] = 'Combine x50 {item:204352} collected from {object:Froststone Vault Primal Storm} bosses to create {item:192785}.'
+
+L['options_icons_froststone_vault_storm'] = 'Froststone Vault Primal Storm'
+L['options_icons_froststone_vault_storm_desc'] = 'Display location and rewards for {object:Froststone Vault Primal Storm}'
+
+L['small_treasures_label'] = 'Small Treasure'
+L['small_treasures_note'] = 'Small treasures are shared between spawn points.\n\nPurchase {item:204558} from {npc:200566} at {location:Morqut Village} to receive the {spell:405637} buff which allows you to see small treasures on the minimap for 60 minutes.'
+
+L['options_icons_small_treasures'] = 'Small Treasures'
+L['options_icons_small_treasures_desc'] = 'Display possible locations for small treasures.'
+
+L['zskera_vaults_label'] = 'Zskera Vaults'
+L['zskera_vaults_note'] = 'Collect {item:202196} from various rares and chests to open doors within the {location:Zskera Vaults}.'
+L['door_buster_suffix'] = 'Doors unlocked using Zskera Vault keys'
+
+L['broken_waygate_label'] = 'Broken Waygate'
+L['neltharions_toolkit_note'] = [[1. Collect {item:204278} which spawns randomly inside {location:Zskera Vaults}.
+
+2. Travel to {location:Smoldering Perch} in {location:The Waking Shores}.
+
+3. Find the {object:Broken Waygate} inside the cave next to {npc:193310}.
+
+4. Repair the {object:Broken Waygate}. {note:This may require a few clicks.}
+
+5. Teleport to the hidden room within {location:Zskera Vaults}. Kill the {npc:200375} and {npc:203639} then open the {object:Obsidian Grand Cache} to claim your loot!]]
+
+L['recipe_rat_note_1'] = 'Speak to the {npc:202982} within {location:Zskera Vault} and {item:202252} will enter your bags.'
+L['recipe_rat_note_2'] = 'Interact with {item:202252} to receive {item:204340}. {note:(5 minute cooldown)}'
+L['recipe_rat_note_3'] = 'Once you have 30x {item:204340} combine the scraps to receive the recipe.'
+L['recipe_rat_note_4'] = '{note:This rat loves cheese and will consume one {item:3927} roughly every three minutes. Plan accordingly!}'
+
+L['mm_start_note'] = 'Collect and combine various items found within {location:Zskera Vaults}.'
+L['mm_status_note'] = 'Combine the following items:\n{item:%s}\n{item:%s}'
+
+L['options_icons_zskera_vaults'] = 'Zskera Vaults'
+L['options_icons_zskera_vaults_desc'] = 'Display rewards for {location:Zskera Vaults}.'
+
+L['confiscated_journal_label'] = 'Confiscated Journal'
+L['farscale_manifesto_label'] = 'Farscale Manifesto'
+L['lost_expeditions_notes_label'] = 'Lost Expedition Notes'
+L['pirate_proclamation_label'] = 'Pirate Proclamation'
+L['spellsworn_missive_label'] = 'Spellsworn Missive'
+L['vrykul_tome_label'] = 'Vrykul Tome'
+
+L['library_note'] = 'Open the {object:%s} and loot the {item:%s}.'
+
+L['options_icons_librarian_of_the_reach'] = '{achievement:17530}'
+L['options_icons_librarian_of_the_reach_desc'] = 'Display book locations for {achievement:17530}. {note:Some books are in {location:Zskera Vaults}}.'
+
+L['dracthyr_runestone_label'] = 'Dracthyr Runestone'
+L['scroll_hunter_suffix'] = 'treasures found from Sealed Scrolls'
+L['scroll_hunter_note'] = 'Collect sealed scrolls from various rares and treasured around {location:The Forbidden Reach}.\n\nBreaking open a {item:%s} will reveal an X on the map which will offer a {item:%s} which provides reputation for {faction:%s}.'
+
+L['options_icons_scroll_hunter'] = '{achievement:17532}'
+L['options_icons_scroll_hunter_desc'] = 'Display scroll reward locations for {achievement:17532}.'
+
+L['options_icons_scalecommander_item'] = '{achievement:17315}'
+L['options_icons_scalecommander_item_desc'] = 'Display item locations for {achievement:17315}. {note:Some item are in {location:Zskera Vaults}}.'
+
+L['spellsworn_gateway'] = 'Spellsworn Gateway'
+L['gemstone_of_return'] = 'Gemstone of Return'
+
+L['treysh_note'] = 'Exchange {currency:2118} or gold for transmog, gear and mounts.'
+L['renown_envoy_label'] = 'Renown Envoys'
+L['renown_envoy_note'] = 'Exchange {currency:2118} or gold for mounts, pets, transmog, drake customization, recipes and other useful items.\n\nPurchase {item:204383} from {npc:200566} for 2000x {currency:2118} for a chance at {item:191915}.'
+L['trader_hagarth_note'] = 'Exchange {item:190456} for Artisan Curio recipes.'
+
+-------------------------------------------------------------------------------
 ------------------------------ OHN'AHRAN PLAINS -------------------------------
 -------------------------------------------------------------------------------
 
 L['eaglemaster_niraak_note'] = 'Kill nearby {npc:186295s} and {npc:186299s} to spawn the rare.'
 L['hunter_of_the_deep_note'] = 'Click on the weapon rack and shoot fish until the rare spawns.'
-L['porta_the_overgrown_note'] = 'Find 5x {item:194426} at the bottom of the lake to the west, then spread the soil at {npc:191953} to spawn the rare.'
+L['porta_the_overgrown_note'] = 'Find 5x {item:194426} at the bottom of the {location:Mirror of the Sky} on the west, then spread the soil at {npc:191953} to spawn the rare.'
 L['scaleseeker_mezeri_note'] = 'Offer {item:194681} to {npc:193224} and follow her until she reveals the rare.\n\n{note:{npc:190315} at {location:Three-Falls Lookout} in {location:The Azure Span} is the nearest vendor.}'
 L['shade_of_grief_note'] = 'Click the {npc:193166} to spawn the rare.'
 L['windscale_the_stormborn_note'] = 'Kill the {npc:192367s} channeling into the {npc:192357}.'
+L['windseeker_avash_note'] = 'Kill nearby {npc:195742s} and {npc:187916s} to spawn the rare.'
 L['zarizz_note'] = 'Click and {emote:/hiss} at the four {npc:193169s} to summon the rare.'
+
+L['aylaag_outpost_note'] = '{note:This rare only spawns when {faction:Clan Aylaag} Camp in {location:Aylaag Outpost}.}'
+L['eaglewatch_outpost_note'] = '{note:This rare only spawns when {faction:Clan Aylaag} Camp in {location:Eaglewatch Outpost}.}'
+L['river_camp_note'] = '{note:This rare only spawns when {faction:Clan Aylaag} Camp in {location:River Camp}.}'
+
+L['defend_clan_aylaag'] = 'Defend Clan Aylaag'
+L['defend_clan_aylaag_note'] = '{note:Only spawns when defending the {faction:Clan Aylaag} Camp moving events, not loot.}'
 
 L['gold_swong_coin_note'] = 'Inside the cave with {npc:191608} to his right side.'
 L['nokhud_warspear_note'] = '{item:194540} can be found in {object:Expedition Scout\'s Packs} and {object:Disturbed Dirts}.'
 L['slightly_chewed_duck_egg_note'] = 'Find and pet {npc:192997} to get {item:195453}, then use it. {item:199171} incubates in 3 days into {item:199172}.'
 L['yennus_boat'] = 'Tuskarr Toy Boat'
 L['yennus_boat_note'] = 'Loot the {object:Tuskarr Toy Boat} to get {item:200876}. This starts the quest {quest:72063} which can be turned in at {npc:195252}.'
+
+L['forgotten_dragon_treasure_label'] = 'Forgotten Dragon Treasure'
+L['forgotten_dragon_treasure_step1'] = '1. Collect 5x {item:195884} from {object:Crystalline Flower} {dot:Green} in western {location:Ohn\'ahran Plains}.'
+L['forgotten_dragon_treasure_step2'] = '2. Combine petals to create {item:195542} and visit the {object:Ancient Stone} {dot:Yellow}.'
+L['forgotten_dragon_treasure_step3'] = '3. Use the {item:195542} near the {object:Ancient Stone} to gain {spell:378935} which is a 20 second buff that allows you to follow the flower path to a cave {dot:Blue}. Running over flowers increases the buff time to get to the {object:Emerald Chest} {dot:Blue} and loot the {item:195041}.'
+L['forgotten_dragon_treasure_step4'] = 'Once you have the key, head to the {object:Forgotten Dragon Treasure} to open it and receive your Drakewatcher Manuscript.'
+L['fdt_crystalline_flower'] = 'Crystalline Flower'
+L['fdt_ancient_stone'] = 'Ancient Stone'
+L['fdt_emerald_chest'] = 'Emerald Chest'
 
 L['pm_ench_shalasar_glimmerdusk'] = 'On the second floor of the broken tower.'
 L['pm_herb_hua_greenpaw'] = 'Kneels next to a tree.'
@@ -264,7 +476,7 @@ L['hunt_instructor_basku_note'] = 'Exchange {item:200093} for {faction:2503} rep
 L['elder_yusa_note'] = 'Target {npc:192818} and {emote:/hungry} to obtain the cooking recipe.'
 L['initiate_kittileg_note'] = 'Complete {quest:66226} to obtain the toy!'
 
-L['quackers_duck_trap_kit'] = 'To summon {npc:192557} you first need the {item:194740} which you can find in a nearby camp.\n\nTo make a {item:194712} you need the following materials:'
+L['quackers_duck_trap_kit'] = 'To summon {npc:192557} you first need the {item:194740} which you can find in a nearby Clan Aylaag camp {dot:Blue}.\n\nTo make a {item:194712} you need the following materials:'
 L['quackers_spawn'] = 'Next you need to catch a duck near the nest with the {item:194712}. Use the {item:194739} at the {npc:192581} to summon {npc:192557}.'
 
 L['knew_you_nokhud_do_it_note'] = '{note:All 3 items are unique and have a 30 minute timer.}\n\nCollect {item:200184}, {item:200194}, and {item:200196} from various {npc:185357s}, {npc:185353s}, and {npc:185168s} around {location:Nokhudon Hold}.\n\nCombine them to create {item:200201} and use it to speak with {npc:197884} to begin the training course.\n\nUse your |cFFFFFD00Extra Action Button|r to complete it and earn your achievement.\n\n{note:Completing the achievement while in a raid during an Elemental Storm makes farming the items much easier.}'
@@ -272,6 +484,18 @@ L['options_icons_nokhud_do_it'] = '{achievement:16583}'
 L['options_icons_nokhud_do_it_desc'] = 'Display helpful information for completing {achievement:16583}.'
 
 L['chest_of_the_flood'] = 'Chest of the Flood'
+
+L['aylaag_camp_note'] = '{faction:Clan Aylaag} moves on to another camp every 3 days and 3 hours (75 hours), follow them and defend them on their way.\n\nNext move: {note:%s}'
+
+L['clan_chest'] = 'Clan Chest'
+L['options_icons_clan_chest'] = 'Clan Chests'
+L['options_icons_clan_chest_desc'] = 'Display possible locations of {object:Clan Chests}.'
+
+L['lightning_bound_chest'] = 'Lightning Bound Chest'
+L['options_icons_lightning_bound_chest'] = 'Lightning Bound Chest'
+L['options_icons_lightning_bound_chest_desc'] = 'Display possible locations of {object:Lightning Bound Chests}.'
+
+L['bloodgullet_note'] = 'Get the {spell:369277} buff (1 hour) in a tent at the {location:Timberstep Outpost} from {object:Essence of Awakening} to see this Spirit Beast.\n\n{note:Only appears to Beast Mastery Hunters.}'
 
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
@@ -294,7 +518,7 @@ L['tasty_hatchling_treat_note'] = 'In a barrel behind the bookshelf.'
 L['pm_mining_bridgette_holdug'] = 'On top of a grassy rock pillar.'
 L['pm_tailor_elysa_raywinder'] = 'On a ledge halfway up the tower.'
 L['pt_alch_contraband_concoction_note'] = 'Hidden in bushes. {note:Difficult to see}.'
-L['pt_alch_furry_gloop_note'] = 'Drop a nearby {npc:194855} into each cauldron then kill the monster that spawns.'
+L['pt_alch_tasty_candy_note'] = 'Drop a nearby {object:Discarded Toy} into each cauldron.'
 L['pt_ench_fractured_titanic_sphere_note'] = 'South of {location:Tyrhold}.'
 L['pt_jewel_alexstraszite_cluster_note'] = 'In {location:Tyrhold}.'
 L['pt_jewel_painters_pretty_jewel_note'] = 'Inside a lantern.'
@@ -311,13 +535,13 @@ L['icecrown_bleu_note'] = 'Purchase from {npc:196729} {title:<Cheesemonger>} in 
 L['dreamwarding_dripbrew_note'] = 'Purchase from {npc:197872} {title:<Caffeinomancer>} at {location:The Late Night Lab}.'
 L['arcanostabilized_provisions_note'] = 'Purchase from {npc:198831} {title:<Head Chef>} at the {location:Temporal Conflux} in the {location:Primalist Future}.'
 L['steamed_scarab_steak_note'] = 'Purchase from {npc:197586} {title:<Spa Bartender>} at {location:Serene Dreams Spa}.'
-L['craft_creche_crowler_note'] = 'Purchase from {npc:187444} {title:<Traveling Dragonbrew Vendor>} at random map place per day: {location:Ruby Lifeshrine}, {location:Greenscale Inn}, {location:Camp Nowhere}, {location:Temporal Conflux}.'
+L['craft_creche_crowler_note'] = 'Purchase from {npc:187444} {title:<Traveling Dragonbrew Vendor>} at random map place per day: {location:Ruby Lifeshrine}, {location:Dragonscale Basecamp}, {location:Camp Nowhere}, {location:Missing Hinge Inn}, {location:Temporal Conflux}, {location:Gelikyr Post} and {location:Greenscale Inn}.'
 L['bivigosas_blood_sausages_note'] = 'Purchase from {npc:188895} {title:<Food & Drink>} at {location:Gelikyr Post}.'
 L['rumiastrasza_note'] = '{note:Complete the daily questline starting at {quest:71238} from {location:Valdrakken}, otherwise the achievement cannot be completed.}'
 L['options_icons_specialties'] = '{achievement:16621}'
 L['options_icons_specialties_desc'] = 'Display food and drink locations for the {achievement:16621} achievement.'
 
-L['new_perspective_note'] = 'Take a picture with the S.E.L.F.I.E. camera at the vista. The location will be marked by a purple light circle as soon as you in camera mode.\n\nIf you dont get credit towards the achievement, change your angle.'
+L['new_perspective_note'] = 'Take a picture with the S.E.L.F.I.E. camera at the vista. The location will be marked by a purple light circle as soon as you are in camera mode.\n\nIf you dont get credit towards the achievement, change your angle.'
 L['options_icons_new_perspective'] = '{achievement:16634}'
 L['options_icons_new_perspective_desc'] = 'Display vista locations for the {achievement:16634} achievement.'
 
@@ -328,6 +552,17 @@ L['lillian_brightmoon_note'] = 'Exchange {item:201412} for {faction:2507} reputa
 
 L['chest_of_the_elements'] = 'Chest of the Elements'
 
+L['hoard_of_draconic_delicacies_note_start'] = 'Complete the following 7 quests provided by {npc:189479}:'
+L['hoard_of_draconic_delicacies_note_end'] = 'After all quests have been completed {npc:189479} will provide {quest:67071} to receive your recipe.\n\n{note:Quests are based on the active guest chef at {location:The Ruby Enclave} and may not match the order listed above.}'
+
+L['brendormi_note_start'] = 'Exchange {item:202039} and {currency:2118} for gear, a pet, a toy, and a mount.'
+L['brendormi_note_item'] = 'You currently have %s {item:202039}.'
+L['brendormi_note_currency'] = 'You currently have %s {currency:2118}.'
+
+L['titan_chest'] = 'Titan Chest'
+L['options_icons_titan_chest'] = 'Titan Chest'
+L['options_icons_titan_chest_desc'] = 'Display possible locations of {object:Titan Chest}.'
+
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
 -------------------------------------------------------------------------------
@@ -337,15 +572,19 @@ L['captain_lancer_note'] = 'Spawns immediately after completing the {spell:38894
 L['enkine_note'] = 'Kill {npc:193137}, {npc:193138} or {npc:193139} along the lava river to get {item:201092}, use it and fish near {npc:191866} in the lava.'
 L['lepidoralia_note'] = 'Located in the {location:Fluttering Cavern}. Help {npc:193342} catch {npc:193274s} until the rare spawns.'
 L['obsidian_citadel_rare_note'] = 'You and other players have to return a total of %dx {item:191264} to %s. To craft a key you need to combine 30x {item:191251} and 3x {item:193201}, you can get these items from {location:Obsidian Citadel} mobs.'
-L['shadeslash_note'] = 'Click the {object:Pilfered Focus} to summon the rare.'
+L['shadeslash_note'] = 'Click the {object:Pilfered Globe}, {object:Pilfered Telescope} and {object:Pilfered Focus} to summon the rare.'
 L['obsidian_throne_rare_note'] = 'Inside the {location:Obsidian Throne}.'
-L['slurpo_snail_note'] = 'Loot a {item:201033} from a cave in {location:The Azure Span} (11, 41) and use it in this cave to summon him.'
+L['slurpo_snail_note'] = 'Loot a {item:201033} from {object:Salt Crystal} in {location:The Azure Span} cave (11, 41) and use it in {location:The Waking Shores} cave to summon him.'
 L['worldcarver_atir_note'] = 'Collect 3x {item:191211} from {npc:187366} nearby and place them at {npc:197395} to spawn the rare.'
 
 L['bubble_drifter_note'] = '{item:199061} can be found in {object:Expedition Scout\'s Packs} and {object:Disturbed Dirts}.'
 L['dead_mans_chestplate_note'] = 'Inside the tower on the middle floor.'
 L['fullsails_supply_chest_note'] = 'The key drops from {npc:187971s} and {npc:187320s} south of {location:Wingrest Embassy}.'
 L['golden_dragon_goblet_note'] = 'Loot {item:202081} from {npc:190056} on the {location:Wild Coast} and complete the small quest line.'
+L['lost_obsidian_cache'] = 'Lost Obsidian Cache'
+L['lost_obsidian_cache_step1'] = '1. Collect {item:194122} at the foot of {npc:186763}.'
+L['lost_obsidian_cache_step2'] = '2. Use {item:194122} on {npc:191851}, then ride it to the cave entrance.'
+L['lost_obsidian_cache_step3'] = '3. Collect {item:198085} from {object:Lost Cache Key} in the cave, then open {object:Lost Obsidian Cache} to obtain the toy.'
 L['misty_treasure_chest_note'] = 'Stand on the {npc:185485} that sticks out of the waterfall to enter the cave.'
 L['onyx_gem_cluster_note'] = 'At Renown 21 with the {faction:2507} you can complete the quest {quest:70833} to get an {item:200738} as a reward (one time per account). Otherwise you can buy the map from {npc:189065} for 3 {item:192863} and 500 {currency:2003}.'
 L['torn_riding_pack_note'] = 'Located at the top of the waterfall.'
@@ -355,9 +594,9 @@ L['fullsails_supply_chest'] = 'Fullsails Supply Chest'
 L['hidden_hornswog_hoard_note'] = [[
 Collect three different items and combine them at the {object:"Observant Riddles: A Field Guide"} near the {npc:192362} to get {item:200063} and feed it. He will then move out of the way so you can loot his treasure.
 
-{item:200064}
-{item:200065}
-{item:200066}
+{item:200064} {dot:Yellow}
+{item:200065} {dot:Blue}
+{item:200066} {dot:White}
 ]]
 
 L['pm_alch_grigori_vialtry'] = 'On a ledge overlooking {location:Flashfrost Assault}.'
@@ -438,3 +677,96 @@ L['options_icons_safari_desc'] = 'Display battle pet locations for the {achievem
 L['shyfly_note'] = 'You have to be on the quest {quest:70853} to see the {npc:189102}.'
 
 L['cataloger_jakes_note'] = 'Exchange {item:192055} for {faction:2507} reputation.'
+
+L['snack_attack_suffix'] = 'snacks fed to Beef'
+L['snack_attack_note'] = 'Collect {npc:195806s} and feed {npc:194922} 20 times.\n\n{note:This does not need to be completed during a single siege.}'
+L['options_icons_snack_attack'] = '{achievement:16410}'
+L['options_icons_snack_attack_desc'] = 'Display {npc:195806} locations for the {achievement:16410} achievement.'
+
+L['loyal_magmammoth_step_1'] = 'Step 1'
+L['loyal_magmammoth_step_2'] = 'Step 2'
+L['loyal_magmammoth_step_3'] = 'Step 3'
+L['loyal_magmammoth_true_friend'] = 'True Friend'
+L['loyal_magmammoth_wrathion_quatermaster_note'] = 'Purchase {item:201840} ' .. ns.color.Gold('(800 gold)') .. ' from either {npc:199020} or {npc:188625}.'
+L['loyal_magmammoth_sabellian_quatermaster_note'] = 'Purchase {item:201839} ' .. ns.color.Gold('(800 gold)') .. ' from either {npc:199036} or {npc:188623}.'
+L['loyal_magmammoth_harness_note'] = 'Purchase {item:201837} from {npc:191135}.'
+L['loyal_magmammoth_taming_note'] = 'Use the {item:201837} while riding a {npc:198150} to obtain your mount!\n\n{note:Reports indicate you may only be able to harness the {npc:198150} found in the {location:Burning Ascent}.}'
+
+L['djaradin_cache'] = 'Djaradin Cache'
+L['options_icons_djaradin_cache'] = 'Djaradin Cache'
+L['options_icons_djaradin_cache_desc'] = 'Display possible locations of {object:Djaradin Cache}.'
+
+L['dragonbane_siege_label'] = '{spell:388945}'
+L['options_icons_dragonbane_siege'] = '{spell:388945}'
+L['options_icons_dragonbane_siege_desc'] = 'Display locations and rewards for the {spell:388945}.'
+
+L['phoenix_wishwing_note'] = [[
+After obtaining the {item:199203}, {npc:196214} will offer a turn-in quest which rewards {item:193373}.
+To finish the quest, you will need following items (you can get these in any order):
+]]
+L['phoenix_wishwing_talisman'] = [[
+%s {item:199203}
+
+This is sold by {npc:88045} {dot:Gold} in {location:Spires of Arak}. If {npc:88045} is not present, complete the quest {quest:35010} to be able to see him.
+You need following Items to buy it:]]
+L['phoenix_wishwing_phoenix_ember'] = '%s {item:199099}\nDrops from {npc:52530} in {location:Firelands Timewalking}'
+L['phoenix_wishwing_sacred_ash'] = '%s {item:199097}\nCan be found within {object:Cookpots}, located around {location:Spires of Arak}.'
+L['phoenix_wishwing_inert_ash'] = '%s {item:199092}\nDrops rarely from {npc:6520} at the center of {location:Un\'Goro Crater} {dot:Gray}. These share spawn points with (but do not drop from) {npc:6521} so make sure you kill both.'
+L['phoenix_wishwing_smoldering_ash'] = [[
+%s {item:199080}
+
+Farm the various {npc:Phoenixes} {dot:Yellow} such as {npc:181764} or {npc:195448} found on the {location:Dragon Isles}.
+These can mostly be found around the {location:Obsidian Citadel} in {location:The Waking Shores}.
+]]
+L['phoenix_wishwing_ash_feather'] = [[
+%s {item:202062}
+
+To see the {object:Feathers} you need to purchase the {item:199177} from {npc:189207} {dot:Green} in {location:The Waking Shores} at the {location:Obsidian Throne}.
+Use this necklace and pick up {item:202062} {dot:Red} found within the {location:Burning Ascent} and {location:The Slagmire}, which are areas surrounding the {location:Obsidian Citadel}.
+]]
+L['phoenix_wishwing_info'] = 'This is part of the {item:193373} Collectible located in {location:The Waking Shore} on the {location:Dragon Isles}.'
+
+-------------------------------------------------------------------------------
+------------------------------- Zaralek Cavern --------------------------------
+-------------------------------------------------------------------------------
+
+L['in_deepflayer_nest'] = 'Within {location:Deepflayer Nest}'
+
+L['brulsef_the_stronk_note'] = 'Loot your rewards from the {object:Chest of Massive Gains}.'
+
+L['ancient_zaqali_chest_note'] = 'Use a nearby {object:Bottled Magma} to open the chest.'
+L['blazing_shadowflame_chest_note'] = '{bug:The shadowflame is too strong to bear.}' -- DEV NOTE - Do not translate
+L['crystal_encased_chest_note'] = 'Interact with both the blue {object:Attunement Crystal} ({dot:Blue}) and red {object:Attunement Crystal} ({dot:Red}) to open the chest.'
+L['old_trunk_note'] = 'Collect and combine x5 {item:204325} to create {item:204323}.'
+L['well_chewed_chest_note'] = 'The {item:202869}({dot:Green}) is hidden underneath the {npc:199962} within the cave.'
+
+L['molten_hoard_label'] = 'Molten Hoard'
+L['fealtys_reward_label'] = 'Fealty\'s Reward'
+L['fealtys_reward_note'] = '{bug:Currently bugged.}' -- DEV NOTE - Do not translate
+L['dreamers_bounty_label'] = 'Dreamer\'s Bounty'
+L['dreamers_bounty_note'] = 'The {object:Dreamers\'s Bounty} can only be looted while you have the {spell:400066} debuff on you which you get from {npc:201068} nearby.'
+L['moth_pilfered_pouch_label'] = 'Moth-Pilfered Pouch'
+L['moth_pilfered_pouch_note'] = 'Help the {npc:203225} to fly by "juggling" it until it has five stacks of {spell:405358}.\n\nIt will then fly to the pouch and reveal it to you.'
+L['waterlogged_bundle_label'] = 'Waterlogged Bundle'
+
+L['stolen_stash_label'] = 'Stolen Stash'
+L['ritual_offering_label'] = 'Ritual Offering'
+L['nal_kskol_reliquary_label'] = 'Nal ks\'kol Reliquary'
+L['nal_kskol_reliquary_note'] = 'Use the {object:Reliquary Access Console} and solve the puzzle to open the {object:Nal ks\'kol Reliquary}.'
+
+L['molten_scoutbot_note'] = 'Open the {object:Molten Scoutbot} and loot the {item:204855}.'
+L['bolts_and_brass_note'] = 'Open the {object:Bolts and Brass} and loot the {item:204850}.'
+
+L['sniffen_sage_suffix'] = 'special items found'
+
+L['big_slick_note_1'] = '{npc:48182} can be found in old-world {location:Darkshore}. Speak with {npc:141489} to travel back in time before the {location:War of Thorns}.'
+
+L['saccratos_note'] = 'Exchange {item:204727} for a pet, mount, and more.'
+L['ponzo_note'] = 'Exchange {item:204985} and {item:205903} for drake customizations, pet, mount, and more.'
+
+L['smelly_trash_pile_label'] = 'Smelly Trash Pile'
+L['options_icons_smelly_trash_pile'] = 'Smelly Trash Pile'
+L['options_icons_smelly_trash_pile_desc'] = 'Display possible locations of {object:Smelly Trash Pile}.'
+
+L['seething_cache_treasure_note'] = 'To be able to see the {object:Seething Cache} and loot the {item = 192779} you\'ll need to pick up 3x stacks of a {spell:399342} debuff from {object:Seething Orbs} located in the {location:Zaqali Caldera} area in {location:Zaralek Cavern}.'
+L['chest_of_the_flights_treasure_note'] = 'To open the treasure chest you need to click on the {object:Empowered Gems} in the order {note:Red > Black > Blue > Yellow > Green}.'

@@ -786,8 +786,44 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66177] = {
         name = "Nenhum anão fica para trás",
     },
+    [66179] = {
+        name = "Sementes para o futuro",
+    },
+    [66180] = {
+        name = "Acorde os antigos",
+    },
+    [66181] = {
+        name = "Defensor frenético",
+    },
+    [66182] = {
+        name = "Pesquisa de Gerithus",
+    },
+    [66183] = {
+        name = "Lágrimas de esmeralda",
+    },
+    [66184] = {
+        name = "Âncoras da vida",
+    },
+    [66185] = {
+        name = "Através do bosque",
+    },
+    [66186] = {
+        name = "O preço",
+    },
     [66187] = {
         name = "Mordigan louco e o cristal do Rei",
+    },
+    [66188] = {
+        name = "Repouso da tempestade",
+    },
+    [66189] = {
+        name = "Adentrar na vida",
+    },
+    [66190] = {
+        name = "Tão perto",
+    },
+    [66191] = {
+        name = "Tão perto, mas tão longe",
     },
     [66196] = {
         name = "Um grasnido de ajuda",
@@ -984,8 +1020,62 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66391] = {
         name = "Para as ruínas!",
     },
+    [66392] = {
+        name = "Convocando os aliados da natureza",
+    },
+    [66393] = {
+        name = "Ao Somnikus",
+    },
+    [66394] = {
+        name = "Enfraqueça o véu",
+    },
+    [66395] = {
+        name = "As rochas tirinantes",
+    },
+    [66396] = {
+        name = "Gratidão protegida",
+    },
+    [66397] = {
+        name = "Nossa força total",
+    },
+    [66398] = {
+        name = "A revoada dragônica esmeralda",
+    },
+    [66399] = {
+        name = "Cruzaremos aquela ponte",
+    },
+    [66400] = {
+        name = "A queda no inverno",
+    },
+    [66401] = {
+        name = "A Sonhadora",
+    },
+    [66409] = {
+        name = "Questões urgentes",
+    },
+    [66410] = {
+        name = "Piores impressões",
+    },
+    [66411] = {
+        name = "Águas agitadas",
+    },
     [66412] = {
         name = "Avante, Basilton!",
+    },
+    [66413] = {
+        name = "Calor Envolvente",
+    },
+    [66414] = {
+        name = "Todos, menos um",
+    },
+    [66415] = {
+        name = "Pra frente é que se anda",
+    },
+    [66417] = {
+        name = "Resgate de suprimentos",
+    },
+    [66418] = {
+        name = "Testando o Morsanarsenal",
     },
     [66422] = {
         name = "A expedição continua!",
@@ -1005,6 +1095,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66429] = {
         name = "Eu me lembrarei",
     },
+    [66431] = {
+        name = "De luto",
+    },
     [66435] = {
         name = "Local de resgate",
     },
@@ -1020,8 +1113,17 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66439] = {
         name = "Planos acelerados",
     },
+    [66440] = {
+        name = "Conclusão",
+    },
     [66441] = {
         name = "Esforço destilado",
+    },
+    [66443] = {
+        name = "Chamando o grupo de caça",
+    },
+    [66444] = {
+        name = "Enquanto o ferro está quente",
     },
     [66447] = {
         name = "Além da barreira",
@@ -1143,8 +1245,14 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66612] = {
         name = "O dilema da caranguejeira",
     },
+    [66620] = {
+        name = "Evocações esmeraldinas",
+    },
     [66622] = {
         name = "Ferramentas desgarradas",
+    },
+    [66635] = {
+        name = "Juntos novamente",
     },
     [66646] = {
         name = "Causalidades Supressoras",
@@ -1449,6 +1557,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [68639] = {
         name = "Perigosos predadores polares",
     },
+    [68640] = {
+        name = "Isolamento súbito",
+    },
     [68641] = {
         name = "Marcas de musgo",
     },
@@ -1475,6 +1586,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     },
     [68799] = {
         name = "Volte ao Santuário da Vida Rubi",
+    },
+    [68863] = {
+        name = "Uma tribo perdida",
     },
     [69093] = {
         name = "Um novo mistério",
@@ -1571,6 +1685,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     },
     [69938] = {
         name = "Frenesi de Pesca!",
+    },
+    [69942] = {
+        name = "Mistérios em Courambaia",
     },
     [69946] = {
         name = "Um mestre em seu ofício",
@@ -2010,17 +2127,473 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [72269] = {
         name = "Thaldraszus",
     },
+    [72375] = {
+        name = "Ajudando o Acordo: o chamado das Ilhas",
+    },
     [72397] = {
         name = "Orientação: Acampamento Escama de Dragão",
     },
     [72406] = {
         name = "Orientação: Valdrakken",
     },
+    [72545] = {
+        name = "Tombados no abrigo",
+    },
+    [72546] = {
+        name = "Apoio acadêmico",
+    },
+    [72547] = {
+        name = "Aquisições acadêmicas",
+    },
+    [72588] = {
+        name = "Primevistas pilhadores",
+    },
+    [72589] = {
+        name = "Honre seus sacrifícios",
+    },
+    [72591] = {
+        name = "Uma dívida a ser paga",
+    },
+    [72592] = {
+        name = "Cicatrizes do passado",
+    },
+    [72593] = {
+        name = "Um início \"Tomultuoso\"",
+    },
+    [72594] = {
+        name = "Dando as más notícias",
+    },
+    [72595] = {
+        name = "À procura de Bovan Totem do Vento",
+    },
+    [72599] = {
+        name = "Operação \"resgate em dobro\"",
+    },
+    [72600] = {
+        name = "Aviso Shikaar à moda antiga",
+    },
+    [72601] = {
+        name = "A última esperança de Bovan",
+    },
+    [72602] = {
+        name = "Místico otimista",
+    },
+    [72603] = {
+        name = "O valor das palavras",
+    },
+    [72604] = {
+        name = "Resgate desesperado",
+    },
+    [72605] = {
+        name = "Salvando Bovan Totem do Vento",
+    },
+    [72606] = {
+        name = "O tauren sabe onde arromba a cerca",
+    },
+    [72607] = {
+        name = "Velhos ódios",
+    },
+    [72609] = {
+        name = "Caso encerrado",
+    },
+    [72611] = {
+        name = "Aceitação",
+    },
+    [72658] = {
+        name = "Pedras volantes",
+    },
+    [72662] = {
+        name = "Suprindo suprimentos",
+    },
+    [72663] = {
+        name = "A trilha do pinho",
+    },
+    [72712] = {
+        name = "O melhor que temos",
+    },
+    [72713] = {
+        name = "Herança",
+    },
+    [72714] = {
+        name = "Uma abordagem interdisciplinar",
+    },
+    [72715] = {
+        name = "Mantendo a chama à distância",
+    },
+    [72717] = {
+        name = "Um abrigo dividido",
+    },
     [72773] = {
         name = "Aprendendo a ingenuidade",
     },
     [72783] = {
         name = "Pedidos de criação",
+    },
+    [72872] = {
+        name = "Esvaziando as profundezas",
+    },
+    [72873] = {
+        name = "Não foi suficiente",
+    },
+    [72874] = {
+        name = "Segredos do nosso pai",
+    },
+    [72878] = {
+        name = "Viajando no visgo",
+    },
+    [72879] = {
+        name = "Cheirinho da família",
+    },
+    [72880] = {
+        name = "Gratificação de incenso",
+    },
+    [72881] = {
+        name = "Uma andorinha me contou",
+    },
+    [72882] = {
+        name = "A fuga das andorinhas!",
+    },
+    [72883] = {
+        name = "Nenhum pássaro na mão",
+    },
+    [72884] = {
+        name = "Em busca de Effervesta",
+    },
+    [72886] = {
+        name = "A sabotagem do impostor",
+    },
+    [72908] = {
+        name = "Visão além do alcance",
+    },
+    [72909] = {
+        name = "Lendas dos Zaqali",
+    },
+    [72910] = {
+        name = "Conhece teu inimigo",
+    },
+    [72911] = {
+        name = "Corte a cabeça",
+    },
+    [72912] = {
+        name = "Consequências",
+    },
+    [72913] = {
+        name = "Triagem do campo de batalha",
+    },
+    [72914] = {
+        name = "Qualidade impetuosa",
+    },
+    [72915] = {
+        name = "Aliança por conveniência",
+    },
+    [72916] = {
+        name = "Acabe com eles",
+    },
+    [72917] = {
+        name = "Do coração do inferno",
+    },
+    [72918] = {
+        name = "Nenhum dragão fica para trás",
+    },
+    [72919] = {
+        name = "Revirando o carvão",
+    },
+    [72920] = {
+        name = "O infinito céu flamejante",
+    },
+    [72922] = {
+        name = "Brasas esmaecidas",
+    },
+    [72923] = {
+        name = "Um sussurro de Sabellian",
+    },
+    [72924] = {
+        name = "Recorrendo ao Príncipe Negro",
+    },
+    [72925] = {
+        name = "Combinando nossos poderes",
+    },
+    [72926] = {
+        name = "Nas mãos certas",
+    },
+    [72927] = {
+        name = "À procura de Sarkareth",
+    },
+    [72928] = {
+        name = "Acabem com todos",
+    },
+    [72929] = {
+        name = "Casca quebrada",
+    },
+    [72930] = {
+        name = "Impedindo Sarkareth",
+    },
+    [72931] = {
+        name = "Acampamento avançado",
+    },
+    [72953] = {
+        name = "Câmara de Zskera: Az",
+    },
+    [72958] = {
+        name = "Resgate da Toupeira",
+    },
+    [72959] = {
+        name = "De quem é essa câmara?",
+    },
+    [72961] = {
+        name = "Carregando",
+    },
+    [72962] = {
+        name = "Abra a porta!",
+    },
+    [72963] = {
+        name = "Na palma da mão",
+    },
+    [72964] = {
+        name = "Chamuscado",
+    },
+    [72965] = {
+        name = "Aspectos de nosso legado",
+    },
+    [72966] = {
+        name = "Onde tem fumaça, tem fogo",
+    },
+    [72970] = {
+        name = "Farim e Golias",
+    },
+    [72973] = {
+        name = "Com cheirinho de Argília",
+    },
+    [72974] = {
+        name = "Boas-vindas à cidade dos aromas",
+    },
+    [72975] = {
+        name = "As terras abaixo",
+    },
+    [72976] = {
+        name = "Uma rachadura no mundo",
+    },
+    [72977] = {
+        name = "Onde caíram as chamas",
+    },
+    [72978] = {
+        name = "Cicatriz de terra e chamas",
+    },
+    [72979] = {
+        name = "A terra cede",
+    },
+    [72980] = {
+        name = "Irmão zeloso",
+    },
+    [72981] = {
+        name = "A paciência dos príncipes",
+    },
+    [72987] = {
+        name = "Lá vamos nós de novo",
+    },
+    [73036] = {
+        name = "Fungo medicinal",
+    },
+    [73037] = {
+        name = "Cristais curativos",
+    },
+    [73038] = {
+        name = "Uma sala sem janelas",
+    },
+    [73039] = {
+        name = "Morte inquieta",
+    },
+    [73040] = {
+        name = "Levando desordem à ordem",
+    },
+    [73041] = {
+        name = "Trégua",
+    },
+    [73042] = {
+        name = "Naquela torre",
+    },
+    [73043] = {
+        name = "Um legado assombrado",
+    },
+    [73044] = {
+        name = "Terror catalogado",
+    },
+    [73045] = {
+        name = "Remoção manchada",
+    },
+    [73046] = {
+        name = "Brincadeiras cavernosas",
+    },
+    [73047] = {
+        name = "Escavação terrestre",
+    },
+    [73076] = {
+        name = "Retorno ao Recôndito",
+    },
+    [73089] = {
+        name = "O que há atrás da porta seguinte?",
+    },
+    [73094] = {
+        name = "Ajudar a Expedição",
+    },
+    [73107] = {
+        name = "Pedra de envio: relatório inicial",
+    },
+    [73137] = {
+        name = "Perseguindo a chama",
+    },
+    [73155] = {
+        name = "O anel esquecido",
+    },
+    [73156] = {
+        name = "Fale novamente com Virídia",
+    },
+    [73157] = {
+        name = "Asas da misericórdia",
+    },
+    [73159] = {
+        name = "Explorando o nosso passado",
+    },
+    [73160] = {
+        name = "Mão e garra amigas",
+    },
+    [74334] = {
+        name = "Aspectos futuros",
+    },
+    [74355] = {
+        name = "Ornamentação primordial",
+    },
+    [74375] = {
+        name = "Coletânea de pesquisa",
+    },
+    [74381] = {
+        name = "Legados escondidos",
+    },
+    [74393] = {
+        name = "Relatório: Ruínas do Campo de Batalha",
+    },
+    [74442] = {
+        name = "A tralha de um dragão...",
+    },
+    [74443] = {
+        name = "É o tesouro de outro?",
+    },
+    [74447] = {
+        name = "Arqueologia verbal",
+    },
+    [74494] = {
+        name = "Escama por escama",
+    },
+    [74538] = {
+        name = "Mande pelos ares",
+    },
+    [74539] = {
+        name = "Enfraquecendo as defesas inimigas",
+    },
+    [74540] = {
+        name = "Cortando comunicações",
+    },
+    [74542] = {
+        name = "Superioridade aérea",
+    },
+    [74557] = {
+        name = "Investigação do desconhecido",
+    },
+    [74562] = {
+        name = "Liberte-os!",
+    },
+    [74563] = {
+        name = "Pior dos piores",
+    },
+    [74769] = {
+        name = "Detendo a Maré-férrea",
+    },
+    [74847] = {
+        name = "Brasathal aguarda",
+    },
+    [74857] = {
+        name = "À procura da rata",
+    },
+    [74858] = {
+        name = "Agrulcultura",
+    },
+    [74859] = {
+        name = "Exterminador de marisporos",
+    },
+    [74860] = {
+        name = "Um encontro amigável",
+    },
+    [74861] = {
+        name = "Um confronto nada amigável",
+    },
+    [74876] = {
+        name = "Sistema de parceria",
+    },
+    [74877] = {
+        name = "Melhores amigos",
+    },
+    [74878] = {
+        name = "Velhos amigos, queridos amigos",
+    },
+    [74946] = {
+        name = "Um local de refúgio",
+    },
+    [74953] = {
+        name = "A coroa pesada",
+    },
+    [74983] = {
+        name = "Autorização autêntica",
+    },
+    [75050] = {
+        name = "Um acordo eclético",
+    },
+    [75145] = {
+        name = "No rastro das cinzas",
+    },
+    [75258] = {
+        name = "Uma palavra final",
+    },
+    [75367] = {
+        name = "O Refúgio Obsidiano",
+    },
+    [75419] = {
+        name = "Chamas Partidas",
+    },
+    [75440] = {
+        name = "Saciando Bicoafiado",
+    },
+    [75456] = {
+        name = "Notícias de baixo",
+    },
+    [75462] = {
+        name = "Salvadores de ratos",
+    },
+    [75506] = {
+        name = "Brasões da Chama Sombria",
+    },
+    [75507] = {
+        name = "Resenha com os amigos",
+    },
+    [75643] = {
+        name = "Orientação: Farins de Argília",
+    },
+    [75644] = {
+        name = "A setecentos palmos do chão",
+    },
+    [75665] = {
+        name = "Aliados dignos: farins de Argília",
+    },
+    [75694] = {
+        name = "Aberrus, o Crisol Sombrio: Sarkareth",
+    },
+    [75885] = {
+        name = "Enricar já",
+    },
+    [75985] = {
+        name = "Descanse em paz, guerreiro",
+    },
+    [76101] = {
+        name = "Por baixo é mais duro",
     },
 })
 ]])()

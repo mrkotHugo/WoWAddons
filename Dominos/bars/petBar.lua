@@ -36,7 +36,7 @@ function PetActionButtonMixin:Update()
     local petActionID = self:GetID()
     local petActionIcon = self.icon
     local name, texture, isToken, isActive, autoCastAllowed, autoCastEnabled, spellID = GetPetActionInfo(petActionID)
-	
+
     if not isToken then
         self.tooltipName = name
     else
@@ -122,20 +122,20 @@ local function createPetActionButton(name, id)
     Mixin(button, PetActionButtonMixin)
 
     -- get the stock button
-    local petActionButton = _G['PetActionButton' .. id]
+    local target = _G['PetActionButton' .. id]
 
     -- copy its ID
-    button:SetID(petActionButton:GetID())
+    button:SetID(target:GetID())
 
     -- copy its visibility state
-    local watcher = CreateFrame('Frame', nil, petActionButton, "SecureHandlerShowHideTemplate")
+    local watcher = CreateFrame('Frame', nil, target, "SecureHandlerShowHideTemplate")
     watcher:SetFrameRef("owner", button)
     watcher:SetAttribute("_onshow", [[ self:GetFrameRef("owner"):Show(true) ]])
     watcher:SetAttribute("_onhide", [[ self:GetFrameRef("owner"):Hide(true) ]])
     button.watcher = watcher
 
     -- copy its pushed state
-    hooksecurefunc(petActionButton, "SetButtonState", function(_, ...)
+    hooksecurefunc(target, "SetButtonState", function(_, ...)
         button:SetButtonState(...)
     end)
 

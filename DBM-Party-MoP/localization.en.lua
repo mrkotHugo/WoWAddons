@@ -18,11 +18,12 @@ L:SetWarningLocalization({
 })
 
 L:SetOptionLocalization({
-	SpecWarnIntensity	= DBM_CORE_L.AUTO_SPEC_WARN_OPTIONS.stack:format(6, 113315)
+	SpecWarnIntensity	= DBM_CORE_L.AUTO_SPEC_WARN_OPTIONS.switch:format(113315)
 })
 
 L:SetMiscLocalization({
-	Event1	= "Ah, it is not yet over. From what I see, we face the trial of the yaungol. Let me shed some light..."
+	Event1	= "Ah, it is not yet over. From what I see, we face the trial of the yaungol. Let me shed some light...",
+	Event2	= "Oh, my. If I am not mistaken, it appears that the tale of Zao Sunseeker has come to life before us."
 })
 
 -----------------------

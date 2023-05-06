@@ -199,4 +199,26 @@ BtWQuestsDatabase:AddObjectsTable({
             },
         },
     },
+    [385952] = {
+        name = "Unusual Ring",
+        locations = {
+            [2151] = {
+                {
+                    x = 0.298698,
+                    y = 0.572975,
+                },
+            },
+        },
+    },
+    [387520] = {
+        name = "TICKET: Glimmerogg Games",
+        locations = {
+            [2133] = {
+                {
+                    x = 0.556091,
+                    y = 0.545668,
+                },
+            },
+        },
+    },
 })

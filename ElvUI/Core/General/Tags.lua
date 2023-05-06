@@ -27,7 +27,7 @@ local GetQuestDifficultyColor = GetQuestDifficultyColor
 local GetRaidRosterInfo = GetRaidRosterInfo
 local GetRelativeDifficultyColor = GetRelativeDifficultyColor
 local GetRuneCooldown = GetRuneCooldown
-local GetSpecialization = (E.Classic or E.Wrath and LCS.GetSpecialization) or GetSpecialization
+local GetSpecialization = (E.Classic or E.Wrath) and LCS.GetSpecialization or GetSpecialization
 local GetSpecializationInfo = GetSpecializationInfo
 local GetTime = GetTime
 local GetTitleName = GetTitleName
@@ -97,7 +97,7 @@ function E:AddTag(tagName, eventsOrSeconds, func, block)
 	if type(eventsOrSeconds) == 'number' then
 		Tags.OnUpdateThrottle[tagName] = eventsOrSeconds
 	else
-		Tags.Events[tagName] = (E.Retail and gsub(eventsOrSeconds, 'UNIT_HEALTH_FREQUENT', 'UNIT_HEALTH')) or gsub(eventsOrSeconds, 'UNIT_HEALTH([^%s_]?)', 'UNIT_HEALTH_FREQUENT%1')
+		Tags.Events[tagName] = (E.Classic and gsub(eventsOrSeconds, 'UNIT_HEALTH([^%s_]?)', 'UNIT_HEALTH_FREQUENT%1')) or gsub(eventsOrSeconds, 'UNIT_HEALTH_FREQUENT', 'UNIT_HEALTH')
 	end
 
 	Tags.Methods[tagName] = func
@@ -113,6 +113,10 @@ function E:CallTag(tag, ...)
 	if func then
 		return func(...)
 	end
+end
+
+function E:TagUpdateRate(second)
+	Tags:SetEventUpdateTimer(second)
 end
 
 --Expose local functions for plugins onto this table
@@ -655,7 +659,7 @@ end)
 E:AddTag('classpowercolor', 'UNIT_POWER_FREQUENT UNIT_DISPLAYPOWER'..(E.Retail and (E.myclass == 'DEATHKNIGHT' or E.myclass == 'MONK') and ' PLAYER_SPECIALIZATION_CHANGED' or ''), function()
 	local _, _, r, g, b = GetClassPower(E.myclass)
 	return Hex(r, g, b)
-end)
+end, E.Classic)
 
 E:AddTag('manacolor', 'UNIT_POWER_FREQUENT UNIT_DISPLAYPOWER', function()
 	local color = ElvUF.colors.power.MANA
@@ -1232,6 +1236,7 @@ do
 		DEATHKNIGHT = '64:128:128:192',
 		MONK		= '128:192:128:192',
 		DEMONHUNTER = '192:256:128:192',
+		EVOKER		= '0:64:192:256',
 	}
 
 	E:AddTag('class:icon', 'PLAYER_TARGET_CHANGED', function(unit)

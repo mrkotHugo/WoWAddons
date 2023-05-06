@@ -6,7 +6,7 @@ local LCS = E.Libs.LCS
 local _G = _G
 local tonumber, pairs, ipairs, error, unpack, select, tostring = tonumber, pairs, ipairs, error, unpack, select, tostring
 local strsplit, strjoin, wipe, sort, tinsert, tremove, tContains = strsplit, strjoin, wipe, sort, tinsert, tremove, tContains
-local format, find, strrep, strlen, sub, gsub = format, strfind, strrep, strlen, strsub, gsub
+local format, strfind, strrep, strlen, sub, gsub = format, strfind, strrep, strlen, strsub, gsub
 local assert, type, pcall, xpcall, next, print = assert, type, pcall, xpcall, next, print
 local rawget, rawset, setmetatable = rawget, rawset, setmetatable
 
@@ -27,12 +27,13 @@ local GetBindingKey = GetBindingKey
 local SetBinding = SetBinding
 local SaveBindings = SaveBindings
 local GetCurrentBindingSet = GetCurrentBindingSet
-local GetSpecialization = (E.Classic or E.Wrath and LCS.GetSpecialization) or GetSpecialization
+local GetSpecialization = (E.Classic or E.Wrath) and LCS.GetSpecialization or GetSpecialization
 
 local ERR_NOT_IN_COMBAT = ERR_NOT_IN_COMBAT
 local LE_PARTY_CATEGORY_HOME = LE_PARTY_CATEGORY_HOME
 local LE_PARTY_CATEGORY_INSTANCE = LE_PARTY_CATEGORY_INSTANCE
 local C_ChatInfo_SendAddonMessage = C_ChatInfo.SendAddonMessage
+local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
 -- GLOBALS: ElvCharacterDB
 
 --Modules
@@ -55,12 +56,12 @@ local LSM = E.Libs.LSM
 --Constants
 E.noop = function() end
 E.title = format('%s%s|r', E.InfoColor, 'ElvUI')
-E.version = tonumber(GetAddOnMetadata('ElvUI', 'Version'))
 E.toc = tonumber(GetAddOnMetadata('ElvUI', 'X-Interface'))
+E.version = tonumber(GetAddOnMetadata('ElvUI', 'Version'))
 E.myfaction, E.myLocalizedFaction = UnitFactionGroup('player')
-E.mylevel = UnitLevel('player')
 E.myLocalizedClass, E.myclass, E.myClassID = UnitClass('player')
 E.myLocalizedRace, E.myrace, E.myRaceID = UnitRace('player')
+E.mylevel = UnitLevel('player')
 E.myname = UnitName('player')
 E.myrealm = GetRealmName()
 E.mynameRealm = format('%s - %s', E.myname, E.myrealm) -- contains spaces/dashes in realm (for profile keys)
@@ -71,8 +72,9 @@ E.screenWidth, E.screenHeight = GetScreenWidth(), GetScreenHeight()
 E.resolution = format('%dx%d', E.physicalWidth, E.physicalHeight)
 E.perfect = 768 / E.physicalHeight
 E.NewSign = [[|TInterface\OptionsFrame\UI-OptionsFrame-NewFeatureIcon:14:14|t]]
+E.NewSignNoWhatsNew = [[|TInterface\OptionsFrame\UI-OptionsFrame-NewFeatureIcon:14:14:0:0|t]]
 E.TexturePath = [[Interface\AddOns\ElvUI\Media\Textures\]] -- for plugins?
-E.ClearTexture = E.Retail and 0 or '' -- used to clear: Set (Normal, Disabled, Checked, Pushed, Highlight) Texture
+E.ClearTexture = not E.Classic and 0 or '' -- used to clear: Set (Normal, Disabled, Checked, Pushed, Highlight) Texture
 E.UserList = {}
 
 -- oUF Defines
@@ -128,7 +130,7 @@ E.BadDispels = {
 --Workaround for people wanting to use white and it reverting to their class color.
 E.PriestColors = { r = 0.99, g = 0.99, b = 0.99, colorStr = 'fffcfcfc' }
 
--- Socket Type info from 8.2
+-- Socket Type info from 10.0.7
 E.GemTypeInfo = {
 	Yellow			= { r = 0.97, g = 0.82, b = 0.29 },
 	Red				= { r = 1.00, g = 0.47, b = 0.47 },
@@ -140,6 +142,10 @@ E.GemTypeInfo = {
 	PunchcardRed	= { r = 1.00, g = 0.47, b = 0.47 },
 	PunchcardYellow	= { r = 0.97, g = 0.82, b = 0.29 },
 	PunchcardBlue	= { r = 0.47, g = 0.67, b = 1.00 },
+	Domination		= { r = 0.24, g = 0.50, b = 0.70 },
+	Cypher			= { r = 1.00, g = 0.80, b = 0.00 },
+	Tinker			= { r = 1.00, g = 0.47, b = 0.47 },
+	Primordial		= { r = 1.00, g = 0.00, b = 1.00 },
 }
 
 --This frame everything in ElvUI should be anchored to for Eyefinity support.
@@ -375,7 +381,9 @@ end
 
 function E:ValueFuncCall()
 	local hex, r, g, b = E.media.hexvaluecolor, unpack(E.media.rgbvaluecolor)
-	for func in pairs(E.valueColorUpdateFuncs) do func(hex, r, g, b) end
+	for obj, func in pairs(E.valueColorUpdateFuncs) do
+		func(obj, hex, r, g, b)
+	end
 end
 
 function E:UpdateFrameTemplates()
@@ -594,14 +602,17 @@ do
 	end
 end
 
-function E:CopyTable(current, default)
+function E:CopyTable(current, default, merge)
 	if type(current) ~= 'table' then
 		current = {}
 	end
 
 	if type(default) == 'table' then
 		for option, value in pairs(default) do
-			current[option] = (type(value) == 'table' and E:CopyTable(current[option], value)) or value
+			local isTable = type(value) == 'table'
+			if not merge or (isTable or current[option] == nil) then
+				current[option] = (isTable and E:CopyTable(current[option], value, merge)) or value
+			end
 		end
 	end
 
@@ -859,7 +870,7 @@ do	--Split string by multi-character delimiter (the strsplit / string.split func
 
 		-- find each instance of a string followed by the delimiter
 		while true do
-			local pos = find(str, delim, start, true) -- plain find
+			local pos = strfind(str, delim, start, true) -- plain find
 			if not pos then break end
 
 			tinsert(splitTable, sub(str, start, pos - 1))
@@ -889,10 +900,12 @@ do
 
 	local SendRecieveGroupSize = 0
 	local PLAYER_NAME = format('%s-%s', E.myname, E:ShortenRealm(E.myrealm))
-	local function SendRecieve(_, event, prefix, message, _, sender)
+	local function SendRecieve(_, event, prefix, message, _, senderOne, senderTwo)
 		if event == 'CHAT_MSG_ADDON' then
-			if sender == PLAYER_NAME then return end
-			if prefix == 'ELVUI_VERSIONCHK' then
+			local sender = strfind(senderOne, '-') and senderOne or senderTwo
+			if sender == PLAYER_NAME then
+				return
+			elseif prefix == 'ELVUI_VERSIONCHK' then
 				local ver, msg, inCombat = E.version, tonumber(message), InCombatLockdown()
 
 				E.UserList[E:StripMyRealm(sender)] = msg
@@ -1375,6 +1388,18 @@ function E:DBConvertSL()
 	end
 end
 
+function E:DBConvertDF()
+	local currency = E.global.datatexts.customCurrencies
+	if currency then
+		for id, data in next, E.global.datatexts.customCurrencies do
+			local info = { name = data.NAME, showMax = data.SHOW_MAX, currencyTooltip = data.DISPLAY_IN_MAIN_TOOLTIP, nameStyle = data.DISPLAY_STYLE and (strfind(data.DISPLAY_STYLE, 'ABBR') and 'abbr' or strfind(data.DISPLAY_STYLE, 'TEXT') and 'full' or 'none') or nil }
+			if next(info) then
+				E.global.datatexts.customCurrencies[id] = info
+			end
+		end
+	end
+end
+
 function E:UpdateDB()
 	E.private = E.charSettings.profile
 	E.global = E.data.global
@@ -1846,6 +1871,7 @@ function E:DBConversions()
 	end
 
 	-- development converts
+	E:DBConvertDF()
 
 	-- always convert
 	if not ElvCharacterDB.ConvertKeybindings then
@@ -1958,12 +1984,21 @@ function E:Initialize()
 
 	E.initialized = true
 
-	if E.db.general.smoothingAmount and (E.db.general.smoothingAmount ~= 0.33) then
+	if E.db.general.tagUpdateRate and (E.db.general.tagUpdateRate ~= P.general.tagUpdateRate) then
+		E:TagUpdateRate(E.db.general.tagUpdateRate)
+	end
+
+	if E.db.general.smoothingAmount and (E.db.general.smoothingAmount ~= P.general.smoothingAmount) then
 		E:SetSmoothingAmount(E.db.general.smoothingAmount)
 	end
 
 	if not E.private.install_complete then
 		E:Install()
+	end
+
+	if E.version ~= E.Libs.version then
+		E.updateRequestTriggered = true
+		E:StaticPopup_Show('UPDATE_REQUEST')
 	end
 
 	if GetCVarBool('scriptProfile') and not E:IsAddOnEnabled('ElvUI_CPU') then

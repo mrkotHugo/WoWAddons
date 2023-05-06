@@ -236,7 +236,14 @@ L:SetOptionLocalization({
 -----------------------
 -- Kyrakka and Erkhart Stormvein --
 -----------------------
---L= DBM:GetModLocalization(2503)
+L= DBM:GetModLocalization(2503)
+
+L:SetMiscLocalization({
+	North	= "북쪽",
+	West	= "서쪽",
+	South	= "남쪽",
+	East	= "동쪽"
+})
 
 ---------
 --Trash--
@@ -277,4 +284,8 @@ L = DBM:GetModLocalization("HallsofInfusionTrash")
 
 L:SetGeneralLocalization({
 	name =	"주입의 전당 일반몹"
+})
+
+L:SetOptionLocalization({
+	AGBuffs		= "기계공학 약초채집용 버프 받기 대화 자동 선택"
 })

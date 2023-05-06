@@ -18,10 +18,19 @@ local function AddSingleWaypoint(node, mapID, coord)
     })
 end
 
-local function AddGroupWaypoints(node, mapID, coord)
+local function AddGroupWaypoints(node, mapID)
     local map = ns.maps[mapID]
     for peerCoord, peerNode in pairs(map.nodes) do
-        if peerNode.group == node.group and peerNode:IsEnabled() then
+        if peerNode.group[1] == node.group[1] and peerNode:IsEnabled() then
+            AddSingleWaypoint(peerNode, mapID, peerCoord)
+        end
+    end
+end
+
+local function AddFocusGroupWaypoints(node, mapID)
+    local map = ns.maps[mapID]
+    for peerCoord, peerNode in pairs(map.nodes) do
+        if peerNode.fgroup == node.fgroup and peerNode:IsEnabled() then
             AddSingleWaypoint(peerNode, mapID, peerCoord)
         end
     end
@@ -29,5 +38,6 @@ end
 
 ns.tomtom = {
     AddSingleWaypoint = AddSingleWaypoint,
-    AddGroupWaypoints = AddGroupWaypoints
+    AddGroupWaypoints = AddGroupWaypoints,
+    AddFocusGroupWaypoints = AddFocusGroupWaypoints
 }

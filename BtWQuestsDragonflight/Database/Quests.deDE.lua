@@ -786,8 +786,44 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66177] = {
         name = "Kein Zwerg bleibt zurück",
     },
+    [66179] = {
+        name = "Die Saat der Zukunft",
+    },
+    [66180] = {
+        name = "Erweckt die Urtume",
+    },
+    [66181] = {
+        name = "Ein rasender Verteidiger",
+    },
+    [66182] = {
+        name = "Gerithus' Forschung",
+    },
+    [66183] = {
+        name = "Smaragdgrüne Tränen",
+    },
+    [66184] = {
+        name = "Lebensanker",
+    },
+    [66185] = {
+        name = "Durch den Wald",
+    },
+    [66186] = {
+        name = "Der Preis",
+    },
     [66187] = {
         name = "Der verrückte Mordigan und der Kristallkönig",
+    },
+    [66188] = {
+        name = "Sturmruh",
+    },
+    [66189] = {
+        name = "Der Schritt ins Leben",
+    },
+    [66190] = {
+        name = "So knapp",
+    },
+    [66191] = {
+        name = "Und doch so fern",
     },
     [66196] = {
         name = "Ein Hilfequaken",
@@ -984,8 +1020,62 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66391] = {
         name = "In die Ruinen!",
     },
+    [66392] = {
+        name = "Ansporn für die Verbündeten der Natur",
+    },
+    [66393] = {
+        name = "Zu Somnikus",
+    },
+    [66394] = {
+        name = "Den Schleier schwächen",
+    },
+    [66395] = {
+        name = "Die flüsternden Felsen",
+    },
+    [66396] = {
+        name = "Bewachte Anerkennung",
+    },
+    [66397] = {
+        name = "Mit voller Kraft",
+    },
+    [66398] = {
+        name = "Der smaragdgrüne Drachenschwarm",
+    },
+    [66399] = {
+        name = "Über die Brücke",
+    },
+    [66400] = {
+        name = "Wintersturz",
+    },
+    [66401] = {
+        name = "Die Träumerin",
+    },
+    [66409] = {
+        name = "Drückende Anliegen",
+    },
+    [66410] = {
+        name = "Schlechtester Eindruck",
+    },
+    [66411] = {
+        name = "Aufgewühltes Wasser",
+    },
     [66412] = {
         name = "Weiter so, Blattington",
+    },
+    [66413] = {
+        name = "Übergreifende Hitze",
+    },
+    [66414] = {
+        name = "Alle bis auf einen",
+    },
+    [66415] = {
+        name = "Mitten durch",
+    },
+    [66417] = {
+        name = "Vorratssicherung",
+    },
+    [66418] = {
+        name = "Tuskarrsenal im Test",
     },
     [66422] = {
         name = "Die Expedition geht weiter!",
@@ -1005,6 +1095,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66429] = {
         name = "In ewiger Erinnerung",
     },
+    [66431] = {
+        name = "In Trauer",
+    },
     [66435] = {
         name = "Bergungsunternehmung",
     },
@@ -1020,8 +1113,17 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66439] = {
         name = "Schnellfeuerpläne",
     },
+    [66440] = {
+        name = "Abschluss",
+    },
     [66441] = {
         name = "Destillierte Anstrengungen",
+    },
+    [66443] = {
+        name = "Ruf an den Jagdtrupp",
+    },
+    [66444] = {
+        name = "Solange das Eisen heiß ist",
     },
     [66447] = {
         name = "Jenseits der Barriere",
@@ -1140,8 +1242,14 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [66612] = {
         name = "Dilemma der Krabbenhüterin",
     },
+    [66620] = {
+        name = "Smaragdbeschwörungen",
+    },
     [66622] = {
         name = "Entlaufene Werkzeuge",
+    },
+    [66635] = {
+        name = "Wieder wiedervereint",
     },
     [66646] = {
         name = "Kausalitäten unter Kontrolle bringen",
@@ -1446,6 +1554,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [68639] = {
         name = "Eisbären auf der Jagd",
     },
+    [68640] = {
+        name = "Plötzliche Isolation",
+    },
     [68641] = {
         name = "Ohne Moos nix los",
     },
@@ -1472,6 +1583,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     },
     [68799] = {
         name = "Rückkehr zum Rubinlebensschrein",
+    },
+    [68863] = {
+        name = "Ein verlorener Stamm",
     },
     [69093] = {
         name = "Ein neues Mysterium",
@@ -1568,6 +1682,9 @@ BtWQuestsDatabase:UpdateQuestsTable({
     },
     [69938] = {
         name = "Angelwahnsinn!",
+    },
+    [69942] = {
+        name = "Brackenfellmysterien",
     },
     [69946] = {
         name = "Eine Meisterin ihres Fachs",
@@ -2007,17 +2124,470 @@ BtWQuestsDatabase:UpdateQuestsTable({
     [72269] = {
         name = "Thaldraszus",
     },
+    [72375] = {
+        name = "Helft dem Abkommen: Der Ruf der Inseln",
+    },
     [72397] = {
         name = "Ausrichtung: Drachenschuppenbasislager",
     },
     [72406] = {
         name = "Ausrichtung: Valdrakken",
     },
+    [72545] = {
+        name = "Hort der Gefallenen",
+    },
+    [72546] = {
+        name = "Akademische Unterstützung",
+    },
+    [72547] = {
+        name = "Akademische Beschaffungen",
+    },
+    [72588] = {
+        name = "Plünderer der Primalisten",
+    },
+    [72589] = {
+        name = "Ehret ihr Opfer",
+    },
+    [72591] = {
+        name = "Eine Schuld, die beglichen werden muss",
+    },
+    [72592] = {
+        name = "Narben der Vergangenheit",
+    },
+    [72593] = {
+        name = "Ein Tomul-tartiger Anfang",
+    },
+    [72594] = {
+        name = "Schlechte Nachrichten überbringen",
+    },
+    [72595] = {
+        name = "Die Suche nach Bovan Windtotem",
+    },
+    [72599] = {
+        name = "Gemeinsame Rettungsmission",
+    },
+    [72600] = {
+        name = "Eine ordentliche Shikaarverabschiedung",
+    },
+    [72601] = {
+        name = "Bovans letzte Hoffnung",
+    },
+    [72602] = {
+        name = "Ein optimistischer Mystiker",
+    },
+    [72603] = {
+        name = "Der Wert der Worte",
+    },
+    [72604] = {
+        name = "Verzweifelte Rettung",
+    },
+    [72605] = {
+        name = "Bovan Windtotem retten",
+    },
+    [72606] = {
+        name = "Rot sehen",
+    },
+    [72607] = {
+        name = "Alter Hass",
+    },
+    [72609] = {
+        name = "Fall abgeschlossen",
+    },
+    [72611] = {
+        name = "Loslassen",
+    },
+    [72658] = {
+        name = "Flugsteine",
+    },
+    [72662] = {
+        name = "Vorräte auffüllen",
+    },
+    [72663] = {
+        name = "Nadelholzspur",
+    },
+    [72712] = {
+        name = "Unsere Besten",
+    },
+    [72713] = {
+        name = "Hinterlassenschaft",
+    },
+    [72714] = {
+        name = "Ein interdisziplinärer Ansatz",
+    },
+    [72715] = {
+        name = "Die Flamme klein halten",
+    },
+    [72717] = {
+        name = "Ein gespaltener Hort",
+    },
     [72773] = {
         name = "Genialität erlernen",
     },
     [72783] = {
         name = "Handwerksaufträge",
+    },
+    [72872] = {
+        name = "Schinden der Tiefe",
+    },
+    [72873] = {
+        name = "Es hat nicht gereicht",
+    },
+    [72874] = {
+        name = "Geheimnisse unseres Vaters",
+    },
+    [72878] = {
+        name = "Jetzt wird's schleimig",
+    },
+    [72879] = {
+        name = "Ich kann machen, dass die Luft riecht",
+    },
+    [72880] = {
+        name = "Räucherwerkbelohnung",
+    },
+    [72881] = {
+        name = "Eine Schwalbe macht noch keinen Sommer",
+    },
+    [72882] = {
+        name = "Schwalben auf der Flucht",
+    },
+    [72883] = {
+        name = "Eine tote Schwalbe macht gar keinen Sommer",
+    },
+    [72886] = {
+        name = "Dem Verräter den Garaus",
+    },
+    [72908] = {
+        name = "Grenzenlose Sicht",
+    },
+    [72909] = {
+        name = "Legenden der Zaqali",
+    },
+    [72910] = {
+        name = "Kennt Euren Feind",
+    },
+    [72911] = {
+        name = "Fehlt erst mal der Kopf",
+    },
+    [72912] = {
+        name = "Konsequenzen",
+    },
+    [72913] = {
+        name = "Rettung auf dem Schlachtfeld",
+    },
+    [72914] = {
+        name = "Eile ist geboten",
+    },
+    [72915] = {
+        name = "Zweckbündnis",
+    },
+    [72916] = {
+        name = "Ihr Ende wartet schon",
+    },
+    [72917] = {
+        name = "Aus dem Herzen der Hölle",
+    },
+    [72918] = {
+        name = "Kein Drache bleibt zurück",
+    },
+    [72919] = {
+        name = "Durch die Kohlen harken",
+    },
+    [72920] = {
+        name = "Der unendlich brennende Himmel",
+    },
+    [72922] = {
+        name = "Schwindende Glut",
+    },
+    [72923] = {
+        name = "Ein Flüstern an Sabellian",
+    },
+    [72924] = {
+        name = "Appell an den Schwarzen Prinzen",
+    },
+    [72925] = {
+        name = "Mit vereinter Kraft",
+    },
+    [72926] = {
+        name = "In guten Händen",
+    },
+    [72927] = {
+        name = "Sarkareth finden",
+    },
+    [72928] = {
+        name = "Operation Auslöschung",
+    },
+    [72929] = {
+        name = "Seinen Panzer knacken",
+    },
+    [72930] = {
+        name = "Sarkareths Ende",
+    },
+    [72931] = {
+        name = "Vorhutslager",
+    },
+    [72953] = {
+        name = "Gewölbe von Zskera: Az",
+    },
+    [72958] = {
+        name = "Maulwurfrettung",
+    },
+    [72959] = {
+        name = "Wessen Gewölbe ist das eigentlich?",
+    },
+    [72961] = {
+        name = "Aufladen",
+    },
+    [72962] = {
+        name = "Die Tür muss auf!",
+    },
+    [72963] = {
+        name = "Die Oberhand",
+    },
+    [72964] = {
+        name = "Angesengt",
+    },
+    [72965] = {
+        name = "Aspekte unseres Vermächtnisses",
+    },
+    [72966] = {
+        name = "Wo Rauch ist, da ist auch Feuer",
+    },
+    [72970] = {
+        name = "Niffen und Goliath",
+    },
+    [72973] = {
+        name = "Riecht nach Loamm",
+    },
+    [72974] = {
+        name = "Willkommen in der Stadt der Düfte",
+    },
+    [72975] = {
+        name = "Das Land unter der Erde",
+    },
+    [72976] = {
+        name = "Ein Riss in der Welt",
+    },
+    [72977] = {
+        name = "Wo die Flammen fielen",
+    },
+    [72978] = {
+        name = "Narbe von Erde und Feuer",
+    },
+    [72979] = {
+        name = "Die Erde macht den Weg frei",
+    },
+    [72980] = {
+        name = "Nicht ohne meinen Bruder",
+    },
+    [72981] = {
+        name = "Geduld der Prinzen",
+    },
+    [72987] = {
+        name = "Die nächste Runde",
+    },
+    [73036] = {
+        name = "Medizinische Pilze",
+    },
+    [73037] = {
+        name = "Heilkristalle",
+    },
+    [73038] = {
+        name = "Zimmer ohne Aussicht",
+    },
+    [73039] = {
+        name = "Ruheloser Tod",
+    },
+    [73040] = {
+        name = "Unordnung in die Ordnung bringen",
+    },
+    [73041] = {
+        name = "Verschnaufpause",
+    },
+    [73042] = {
+        name = "Ein Turm hoch hinaus",
+    },
+    [73043] = {
+        name = "Ein grauenvolles Vermächtnis",
+    },
+    [73044] = {
+        name = "Katalogisierung des Horrors",
+    },
+    [73045] = {
+        name = "Fleckenentfernung",
+    },
+    [73046] = {
+        name = "Höhleneskapaden",
+    },
+    [73047] = {
+        name = "Terrestrisches Tunnelgraben",
+    },
+    [73076] = {
+        name = "Zurück zur Insel",
+    },
+    [73089] = {
+        name = "Was ist hinter der nächsten Tür?",
+    },
+    [73094] = {
+        name = "Hilfe für die Expedition",
+    },
+    [73107] = {
+        name = "Sendestein: Erster Bericht",
+    },
+    [73137] = {
+        name = "Auf den Spuren der Flamme",
+    },
+    [73155] = {
+        name = "Der vergessene Ring",
+    },
+    [73156] = {
+        name = "Zurück zu Viridia",
+    },
+    [73157] = {
+        name = "Barmherzige Schwingen",
+    },
+    [73159] = {
+        name = "Erkundung unserer Vergangenheit",
+    },
+    [73160] = {
+        name = "Helfende Hände und Klauen",
+    },
+    [74334] = {
+        name = "Zukünftige Aspekte",
+    },
+    [74355] = {
+        name = "Urzeitliche Verzierung",
+    },
+    [74375] = {
+        name = "Forschungsergebnisse zusammentragen",
+    },
+    [74381] = {
+        name = "Verborgene Vermächtnisse",
+    },
+    [74393] = {
+        name = "Bericht: Schlachtfeldruinen",
+    },
+    [74442] = {
+        name = "Der Plunder eines Drachen...",
+    },
+    [74443] = {
+        name = "...ist des anderen Drachen Schatz?",
+    },
+    [74447] = {
+        name = "Verbale Archäologie",
+    },
+    [74494] = {
+        name = "Schuppe um Schuppe",
+    },
+    [74538] = {
+        name = "Bomben auf Ballisten",
+    },
+    [74539] = {
+        name = "Ausdünnen ihrer Verteidigung",
+    },
+    [74540] = {
+        name = "Abfangen der Kommunikation",
+    },
+    [74542] = {
+        name = "Luftüberlegenheit",
+    },
+    [74557] = {
+        name = "Untersuchung des Unbekannten",
+    },
+    [74562] = {
+        name = "Befreiungsaktion",
+    },
+    [74563] = {
+        name = "Schlimmer geht's nicht",
+    },
+    [74769] = {
+        name = "Gegen die Eisenflut stemmen",
+    },
+    [74847] = {
+        name = "Glutthal wartet",
+    },
+    [74857] = {
+        name = "Mausdetektiv",
+    },
+    [74858] = {
+        name = "Agrulkultur",
+    },
+    [74859] = {
+        name = "Sporenmottenjäger",
+    },
+    [74860] = {
+        name = "Eine nette Vorstellung",
+    },
+    [74861] = {
+        name = "Eine unfreundliche Konfrontation",
+    },
+    [74876] = {
+        name = "Das Freundschaftssystem",
+    },
+    [74877] = {
+        name = "Beste Freunde",
+    },
+    [74878] = {
+        name = "Alte Freunde, liebe Freunde",
+    },
+    [74946] = {
+        name = "Ein Ort der Zuflucht",
+    },
+    [74953] = {
+        name = "Schwer wiegt die Krone",
+    },
+    [74983] = {
+        name = "Authentische Autorisierung",
+    },
+    [75050] = {
+        name = "Ein vielschichtiger Pakt",
+    },
+    [75145] = {
+        name = "Nach der Asche",
+    },
+    [75258] = {
+        name = "Ein letztes Wort",
+    },
+    [75367] = {
+        name = "Die Obsidianrast",
+    },
+    [75419] = {
+        name = "Splitterflammen",
+    },
+    [75440] = {
+        name = "Scharfschnabel sättigen",
+    },
+    [75456] = {
+        name = "Neues von unter der Erde",
+    },
+    [75462] = {
+        name = "Mäuserettung",
+    },
+    [75506] = {
+        name = "Schattenflammenwappen",
+    },
+    [75507] = {
+        name = "Auf dem neuesten Stand",
+    },
+    [75643] = {
+        name = "Ausrichtung: Niffen von Loamm",
+    },
+    [75644] = {
+        name = "Tief unter der Erde",
+    },
+    [75665] = {
+        name = "Ein würdiger Verbündeter: Die Niffen von Loamm",
+    },
+    [75694] = {
+        name = "Aberrus, Schmelztiegel der Schatten: Sarkareth",
+    },
+    [75885] = {
+        name = "Im Handumdrehen reich",
+    },
+    [75985] = {
+        name = "Ruht sanft, Krieger",
+    },
+    [76101] = {
+        name = "Tiefer, schneller, weiter",
     },
 })
 ]])()

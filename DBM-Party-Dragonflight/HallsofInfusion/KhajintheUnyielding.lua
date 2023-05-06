@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(2510, "DBM-Party-Dragonflight", 8, 1204)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision("20221207232203")
+mod:SetRevision("20230319043037")
 mod:SetCreatureID(189727)
 mod:SetEncounterID(2617)
 --mod:SetUsedIcons(1, 2, 3)
@@ -66,7 +66,7 @@ function mod:OnCombatStart(delay)
 	if self:IsMythic() then
 		timerFrostCycloneCD:Start(10-delay)
 		timerHailstormCD:Start(20-delay)
-		timerGlacialSurgeCD:Start(27-delay)
+		timerGlacialSurgeCD:Start(self:IsMythicPlus() and 32 or 27-delay)--32.01 on PTR
 	else--TODO, verify heroic still does this
 		timerHailstormCD:Start(10-delay)
 		timerGlacialSurgeCD:Start(22-delay)
@@ -87,14 +87,14 @@ function mod:SPELL_CAST_START(args)
 	if spellId == 386757 then
 		specWarnHailstorm:Show(boulder)
 		specWarnHailstorm:Play("findshelter")
-		timerHailstormCD:Start()
+		timerHailstormCD:Start(self:IsMythicPlus() and 30 or 22)
 	elseif spellId == 386559 then
 		specWarnGlacialSurge:Show()
 		specWarnGlacialSurge:Play("watchstep")--or watchring maybe?
-		timerGlacialSurgeCD:Start()
+		timerGlacialSurgeCD:Start(self:IsMythicPlus() and 30 or 22)
 	elseif spellId == 390111 then
 		self:ScheduleMethod(0.1, "BossTargetScanner", args.sourceGUID, "FrostCycloneTarget", 0.1, 6, true)
-		timerFrostCycloneCD:Start()
+		timerFrostCycloneCD:Start(self:IsMythicPlus() and 35 or 30)
 	end
 end
 
@@ -107,19 +107,12 @@ end
 
 function mod:SPELL_AURA_APPLIED(args)
 	local spellId = args.spellId
-	if spellId == 361966 and self:CheckDispelFilter("magic") then
+	if spellId == 385963 and self:CheckDispelFilter("magic") then
 		specWarnFrostShock:Show(args.destName)
 		specWarnFrostShock:Play("helpdispel")
 	end
 end
 --mod.SPELL_AURA_APPLIED_DOSE = mod.SPELL_AURA_APPLIED
-
-function mod:SPELL_AURA_REMOVED(args)
-	local spellId = args.spellId
-	if spellId == 361966 then
-
-	end
-end
 
 --[[
 function mod:SPELL_PERIODIC_DAMAGE(_, _, _, _, destGUID, _, _, _, spellId, spellName)

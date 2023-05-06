@@ -50,6 +50,9 @@ local function InitializeDropdownMenu(level, mapID, coord)
         }, level)
 
         if select(2, IsAddOnLoaded('TomTom')) then
+            -- Add spacer before TomTom section
+            LibDD:UIDropDownMenu_AddButton(spacer, level)
+            -- Add waypoint to TomoTom for single node
             LibDD:UIDropDownMenu_AddButton({
                 text = L['context_menu_add_tomtom'],
                 notCheckable = 1,
@@ -58,17 +61,32 @@ local function InitializeDropdownMenu(level, mapID, coord)
                     TomTom:SetClosestWaypoint(false)
                 end
             }, level)
-
-            if node.group ~= ns.groups.MISC then
+            -- Add waypoints to TomTom for entire group
+            for i, group in pairs(node.group) do
+                if group ~= ns.groups.MISC then
+                    LibDD:UIDropDownMenu_AddButton({
+                        text = L['context_menu_add_group_tomtom'],
+                        notCheckable = 1,
+                        func = function(button)
+                            ns.tomtom.AddGroupWaypoints(node, mapID, coord)
+                            TomTom:SetClosestWaypoint(false)
+                        end
+                    }, level)
+                end
+            end
+            -- Add waypoints to TomTom for node fgroup (focus group)
+            if node.fgroup then
                 LibDD:UIDropDownMenu_AddButton({
-                    text = L['context_menu_add_group_tomtom'],
+                    text = L['context_menu_add_focus_group_tomtom'],
                     notCheckable = 1,
                     func = function(button)
-                        ns.tomtom.AddGroupWaypoints(node, mapID, coord)
+                        ns.tomtom.AddFocusGroupWaypoints(node, mapID)
                         TomTom:SetClosestWaypoint(false)
                     end
                 }, level)
             end
+            -- Add spacer after TomTom section
+            LibDD:UIDropDownMenu_AddButton(spacer, level)
         end
 
         LibDD:UIDropDownMenu_AddButton({
@@ -149,6 +167,8 @@ function Addon:OnClick(button, down, mapID, coord)
         if map:CanFocus(node) then
             map:SetFocus(node, coord, not map:IsFocused(coord))
             Addon:RefreshImmediate()
+        elseif node.OnClick then
+            node.OnClick()
         end
     end
 end
@@ -158,9 +178,18 @@ function Addon:OnInitialize()
     ns.faction = UnitFactionGroup('player')
     self.db = LibStub('AceDB-3.0'):New(ADDON_NAME .. 'DB', ns.optionDefaults,
         'Default')
+
     self:RegisterEvent('PLAYER_ENTERING_WORLD', function()
         self:UnregisterEvent('PLAYER_ENTERING_WORLD')
         self:ScheduleTimer('RegisterWithHandyNotes', 1)
+
+        -- Query localized expansion title
+        if not ns.expansion then
+            error('Expansion not set: ' .. ADDON_NAME)
+        end
+        local expansion_name = EJ_GetTierInfo(ns.expansion)
+        ns.plugin_name = 'HandyNotes: ' .. expansion_name
+        ns.options.name = ('%02d - '):format(ns.expansion) .. expansion_name
     end)
 
     -- Add global groups to settings panel
@@ -170,12 +199,6 @@ function Addon:OnInitialize()
     local template = ADDON_NAME .. 'WorldMapOptionsButtonTemplate'
     ns.world_map_button = LibStub('Krowi_WorldMapButtons-1.4'):Add(template,
         'DROPDOWNTOGGLEBUTTON')
-
-    -- Query localized expansion title
-    if not ns.expansion then error('Expansion not set: ' .. ADDON_NAME) end
-    local expansion_name = EJ_GetTierInfo(ns.expansion)
-    ns.plugin_name = 'HandyNotes: ' .. expansion_name
-    ns.options.name = ('%02d - '):format(ns.expansion) .. expansion_name
 end
 
 -------------------------------------------------------------------------------

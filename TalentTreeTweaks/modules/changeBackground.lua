@@ -8,7 +8,7 @@ local Module = Main:NewModule('ChangeBackground', 'AceHook-3.0', 'AceEvent-3.0')
 Module.originalAlpha = {}
 
 function Module:OnEnable()
-    EventUtil.ContinueOnAddOnLoaded('Blizzard_ClassTalentUI', function()
+    Util:OnClassTalentUILoad(function()
         self:SetupDefaultUI();
     end);
     EventUtil.ContinueOnAddOnLoaded('TalentTreeViewer', function()
@@ -111,10 +111,12 @@ end
 
 function Module:UpdateBackground(resetAlpha)
     local alpha = resetAlpha and 1 or self.db.alpha;
-    self:TrySetAlpha(ClassTalentFrame.TalentsTab.Background, alpha);
-    self:TrySetAlpha(ClassTalentFrame.TalentsTab.BlackBG, alpha);
-    self:TrySetAlpha(ClassTalentFrame.Center, alpha); -- ElvUI background
-    self:TrySetAlpha(ClassTalentFrameBg, alpha);
+    if ClassTalentFrame then
+        self:TrySetAlpha(ClassTalentFrame.TalentsTab.Background, alpha);
+        self:TrySetAlpha(ClassTalentFrame.TalentsTab.BlackBG, alpha);
+        self:TrySetAlpha(ClassTalentFrame.Center, alpha); -- ElvUI background
+        self:TrySetAlpha(ClassTalentFrameBg, alpha);
+    end
 
     if TalentViewer and TalentViewer.GetTalentFrame and TalentViewer:GetTalentFrame() then
         local talentViewerFrame = TalentViewer:GetTalentFrame();
@@ -122,6 +124,17 @@ function Module:UpdateBackground(resetAlpha)
         self:TrySetAlpha(talentViewerFrame.BlackBG, alpha);
         self:TrySetAlpha(TalentViewer_DFBg, alpha);
     end
+    if TalentLoadoutManager then
+        if TalentLoadoutManager.SideBarModule and TalentLoadoutManager.SideBarModule.SideBar then
+            local sideBar = TalentLoadoutManager.SideBarModule.SideBar;
+            self:TrySetAlpha(sideBar.Background, alpha);
+        end
+        if TalentLoadoutManager.TTVSideBarModule and TalentLoadoutManager.TTVSideBarModule.SideBar then
+            local sideBar = TalentLoadoutManager.TTVSideBarModule.SideBar;
+            self:TrySetAlpha(sideBar.Background, alpha);
+        end
+    end
+
     if self.alphaSlider then
         self.alphaSlider:SetValue(alpha);
     end
@@ -134,6 +147,11 @@ function Module:SetupDefaultUI()
     self:UpdateBackground();
     self.alphaSlider = self.alphaSlider or self:CreateSlider(ClassTalentFrame.TalentsTab);
     self.alphaSlider:SetShown(self.db.showAlphaInUI);
+
+    RunNextFrame(function()
+        -- give time for other addons that hook into Default UI to load up
+        self:UpdateBackground();
+    end);
 end
 
 function Module:SetupTTVUI()
@@ -141,6 +159,11 @@ function Module:SetupTTVUI()
     local xOffset = 25;
     self.viewerAlphaSlider = self.viewerAlphaSlider or self:CreateSlider(TalentViewer:GetTalentFrame(), xOffset);
     self.viewerAlphaSlider:SetShown(self.db.showAlphaInViewerUI);
+
+    RunNextFrame(function()
+        -- give time for other addons that hook into TTV UI to load up
+        self:UpdateBackground();
+    end);
 end
 
 function Module:CreateSlider(talentFrame, xOffset)

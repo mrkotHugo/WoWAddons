@@ -1,6 +1,8 @@
 local _, TTT = ...;
 --- @type TalentTreeTweaks_Main
 local Main = TTT.Main;
+--- @type TalentTreeTweaks_Util
+local Util = TTT.Util;
 
 local Module = Main:NewModule('ImportIntoCurrentLoadout', 'AceHook-3.0');
 
@@ -21,7 +23,7 @@ function Module:OnInitialize()
 end
 
 function Module:OnEnable()
-    EventUtil.ContinueOnAddOnLoaded('Blizzard_ClassTalentUI', function()
+    Util:OnClassTalentUILoad(function()
         self:SetupHook();
     end);
 end
@@ -164,7 +166,7 @@ function Module:CreateAcceptButton(dialog)
 
     local acceptButton = CreateFrame('Button', nil, dialog, 'ClassTalentLoadoutDialogButtonTemplate');
     acceptButton:SetPoint('BOTTOMRIGHT', dialog.ContentArea, 'BOTTOM', -5, 0);
-    acceptButton:SetText(HUD_CLASS_TALENTS_IMPORT_LOADOUT_ACCEPT_BUTTON.."2");
+    acceptButton:SetText(HUD_CLASS_TALENTS_IMPORT_LOADOUT_ACCEPT_BUTTON);
     acceptButton.disabledTooltip = HUD_CLASS_TALENTS_IMPORT_ERROR_IMPORT_STRING_AND_NAME;
     acceptButton:SetScript('OnClick', function()
         local importString = dialog.ImportControl:GetText();
@@ -279,11 +281,18 @@ function Module:ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
 
         if (indexInfo.isNodeSelected) then
             local treeNode = C_Traits.GetNodeInfo(configID, treeNodeID);
+            local isChoiceNode = treeNode.type == Enum.TraitNodeType.Selection;
+            local choiceNodeSelection = indexInfo.isChoiceNode and indexInfo.choiceNodeSelection or nil;
+            if indexInfo.isNodeSelected and isChoiceNode ~= indexInfo.isChoiceNode then
+                -- guard against corrupt import strings
+                print("Import string is corrupt, node type mismatch at nodeID", treeNodeID, ". First option will be selected.");
+                choiceNodeSelection = 1;
+            end
             local result = {};
             result.nodeID = treeNode.ID;
             result.ranksPurchased = indexInfo.isPartiallyRanked and indexInfo.partialRanksPurchased or treeNode.maxRanks;
             -- minor change from default UI, only add in case of choice nodes
-            result.selectionEntryID = indexInfo.isChoiceNode and treeNode.entryIDs[indexInfo.choiceNodeSelection] or nil;
+            result.selectionEntryID = indexInfo.isNodeSelected and isChoiceNode and treeNode.entryIDs[choiceNodeSelection] or nil;
             results[count] = result;
             count = count + 1;
         end

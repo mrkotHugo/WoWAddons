@@ -1,3 +1,59 @@
+# 3.8.0
+
+## Changes
+
+Updated for patch 10.1.0.
+
+Added token and trinket data from Aberrus the Shadowed Crucible
+
+### Require note per response
+
+It's now possible to require notes per specific response - check `Buttons and Response` options and check `Require Notes` for each response you want raiders to submit a note with.  
+Old require notes option has been removed as part of this change.
+
+Note: This will not work for people with older versions.
+
+### Void-Touched Curio
+
+Removed from blacklist.
+
+## Bugfixes
+
+- *Fixed occasional inability to trade multiple identical items.*
+- *`/rc fulltest` should once again pull items from the latest raid.*
+
+
+# 3.7.1
+
+Updated for patch 10.0.7.
+
+## Bugfixes
+
+- *Fixed wrong text used for "Guild Groups Only" setting.*
+
+# 3.7.0
+
+## Changes
+
+Updated for patch 10.0.5
+
+### Voting Frame More Info
+
+Now shows the equip location of recently awarded items.
+
+### Export items in session
+
+Added new chat command `/rc export` which will export a csv formatted list of the items currently in session.
+
+### Button Groups
+
+Added button groups for mounts, bags and recipies.
+
+## Bugfixes
+
+- *Items can now again be automatically added to a trade with a player from another realm.*
+- *Fixed issue with items some times being added twice.*
+
 # 3.6.7
 
 ## Bugfixes

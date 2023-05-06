@@ -1,0 +1,13 @@
+﻿## Interface: 100007
+## Title: Talent Loadouts Ex
+## Author: Morizo
+## Notes: Save at least 10 Talent Loadouts.
+## Version: 1.4.1
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: TalentLoadoutsEx, TalentLoadoutsExGUI
+
+TalentLoadoutsEx.lua
+
+TalentLoadoutsEx_GUI.xml
+TalentLoadoutsEx_GUI.lua

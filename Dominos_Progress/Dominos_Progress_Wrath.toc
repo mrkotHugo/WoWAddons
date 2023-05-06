@@ -1,10 +1,11 @@
-## Interface: 30400
+## Interface: 30401
 ## Title: Dominos Progress
-## Title-zhCN: |cFF0099FFDominos|r 进度条模块
+## Title-zhCN: Dominos 进度条模块
 ## Notes: Progress bars of all sorts
 ## Notes-zhCN: 各种进度条
 ## Author: Tuller
 ## Dependencies: Dominos
+## IconTexture: Interface/AddOns/Dominos/Dominos
 localization.xml
 config.lua
 main.lua

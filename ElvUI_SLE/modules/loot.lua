@@ -1,4 +1,4 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local LT = SLE.Loot
 local M = E.Misc
 
@@ -265,7 +265,7 @@ end
 
 --Setting loot history alpha
 function LT:LootAlpha()
-	_G['LootHistoryFrame']:SetAlpha(LT.db.history.alpha or 1)
+	_G['GroupLootHistoryFrame']:SetAlpha(LT.db.history.alpha or 1)
 end
 
 --Hide loot history frame on exiting dungeon
@@ -273,7 +273,7 @@ function LT:LootShow()
 	local instance = IsInInstance()
 
 	if (not instance and LT.db.history.autohide) then
-		_G['LootHistoryFrame']:Hide()
+		_G['GroupLootHistoryFrame']:Hide()
 		if SLE._Compatibility['ElvUI_PagedLootHistory'] then _G['ElvUI_PagedLootHistoryFrame']:Hide() end
 	end
 end

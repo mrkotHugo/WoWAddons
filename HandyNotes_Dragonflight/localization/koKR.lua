@@ -17,7 +17,7 @@ L['options_icons_profession_treasures_desc'] = '전문기술 관련 지식을 �
 
 L['dragon_glyph'] = '용 문양'
 L['options_icons_dragon_glyph'] = '용 문양'
-L['options_icons_dragon_glyph_desc'] = '48개의 전체 용 문양 위치를 표시합니다.'
+L['options_icons_dragon_glyph_desc'] = '64개의 전체 용 문양 위치를 표시합니다.'
 
 L['dragonscale_expedition_flag'] = '용비늘 원정대 깃발'
 L['flags_placed'] = '깃발 꽂기 완료'
@@ -51,6 +51,11 @@ L['options_icons_scout_pack_desc'] = '{object:원정대 정찰병의 짐} 위치
 L['magicbound_chest'] = '마법결속 보관함'
 L['options_icons_magicbound_chest'] = '마법결속 보관함'
 L['options_icons_magicbound_chest_desc'] = '마법결속 보관함의 위치를 표시합니다.'
+L['ice_bound_chest'] = '[Ice Bound Chest]'
+
+L['tuskarr_tacklebox'] = nil
+L['options_icons_tuskarr_tacklebox'] = nil
+L['options_icons_tuskarr_tacklebox_desc'] = nil
 
 L['dr_best'] = '개인 최고 기록:\n - 일반: %.3f초\n - 고급: %.3f초'
 L['dr_best_dash'] = '개인 최고 기록:\n - %.3f초'
@@ -86,7 +91,10 @@ L['signal_transmitter_note'] = nil
 L['options_icons_signal_transmitter'] = '지룡 구멍 생성기 신호 송신기'
 L['options_icons_signal_transmitter_desc'] = '{item:198156}를 이용하기 위한 {object:비활성화된 신호 송신기} 위치를 표시합니다.'
 
-L['spawns_hourly'] = '매시각 정시에 출몰할 가능성이 있습니다.'
+L['rare_14h'] = nil
+L['time_format_12hrs'] = nil
+L['time_format_24hrs'] = nil
+L['now'] = nil
 L['spawns_at_night'] = '저녁에만 출몰합니다. (서버 시각 기준 18:30)'
 
 L['elemental_storm'] = nil
@@ -116,10 +124,42 @@ L['elemental_storm_mythressa_note_end'] = nil
 L['options_icons_elemental_storm'] = nil
 L['options_icons_elemental_storm_desc'] = nil
 
+L['elusive_creature_note'] = nil
+L['options_icons_elusive_creature'] = '{item:193906}'
+L['options_icons_elusive_creature_desc'] = nil
+
+L['grand_hunts_label'] = nil
+L['longhunter_suffix'] = nil
+L['the_best_at_what_i_do_suffix'] = nil
+
+L['options_icons_grand_hunts'] = nil
+L['options_icons_grand_hunts_desc'] = nil
+
+L['ancient_stone_label'] = nil
+L['options_icons_ancient_stones'] = '{achievement:17560}'
+L['options_icons_ancient_stones_desc'] = nil
+
+L['reed_chest'] = '갈대 보관함'
+L['options_icons_reed_chest'] = '갈대 보관함'
+L['options_icons_reed_chest_desc'] = nil
+
+L['dracthyr_supply_chest'] = '드랙티르 보급품 보관함'
+L['options_icons_dracthyr_supply_chest'] = '드랙티르 보급품 보관함'
+L['options_icons_dracthyr_supply_chest_desc'] = nil
+
+L['simmering_chest'] = '일렁이는 보관함'
+L['options_icons_simmering_chest'] = '일렁이는 보관함'
+L['options_icons_simmering_chest_desc'] = nil
+
+L['frostbound_chest'] = '서리결속 보관함'
+L['options_icons_frostbound_chest'] = '서리결속 보관함'
+L['options_icons_frostbound_chest_desc'] = nil
+
 -------------------------------------------------------------------------------
 ------------------------------- THE AZURE SPAN --------------------------------
 -------------------------------------------------------------------------------
 
+L['bisquis_note'] = '{location:이스카라} 의 공동체 잔치에서 전설의 수프를 요리한 후 {npc:197557} 처치'
 L['blightfur_note'] = '{npc:193633}에게 말을 걸어 소환합니다.'
 L['brackenhide_rare_note'] = '{npc:197344} > {npc:197353} > {npc:197354} > {npc:197356} 순서로 10분 단위로 젠됩니다.'
 L['fisherman_tinnak_note'] = '{object:망가진 낚싯대}, {object:찢어진 낚시 그물}, {object:오래된 작살}을 모두 수집하면 생성됩니다.'
@@ -169,20 +209,44 @@ L['snowclaw_cub_note_end'] = nil
 
 L['tome_of_polymoph_duck'] = nil
 
-L['temperamental_skyclaw_note'] = [[
-다음을 수집하세요. (경매장에서 거래 가능):
-
-{item:201420} 20개
-{item:201421} 20개
-{item:201422} 20개
-
-{npc:190892}에게 말을 걸어 안장을 얹은 슬라이번에 대해 물어보고 수집한 "간식"을 줍니다.
-]]
+L['temperamental_skyclaw_note_start'] = '다음을 수집하세요. (경매장에서 거래 가능):'
+L['temperamental_skyclaw_note_end'] = '{npc:190892}에게 말을 걸어 안장을 얹은 슬라이번에 대해 물어보고 수집한 "간식"을 줍니다.'
 
 L['elder_poa_note'] = '{item:200071}을 반납하여 {faction:2511} 평판을 획득합니다.'
 
+L['artists_easel_note_step1'] = nil
+L['artists_easel_note_step2'] = nil
+L['artists_easel_note_step3'] = nil
+L['artists_easel_note_step4'] = nil
+
+L['somewhat_stabilized_arcana_note'] = nil
+
+L['stranded_soul_note'] = nil
+
+L['gethdazr_note'] = nil
+
+L['tuskarr_chest'] = '투스카르 상자'
+L['options_icons_tuskarr_chest'] = nil
+L['options_icons_tuskarr_chest_desc'] = nil
+
+L['community_feast_label'] = nil
+L['options_icons_community_feast'] = nil
+L['options_icons_community_feast_desc'] = nil
+
+L['decay_covered_chest'] = '부패로 뒤덮인 보관함'
+L['options_icons_decay_covered_chest'] = '부패로 뒤덮인 보관함'
+L['options_icons_decay_covered_chest_desc'] = nil
+
+L['icemaw_storage_cache'] = '얼음아귀 저장품 상자'
+L['options_icons_icemaw_storage_cache'] = '얼음아귀 저장품 상자'
+L['options_icons_icemaw_storage_cache_desc'] = nil
+
+L['kazzi_note_start'] = nil
+L['kazzi_note_item'] = nil
+L['kazzi_achievement_suffix'] = nil
+
 -------------------------------------------------------------------------------
-------------------------------- FORBIDDEN REACH -------------------------------
+------------------ FORBIDDEN REACH (DRACTHYR STARTING ZONE) -------------------
 -------------------------------------------------------------------------------
 
 L['bag_of_enchanted_wind'] = '마력 깃든 바람 가방'
@@ -194,6 +258,116 @@ L['mysterious_wand'] = nil
 L['mysterious_wand_note'] = nil
 
 -------------------------------------------------------------------------------
+------------------------- FORBIDDEN REACH (MAIN ZONE) -------------------------
+-------------------------------------------------------------------------------
+
+L['in_dragonskull_island'] = nil
+L['in_froststone_vault'] = nil
+L['in_the_high_creche'] = nil
+L['in_the_lost_atheneum'] = nil
+L['in_the_siege_creche'] = nil
+L['in_the_support_creche'] = nil
+L['in_the_war_creche'] = nil
+L['in_zskera_vaults'] = nil
+
+L['duzalgor_note'] = nil
+L['mad_eye_carrey_note'] = nil
+L['wymslayer_angvardi_note'] = nil
+L['loot_specialist_note'] = nil
+
+L['profession_required'] = nil
+L['pr_crafting_note'] = nil
+L['pr_gathering_note'] = nil
+L['pr_recipe_note'] = nil
+L['pr_summoning_note'] = nil
+
+L['pr_awakened_soil'] = nil
+L['pr_book_of_arcane_entities'] = nil
+L['pr_damaged_buzzspire'] = nil
+L['pr_empty_crab_trap'] = nil
+L['pr_farescale_shrine'] = nil
+L['pr_raw_argali_pelts'] = nil
+L['pr_resonant_crystal'] = nil
+L['pr_rumbling_deposit'] = nil
+L['pr_spellsworn_ward'] = nil
+L['pr_spiceless_stew'] = nil
+L['pr_tuskarr_kite_post'] = nil
+L['pr_tuskarr_tanning_rack'] = nil
+L['pr_volatile_brazier'] = nil
+
+L['options_icons_profession_rares'] = nil
+L['options_icons_profession_rares_desc'] = nil
+
+L['storm_bound_chest_label'] = nil
+
+L['hoarder_of_the_forbidden_reach_suffix'] = nil
+L['forbidden_spoils_suffix'] = nil
+L['forbidden_hoard_label'] = nil
+
+L['options_icons_forbidden_hoard'] = nil
+L['options_icons_forbidden_hoard_desc'] = nil
+
+L['froststone_vault_storm_label'] = nil
+L['gooey_snailemental_note'] = nil
+
+L['options_icons_froststone_vault_storm'] = nil
+L['options_icons_froststone_vault_storm_desc'] = nil
+
+L['small_treasures_label'] = nil
+L['small_treasures_note'] = nil
+
+L['options_icons_small_treasures'] = nil
+L['options_icons_small_treasures_desc'] = nil
+
+L['zskera_vaults_label'] = nil
+L['zskera_vaults_note'] = nil
+L['door_buster_suffix'] = nil
+
+L['broken_waygate_label'] = nil
+L['neltharions_toolkit_note'] = nil
+
+L['recipe_rat_note_1'] = nil
+L['recipe_rat_note_2'] = nil
+L['recipe_rat_note_3'] = nil
+L['recipe_rat_note_4'] = nil
+
+L['mm_start_note'] = nil
+L['mm_status_note'] = nil
+
+L['options_icons_zskera_vaults'] = nil
+L['options_icons_zskera_vaults_desc'] = nil
+
+L['confiscated_journal_label'] = nil
+L['farscale_manifesto_label'] = nil
+L['lost_expeditions_notes_label'] = nil
+L['pirate_proclamation_label'] = nil
+L['spellsworn_missive_label'] = nil
+L['vrykul_tome_label'] = nil
+
+L['library_note'] = nil
+
+L['options_icons_librarian_of_the_reach'] = nil
+L['options_icons_librarian_of_the_reach_desc'] = nil
+
+L['dracthyr_runestone_label'] = '드랙티르 룬석'
+L['scroll_hunter_suffix'] = nil
+L['scroll_hunter_note'] = nil
+
+L['options_icons_scroll_hunter'] = nil
+L['options_icons_scroll_hunter_desc'] = nil
+
+L['options_icons_scalecommander_item'] = nil
+L['options_icons_scalecommander_item_desc'] = nil
+
+L['spellsworn_gateway'] = nil
+L['gemstone_of_return'] = nil
+
+L['treysh_note'] = nil
+L['renown_envoy_label'] = nil
+L['renown_envoy_note'] = nil
+L['trader_hagarth_note'] = nil
+
+-------------------------------------------------------------------------------
 ------------------------------ OHN'AHRAN PLAINS -------------------------------
 -------------------------------------------------------------------------------
 
@@ -203,14 +377,30 @@ L['porta_the_overgrown_note'] = nil
 L['scaleseeker_mezeri_note'] = nil
 L['shade_of_grief_note'] = '{npc:193166}를 클릭하면 소환됩니다.'
 L['windscale_the_stormborn_note'] = nil
+L['windseeker_avash_note'] = '주변의 {npc:195742} 또는 {npc:187916}를 잡다보면 소환됩니다.'
 L['zarizz_note'] = '{npc:193169} 네마리가 있는 상태에서 {emote:/야유} 하면 소환됩니다.'
 
-L['gold_swong_coin_note'] = '동굴 안 {npc:191608} 오른편에 있음'
+L['aylaag_outpost_note'] = nil
+L['eaglewatch_outpost_note'] = nil
+L['river_camp_note'] = nil
 
+L['defend_clan_aylaag'] = nil
+L['defend_clan_aylaag_note'] = nil
+
+L['gold_swong_coin_note'] = '동굴 안 {npc:191608} 오른편에 있음'
 L['nokhud_warspear_note'] = '{item:194540}은 {object:원정대 정찰병의 짐} 또는 {object:흐트러진 흙}에서 얻을 수 있습니다.'
 L['slightly_chewed_duck_egg_note'] = '{npc:192997}를 찾아 쓰다듬으면 {item:195453}를 얻게 되는데 이를 사용합니다. {item:199171}은 3일이 지나면 {item:199172}로 부화합니다.'
 L['yennus_boat'] = '투스카르 장난감 배'
 L['yennus_boat_note'] = '{object:투스카르 장난감 배}를 클릭하여 {item:200876}를 습득하면, 이를 {npc:195252}에게 돌려주는 {quest:72063} 퀘스트를 시작할 수 있게 됩니다.'
+
+L['forgotten_dragon_treasure_label'] = nil
+L['forgotten_dragon_treasure_step1'] = nil
+L['forgotten_dragon_treasure_step2'] = nil
+L['forgotten_dragon_treasure_step3'] = nil
+L['forgotten_dragon_treasure_step4'] = nil
+L['fdt_crystalline_flower'] = nil
+L['fdt_ancient_stone'] = nil
+L['fdt_emerald_chest'] = nil
 
 L['pm_ench_shalasar_glimmerdusk'] = '부서진 탑의 2층에 있습니다.'
 L['pm_herb_hua_greenpaw'] = nil
@@ -268,6 +458,18 @@ L['options_icons_nokhud_do_it_desc'] = nil
 
 L['chest_of_the_flood'] = nil
 
+L['aylaag_camp_note'] = nil
+
+L['clan_chest'] = '부족 보관함'
+L['options_icons_clan_chest'] = nil
+L['options_icons_clan_chest_desc'] = nil
+
+L['lightning_bound_chest'] = '번개의 결속 상자'
+L['options_icons_lightning_bound_chest'] = '번개의 결속 상자'
+L['options_icons_lightning_bound_chest_desc'] = nil
+
+L['bloodgullet_note'] = nil
+
 -------------------------------------------------------------------------------
 --------------------------------- THALDRASZUS ---------------------------------
 -------------------------------------------------------------------------------
@@ -289,7 +491,7 @@ L['tasty_hatchling_treat_note'] = '책장 뒤에 있는 통에서 얻을 수 있
 L['pm_mining_bridgette_holdug'] = '풀이 우거진 바위 기둥 위에 있음'
 L['pm_tailor_elysa_raywinder'] = '탑 위로 중간쯤 튀어나온 선반 위에 있음'
 L['pt_alch_contraband_concoction_note'] = '덤불 속에 숨겨져있음. {note:찾기 힘듬}'
-L['pt_alch_furry_gloop_note'] = nil
+L['pt_alch_tasty_candy_note'] = nil
 L['pt_ench_fractured_titanic_sphere_note'] = '{location:티르홀드} 남쪽에 있음'
 L['pt_jewel_alexstraszite_cluster_note'] = '{location:티르홀드} 내에 있음'
 L['pt_jewel_painters_pretty_jewel_note'] = '등불 안에 있음'
@@ -323,6 +525,17 @@ L['lillian_brightmoon_note'] = '{item:201412}을 반납하여 {faction:2507} 평
 
 L['chest_of_the_elements'] = nil
 
+L['hoard_of_draconic_delicacies_note_start'] = nil
+L['hoard_of_draconic_delicacies_note_end'] = nil
+
+L['brendormi_note_start'] = nil
+L['brendormi_note_item'] = nil
+L['brendormi_note_currency'] = nil
+
+L['titan_chest'] = '티탄 궤짝'
+L['options_icons_titan_chest'] = '티탄 궤짝'
+L['options_icons_titan_chest_desc'] = nil
+
 -------------------------------------------------------------------------------
 ------------------------------ THE WAKING SHORE -------------------------------
 -------------------------------------------------------------------------------
@@ -341,6 +554,10 @@ L['bubble_drifter_note'] = '{item:199061}는 {object:원정대 정찰병의 짐}
 L['dead_mans_chestplate_note'] = '탑 내부 중간층에 있음'
 L['fullsails_supply_chest_note'] = nil
 L['golden_dragon_goblet_note'] = nil
+L['lost_obsidian_cache'] = nil
+L['lost_obsidian_cache_step1'] = nil
+L['lost_obsidian_cache_step2'] = nil
+L['lost_obsidian_cache_step3'] = nil
 L['misty_treasure_chest_note'] = nil
 L['onyx_gem_cluster_note'] = nil
 L['torn_riding_pack_note'] = '폭포 꼭대기에 위치.'
@@ -350,9 +567,9 @@ L['fullsails_supply_chest'] = '풀세일 보급품 상자'
 L['hidden_hornswog_hoard_note'] = [[
 {npc:192362} 주변에 있는 {object:"관찰의 수수께끼: 현장 지침서"}에 적힌 세가지 아이템을 구하여 {item:200063}을 조합한 후 먹이로 줍니다. 간식을 먹고나면 옆으로 비켜줘서 전리품을 획득할 수 있게 됩니다.
 
-{item:200064}
-{item:200065}
-{item:200066}
+{item:200064}{dot:Yellow}
+{item:200065}{dot:Blue}
+{item:200066}{dot:White}
 ]]
 
 L['pm_alch_grigori_vialtry'] = '{location:섬광서리 강습지}가 내려다보이는 난간에 있음.'
@@ -423,3 +640,79 @@ L['options_icons_safari_desc'] = '{achievement:16519} 업적을 위한 전투애
 L['shyfly_note'] = '{npc:189102}를 보려면 {quest:70853} 퀘스트 중이어야 합니다.'
 
 L['cataloger_jakes_note'] = '{item:192055}을 반납하여 {faction:2507} 평판을 획득합니다.'
+
+L['snack_attack_suffix'] = nil
+L['snack_attack_note'] = nil
+L['options_icons_snack_attack'] = '{achievement:16410}'
+L['options_icons_snack_attack_desc'] = nil
+
+L['loyal_magmammoth_step_1'] = nil
+L['loyal_magmammoth_step_2'] = nil
+L['loyal_magmammoth_step_3'] = nil
+L['loyal_magmammoth_true_friend'] = nil
+L['loyal_magmammoth_wrathion_quatermaster_note'] = nil
+L['loyal_magmammoth_sabellian_quatermaster_note'] = nil
+L['loyal_magmammoth_harness_note'] = nil
+L['loyal_magmammoth_taming_note'] = nil
+
+L['djaradin_cache'] = nil
+L['options_icons_djaradin_cache'] = nil
+L['options_icons_djaradin_cache_desc'] = nil
+
+L['dragonbane_siege_label'] = nil
+L['options_icons_dragonbane_siege'] = nil
+L['options_icons_dragonbane_siege_desc'] = nil
+
+L['phoenix_wishwing_note'] = nil
+L['phoenix_wishwing_talisman'] = nil
+L['phoenix_wishwing_phoenix_ember'] = nil
+L['phoenix_wishwing_sacred_ash'] = nil
+L['phoenix_wishwing_inert_ash'] = nil
+L['phoenix_wishwing_smoldering_ash'] = nil
+L['phoenix_wishwing_ash_feather'] = nil
+L['phoenix_wishwing_info'] = nil
+
+-------------------------------------------------------------------------------
+------------------------------- Zaralek Cavern --------------------------------
+-------------------------------------------------------------------------------
+
+L['in_deepflayer_nest'] = nil
+
+L['brulsef_the_stronk_note'] = nil
+
+L['ancient_zaqali_chest_note'] = nil
+L['blazing_shadowflame_chest_note'] = nil
+L['crystal_encased_chest_note'] = nil
+L['old_trunk_note'] = nil
+L['well_chewed_chest_note'] = nil
+
+L['molten_hoard_label'] = nil
+L['fealtys_reward_label'] = nil
+L['fealtys_reward_note'] = nil
+L['dreamers_bounty_label'] = nil
+L['dreamers_bounty_note'] = nil
+L['moth_pilfered_pouch_label'] = nil
+L['moth_pilfered_pouch_note'] = nil
+L['waterlogged_bundle_label'] = nil
+
+L['stolen_stash_label'] = nil
+L['ritual_offering_label'] = nil
+L['nal_kskol_reliquary_label'] = nil
+L['nal_kskol_reliquary_note'] = nil
+
+L['molten_scoutbot_note'] = nil
+L['bolts_and_brass_note'] = nil
+
+L['sniffen_sage_suffix'] = nil
+
+L['big_slick_note_1'] = nil
+
+L['saccratos_note'] = nil
+L['ponzo_note'] = nil
+
+L['smelly_trash_pile_label'] = nil
+L['options_icons_smelly_trash_pile'] = nil
+L['options_icons_smelly_trash_pile_desc'] = nil
+
+L['seething_cache_treasure_note'] = nil
+L['chest_of_the_flights_treasure_note'] = nil

@@ -372,8 +372,6 @@ function BtWQuestsCharactersCharacterMixin:GetAchievementCriteriaInfo(achievemen
     if self.t.achievements then
         local data = self.t.achievements[achievementID];
         if data ~= nil then
-            id = id or achievementID;
-
             if data[1] ~= nil then
                 data = data[15];
             else
@@ -410,8 +408,6 @@ function BtWQuestsCharactersCharacterMixin:GetAchievementCriteriaInfoByID(achiev
     if self.t.achievements then
         local data = self.t.achievements[achievementID];
         if data ~= nil then
-            id = id or achievementID;
-
             if data[1] ~= nil then
                 data = data[15];
             else

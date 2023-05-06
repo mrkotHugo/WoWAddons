@@ -1,4 +1,4 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local AFK = E.AFK
 local S = SLE.Screensaver
 
@@ -522,7 +522,7 @@ function S:UpdateTextOptions()
 
 			AFK.AFKMode[element]:ClearAllPoints()
 			AFK.AFKMode[element]:Point(db[element].inversePoint and E.InversePoints[db[element].anchorPoint] or db[element].anchorPoint, AFK.AFKMode[db[element].attachTo], db[element].anchorPoint, db[element].xOffset, db[element].yOffset)
-			AFK.AFKMode[element]:SetFont(E.LSM:Fetch('font', db[element].font), db[element].size, db[element].outline)
+			AFK.AFKMode[element]:FontTemplate(E.LSM:Fetch('font', db[element].font), db[element].size, db[element].outline)
 			AFK.AFKMode[element]:SetShown(enable)
 
 			if element == 'SL_ScrollFrame' then

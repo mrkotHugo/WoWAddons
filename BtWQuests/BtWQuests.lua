@@ -50,6 +50,12 @@ end
 local function CanCompleteQuest(questLogIndex)
     return IsQuestComplete(GetQuestIDForQuestIndex(questLogIndex)) and GetQuestLogIsAutoComplete(questLogIndex)
 end
+local GetAddOnMetadata = GetAddOnMetadata or C_AddOns.GetAddOnMetadata
+
+function BtWQuestsDragonflight_OnAddonCompartmentClick()
+    BtWQuestsFrame:Show()
+    BtWQuestsFrame:SelectExpansion(BtWQuests.Constant.Expansions.Dragonflight)
+end
 
 BtWQuestsFrameChainViewMixin = {}
 function BtWQuestsFrameChainViewMixin:GetTooltip()

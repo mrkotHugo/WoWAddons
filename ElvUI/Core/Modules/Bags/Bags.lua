@@ -11,6 +11,7 @@ local tinsert, tremove, wipe = tinsert, tremove, wipe
 local type, ipairs, unpack, select = type, ipairs, unpack, select
 local next, max, floor, format, strsub = next, max, floor, format, strsub
 
+local EasyMenu = EasyMenu
 local BreakUpLargeNumbers = BreakUpLargeNumbers
 local CreateFrame = CreateFrame
 local CursorHasItem = CursorHasItem
@@ -27,7 +28,6 @@ local GetKeyRingSize = GetKeyRingSize
 local GetMoney = GetMoney
 local GetNumBankSlots = GetNumBankSlots
 local hooksecurefunc = hooksecurefunc
-local IsCosmeticItem = IsCosmeticItem
 local IsInventoryItemProfessionBag = IsInventoryItemProfessionBag
 local IsReagentBankUnlocked = IsReagentBankUnlocked
 local PlaySound = PlaySound
@@ -54,6 +54,7 @@ local EditBox_HighlightText = EditBox_HighlightText
 local BankFrameItemButton_Update = BankFrameItemButton_Update
 local BankFrameItemButton_UpdateLocked = BankFrameItemButton_UpdateLocked
 local C_TransmogCollection_PlayerHasTransmogByItemInfo = C_TransmogCollection and C_TransmogCollection.PlayerHasTransmogByItemInfo
+local C_TransmogCollection_GetItemInfo = C_TransmogCollection and C_TransmogCollection.GetItemInfo
 local C_Item_CanScrapItem = C_Item.CanScrapItem
 local C_Item_DoesItemExist = C_Item.DoesItemExist
 local C_Item_GetCurrentItemLevel = C_Item.GetCurrentItemLevel
@@ -128,7 +129,7 @@ B.GearFilters = {
 	FILTER_FLAG_JUNK,
 }
 
-if E.Retail then
+if not E.Classic then
 	tinsert(B.GearFilters, FILTER_FLAG_QUEST)
 end
 
@@ -239,7 +240,7 @@ if E.Wrath then
 end
 
 local bagIDs, bankIDs = {0, 1, 2, 3, 4}, { -1 }
-local bankOffset, maxBankSlots = E.Retail and 5 or 4, E.Retail and 12 or 11
+local bankOffset, maxBankSlots = (E.Classic or E.Wrath) and 4 or 5, E.Classic and 10 or E.Wrath and 11 or 12
 local bankEvents = {'BAG_UPDATE_DELAYED', 'BAG_UPDATE', 'BAG_CLOSED', 'BANK_BAG_SLOT_FLAGS_UPDATED', 'PLAYERBANKBAGSLOTS_CHANGED', 'PLAYERBANKSLOTS_CHANGED'}
 local bagEvents = {'BAG_UPDATE_DELAYED', 'BAG_UPDATE', 'BAG_CLOSED', 'ITEM_LOCK_CHANGED', 'BAG_SLOT_FLAGS_UPDATED', 'QUEST_ACCEPTED', 'QUEST_REMOVED'}
 local presistentEvents = {
@@ -252,9 +253,7 @@ local presistentEvents = {
 }
 
 for bankID = bankOffset + 1, maxBankSlots do
-	if bankID ~= 11 or not E.Classic then
-		tinsert(bankIDs, bankID)
-	end
+	tinsert(bankIDs, bankID)
 end
 
 if E.Retail then
@@ -367,6 +366,8 @@ function B:SearchClear()
 
 	B.BankFrame.editBox:SetText('')
 	B.BankFrame.editBox:ClearFocus()
+
+	SetItemSearch('')
 end
 
 function B:UpdateItemDisplay()
@@ -622,7 +623,7 @@ function B:UpdateSlot(frame, bagID, slotID)
 		end
 
 		local BoE, BoU = bindType == 2, bindType == 3
-		if B.db.showBindType and not slot.isBound and (BoE or BoU) and (slot.rarity and slot.rarity > ITEMQUALITY_COMMON) then
+		if B.db.showBindType and not slot.isBound and (BoE or BoU) then
 			slot.bindType:SetText(BoE and L["BoE"] or L["BoU"])
 		end
 
@@ -836,7 +837,7 @@ function B:AssignBagFlagMenu()
 	local bagID = holder and holder.BagID
 	if bagID and bagID ~= BANK_CONTAINER and not IsInventoryItemProfessionBag('player', holder:GetID()) then
 		E:SetEasyMenuAnchor(E.EasyMenu, holder)
-		_G.EasyMenu((bagID == BACKPACK_CONTAINER or bagID == REAGENT_CONTAINER) and B.AssignMain or B.AssignMenu, E.EasyMenu, nil, nil, nil, 'MENU')
+		EasyMenu((bagID == BACKPACK_CONTAINER or bagID == REAGENT_CONTAINER) and B.AssignMain or B.AssignMenu, E.EasyMenu, nil, nil, nil, 'MENU')
 	end
 end
 
@@ -845,7 +846,7 @@ function B:IsSortIgnored(bagID)
 		return GetBankAutosortDisabled()
 	elseif bagID == BACKPACK_CONTAINER then
 		return GetBackpackAutosortDisabled()
-	elseif bagID > NUM_BAG_SLOTS and not E.Retail then
+	elseif bagID > NUM_BAG_SLOTS and E.Classic then
 		return GetBankBagSlotFlag(bagID - NUM_BAG_SLOTS, FILTER_FLAG_IGNORE)
 	else
 		return GetBagSlotFlag(bagID, FILTER_FLAG_IGNORE)
@@ -856,7 +857,7 @@ function B:GetFilterFlagInfo(bagID, isBank)
 	for _, flag in next, B.GearFilters do
 		if flag ~= FILTER_FLAG_IGNORE then
 			local canAssign = bagID ~= BACKPACK_CONTAINER and bagID ~= BANK_CONTAINER and bagID ~= REAGENT_CONTAINER
-			if canAssign and ((isBank and not E.Retail and GetBankBagSlotFlag(bagID - NUM_BAG_SLOTS, flag)) or GetBagSlotFlag(bagID, flag)) then
+			if canAssign and ((isBank and E.Classic and GetBankBagSlotFlag(bagID - NUM_BAG_SLOTS, flag)) or GetBagSlotFlag(bagID, flag)) then
 				return flag, B.BAG_FILTER_ICONS[flag], B.AssignmentColors[flag]
 			end
 		end
@@ -868,7 +869,7 @@ function B:SetFilterFlag(bagID, flag, value)
 
 	local isBank = bagID > NUM_BAG_SLOTS
 	local canAssign = bagID ~= BACKPACK_CONTAINER and bagID ~= BANK_CONTAINER and bagID ~= REAGENT_CONTAINER
-	return canAssign and ((isBank and not E.Retail and SetBankBagSlotFlag(bagID - NUM_BAG_SLOTS, flag, value)) or SetBagSlotFlag(bagID, flag, value))
+	return canAssign and ((isBank and E.Classic and SetBankBagSlotFlag(bagID - NUM_BAG_SLOTS, flag, value)) or SetBagSlotFlag(bagID, flag, value))
 end
 
 function B:GetBagAssignedInfo(holder, isBank)
@@ -1181,6 +1182,22 @@ function B:SetBagAssignments(holder, skip)
 	end
 end
 
+function B:UpdateDelayedContainer(frame)
+	for bagID, container in next, frame.DelayedContainers do
+		if bagID ~= BACKPACK_CONTAINER then
+			B:SetBagAssignments(container)
+		end
+
+		local bag = frame.Bags[bagID]
+		if bag and bag.needsUpdate then
+			B:UpdateBagSlots(frame, bagID)
+			bag.needsUpdate = nil
+		end
+
+		frame.DelayedContainers[bagID] = nil
+	end
+end
+
 function B:DelayedContainer(bagFrame, event, bagID)
 	local container = bagID and bagFrame.ContainerHolderByBagID[bagID]
 	if container then
@@ -1224,22 +1241,11 @@ function B:OnEvent(event, ...)
 		B:UpdateContainerIcons()
 	elseif event == 'BAG_UPDATE' or event == 'BAG_CLOSED' then
 		if not self.isBank or self:IsShown() then
-			B:DelayedContainer(self, event, ...)
+			local bagID = ...
+			B:DelayedContainer(self, event, bagID)
 		end
 	elseif event == 'BAG_UPDATE_DELAYED' then
-		for bagID, container in next, self.DelayedContainers do
-			if bagID ~= BACKPACK_CONTAINER then
-				B:SetBagAssignments(container)
-			end
-
-			local bag = self.Bags[bagID]
-			if bag and bag.needsUpdate then
-				B:UpdateBagSlots(self, bagID)
-				bag.needsUpdate = nil
-			end
-
-			self.DelayedContainers[bagID] = nil
-		end
+		B:UpdateDelayedContainer(self)
 	elseif event == 'BANK_BAG_SLOT_FLAGS_UPDATED' or event == 'BAG_SLOT_FLAGS_UPDATED' then
 		local id = ...+1 -- yes
 		B:SetBagAssignments(self.ContainerHolder[id], true)
@@ -1343,7 +1349,7 @@ function B:GetGrays(vendor)
 
 				if rarity and rarity == 0 -- grays :o
 				and (classID ~= 12 or bindType ~= 4) -- Quest can be classID:12 or bindType:4
-				and (not E.Retail or not IsCosmeticItem(itemLink) or C_TransmogCollection_PlayerHasTransmogByItemInfo(itemLink)) then -- skip transmogable items
+				and (not E.Retail or not C_TransmogCollection_GetItemInfo(itemLink) or C_TransmogCollection_PlayerHasTransmogByItemInfo(itemLink)) then -- skip transmogable items
 					local stackCount = info.stackCount or 1
 					local stackPrice = itemPrice * stackCount
 
@@ -2385,7 +2391,7 @@ if C_Container then
 			if index == 1 then -- First bag
 				frame:SetPoint('BOTTOMRIGHT', _G.ElvUIBagMover, 'BOTTOMRIGHT', E.Spacing, -E.Border)
 				recentBagColumn = frame
-			elseif (freeScreenHeight < frame:GetHeight()) or previousBag:IsCombinedBagContainer() then -- Start a new column
+			elseif (freeScreenHeight < frame:GetHeight()) or (E.Retail and previousBag:IsCombinedBagContainer()) then -- Start a new column
 				freeScreenHeight = screenHeight - yOffset
 				frame:SetPoint('BOTTOMRIGHT', recentBagColumn, 'BOTTOMLEFT', -11, 0)
 				recentBagColumn = frame
@@ -2703,7 +2709,7 @@ function B:Initialize()
 					SetBankAutosortDisabled(not value)
 				elseif holder.BagID == BACKPACK_CONTAINER then
 					SetBackpackAutosortDisabled(not value)
-				elseif holder.BagID > NUM_BAG_SLOTS and not E.Retail then
+				elseif holder.BagID > NUM_BAG_SLOTS and E.Classic then
 					SetBankBagSlotFlag(holder.BagID - NUM_BAG_SLOTS, FILTER_FLAG_IGNORE, not value)
 				else
 					SetBagSlotFlag(holder.BagID, FILTER_FLAG_IGNORE, not value)

@@ -144,7 +144,6 @@ function RCLootCouncil:OnInitialize()
 	self.isInGuildGroup = false -- Is the group leader a member of our guild?
 
 	self.lootStatus = {}
-	self.EJLastestInstanceID = RCLootCouncil:GetEJLatestInstanceID()
 
 	---@type table<string,boolean>
 	self.candidatesInGroup = {}
@@ -192,6 +191,7 @@ function RCLootCouncil:OnInitialize()
 	-- List of itemIds that should not be blacklisted
 	self.blackListOverride = {
 		-- [itemId] = true
+		[206046] = true, -- Void-Touched Curio
 	}
 
 	self.testMode = false;
@@ -266,6 +266,7 @@ function RCLootCouncil:OnEnable()
 	self.playerName = self.player:GetName() -- TODO Remove
 	self.Log(self.playerName, self.version, self.tVersion)
 
+	self.EJLatestInstanceID = self:GetEJLatestInstanceID()
 	self:DoChatHook()
 
 	-- register the optionstable
@@ -441,7 +442,7 @@ function RCLootCouncil:ChatCommand(msg)
 		self.playerClass = string.upper(args[1])
 		self:Test(1, false, true)
 	elseif input == "exporttokendata" then
-		self:ExportTokenData()
+		self:ExportTokenData(tonumber(args[1]))
 		-- @end-debug@
 	elseif input == "whisper" or input == string.lower(_G.WHISPER) then
 		self:Print(L["whisper_help"])
@@ -522,6 +523,10 @@ function RCLootCouncil:ChatCommand(msg)
 		db.safemode = not db.safemode
 		self:Print("SafeMode " .. (db.safemode and "On" or "Off"))
 		-- @debug@
+
+	elseif input == "export" then
+		self:ExportCurrentSession()
+
 	elseif input == 't' then -- Tester cmd
 		-- Test items with several modifiers. Should probably be added to the regular test func
 		for i = 1, GetNumGuildMembers() do
@@ -549,9 +554,10 @@ end)
 -- Update the recentTradableItem by link, if it is in bag and tradable.
 -- Except when the item has been auto group looted.
 function RCLootCouncil:UpdateAndSendRecentTradableItem(info, count)
-	if tContains(itemsBeingGroupLooted, info.link) then
+	local index = tIndexOf(itemsBeingGroupLooted, info.link)
+	if index then
 		-- Remove from list in case we get future similar items.
-		tDeleteItem(itemsBeingGroupLooted, info.link)
+		tremove(itemsBeingGroupLooted, index)
 		return
 	end
 	local Item = self.ItemStorage:New(info.link, "temp")
@@ -758,7 +764,7 @@ function RCLootCouncil:Test(num, fullTest, trinketTest)
 		local cached = true
 		local difficulties = {14, 15, 16} -- Normal, Heroic, Mythic
 
-		EJ_SelectInstance(self.EJLastestInstanceID)
+		EJ_SelectInstance(self.EJLatestInstanceID)
 		EJ_ResetLootFilter()
 		for _, difficulty in pairs(difficulties) do
 			EJ_SetDifficulty(difficulty)
@@ -1061,6 +1067,7 @@ function RCLootCouncil:PrepareLootTable(lootTable)
 						GetItemInfo(self.Utils:UncleanItemString(v.string))
 		local itemID = GetItemInfoInstant(link)
 		v.link = link
+		v.itemID = itemID
 		v.quality = rarity
 		v.ilvl = self:GetTokenIlvl(v.link) or ilvl
 		v.equipLoc = RCTokenTable[itemID] and self:GetTokenEquipLoc(RCTokenTable[itemID]) or equipLoc
@@ -1203,6 +1210,29 @@ function RCLootCouncil:GetItemClassesAllowedFlag(item)
 	end
 	tooltipForParsing:Hide()
 	return 0xffffffff -- The item works for all classes
+end
+
+
+--- Extracts all lines from item's tooltip.
+--- @param item ItemID|ItemLink|ItemString Item to extract tooltip for.
+--- @return string[] #All lines in the tooltip.
+function RCLootCouncil:GetTooltipLines(item)
+	if not item then return {} end
+	if type(item) == "number" then
+		item = "item:" .. item
+	end
+	tooltipForParsing:SetOwner(UIParent, "ANCHOR_NONE") -- This lines clear the current content of tooltip and set its position off-screen
+	tooltipForParsing:SetHyperlink(item)             -- Set the tooltip content and show it, should hide the tooltip before function ends
+	local ret = {}
+	for i = 1, tooltipForParsing:NumLines() or 0 do
+		local line = getglobal(tooltipForParsing:GetName() .. "TextLeft" .. i)
+		if line and line.GetText then
+			local text = line:GetText() or ""
+			ret[i] = text
+		end
+	end
+	tooltipForParsing:Hide()
+	return ret
 end
 
 local classNamesFromFlagCache = {}
@@ -2303,7 +2333,9 @@ function RCLootCouncil:GetItemTypeText(link, subType, equipLoc, typeID, subTypeI
 			return tokenText
 		end
 	elseif equipLoc ~= "" and getglobal(equipLoc) then
-		if equipLoc == "INVTYPE_TRINKET" then
+		if classesFlag and classesFlag ~= 0xffffffff then
+			return getglobal(equipLoc) .. ", " .. self:GetClassNamesFromFlag(classesFlag)
+		elseif equipLoc == "INVTYPE_TRINKET" then
 			local lootSpec = _G.RCTrinketSpecs[id]
 			local category = lootSpec and _G.RCTrinketCategories[lootSpec]
 			if category then
@@ -2445,6 +2477,18 @@ _G.printtable = function(data, level)
 	end
 end
 -- @end-debug@
+
+function RCLootCouncil:ExportCurrentSession()
+	if not lootTable or #lootTable == 0 then return self:Print(L["No session running"]) end
+	local exportData = {"session,item,itemID,ilvl"}
+	for session, data in ipairs(lootTable) do
+		exportData[session + 1] = table.concat({session, data.link:gsub("|", "||"), data.itemID, data.ilvl}, ",")
+	end
+	local csv = table.concat(exportData, "\n")
+	local frame = RCLootCouncil:GetActiveModule("history"):GetFrame()
+	frame.exportFrame.edit:SetText(csv)
+	frame.exportFrame:Show()
+end
 
 --- These comms should live all the time
 function RCLootCouncil:SubscribeToPermanentComms()
@@ -2713,18 +2757,18 @@ function RCLootCouncil:OnStartHandleLoot(sender)
 end
 
 function RCLootCouncil:GetEJLatestInstanceID()
-	local serverExpansionLevel = GetServerExpansionLevel()
-	EJ_SelectTier(serverExpansionLevel + 1)
+	EJ_SelectTier(EJ_GetNumTiers() - 1) -- Last tier is Mythic+
 	local index = 1
-	local instanceId, name = EJ_GetInstanceByIndex(index, true)
+	local instanceId = EJ_GetInstanceByIndex(index, true)
 
 	while index do
 		local id = EJ_GetInstanceByIndex(index + 1, true)
 		if id then
 			instanceId = id
 			index = index + 1
+		else
+			index = nil
 		end
-		index = nil
 	end
 
 	if not instanceId then instanceId = 1190 end -- default to Castle Nathria if no ID is found

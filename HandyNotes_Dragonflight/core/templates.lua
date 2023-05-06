@@ -88,11 +88,18 @@ end
 function WorldMapOptionsButtonMixin:AddGroupButton(group, level)
     local map = ns.maps[self:GetParent():GetMapID()]
     local icon, iconLink = group.icon
+    local status = ''
+    if group.achievement then
+        local _, _, _, completed, _, _, _, _, _, _, _, _, earnedByMe =
+            GetAchievementInfo(group.achievement)
+        status = ' ' .. (earnedByMe and ns.GetIconLink('check_gn') or
+                     (completed and ns.GetIconLink('check_bl') or ''))
+    end
 
     if group.name == 'misc' then
         -- find an icon from the misc nodes in the map
         for coord, node in pairs(map.nodes) do
-            if node.group == group then
+            if node.group[1] == group then
                 icon = node.icon
                 break
             end
@@ -106,7 +113,7 @@ function WorldMapOptionsButtonMixin:AddGroupButton(group, level)
     end
 
     LibDD:UIDropDownMenu_AddButton({
-        text = iconLink .. ' ' .. ns.RenderLinks(group.label, true),
+        text = iconLink .. ' ' .. ns.RenderLinks(group.label, true) .. status,
         isNotRadio = true,
         keepShownOnClick = true,
         hasArrow = true,
@@ -242,7 +249,7 @@ function WorldMapOptionsButtonMixin:InitializeDropDown(level)
             end
         elseif L_UIDROPDOWNMENU_MENU_VALUE == 'rewards' then
             for i, type in ipairs({
-                'mount', 'pet', 'toy', 'transmog', 'all_transmog'
+                'mount', 'pet', 'recipe', 'toy', 'transmog', 'all_transmog'
             }) do
                 LibDD:UIDropDownMenu_AddButton({
                     text = L['options_' .. type .. '_rewards'],

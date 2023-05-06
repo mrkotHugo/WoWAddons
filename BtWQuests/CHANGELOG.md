@@ -1,3 +1,34 @@
+# 2.30.0
+
+- Added misisng 10.1.0 quest line Agrulculture
+- Added addon list icon and addon compartment button
+- Updated the requirements for The Dragons and The Scale Expedition
+- Fixed showing The Buddy System as active before it was completely available
+
+# v2.29.0
+
+- Added most Embers of Neltharion quest chains
+- Updated in preparation for 10.1
+
+# v2.28.2
+
+- Updated for 10.0.7
+- Updated some 10.0.7 quest lines
+
+# v2.28.1
+
+- Added multiple quest chains for 10.0.7
+
+# v2.28.0
+
+- Fixed an issue where opening a menu could break Afenars weakauras along with potentially other
+
+# v2.27.0
+
+- Updated The Spark of Ingenuity questline with the rest of the quests
+- Updated In The Halls of Titans questline with missing follow up
+- Updated for 10.0.5
+
 # v2.26.0
 
 - Added a few missing quests to The Waking Shore
@@ -7,7 +38,6 @@
 - Updated The Spark of Ingenuity questline
 - Updated The Mother Oathstone questline
 - Updated 10,000 Years of Roasting quest chain and renamed it to The Ruby Feast
-
 
 # v2.25.1
 

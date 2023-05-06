@@ -5,12 +5,12 @@ if not L then return end
 L["%sClick to place a worldmarker."] = "%sKlicken um ein Weltmarker zu setzen."
 L["%sClick to remove all worldmarkers."] = "%sKlicken um alle Weltmarkierungen zu entfernen."
 L["%sCtrl+Left Click|r a person's line to invite them."] = "%sCtrl+LinksKlick|r die Zeile einer Person, um sie einzuladen."
-L["%sCtrl+Right Click|r a line to edit officer note."] = "%sCtrl+Rechtsklick|r eine Zeile zum Bearbeiten der Offiziersnotiz."
+L["%sCtrl+Right Click|r a line to edit officer note."] = "%sCtrl+Rechtsklick|r eine Zeile zum bearbeiten der Offiziersnotiz."
 L["%sLeft Click|r a client service to hide it."] = "%sLinksklick|r ein Client Service, um es zu verbergen."
 L["%sLeft Click|r a person's line to whisper them."] = "%sLinksklick|r die Zeile einer Person, um sie anzuflüstern."
-L["%sLeft Click|r datatext panel to open friends list."] = "%sLinksklick|r Datatext Panel zum Öffnen der Freundesliste."
-L["%sLeft Click|r datatext panel to open guild list."] = "%sLinksklick|r Datatext Panel zum Öffnen der Gildenliste."
-L["%sRight Click|r a client service to set your BNet Broadcast."] = "%sRechtsklick|r Ein Client-Service zum Einstellen Ihres BNet-Broadcasts."
+L["%sLeft Click|r datatext panel to open friends list."] = "%sLinksklick|r Datentext Panel zum Öffnen der Freundesliste."
+L["%sLeft Click|r datatext panel to open guild list."] = "%sLinksklick|r Datentext Panel zum Öffnen der Gildenliste."
+L["%sRight Click|r a client service to set your BNet Broadcast."] = "%sRechtsklick|r Ein Client-Service zum Einstellen Ihres BNet Broadcasts."
 L["%sRight Click|r a person's line that has a bnet broadcast icon to expand it."] = "%sRechtsklick|r die Zeile einer Person, die ein Bnet Broadcastsymbol hat, um sie zu erweitern."
 L["%sRight Click|r datatext panel to customize."] = "%sRechtsklick|r Anpassung des Datatext Panels"
 L["%sShift+Left Click|r a person's line to perform a lookup."] = "%sShift+Linksklick|r die Zeile einer Person, um eine Suche durchzuführen."
@@ -20,15 +20,15 @@ L["|cff9482c9Shadow & Light|r Installation"] = true
 L["About"] = "Über"
 L["About/Help"] = "Über/Hilfe"
 L["Account Time Played"] = "Spielzeit auf dem Account:"
-L["Actionbar Autocast"] = "Aktionesleisten Autocast"
+L["Actionbar Autocast"] = "Aktionsleisten Autocast"
 L["Actionbar Proc"] = "Aktionsleisten Proc"
 L["Additional Background Panels"] = "Zusätzliche Hintergrundsleisten"
 L["Adds |cff9482c9Shadow & Light|r buttons to main game menu."] = "Füge eine |cff9482c9Shadow & Light|r Taste zum Spielmeü hinzu."
-L["Adjust the tooltip autohide delay when mouse is no longer hovering of the datatext."] = "Passen Sie die Verzögerung für das automatische Ausblenden des Tooltips an, wenn sich die Maus nicht mehr über dem Datatext befindet."
+L["Adjust the tooltip autohide delay when mouse is no longer hovering of the datatext."] = "Passe die Verzögerung für das automatische Ausblenden des Tooltips an, wenn sich die Maus nicht mehr über dem Datatext befindet."
 L["Advanced Options"] = "Erweiterte Optionen"
 L["AFK Message & Time"] = "AFK Nachricht & Zeit"
-L["AFK Mode in |cff9482c9Shadow & Light|r is additional settings/elements for standard |cff1784d1ElvUI|r AFK screen."] = "Der AFK Mode in |cff9482c9Shadow & Light|r erlaubt zusätzliche Einstellungen/Elemente für den Standard |cff1784d1ElvUI|r AFK Mode."
-L["Allow |cff9482c9Shadow & Light|r to change some of ElvUI's options limits."] = "Erlaubt |cff9482c9Shadow & Light|r dass verändern von einigen ElvUI's Optionsbegrenzungen."
+L["AFK Mode in |cff9482c9Shadow & Light|r is additional settings/elements for standard |cff1784d1ElvUI|r AFK screen."] = "Der AFK Modus in |cff9482c9Shadow & Light|r erlaubt zusätzliche Einstellungen/Elemente für den Standard |cff1784d1ElvUI|r AFK Mode."
+L["Allow |cff9482c9Shadow & Light|r to change some of ElvUI's options limits."] = "Erlaubt |cff9482c9Shadow & Light|r dass verändern von einigen ElvUI's Einstellungsbegrenzungen."
 L["Allow Advanced Options"] = "Erlaube erweiterte Optionen"
 L["Allow pasting of your coordinates in chat editbox via holding shift and clicking on the location name."] = "Ermögliche das Einfügen Deiner Koordinaten in das Chat Bearbeitungsfeld, indem Du die Umschalttaste gedrückt hälst und auf den Standortnamen klickst."
 L["Allow some Blizzard frames to be moved around."] = "Erlaubt das Bewegen einiger Blizzard Fenster"
@@ -114,7 +114,7 @@ L["Click to clear the mark."] = "Klicken um die Marker zu löschen."
 L["Click to mark the target."] = "Klicken um ein Ziel zu markieren."
 L["Click to reload your interface"] = "Klicken um Benutzeroberfläche neu zu laden"
 L["Click to toggle config window"] = "Klicke um das Konfigurationsfenster umzuschalten"
-L["Click to toggle Shadow & Light config group"] = "Klicken um die Shadow & Light-Konfigurationsgruppe umzuschalten"
+L["Click to toggle Shadow & Light config group"] = "Klicken um die Shadow & Light Konfigurationsgruppe umzuschalten"
 L["Click to toggle the AddOn Manager frame."] = "Klicken um das AddOnManager Fenster umzuschalten."
 L["Click to toggle the Configuration/Option Window from the Bossmod you have enabled."] = "Klicken um das Konfigurations- / Optionsfenster in dem von Dir aktivierten Bossmodus umzuschalten."
 L["Color code item levels values. Equipped will be gradient, average - selected color."] = "Farbcode Itemlevel Werte. Ausgerüstet ist gradient, Durschnitt - gewählte Farbe."
@@ -146,13 +146,15 @@ L["Deconstruction mode will ignore cooking specific items."] = "Der Zerstörungs
 L["Deconstruction mode will ignore fishing specific items."] = "Der Zerstörungsmodus ignoriert das Fischen bestimmter Gegenstände."
 L["Deconstruction mode will ignore tabards."] = "Im Zerstörungsmodus werden Wappenröcke ignoriert."
 L["Dedicated Vehicle Bar"] = "Spezielle Fahrzeugleiste"
-L["Defines the style of changed string. Colored parts will be shown with your selected value color in chat."] = "Definiert den Stil des geänderten String. Farbige Teile werden mit der ausgewählten Farbe im Chat angezeigt."
+L["Defines the style of changed string. Colored parts will be shown with your selected value color in chat."] = "Definiert den Stil des geänderten Strings. Farbige Teile werden mit der ausgewählten Farbe im Chat angezeigt."
 L["Determines in which frame reputation messages will be shown. Auto is for whatever frame has reputation messages enabled via Blizzard options."] = "Legt fest in welchem Fenster die Ruf Nachrichten angezeigt werden. Auto legt fest, wie es in den Blizzard Option ausgewählt wurde."
 L["Dev Commands"] = "Dev Befehle"
 L["Difficulty Style"] = "Schwierigkeitsgrad"
 L["Display the number of party / raid members targeting the nameplate unit."] = "Zeige die Anzahl der Gruppen- / Schlachtzugsmitglieder an, die auf die Typenschildeinheit abzielen."
 L["Display threat level as text on targeted, boss or mouseover nameplate."] = "Zeige die Bedrohungsstufe als Text auf dem Ziel-, Boss- oder Mouseover-Typenschild an."
+L["Display Quality"] = true
 L["Displays an icon near your Guild Master in chat.\n\n|cffFF0000Note:|r Some messages in chat history may disappear on login."] = "Zeigt ein Symbol vor dem Gildenmeister Namen im Chat.\n\n|cffFF0000Hinweis:|r Einige Nachrichten im Chatverlauf könnten verschwinden beim Login."
+L["Displays the quality icon at the end of the enchant string, exactly as it appears when you mouse over the item slot itself and view the tooltip."] = true
 L["Do not release if reincarnation or soulstone is up."] = "Nicht freigeben, wenn Reinkarnation oder Seelenstein vorhanden sind."
 L["Dock Buttons To"] = "Docke Tasten an"
 L["Don't show this panel, only datatexts assigned to it."] = "Diese Leiste nicht anzeigen, ausser wenn ein Infotext zugewiesen ist"
@@ -252,9 +254,9 @@ L["Hide in Pet Battle"] = "Verstecke in Haustierkämpfen"
 L["Hide minimap in combat."] = "Verstecke die Minikarte im Kampf."
 L["Hide Minimap Mail Icon"] = "Minikartensymbol"
 L["Hide MOTD"] = "Verstecke GNDT"
-L["Hide panel background"] = "Versteckt Leistenhintergrund"
-L["Hide the guild's Message of the Day in the tooltip."] = "Versteckt die Gildennachricht des Tages im Tooltip."
-L["Hide the guild's name in the tooltip."] = "Versteckt den Gildennamen im Tooltip."
+L["Hide panel background"] = "Verstecke Leistenhintergrund"
+L["Hide the guild's Message of the Day in the tooltip."] = "Verstecke die Gildennachricht des Tages im Tooltip."
+L["Hide the guild's name in the tooltip."] = "Verstecke den Gildennamen im Tooltip."
 L["Hide the hints in the tooltip."] = "Verstecke Hinweise im Tooltip"
 L["Hide the Shadow & Light title in the tooltip."] = "Blende den Titel Shadow & Light im Tooltip aus."
 L["Hide the talking head frame at the top center of the screen."] = "Verstecke den sprechenden Kopfrahmen in der oberen Mitte des Bildschirms."
@@ -300,7 +302,7 @@ L["Layout Old"] = "Layout Alt"
 L["Left Offset"] = "Versatz Links"
 L["Legacy Shadows"] = "Legacy Schatten"
 L["Level and race"] = "Level und Rennen"
-L["Level to start auto-rolling from"] = "Level auf dem das Auto. Würfeln startet"
+L["Level to start auto-rolling from"] = "Level auf dem das Automatische Würfeln startet"
 L["LFG Icons"] = "LFG Symbole"
 L["LFR Lockout"] = "LFR Instanzzuweisung"
 L["Link Color"] = "Link Farbe"
@@ -334,7 +336,6 @@ L["Minimize the Guild Datatext."] = "Minimiert den Gilden Infotext."
 L["Minimum Roll Value"] = "Minimaler Rollwert"
 L["Misc Texts"] = "Verschiedene Texte"
 L["Misc"] = "Verschiedenes"
-L["Missing scroll item for spellID %d. Please report this at the Shadow&Light Ticket Tracker."] = "Fehlende Scrollelement für ZauberID %d. Bitte berichte es auf dem Shadow&Light Ticket Tracker."
 L["Mode"] = "Modus"
 L["Model Animation"] = "Model Animation"
 L["Modifier Key"] = "Modifier Taste"
@@ -532,6 +533,7 @@ L["Shows icons of items looted/created near respective messages in chat. Does no
 L["Shows the message in each chat frame containing frame's number."] = "Zeigt die Nachricht in jeden Fenster wo die Nummer zutrifft."
 L["Shows you which of docked chat tabs is currently selected."] = "Zeigt dir, welcher Chat Tab gerade ausgewählt ist."
 L["Skinned Background"] = "Geskinnter Hintergrund"
+L["SL_BLIZZMOVE_SUGGESTIONS_TEXT"] = true
 L["SLE_Advanced_Desc"] = "Folgende Optionen erlauben den Zugriff auf zusätzliche Einstellungen in den verschiedensten Modulen.  Neuen Spielern oder Spielern die nicht vertraut mit Addon Einstellungen sind, wird nicht geraten diese zu nutzen."
 L["SLE_ADVANCED_POPUP_TEXT"] = "Schwörst du, dass du ein erfahrener Benutzer bist,\ndu kannst Tooltips für Optionen lesen und wirst nicht um Hilfe schreien wenn\nirgendetwas furchtbar schief mit deinem UI passiert mit diesen zusätzlichen Optionen?\n\nFalls ja, ist es erlaubt fortzufahren."
 L["SLE_Armory_Info"] = "Armory wurde entwickelt, um standardmäßige ElvUI-Gegenstandsinformationen auf andere Weise bereitzustellen. Denke daran, dass die Anzeige von Verzauberungen, Edelsteinen und Gegenstandsstufen nur verfügbar ist, wenn die entsprechende ElvUI Option aktiviert ist. Verwende die Schaltfläche unten, um den Konfigurationsabschnitt der erwähnten Funktion zu besuchen."
@@ -720,10 +722,10 @@ L["SLE_TIPS"] = { --This doesn't need to be translated, every locale can has own
 	"\"Alle Kriegsführung basiert auf Täuschung.\"  -Sun Tzu",
 	"Für Azeroth!",
 	"Seit Jahren hat niemand Alleria und Turalyon gesehen. Bis jetzt!",
-	"\"Slow down!  Life is to be savored!\"  -old Pandaren proverb",
-	"\"In the Light,  we are one.\"  -Vindicator Maraad",
-	"\"There is no good.  No evil.  No light.  There is only powah!\"  -Archbishop Benedictus",
-	"\"A properly accelerated gnome in battle is a thing of terrible beauty.\"  -High Tinker Mekkatorque",
-	"\"Ishnu'alah.  May Elune light your path.\"  -Tyrande Whisperwind",
-	"\"If you will not serve me in this life then you will do so in the next!\"  -Sylvanas Windrunner",
+	"\"Ganz Ruhig! Das Leben sollte genossen werden!\"  -old Pandaren proverb",
+	"\"Im Licht sind wir eins.\"  -Vindicator Maraad",
+	"\"Es gibt nichts Gutes. Nichts Böses. Kein Licht. Es gibt nur powah!\"  -Archbishop Benedictus",
+	"\"Ein richtig beschleunigter Gnom im Kampf ist eine Sache von schrecklicher Schönheit.\"  -High Tinker Mekkatorque",
+	"\"Ishnu'alah.  Möge Elune deinen Weg erleuchten.\"  -Tyrande Whisperwind",
+	"\"Wenn du mir in diesem Leben nicht dienst, wirst du es im nächsten tun!\"  -Sylvanas Windrunner",
 }

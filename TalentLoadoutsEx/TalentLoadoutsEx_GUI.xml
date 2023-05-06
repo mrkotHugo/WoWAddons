@@ -1,0 +1,217 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/	..\FrameXML\UI.xsd">
+
+	<Button name="TlxPanelButtonTemplate" inherits="UIPanelButtonTemplate" virtual="true">
+		<Size x="63" y="22"/>
+	</Button>
+	<Frame name="TlxFrame" inherits="InsetFrameTemplate" frameStrata="HIGH" virtual="true" enableMouse="true" hidden="true">
+		<Size x="200" y="882"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="0" y="0"/>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString parentKey="Title" inherits="Game18Font" text="Talent Loadout Ex">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="-10"/>
+					</Anchors>
+					<Color r="1" g="1" b="1"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button parentKey="LoadButton" text="Load" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="5" y="-35"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnLoadButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button parentKey="SaveButton" text="Save" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.LoadButton" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnSaveButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button parentKey="EditButton" text="Edit" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.LoadButton" relativePoint="TOPRIGHT"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnEditButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button parentKey="DeleteButton" text="Delete" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.EditButton" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnDeleteButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button parentKey="UpButton" text="Up" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.EditButton" relativePoint="TOPRIGHT"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnUpButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button parentKey="DownButton" text="Down" inherits="TlxPanelButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.UpButton" relativePoint="BOTTOMLEFT"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						TLX.Frame.OnDownButtonClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Frame parentKey="ScrollBox" inherits="WowScrollBoxList">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="4" y="-80"/>
+					<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" x="-32" y="4"/>
+				</Anchors>
+			</Frame>
+			<EventFrame parentKey="ScrollBar" inherits="WowTrimScrollBar">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.ScrollBox" relativePoint="TOPRIGHT" x="3" y="0"/>
+					<Anchor point="BOTTOMLEFT" relativeKey="$parent.ScrollBox" relativePoint="BOTTOMRIGHT" x="3" y="-1"/>
+				</Anchors>
+			</EventFrame>
+			<Frame parentKey="PopupFrame" mixin="TlxPopupMixin" inherits="IconSelectorPopupFrameTemplate" enableMouse="true" hidden="true" frameLevel="50">
+				<KeyValues>
+					<KeyValue key="editBoxHeaderText" value="GEARSETS_POPUP_TEXT" type="global"/>
+				</KeyValues>
+				<Frames>
+					<Frame parentKey="SearchNotice" frameStrata="HIGH" inherits="InsetFrameTemplate" enableMouse="true">
+						<Size y="25"/>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="6" y="5"/>
+							<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" x="-5" y="5"/>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<FontString parentKey="Title" inherits="System15Font" text="If you want to search icons, use LargerMacroIconSelection.">
+									<Anchors>
+										<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="10" y="-5"/>
+									</Anchors>
+									<Color r="1" g="1" b="1"/>
+								</FontString>
+							</Layer>
+						</Layers>
+					</Frame>
+				</Frames>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				TLX.Frame.OnLoad(self)
+			</OnLoad>
+			<OnShow>
+				TLX.Frame.Update()
+			</OnShow>
+			<OnEvent>
+				TLX.Frame.RequestUpdate()
+			</OnEvent>
+		</Scripts>
+	</Frame>
+	<Button name="TlxListButtonTemplate" virtual="true">
+		<Size x="169" y="44"/>
+		<Anchors>
+			<Anchor point="LEFT" x="2" y="0"/>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBgTop" inherits="Char-Stat-Top" parentKey="BgTop">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="0" y="1"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBgBottom" inherits="Char-Stat-Top" parentKey="BgBottom">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="0" y="-4"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBgMiddle" file="Interface\CharacterFrame\Char-Stat-Middle" parentKey="BgMiddle" vertTile="true">
+					<Size x="169" y="8"/>
+					<Anchors>
+						<Anchor point="LEFT" x="1"/>
+					</Anchors>
+					<TexCoords left="0.00390625" right="0.66406250" top="0.00000000" bottom="1.00000000"/>
+				</Texture>
+			</Layer>
+			<Layer level="BACKGROUND" textureSubLevel="1">
+				<Texture name="$parentStripe" parentKey="Stripe">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="1" y="0"/>
+						<Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name="$parentCheck" file="Interface\Buttons\UI-CheckBox-Check" parentKey="Check" hidden="true">
+					<Size x="16" y="16"/>
+					<Anchors>
+						<Anchor point="RIGHT">
+							<Offset x="-8" y="0"/>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentText" inherits="GameFontNormalLeft" parentKey="text">
+					<Size x="98" y="38"/>
+					<Anchors>
+						<Anchor point="LEFT" x="44"/>
+					</Anchors>
+					<Color r="1" g="1" b="1"/>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY" textureSubLevel="-1">
+				<Texture name="$parentHighlightBar" parentKey="HighlightBar" file="Interface\FriendsFrame\UI-FriendsFrame-HighlightBar-Blue" alpha="0.4" alphaMode="ADD" hidden="true">
+					<TexCoords left="0.2" right="0.8" top="0" bottom="1"/>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentSelectedBar" parentKey="SelectedBar" file="Interface\FriendsFrame\UI-FriendsFrame-HighlightBar" alpha="0.4" alphaMode="ADD" hidden="true">
+					<TexCoords left="0.2" right="0.8" top="0" bottom="1"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				self.SelectedBar:Show();
+			</OnEnter>
+			<OnLeave>
+				self.SelectedBar:Hide();
+			</OnLeave>
+			<OnClick>
+				TLX.ConfigButton.OnClick(self, button, down);
+			</OnClick>
+			<OnDoubleClick>
+				TLX.ConfigButton.OnDoubleClick(self, button);
+			</OnDoubleClick>
+		</Scripts>
+		<NormalTexture name="$parentIcon" parentKey="icon">
+			<Size x="36" y="36"/>
+			<Anchors>
+				<Anchor point="LEFT" x="4" y="0"/>
+			</Anchors>
+		</NormalTexture>
+	</Button>
+</Ui>

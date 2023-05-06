@@ -1,6 +1,6 @@
 # World Quest Tracker
 
-## [v10.0.2.460](https://github.com/Tercioo/World-Quest-Tracker/tree/v10.0.2.460) (2022-12-31)
-[Full Changelog](https://github.com/Tercioo/World-Quest-Tracker/compare/v10.0.2.459...v10.0.2.460) 
+## [V10.1.0.466](https://github.com/Tercioo/World-Quest-Tracker/tree/V10.1.0.466) (2023-05-05)
+[Full Changelog](https://github.com/Tercioo/World-Quest-Tracker/compare/v10.0.7.465...V10.1.0.466) 
 
-- More fixes  
+- Update for Zaralek zone  

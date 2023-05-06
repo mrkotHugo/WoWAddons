@@ -1,4 +1,4 @@
-local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 
 local UF_Auras = {
 	enable = false,
@@ -44,7 +44,16 @@ P["sle"] = {
 			hotkeyTextPosition = 'TOPRIGHT',
 			hotkeyTextXOffset = 0,
 			hotkeyTextYOffset = -3,
+			macroColor = { r = 1, g = 1, b = 1 },
+			macroFont = 'Homespun',
+			macroFontOutline = 'MONOCHROMEOUTLINE',
+			macroFontSize = 12,
+			macrotext = false,
+			macroTextPosition = 'TOPRIGHT',
+			macroTextXOffset = 0,
+			macroTextYOffset = -3,
 			useHotkeyColor = false,
+			useMacroColor = false,
 			frameStrata = 'LOW',
 			frameLevel = 1,
 			dragonRiding = true,
@@ -69,6 +78,7 @@ P["sle"] = {
 				["font"] = "PT Sans Narrow",
 				["fontSize"] = 12,
 				["fontStyle"] = "OUTLINE",
+				showReal = true,
 			},
 			["gem"] = {
 				["xOffset"] = 0,
@@ -121,6 +131,7 @@ P["sle"] = {
 				["font"] = "PT Sans Narrow",
 				["fontSize"] = 12,
 				["fontStyle"] = "OUTLINE",
+				showReal = true,
 			},
 			["gem"] = {
 				["xOffset"] = 0,
@@ -149,34 +160,73 @@ P["sle"] = {
 			},
 		},
 		["stats"] = {
-			["enable"] = true,
 			["decimals"] = true,
-			["itemLevel"] = {
-				["font"] = "PT Sans Narrow",
-				["size"] = 12,
-				["outline"] = "",
+			itemLevel = {
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE',
 			},
 			["IlvlFull"] = true,
 			["IlvlColor"] = false,
 			["AverageColor"] = {r = 0, g = 1, b = .59},
 			["OnlyPrimary"] = true,
-			["statFonts"] = {
-				["font"] = "PT Sans Narrow",
-				["size"] = 12,
-				["outline"] = "",
+			statHeaders = {
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE',
 			},
-			["catFonts"] = {
-				["font"] = "PT Sans Narrow",
-				["size"] = 12,
-				["outline"] = "",
+			statLabels = {
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE',
+			},
+			gradient = {
+				style = 'blizzard',
+			},
+			textReplacements = {			-- English Locale References
+				--* Attributes
+				SPELL_STAT1_NAME = '',		-- Strength
+				SPELL_STAT2_NAME = '',		-- Agility
+				SPELL_STAT3_NAME = '',		-- Stamina
+				SPELL_STAT4_NAME = '',		-- Intellect
+				HEALTH = '',				-- Health
+				MANA = '',					-- Mana
+				RAGE = '',					-- Rage
+				FOCUS = '',					-- Focus
+				ENERGY = '',				-- Energy
+				FURY = '',					-- Fury
+				STAT_MOVEMENT_SPEED = '',	-- Movement Speed
+				--* Attack
+				DAMAGE = '',				-- Damage
+				STAT_ATTACK_POWER = '',		-- Attack Power
+				WEAPON_SPEED = '',			-- Attack Speed
+				STAT_SPELLPOWER = '',		-- Spell Power
+				MANA_REGEN = '',			-- Mana Regen
+				STAT_ENERGY_REGEN = '',		-- Energy Regen
+				STAT_FOCUS_REGEN = '',		-- Focus Regen
+				STAT_RUNE_REGEN = '',		-- Rune Speed
+				--* Enhancements
+				STAT_CRITICAL_STRIKE = '',	-- Critical Strike
+				STAT_HASTE = '',			-- Haste
+				STAT_MASTERY = '',			-- Mastery
+				STAT_VERSATILITY = '',		-- Versatility
+				STAT_LIFESTEAL = '',		-- Leech
+				STAT_SPEED = '',			-- Speed
+				--* Defense
+				STAT_ARMOR = '',			-- Armor
+				STAT_AVOIDANCE = '',		-- Avoidance
+				STAT_DODGE = '',			-- Dodge
+				STAT_PARRY = '',			-- Parry
+				STAT_BLOCK = '',			-- Block
+				STAT_STAGGER = '',			-- Stagger
 			},
 			["List"] = {
-				--General
+				--* Attributes
 				HEALTH = false,
 				POWER = false,
 				ALTERNATEMANA = false,
 				MOVESPEED = true,
-				--Attack
+				--* Attack
 				ATTACK_DAMAGE = true,
 				ATTACK_AP = false,
 				ATTACK_ATTACKSPEED = false,
@@ -185,13 +235,13 @@ P["sle"] = {
 				ENERGY_REGEN = false,
 				RUNE_REGEN = false,
 				FOCUS_REGEN = false,
-				--Enhancements
+				--* Enhancements
 				CRITCHANCE = true,
 				HASTE = true,
 				MASTERY = true,
 				VERSATILITY = true,
 				LIFESTEAL = true,
-				--Defense
+				--* Defense
 				ARMOR = true,
 				AVOIDANCE = true,
 				DODGE = true,
@@ -549,44 +599,57 @@ P["sle"] = {
 	media = {
 		fonts = {
 			zone = {
-				font = "PT Sans Narrow",
-				size = 32,
-				outline = "OUTLINE",
+				font = 'PT Sans Narrow',
+				fontSize = 32,
+				fontOutline = 'NONE',
 			},
 			subzone = {
-				font = "PT Sans Narrow",
-				size = 25,
-				outline = "OUTLINE",
+				font = 'PT Sans Narrow',
+				fontSize = 25,
+				fontOutline = 'OUTLINE',
 				offset = 0,
 			},
 			pvp = {
-				font = "PT Sans Narrow",
-				size = 22,
-				outline = "OUTLINE",
+				font = 'PT Sans Narrow',
+				fontSize = 22,
+				fontOutline = 'OUTLINE',
 			},
 			mail = {
-				font = "PT Sans Narrow",
-				size = 12,
-				outline = "",
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE',
 			},
 			gossip = {
-				font = "PT Sans Narrow",
-				size = 12,
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE', -- Should always be none
 			},
 			objective = {
-				font = "PT Sans Narrow",
-				size = 12,
-				outline = "",
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'OUTLINE',
 			},
 			objectiveHeader = {
-				font = "PT Sans Narrow",
-				size = 12,
-				outline = "",
+				font = 'PT Sans Narrow',
+				fontSize = 12,
+				fontOutline = 'NONE',
 			},
 			questFontSuperHuge = {
-				font = "PT Sans Narrow",
-				size = 24,
-				outline = "",
+				font = 'PT Sans Narrow',
+				fontSize = 24,
+				fontOutline = 'NONE',
+			},
+			scenarioStage = {
+				HeaderText = {
+					font = 'PT Sans Narrow',
+					fontSize = 16,
+					fontOutline = 'OUTLINE',
+				},
+				TimerText = {
+					font = 'PT Sans Narrow',
+					fontSize = 22,
+					fontOutline = 'OUTLINE',
+				},
 			},
 		},
 	},
@@ -1109,7 +1172,7 @@ P["sle"] = {
 				size = 3,
 			},
 			petbar = {
-				backdrop = true,
+				backdrop = false,
 				buttons = false,
 				size = 3,
 			},

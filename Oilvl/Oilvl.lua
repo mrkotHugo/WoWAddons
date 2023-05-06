@@ -14,7 +14,7 @@ local oenchantItem = {
 	[7] = {0, INVTYPE_LEGS},
 	[8] = {1, INVTYPE_FEET},
 	[9] = {1, INVTYPE_WRIST},
-	[10] = {1, INVTYPE_HAND},
+	[10] = {0, INVTYPE_HAND},
 	[11] = {1, INVTYPE_FINGER.."1"},
 	[12] = {1, INVTYPE_FINGER.."2"},
 	[13] = {0, INVTYPE_TRINKET.."1"},
@@ -111,7 +111,8 @@ local OClassTexture = {
     ["PALADIN"] = {0, 0.25, 0.5, 0.75},
     ["DEATHKNIGHT"] = {0.25, 0.49609375, 0.5, 0.75},
     ["MONK"]    = {0.49609375, 0.7421875, 0.5, 0.75},
-	["DEMONHUNTER"] = {0.7421875,0.98828125,0.5,0.75}
+	["DEMONHUNTER"] = {0.7421875,0.98828125,0.5,0.75},
+	["EVOKER"] = {0, 0.25, 0.75, 1},
 }
 
 local OPvP = {"Interface/PVPFrame/UI-CHARACTER-PVP-ELEMENTS",460/512,1,0,75/512}
@@ -167,6 +168,7 @@ local classcolor = {
 	[1]= "|cFFC79C6E",
 	[0]= "|cFFFFFF00",
 	[12] = "|cFFA330C9",
+	[13] = "|cFF308976",
 }
 
 local Oilvlrole = {};
@@ -226,139 +228,121 @@ local otooltip6gearsw2=false; -- show only specific raider
 
 local bagilvltime=0
 
-local SL, _, _ = EJ_GetTierInfo(9);
+--local SL, _, _ = EJ_GetTierInfo(10);
 
-local CNname, _, _, _, _, _, _ = EJ_GetInstanceInfo(1190); -- Castle Nathria
-local CNname2, _, _, _, _, _, _ = EJ_GetInstanceInfo(1193); -- Sanctum of Domination
-local CNname3, _, _, _, _, _, _ = EJ_GetInstanceInfo(1195); -- Sepulcher of the First Ones
+local CNname, _, _, _, _, _, _ = EJ_GetInstanceInfo(1200); -- Vault of the Incarnates
+local CNname2, _, _, _, _, _, _ = EJ_GetInstanceInfo(1208); -- Aberrus, the Shadowed Crucible
+--local CNname3, _, _, _, _, _, _ = EJ_GetInstanceInfo(1195); -- Sepulcher of the First Ones
 
 -- Each raid has its own entry,
 -- 1-4 are Raid Finder, Normal, Heroic, and Mythic kills statistic ID
 
 local OSTATCN = {
 	{
-		14422, -- [1]
-		14419, -- [2]
-		14420, -- [3]
-		14421, -- [4]
+		16359, -- [1]
+		16371, -- [2]
+		16379, -- [3]
+		16387, -- [4]
 	}, -- [1]
 	{
-		14426, -- [1]
-		14423, -- [2]
-		14424, -- [3]
-		14425, -- [4]
+		16361, -- [1]
+		16372, -- [2]
+		16380, -- [3]
+		16388, -- [4]
 	}, -- [2]
 	{
-		14438, -- [1]
-		14435, -- [2]
-		14436, -- [3]
-		14437, -- [4]
+		16362, -- [1]
+		16373, -- [2]
+		16381, -- [3]
+		16389, -- [4]
 	}, -- [3]
 	{
-		14434, -- [1]
-		14431, -- [2]
-		14432, -- [3]
-		14433, -- [4]
+		16366, -- [1]
+		16374, -- [2]
+		16382, -- [3]
+		16390, -- [4]
 	}, -- [4]
 	{
-		14430, -- [1]
-		14427, -- [2]
-		14428, -- [3]
-		14429, -- [4]
+		16367, -- [1]
+		16375, -- [2]
+		16383, -- [3]
+		16391, -- [4]
 	}, -- [5]
 	{
-		14442, -- [1]
-		14439, -- [2]
-		14440, -- [3]
-		14441, -- [4]
+		16368, -- [1]
+		16376, -- [2]
+		16384, -- [3]
+		16392, -- [4]
 	}, -- [6]
 	{
-		14446, -- [1]
-		14443, -- [2]
-		14444, -- [3]
-		14445, -- [4]
+		16369, -- [1]
+		16377, -- [2]
+		16385, -- [3]
+		16393, -- [4]
 	}, -- [7]
 	{
-		14450, -- [1]
-		14447, -- [2]
-		14448, -- [3]
-		14449, -- [4]
+		16370, -- [1]
+		16378, -- [2]
+		16386, -- [3]
+		16394, -- [4]
 	}, -- [8]
-	{
-		14454, -- [1]
-		14451, -- [2]
-		14452, -- [3]
-		14453, -- [4]
-	}, -- [9]
-	{
-		14458, -- [1]
-		14455, -- [2]
-		14456, -- [3]
-		14457, -- [4]
-	}, -- [10]
 }
 
 local OSTATCN2 = {
 	{
-		15136, -- [1]
-		15137, -- [2]
-		15138, -- [3]
-		15139, -- [4]
+		18180, -- [1]
+		18181, -- [2]
+		18182, -- [3]
+		18183, -- [4]
 	}, -- [1]
 	{
-		15140, -- [1]
-		15141, -- [2]
-		15142, -- [3]
-		15143, -- [4]
+		18184, -- [1]
+		18185, -- [2]
+		18186, -- [3]
+		18188, -- [4]
 	}, -- [2]
 	{
-		15144, -- [1]
-		15145, -- [2]
-		15146, -- [3]
-		15147, -- [4]
+		18187, -- [1]
+		18189, -- [2]
+		18190, -- [3]
+		18191, -- [4]
 	}, -- [3]
 	{
-		15152, -- [1]
-		15153, -- [2]
-		15154, -- [3]
-		15155, -- [4]
+		18192, -- [1]
+		18194, -- [2]
+		18195, -- [3]
+		18196, -- [4]
 	}, -- [4]
 	{
-		15148, -- [1]
-		15149, -- [2]
-		15150, -- [3]
-		15151, -- [4]
+		18197, -- [1]
+		18198, -- [2]
+		18210, -- [3]
+		18211, -- [4]
 	}, -- [5]
 	{
-		15156, -- [1]
-		15157, -- [2]
-		15158, -- [3]
-		15159, -- [4]
+		18212, -- [1]
+		18213, -- [2]
+		18214, -- [3]
+		18215, -- [4]
 	}, -- [6]
 	{
-		15160, -- [1]
-		15161, -- [2]
-		15162, -- [3]
-		15163, -- [4]
+		18216, -- [1]
+		18217, -- [2]
+		18218, -- [3]
+		18219, -- [4]
 	}, -- [7]
 	{
-		15164, -- [1]
-		15165, -- [2]
-		15166, -- [3]
-		15167, -- [4]
+		18220, -- [1]
+		18221, -- [2]
+		18222, -- [3]
+		18223, -- [4]
 	}, -- [8]
 	{
-		15169, -- [1]
-		15170, -- [2]
-		15171, -- [3]
-		15172, -- [4]
+		18224, -- [1]
+		18225, -- [2]
+		18226, -- [3]
+		18227, -- [4]
 	}, -- [9]
-	{
-		15173, -- [1]
-		15174, -- [2]
-		15175, -- [3]
-		15176, -- [4]
-	}, -- [10]
 }
 
 local OSTATCN3 = {
@@ -1634,7 +1618,7 @@ function oilvlcheckrange()
 				if msg then
 					if cfg.raidmenuid == 1 then msg = msg:find(CNname); if msg then break end end
 					if cfg.raidmenuid == 2 then msg = msg:find(CNname2); if msg then break end end
-					if cfg.raidmenuid == 3 then msg = msg:find(CNname3); if msg then break end end
+					--if cfg.raidmenuid == 3 then msg = msg:find(CNname3); if msg then break end end
 				end
 			end
 			if not msg then
@@ -2906,15 +2890,19 @@ function OilvlGetStatisticId(OCategory, ORaidName, OTable, Oprint)
 	end
 end
 
+function oilvlgetraidstat()
+	cfg.voi = {}
+	OilvlGetStatisticId("Dragonflight","Vault of the Incarnates",cfg.voi,true)
+	cfg.asc = {}
+	OilvlGetStatisticId("Dragonflight","Aberrus, the Shadowed Crucible",cfg.asc,true)
+end
+
 function oilvlSetOSTATCN()
-	for i = 1,11 do
-		if (i < 11) then
-			OSTATCN[i][5] = select(2,GetAchievementInfo(OSTATCN[i][1])):gsub(" %(.*%)","")..""
-			OSTATCN2[i][5] = select(2,GetAchievementInfo(OSTATCN2[i][1])):gsub(" %(.*%)","")..""
-			OSTATCN3[i][5] = select(2,GetAchievementInfo(OSTATCN3[i][1])):gsub(" %(.*%)","")..""
-		else
-			OSTATCN3[i][5] = select(2,GetAchievementInfo(OSTATCN3[i][1])):gsub(" %(.*%)","")..""
-		end
+	for i = 1,8 do
+		OSTATCN[i][5] = select(2,GetAchievementInfo(OSTATCN[i][1])):gsub(" %(.*%)","")..""
+	end
+	for i = 1,9 do
+		OSTATCN2[i][5] = select(2,GetAchievementInfo(OSTATCN2[i][1])):gsub(" %(.*%)","")..""
 	end
 end
 
@@ -3292,9 +3280,9 @@ function OGetRaidProgression2(RaidName, OSTAT, NumRaidBosses, Faction)
 		return ORP;
 	end
 
-	bigorp[CNname] = Save_orp(CNname, OSTATCN, 10)
-	bigorp[CNname2] = Save_orp(CNname2, OSTATCN2, 10)
-	bigorp[CNname3] = Save_orp(CNname3, OSTATCN3, 11)
+	bigorp[CNname] = Save_orp(CNname, OSTATCN,8)
+	bigorp[CNname2] = Save_orp(CNname2, OSTATCN2, 9)
+	--bigorp[CNname3] = Save_orp(CNname3, OSTATCN3, 11)
 
 	local function Save_orp_vars(raidname3)
 		OSTAT, NumRaidBosses, twohighest, progression, orp["raidname"], orp["progression"], orp["LFR"], orp["Normal"], orp["Heroic"], orp["Mythic"] = bigorp[raidname3][1],bigorp[raidname3][2],bigorp[raidname3][3],bigorp[raidname3][4],bigorp[raidname3][5],bigorp[raidname3][6],bigorp[raidname3][7],bigorp[raidname3][8],bigorp[raidname3][9],bigorp[raidname3][10]
@@ -3315,11 +3303,11 @@ function OGetRaidProgression2(RaidName, OSTAT, NumRaidBosses, Faction)
 	local RaidAchiv = {}
 	RaidAchiv[CNname] ={}
 	RaidAchiv[CNname2] ={}
-	RaidAchiv[CNname3] ={}
+	--RaidAchiv[CNname3] ={}
 
-	SaveAOTCCE(RaidAchiv[CNname],14460,14461)
-	SaveAOTCCE(RaidAchiv[CNname2],15134,15135)
-	SaveAOTCCE(RaidAchiv[CNname3],15470,15471)
+	SaveAOTCCE(RaidAchiv[CNname],17107,17108)
+	SaveAOTCCE(RaidAchiv[CNname2],18253,18254)
+	--SaveAOTCCE(RaidAchiv[CNname3],15470,15471)
 
 	local oilvltooltiptexts = {}
 	for i = 1, OilvlTooltip:NumLines() do
@@ -3385,6 +3373,12 @@ function OGetRaidProgression2(RaidName, OSTAT, NumRaidBosses, Faction)
 		otooltip2:SetCell(1,4,"|cffffffff"..CNname,"LEFT",2)
 		otooltip2:SetCellScript(1,4,"OnMouseUp",function(s)
 			Save_orp_vars(CNname)
+			otooltip2:Clear()
+			DrawOTooltip2()
+		end)
+		otooltip2:SetCell(2,4,"|cffffffff"..CNname2,"LEFT",2)
+		otooltip2:SetCellScript(2,4,"OnMouseUp",function(s)
+			Save_orp_vars(CNname2)
 			otooltip2:Clear()
 			DrawOTooltip2()
 		end)
@@ -3711,9 +3705,9 @@ function OGetRaidProgression3(RaidName, OSTAT, NumRaidBosses, Faction)
 		return ORP;
 	end
 
-	bigorp[CNname] = Save_orp(CNname, OSTATCN, 10)
-	bigorp[CNname2] = Save_orp(CNname2, OSTATCN2, 10)
-	bigorp[CNname3] = Save_orp(CNname3, OSTATCN3, 11)
+	bigorp[CNname] = Save_orp(CNname, OSTATCN, 8)
+	bigorp[CNname2] = Save_orp(CNname2, OSTATCN2, 9)
+	--bigorp[CNname3] = Save_orp(CNname3, OSTATCN3, 11)
 
 	local function Save_orp_vars(raidname3)
 		OSTAT, NumRaidBosses, twohighest, progression, orp["raidname"], orp["progression"], orp["LFR"], orp["Normal"], orp["Heroic"], orp["Mythic"] = bigorp[raidname3][1],bigorp[raidname3][2],bigorp[raidname3][3],bigorp[raidname3][4],bigorp[raidname3][5],bigorp[raidname3][6],bigorp[raidname3][7],bigorp[raidname3][8],bigorp[raidname3][9],bigorp[raidname3][10]
@@ -3733,11 +3727,11 @@ function OGetRaidProgression3(RaidName, OSTAT, NumRaidBosses, Faction)
 	local RaidAchiv = {}
 	RaidAchiv[CNname] ={}
 	RaidAchiv[CNname2] ={}
-	RaidAchiv[CNname3] ={}
+	--RaidAchiv[CNname3] ={}
 
-	SaveAOTCCE(RaidAchiv[CNname],14460,14461)
-	SaveAOTCCE(RaidAchiv[CNname2],15134,15135)
-	SaveAOTCCE(RaidAchiv[CNname3],15470,15471)
+	SaveAOTCCE(RaidAchiv[CNname],17107,17108)
+	SaveAOTCCE(RaidAchiv[CNname2],18253,18254)
+	--SaveAOTCCE(RaidAchiv[CNname3],15470,15471)
 
 	local oilvltooltiptexts = {}
 	for i = 1, OilvlTooltip:NumLines() do
@@ -3818,6 +3812,12 @@ function OGetRaidProgression3(RaidName, OSTAT, NumRaidBosses, Faction)
 		otooltip2:SetCell(1,4,"|cffffffff"..CNname,"LEFT",2)
 		otooltip2:SetCellScript(1,4,"OnMouseUp",function(s)
 			Save_orp_vars(CNname)
+		 	otooltip2:Clear()
+		 	DrawOTooltip2()
+		end)
+		otooltip2:SetCell(2,4,"|cffffffff"..CNname2,"LEFT",2)
+		otooltip2:SetCellScript(2,4,"OnMouseUp",function(s)
+			Save_orp_vars(CNname2)
 		 	otooltip2:Clear()
 		 	DrawOTooltip2()
 		end)
@@ -4290,9 +4290,9 @@ function otooltip6func()
 				if oilvlframedata.gear[n][slot] then
 					local eg = "|cFFFFFFFF"
 					if oilvlframedata.gear[n][slot][3] == 0 then eg = "|cFF00FFFF"  -- missing echant
-					elseif oilvlframedata.gear[n][slot][4] == 0 then eg = "|cFF00FFFF"  -- missing gem
-					elseif oilvlframedata.gear[n][slot][5] == 0 then eg = "|cFFFFFF00"  -- low level enchant
-					elseif oilvlframedata.gear[n][slot][6] == 0 then eg = "|cFFFFFF00" end -- low level gem
+					elseif oilvlframedata.gear[n][slot][4] == 0 then eg = "|cFF00FFFF"  end-- missing gem
+					--elseif oilvlframedata.gear[n][slot][5] == 0 then eg = "|cFFFFFF00"  -- low level enchant
+					--elseif oilvlframedata.gear[n][slot][6] == 0 then eg = "|cFFFFFF00" end -- low level gem
 					if tonumber(oilvlframedata.gear[n][slot][pp]) == 0 then
 						return {oilvlframedata.gear[n][slot][1],oilvlframedata.gear[n][slot][2],eg,oilvlframedata.gear[n][slot][9]}
 					else
@@ -5005,7 +5005,7 @@ function OTgathertil(guid, unitid)
 						end
 					end
 					-- check for better enchant
-					local ogmHe=1; -- save for gear missing enchant
+					--[[local ogmHe=1; -- save for gear missing enchant
 					if oenchantItem[i][1] == 1 and enchant ~= "0" and not enchantID[tonumber(enchant)] then
 						if i ~= 17 then
 							if missHenchant == "" then
@@ -5024,7 +5024,7 @@ function OTgathertil(guid, unitid)
 								ogmHe = 0;
 							end
 						end
-					end
+					end]]
 
 					-- check missing gems
 					local ogmg=1; -- save for gear missing gem
@@ -5038,7 +5038,7 @@ function OTgathertil(guid, unitid)
 						ogmg = 0;
 					end
 					-- check for better gems
-					local ogmHg=1; -- save for gear missing gem
+					--[[local ogmHg=1; -- save for gear missing gem
 					if socketstatus == 0 and lowgem ~= 0 then
 						if missHgem == "" then
 							missHgem = missHgem..oenchantItem[i][2];
@@ -5046,7 +5046,7 @@ function OTgathertil(guid, unitid)
 							missHgem = missHgem..", "..oenchantItem[i][2];
 						end
 						ogmHg = 0;
-					end
+					end]]
 
 					-- check item level
 					if OItemAnalysis_CheckILVLGear(unitid,i) ~= 0 then
@@ -5361,7 +5361,7 @@ function events:INSPECT_READY(guid)
 							msg = msg:find(L["Item Level"]..":");
 						end
 						if msg then
-							_G["GameTooltipTextLeft"..i]:SetText(L["Item Level"]..": |r|cFF00FF00"..OTilvl2);
+							_G["GameTooltipTextLeft"..i]:SetText(L["Item Level"]..": |r|cFF00FF00"..OTilvl2);							
 							omatch=true;
 							break;
 						end
@@ -5413,6 +5413,7 @@ function events:INSPECT_READY(guid)
 		end
 		OILVL:UnregisterEvent("INSPECT_READY")
 	end
+	GameTooltip:Show()
 end
 
 local LastInspectATime = GetTime()
@@ -5421,9 +5422,9 @@ function events:INSPECT_ACHIEVEMENT_READY(...)
 		if cfg.oilvlms then
 			if Omover2 == 1 then
 				if UnitExists(rpunit) and CheckInteractDistance(rpunit, 1) and rpsw then
-					if cfg.raidmenuid == 1 then OGetRaidProgression2(CNname, OSTATCN, 10, UnitFactionGroup(rpunit)); end
-					if cfg.raidmenuid == 2 then OGetRaidProgression2(CNname2, OSTATCN2, 10, UnitFactionGroup(rpunit)); end
-					if cfg.raidmenuid == 3 then OGetRaidProgression2(CNname3, OSTATCN3, 11, UnitFactionGroup(rpunit)); end
+					if cfg.raidmenuid == 1 then OGetRaidProgression2(CNname, OSTATCN, 8, UnitFactionGroup(rpunit)); end
+					if cfg.raidmenuid == 2 then OGetRaidProgression2(CNname2, OSTATCN2, 9, UnitFactionGroup(rpunit)); end
+					--if cfg.raidmenuid == 3 then OGetRaidProgression2(CNname3, OSTATCN3, 11, UnitFactionGroup(rpunit)); end
 				else
 					--ClearAchievementComparisonUnit();
 					rpsw=false;
@@ -5432,9 +5433,9 @@ function events:INSPECT_ACHIEVEMENT_READY(...)
 				end
 			elseif Omover2 == 2 then
 				if UnitExists(rpunit) and CheckInteractDistance(rpunit, 1) and rpsw then
-					if cfg.raidmenuid == 1 then OGetRaidProgression3(CNname, OSTATCN, 10, UnitFactionGroup(rpunit)); end
-					if cfg.raidmenuid == 2 then OGetRaidProgression3(CNname2, OSTATCN2, 10, UnitFactionGroup(rpunit)); end
-					if cfg.raidmenuid == 3 then OGetRaidProgression3(CNname3, OSTATCN3, 11, UnitFactionGroup(rpunit)); end
+					if cfg.raidmenuid == 1 then OGetRaidProgression3(CNname, OSTATCN, 8, UnitFactionGroup(rpunit)); end
+					if cfg.raidmenuid == 2 then OGetRaidProgression3(CNname2, OSTATCN2, 9, UnitFactionGroup(rpunit)); end
+					--if cfg.raidmenuid == 3 then OGetRaidProgression3(CNname3, OSTATCN3, 11, UnitFactionGroup(rpunit)); end
 				else
 					--ClearAchievementComparisonUnit();
 					rpsw=false;
@@ -5443,9 +5444,9 @@ function events:INSPECT_ACHIEVEMENT_READY(...)
 				end
 			else
 				if UnitExists("target") and CheckInteractDistance("target", 1)  and rpsw then
-					if cfg.raidmenuid == 1 then OGetRaidProgression(CNname, OSTATCN, 10); end
-					if cfg.raidmenuid == 2 then OGetRaidProgression(CNname2, OSTATCN2, 10); end
-					if cfg.raidmenuid == 3 then OGetRaidProgression(CNname3, OSTATCN3, 11); end
+					if cfg.raidmenuid == 1 then OGetRaidProgression(CNname, OSTATCN, 8); end
+					if cfg.raidmenuid == 2 then OGetRaidProgression(CNname2, OSTATCN2, 9); end
+					--if cfg.raidmenuid == 3 then OGetRaidProgression(CNname3, OSTATCN3, 11); end
 				else
 					--ClearAchievementComparisonUnit();
 					rpsw=false;
@@ -5601,6 +5602,16 @@ function events:PLAYER_LOGIN(...)
 	-- 	end
 	-- end);
 	-- end of revisit
+	
+	TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit,function(GameTooltip, data)
+		if not UnitAffectingCombat("player")  and cfg.oilvlms and UnitExists("target") and not IsInRaid() and not IsInGroup(LE_PARTY_CATEGORY_INSTANCE) and not IsInGroup(LE_PARTY_CATEGORY_HOME) then
+			local oname, _ = GameTooltip:GetUnit()
+			if oname ~= nil then oname = oname:gsub("%-.+", ""); else return -1; end
+			if  oname == GetUnitName("target",""):gsub("%-.+", "") then
+				OMouseover();				
+			end
+		end				
+	end)
 
 	--cfg.sod = {};
 	--OilvlGetStatisticId("Shadowlands","Sanctum of Domination",cfg.sod,false)
@@ -5828,7 +5839,7 @@ function OilvlRaidMenu()
 	local items = {
 		CNname,
 		CNname2,
-		CNname3
+--		CNname3
 	}
 
 	local function OnClick(self)

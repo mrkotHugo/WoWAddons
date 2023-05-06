@@ -1,5 +1,5 @@
 
-
+local addonId, wqtInternal = ...
 
 --world quest tracker object
 local WorldQuestTracker = WorldQuestTrackerAddon
@@ -8,10 +8,7 @@ if (not WorldQuestTracker) then
 end
 
 --localization
-local L = LibStub ("AceLocale-3.0"):GetLocale ("WorldQuestTrackerAddon", true)
-if (not L) then
-	return
-end
+local L = DetailsFramework.Language.GetLanguageTable(addonId)
 
 local GetFactionInfoByID = _G.GetFactionInfoByID
 
@@ -57,6 +54,7 @@ WorldQuestTracker.MapData.ZoneIDs = {
 		OHNAHRANPLAINS = 	2023,
 		WAKINGSHORES = 	2022,
 		FORBIDDENREACH =	2026,
+		ZARALEK = 		2133,
 
 	--Shadowlands
 		MALDRAXXUS =	1536,
@@ -111,6 +109,7 @@ WorldQuestTracker.MapData.WorldQuestZones = {
 		[zoneQuests.OHNAHRANPLAINS] = 	true,
 		[zoneQuests.WAKINGSHORES] = 	true,
 		[zoneQuests.FORBIDDENREACH] = 	true,
+		[zoneQuests.ZARALEK] = 	true,
 
 	--Shadowlands
 		[zoneQuests.MALDRAXXUS] =	true,
@@ -187,7 +186,7 @@ WorldQuestTracker.mapTables = {
 		[zoneQuests.AZURESSPAN] = 		{
 			widgets = {},
 			Anchor_X = 0.995,
-			Anchor_Y = 0.68,
+			Anchor_Y = 0.48,
 			GrowRight = false,
 			show_on_map = {
 				[zoneQuests.DRAGONISLES] = true,
@@ -197,7 +196,17 @@ WorldQuestTracker.mapTables = {
 		[zoneQuests.THALDRASZUS] = 		{
 			widgets = {},
 			Anchor_X = 0.995,
-			Anchor_Y = 0.48,
+			Anchor_Y = 0.35,
+			GrowRight = false,
+			show_on_map = {
+				[zoneQuests.DRAGONISLES] = true,
+			},
+		},
+
+		[zoneQuests.ZARALEK] = 		{
+			widgets = {},
+			Anchor_X = 0.995,
+			Anchor_Y = 0.7,
 			GrowRight = false,
 			show_on_map = {
 				[zoneQuests.DRAGONISLES] = true,
@@ -640,6 +649,8 @@ WorldQuestTracker.MapData.ReputationIcons = {
 	--[0] = true, --Uldum Accord | 8.3
 }
 
+---list of relevant factions
+---@type table<factionid, boolean>
 WorldQuestTracker.MapData.AllFactionIds = {
 	--Dragonflight Factions
 	[2503] = true, --Maruuk Centaur
@@ -647,6 +658,7 @@ WorldQuestTracker.MapData.AllFactionIds = {
 	[2507] = true, --Dragonscale Expedition
 	[2510] = true, --Valdrakken Accord
 	[2511] = true, --Iskaara Tuskarr
+	[2564] = true, --Loamm Niffen
 	--[2514] = true, --Primalists
 	--[2516] = true, --Djaradin
 	--[2517] = true, --Wrathion
@@ -701,13 +713,14 @@ WorldQuestTracker.MapData.AllFactionIds = {
 	[1948] = true, --Valarjar
 }
 
-
+---@type table<factionid, mapid>
 WorldQuestTracker.MapData.FactionMapId = {
 	--Dragonflight
 	[2503] = zoneQuests.OHNAHRANPLAINS, --Maruuk Centaur
 	[2507] = zoneQuests.WAKINGSHORES, --Dragonscale Expedition
 	[2510] = zoneQuests.THALDRASZUS, --Valdrakken Accord
 	[2511] = zoneQuests.AZURESSPAN, --Iskaara Tuskarr
+	[2564] = zoneQuests.ZARALEK, --Loamm Niffen
 
 	--Shadowlands
 	[2410] = 1536, --The Undying Army | MALDRAXXUS
@@ -719,12 +732,14 @@ WorldQuestTracker.MapData.FactionMapId = {
 	[2432] = 1543, --Ve'nari
 }
 
+---@type table<factionid, string|number>
 WorldQuestTracker.MapData.FactionIcons = {
 	--Dragonflight
 	[2503] = 4687627, --Maruuk Centaur
 	[2507] = 4687628, --Dragonscale Expedition
 	[2510] = 4687630, --Valdrakken Accord
 	[2511] = 4687629, --Iskaara Tuskarr
+	[2564] = [[Interface\ICONS\UI_MajorFaction_Niffen]], --Loamm Niffen
 
 	--Shadowlands
 	[2410] = 3492310, --The Undying Army
@@ -770,6 +785,7 @@ local DragonflightFactions = {
 	[2507] = true, --Dragonscale Expedition
 	[2510] = true, --Valdrakken Accord
 	[2511] = true, --Iskaara Tuskarr
+	[2564] = true, --Loamm Niffen
 }
 
 local ShadowlandsFactions = {
@@ -842,6 +858,7 @@ WorldQuestTracker.MapData.ReputationByMap = {
 		[zoneQuests.WAKINGSHORES] = DragonflightFactions,
 		[zoneQuests.THALDRASZUS] = DragonflightFactions,
 		[zoneQuests.AZURESSPAN] = DragonflightFactions,
+		[zoneQuests.ZARALEK] = DragonflightFactions,
 
 		--Shadowlands
 		[zoneQuests.BASTION] = 		ShadowlandsFactions,
@@ -884,6 +901,7 @@ WorldQuestTracker.MapData.ReputationByFaction = {
 		[2507] = GetFactionInfoByID(2507), --Dragonscale Expedition
 		[2510] = GetFactionInfoByID(2510), --Valdrakken Accord
 		[2511] = GetFactionInfoByID(2511), --Iskaara Tuskarr
+		[2564] = GetFactionInfoByID(2564), --Loamm Niffen
 
 		--Shadowlands
 		[2410] = GetFactionInfoByID(2410), --The Undying Army
@@ -941,6 +959,7 @@ WorldQuestTracker.MapData.ReputationByFaction = {
 		[2507] = GetFactionInfoByID(2507), --Dragonscale Expedition
 		[2510] = GetFactionInfoByID(2510), --Valdrakken Accord
 		[2511] = GetFactionInfoByID(2511), --Iskaara Tuskarr
+		[2564] = GetFactionInfoByID(2564), --Loamm Niffen
 
 		--Shadowlands
 		[2410] = GetFactionInfoByID(2410), --The Undying Army

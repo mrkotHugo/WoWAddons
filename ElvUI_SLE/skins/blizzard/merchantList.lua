@@ -1,8 +1,9 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local Sk = SLE.Skins
 local S = E.Skins
---GLOBALS: CreateFrame, hooksecurefunc, ChatFontSmall, UIParent, INVSLOT_FIRST_EQUIPPED, INVSLOT_LAST_EQUIPPED
---Rebuilding Merchant Frame as a scrollable list. Based on a code by Nils Ruesch (xMerchant addon)
+
+-- GLOBALS: CreateFrame, hooksecurefunc, ChatFontSmall, UIParent, INVSLOT_FIRST_EQUIPPED, INVSLOT_LAST_EQUIPPED
+-- Rebuilding Merchant Frame as a scrollable list. Based on a code by Nils Ruesch (xMerchant addon)
 local _G = _G
 local strtrim = strtrim
 local GetLocale = GetLocale
@@ -629,13 +630,13 @@ local function Create_ListButton(frame, i)
 
 	local itemname = button:CreateFontString("$parentItemName", "ARTWORK")
 	button.itemname = itemname
-	itemname:SetFont(E.LSM:Fetch('font', E.db.sle.skins.merchant.list.nameFont), E.db.sle.skins.merchant.list.nameSize, E.db.sle.skins.merchant.list.nameOutline)
+	itemname:FontTemplate(E.LSM:Fetch('font', E.db.sle.skins.merchant.list.nameFont), E.db.sle.skins.merchant.list.nameSize, E.db.sle.skins.merchant.list.nameOutline)
 	itemname:SetPoint("TOPLEFT", icon, "TOPRIGHT", 4, -3)
 	itemname:SetJustifyH("LEFT")
 
 	local iteminfo = button:CreateFontString("$parentItemInfo", "ARTWORK")
 	button.iteminfo = iteminfo
-	iteminfo:SetFont(E.LSM:Fetch('font', E.db.sle.skins.merchant.list.subFont), E.db.sle.skins.merchant.list.subSize, E.db.sle.skins.merchant.list.subOutline)
+	iteminfo:FontTemplate(E.LSM:Fetch('font', E.db.sle.skins.merchant.list.subFont), E.db.sle.skins.merchant.list.subSize, E.db.sle.skins.merchant.list.subOutline)
 	iteminfo:SetPoint("BOTTOMLEFT", icon, "BOTTOMRIGHT", 4, -3)
 	iteminfo:SetJustifyH("LEFT")
 

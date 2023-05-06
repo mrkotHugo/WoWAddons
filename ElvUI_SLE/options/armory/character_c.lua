@@ -1,4 +1,4 @@
-﻿local SLE, T, E, L, V, P, G = unpack(select(2, ...))
+﻿local SLE, T, E, L, V, P, G = unpack(ElvUI_SLE)
 local Armory = SLE.Armory_Core
 local CA = SLE.Armory_Character
 local M = E.Misc
@@ -82,34 +82,53 @@ local function configTable()
 				set = function(info, value) E.db.sle.armory.character[(info[#info - 1])][(info[#info])] = value; CA:Update_Enchant(); Armory:UpdateSharedStringsFonts("Character") end,
 				disabled = function() return E.db.general.itemLevel.displayCharacterInfo == false or not E.db.sle.armory.character.enable end,
 				args = {
+					showReal = {
+						order = 1,
+						type = 'toggle',
+						name = L["Display Quality"],
+						desc = L["Displays the quality icon at the end of the enchant string, exactly as it appears when you mouse over the item slot itself and view the tooltip."],
+						set = function(info, value) E.db.sle.armory.character[(info[#info-1])][(info[#info])] = value M:UpdatePageInfo(_G.CharacterFrame, 'Character') end,
+					},
+					spacer1 = {
+						name = ' ',
+						type = 'description',
+						order = 2,
+						width = 'full',
+					},
 					font = {
 						type = 'select', dialogControl = 'LSM30_Font',
 						name = L["Font"],
-						order = 1,
+						order = 3,
 						values = function() return AceGUIWidgetLSMlists and AceGUIWidgetLSMlists.font or {} end,
-					},
-					fontSize = {
-						type = 'range',
-						name = L["Font Size"],
-						order = 2,
-						min = 6, max = 22, step = 1,
 					},
 					fontStyle = {
 						type = 'select',
 						name = L["Font Outline"],
-						order = 3,
+						order = 4,
 						values = T.Values.FontFlags,
+					},
+					fontSize = {
+						type = 'range',
+						name = L["Font Size"],
+						order = 5,
+						min = 6, max = 22, step = 1,
+					},
+					spacer2 = {
+						name = ' ',
+						type = 'description',
+						order = 6,
+						width = 'full',
 					},
 					xOffset = {
 						type = 'range',
 						name = L["X-Offset"],
-						order = 10,
+						order = 7,
 						min = -2, max = 40, step = 1,
 					},
 					yOffset = {
 						type = 'range',
 						name = L["Y-Offset"],
-						order = 11,
+						order = 8,
 						min = -13, max = 13, step = 1,
 					},
 				}

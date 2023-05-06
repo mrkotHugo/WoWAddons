@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2022 João Cardoso
+Copyright 2008-2023 João Cardoso
 Sushi is distributed under the terms of the GNU General Public License (or the Lesser GPL).
 This file is part of Sushi.
 
@@ -102,7 +102,7 @@ function Button:UpdateWidth()
 end
 
 
---[[ Proprieties ]]--
+--[[ Properties ]]--
 
 Button.SetLabel, Button.GetLabel = Button.SetText, Button.GetText
 Button.left, Button.right = 16, 16

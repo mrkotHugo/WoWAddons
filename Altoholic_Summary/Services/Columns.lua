@@ -69,7 +69,7 @@ addon:Service("AltoholicUI.TabSummaryColumnProfiles",  function()
 		[21] = { "Name", "Level", "CovenantName", "TransportNetwork", "AnimaConductor", "CommandTable", "SanctumUnique" },
 
 		-- Mythic Keystones
-		[22] = { "Name", "Level", "KeyName", "KeyLevel", "WeeklyBestKeyName", "WeeklyBestKeyLevel", "WeeklyBestKeyTime" },	
+		[22] = { "Name", "Level", "KeyName", "KeyLevel", "WeeklyBestKeyName", "WeeklyBestKeyLevel", "WeeklyBestKeyTime" },
 	
 		-- Currencies / Shadowlands 9.2
 		[23] = { "Name", "Level", "Cur_Cyphers", "Cur_CosmicFlux" },
@@ -79,10 +79,13 @@ addon:Service("AltoholicUI.TabSummaryColumnProfiles",  function()
 		[25] = { "Name", "Level", "CypherLvl", "Metrial", "Aealic", "Dealic", "Trebalim", "Cur_Cyphers" },
 		
 		-- Weekly Rewards
-		[26] = { "Name", "Level", "RewardMythic", "RewardRaid", "RewardPvP" },	
+		[26] = { "Name", "Level", "RewardMythic", "RewardRaid", "RewardPvP" },
 
-		-- Currencies / Dragonflight 10.0
-		[27] = { "Name", "Level", "Cur_DragonIslesSupplies", "Cur_ElementalOverflow", "Cur_StormSigil" },
+		-- Currencies / Dragonflight 10.0 & 10.1
+		[27] = { "Name", "Level", "Cur_DragonIslesSupplies", "Cur_ElementalOverflow", "Cur_StormSigil", "Cur_ConquestPoints", "Cur_Honor", "Cur_Flightstones" },
+		
+		-- Weekly Best Runs per dungeon
+		[28] = { "Name", "Level", "MPlus1", "MPlus2", "MPlus3", "MPlus4", "MPlus5", "MPlus6", "MPlus7", "MPlus8" },
 	}
 
 	return {

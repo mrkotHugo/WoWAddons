@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(2480, "DBM-VaultoftheIncarnates", nil, 1200)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision("20221228062737")
+mod:SetRevision("20230323034620")
 mod:SetCreatureID(184972)
 mod:SetEncounterID(2587)
 mod:SetUsedIcons(1, 2, 3, 4, 5)
@@ -23,9 +23,6 @@ mod:RegisterEventsInCombat(
 --	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
---TODO, adjust tank debuff check code for tank debuff to match CD and correct stack swap count based on the math
---TODO, continue to review auto stopping timers after x casts. need to see normal and LFR first to make sure not cutting timers off that should't be on them yet
---TODO, initial big add timers on mythic if it matters enough, but it's first boss so meh
 --[[
 (ability.id = 370307 or ability.id = 390715 or ability.id = 394917 or ability.id = 370615 or ability.id = 396023) and type = "begincast"
  or (ability.id = 396022 or ability.id = 394917) and type = "cast"
@@ -43,7 +40,7 @@ local yellFlameriftFades						= mod:NewShortFadesYell(390715)
 local specWarnGreaterFlamerift					= mod:NewSpecialWarningTaunt(396094, nil, nil, nil, 1, 2)
 local specWarnMoltenCleave						= mod:NewSpecialWarningDodgeCount(370615, nil, nil, nil, 2, 2)
 local specWarnBurningWound						= mod:NewSpecialWarningStack(394906, nil, 6, nil, nil, 1, 6)
-local specWarnBurningWoundTaunt					= mod:NewSpecialWarningTaunt(394906, nil, nil, nil, 1, 2)
+local specWarnBurningWoundTaunt					= mod:NewSpecialWarningTaunt(394906, false, nil, 2, 1, 2)
 local specWarnIncineratingRoar					= mod:NewSpecialWarningCount(396023, nil, nil, nil, 2, 2)
 local specWarnMoltenSpikes						= mod:NewSpecialWarningDodgeCount(396022, nil, nil, nil, 2, 2)
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8)
@@ -67,7 +64,7 @@ mod:AddNamePlateOption("NPAuraOnKillOrder", 370597, true)
 mod:AddNamePlateOption("NPAuraOnRampage", 371562, true)
 --Flamescale Captain (Mythic)
 mod:AddTimerLine(DBM:GetSpellInfo(396039))
-local warnLeapingFlames							= mod:NewCountAnnounce(394917, 3)
+local warnLeapingFlames							= mod:NewSpellAnnounce(394917, 3)
 
 local specWarnPyroBlast							= mod:NewSpecialWarningInterruptCount(396040, "HasInterrupt", nil, nil, 1, 2)
 

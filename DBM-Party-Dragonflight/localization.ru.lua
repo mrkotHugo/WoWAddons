@@ -235,7 +235,14 @@ L:SetOptionLocalization({
 -----------------------
 -- Kyrakka and Erkhart Stormvein --
 -----------------------
---L= DBM:GetModLocalization(2503)
+L= DBM:GetModLocalization(2503)
+
+L:SetMiscLocalization({
+	North	= "На север",
+	West	= "На запад",
+	South	= "На юг",
+	East	= "На восток"
+})
 
 ---------
 --Trash--
@@ -276,4 +283,8 @@ L = DBM:GetModLocalization("HallsofInfusionTrash")
 
 L:SetGeneralLocalization({
 	name =	"Трэш мобы Чертоги Насыщения"
+})
+
+L:SetOptionLocalization({
+	AGBuffs		= "Автоматически выбирать диалоги, чтобы активировать полезные баффы для инженерии и травничества"
 })

@@ -213,5 +213,44 @@ BtWQuestsDatabase:UpdateNPCsTable({
     [198386] = {
         name = "Mappa d'Esplorazione",
     },
+    [199201] = {
+        name = "Comandante delle Scaglie Viridia",
+    },
+    [199532] = {
+        name = "Comandante delle Scaglie Bracithal",
+    },
+    [199965] = {
+        name = "Ebissian",
+    },
+    [200054] = {
+        name = "Anziano Peldimiele",
+    },
+    [200238] = {
+        name = "Rondine di Caverna Morta",
+    },
+    [200291] = {
+        name = "Rupert, l'Elementale Gentiluomo",
+    },
+    [200953] = {
+        name = "Curaterra Narvra",
+    },
+    [201180] = {
+        name = "Catalogatore Wulferd",
+    },
+    [201366] = {
+        name = "Ebissian",
+    },
+    [201784] = {
+        name = "Ebissian",
+    },
+    [202656] = {
+        name = "Mayla Alto Monte",
+    },
+    [202995] = {
+        name = "Ebissian",
+    },
+    [203965] = {
+        name = "Ebissian",
+    },
 })
 ]])()

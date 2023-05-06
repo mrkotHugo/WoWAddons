@@ -1,6 +1,12 @@
-## Interface: 100002
+## Interface: 100100
 
+## Author: StormFX, Tuller
 ## Title: Masque: Dominos
+## Version: 10.1.0
+
+## Dependencies: Masque
+## IconTexture: Interface\AddOns\Masque_Dominos\Textures\Icon
+
 ## Notes: Dominos skin for Masque.
 ## Notes-deDE: Dominos-Skin für Masque.
 ## Notes-esMX: Skin Dominos para Masque.
@@ -10,13 +16,11 @@
 ## Notes-ruRU: Скин Dominos для Masque.
 ## Notes-zhTW: Masque的Dominos皮膚。
 
-## Version: 7313c43
-## Author: StormFX, Tuller
-## Dependencies: Masque
-
-## X-Website: https://github.com/SFX-WoW/Masque_Dominos
 ## X-Category: Interface Enhancements
 ## X-Credits: Tuller
+## X-Discord: https://discord.gg/7MTWRgDzz8
+## X-Website: https://github.com/SFX-WoW/Masque_Dominos
+
 ## X-Curse-Project-ID: 699643
 ## X-Wago-ID: WL6JYRNv
 ## X-WoWI-ID: 26455

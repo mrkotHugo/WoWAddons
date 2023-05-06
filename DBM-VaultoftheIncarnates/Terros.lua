@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(2500, "DBM-VaultoftheIncarnates", nil, 1200)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision("20230104013409")
+mod:SetRevision("20230215072037")
 mod:SetCreatureID(190496)
 mod:SetEncounterID(2639)
 mod:SetUsedIcons(1, 2, 3, 4, 5, 6, 7, 8)
@@ -18,8 +18,6 @@ mod:RegisterEventsInCombat(
 	"SPELL_AURA_REMOVED 386352 381253 391592"
 )
 
---TODO, auto mark awakened Earth (after spawn)?
---TODO, keep an eye on https://www.wowhead.com/beta/spell=391570/reactive-dust . not sure what to do with it yet, since this tooltip says something diff than journal
 --[[
 (ability.id = 380487 or ability.id = 377166 or ability.id = 377505 or ability.id = 383073 or ability.id = 376279 or ability.id = 396351) and type = "begincast"
 --]]
@@ -42,7 +40,7 @@ local specWarnFrenziedDevastation				= mod:NewSpecialWarningSpell(377505, nil, n
 local specWarnInfusedFallout					= mod:NewSpecialWarningYou(391592, nil, nil, nil, 1, 2)
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(382458, nil, nil, nil, 1, 8)
 
-local timerInfusedFalloutCD						= mod:NewNextCountTimer(35, 396351, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
+local timerInfusedFalloutCD						= mod:NewNextCountTimer(35, 391592, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerRockBlastCD							= mod:NewNextCountTimer(35, 380487, nil, nil, nil, 3)
 local timerResonatingAnnihilationCD				= mod:NewNextCountTimer(96.4, 377166, 307421, nil, nil, 3)
 local timerShatteringImpactCD					= mod:NewNextCountTimer(35, 383073, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
@@ -216,7 +214,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			if expireTime then
 				remaining = expireTime-GetTime()
 			end
-			local timer = (self:GetFromTimersTable(allTimers, difficultyName, false, 376279, self.vb.slamCount+1) or 18) - 5
+			local timer = (self:GetFromTimersTable(allTimers, difficultyName, false, 376279, self.vb.slamCount+1) or 17.9) - 5
 			if (not remaining or remaining and remaining < timer) and not UnitIsDeadOrGhost("player") and not self:IsHealer() then
 				specWarnConcussiveSlamTaunt:Show(args.destName)
 				specWarnConcussiveSlamTaunt:Play("tauntboss")

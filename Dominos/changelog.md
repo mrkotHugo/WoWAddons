@@ -1,5 +1,46 @@
 # Dominos Changelog
 
+## 10.1.0
+
+* Add support for 10.1.0
+
+## 10.0.22
+
+* Fixed a few more issues with mouseover fading and hovering over the spell flyout
+
+## 10.0.21
+
+* Fixed an error caused by hovering over a faded bar
+* Resolved a flyout activation issue when cast on key press is enabled
+
+## 10.0.20
+
+* Updated TOCs for 10.0.7
+* Reverted to 10.0.15 implementations of pet and stance bars due to API changes
+* Improved handling of flyout clicks
+
+## 10.0.19
+
+* Updated TOCs for 10.0.5
+
+## 10.0.18
+
+* (Classic) Correct spell ID used for shadowform detection
+
+## 10.0.17
+
+* Updated TOCs for 3.4.1
+* Made Shadowform (Retail) and Metamorphosis (Classic) state calculations to be dynamic
+
+## 10.0.16
+
+* Simplified the implementation of the stance and pet bars. These once again reuse the stock buttons.
+* Updated reputation calculations for major, friendly and paragon factions
+* Prevented the pet bar from showing up when channeling Eye of Kilrog with an active summon
+* Flyouts now better handle learning new abilities/switching specs
+* Flyouts can now be toggled by clicking any mouse button, instead of only the left button.
+* Added additional forbidden frame checks to the mouseover detection code
+
 ## 10.0.15
 
 * Added major faction support to reputation bar (thanks, [Daenarys](https://github.com/Daenarys))
